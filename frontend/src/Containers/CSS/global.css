@@ -1,0 +1,12 @@
+.startBox {
+  margin-top: 60px;
+  min-height: 0vh;
+  color: black;
+  justify-content: center;
+  text-align: left;
+  font-family: 'Courier New', sans-serif;
+}
+
+.element {
+	margin-top: 10px;
+}

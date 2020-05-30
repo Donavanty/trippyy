@@ -1,0 +1,94 @@
+import React, {Component} from 'react';
+import axios from "axios";
+import { connect } from 'react-redux';
+import * as actions from '../store/actions/actions';
+import NavBar from '../Components/navBar';
+
+const DATABASE_URL = "https://trippyy-backend.herokuapp.com/";
+
+class MyTrips extends Component {
+	state = {
+		tripIDs: [],
+		trips: [],
+		local_loading: null
+	}
+	componentDidMount() {
+
+		this.setState({local_loading: true});
+
+		//Updates login status to redux.
+		this.props.onTryAutoSignup();
+
+		//If user is not logged in, redirect to Login page
+		if (localStorage.getItem('token') == null || localStorage.getItem('token') == undefined) {
+			this.props.history.push({
+					pathname: "/login",
+					state: { from: this.props.location.pathname }
+				});
+		}
+
+		// Loads trips from backend assuming logged in, catch doesnt handle!
+		// Need to add checks 
+		try {
+			axios.get(DATABASE_URL + "api/users/" + localStorage.userId, {
+				headers: {Authorization: "Token " + localStorage.token}
+			}).then(res => {
+				this.setState({tripIDs: res.data.trips});
+			}).then(res => {
+				for (let id of this.state.tripIDs) {
+					axios.get(DATABASE_URL + "api/trips/" + id, 
+					{
+						headers: {Authorization: "Token " + localStorage.token}
+					}).then( res => {
+						this.setState(
+							{trips: [...this.state.trips, res.data]}
+							);
+					});	
+				}
+				this.setState({local_loading: false});
+			});
+		} catch (error) {
+			alert(error);
+			this.props.history.push("/");
+		}
+	}
+
+render() {
+	if (this.state.local_loading) { return null };
+	return (
+		<React.Fragment>
+		<NavBar from={this.props.location.pathname}/>
+		<div className = "jumbotron startBox">
+		<h1> My Trips </h1>
+		{
+			(this.state.trips.length > 0) ? 
+			<ul>
+
+			{this.state.trips.map((value,index) => <li key={index}> {value.tripName} </li>)}
+
+			</ul>
+
+			: 
+
+			<p> No trips available </p>
+		}
+		</div>
+
+		</React.Fragment> 
+		);
+}
+}
+
+const mapStateToProps = (state) => {
+	return {
+		isAuthenticated: state.token !== null,
+		username: state.username
+	}
+}
+
+const mapDispatchToProps = dispatch => {
+	return {
+		onTryAutoSignup: () => dispatch(actions.authCheckedState()),
+	}
+}
+export default connect(mapStateToProps, mapDispatchToProps)(MyTrips);

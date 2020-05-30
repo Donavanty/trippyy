@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../store/actions/actions';
 import NavBar from '../Components/navBar';
 import "./CSS/global.css"
+import { Spinner } from 'react-bootstrap';
 
 class Login extends Component {
 
@@ -50,8 +51,14 @@ class Login extends Component {
                     <div className = "element">
                       <input type = "text" name = "password" placeholder = "Enter Password" />
                     </div>
-                    
-                    <button className = "element" type="submit" value = "Submit"> Submit </button>
+                    {
+                      this.props.loading ? 
+                        <Spinner animation="border" role="status" className = "element">
+                          <span className="sr-only">Loading...</span>
+                        </Spinner>
+                      :
+                        <button className = "element" type="submit" value = "Submit"> Submit </button>
+                    }
                   </form>
               </div>
           </div>);

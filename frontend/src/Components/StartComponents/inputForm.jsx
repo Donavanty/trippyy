@@ -5,23 +5,42 @@ import Calendar from "./calendar"
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/actions';
 import { Link } from 'react-router-dom';
+import { Spinner } from 'react-bootstrap';
 
 class InputForm extends Component {
 
 	state = {
 		startDate: null,
-		endDate: null
+		endDate: null,
+		newTripCreated: false,
+		goToShoppingPage: false
 	}
 
 	updateDates = (startDate, endDate) => {
 		this.setState({startDate, endDate});
 	}
 
+
 	newTrip = (event) => {
 		event.preventDefault();
 		this.props.newTrip(event.target.country.value, this.state.startDate, this.state.endDate);
-		this.props.history.push("/mytrips")
+		this.setState({newTripCreated: true});
 	}
+
+	//If new trip created is true, and loading is complete, then go to shopping page.
+	static getDerivedStateFromProps(nextProps, prevState){
+	  if (nextProps.loading===false && prevState.newTripCreated===true){
+	     return { goToShoppingPage: true };
+	  }
+	  else return null;
+	}
+
+	//Happens upon receiving updated information.
+    componentDidUpdate(prevProps, prevState, snapshot) {
+    	if (this.state.goToShoppingPage === true) {
+    		this.props.history.push("/shopping");
+    	}
+    }
 
 	render() {
 		return (
@@ -42,7 +61,14 @@ class InputForm extends Component {
 	                	<Calendar updateDates={this.updateDates}/>
 	                </div>
 	                <div className = "inputForm">
-	                	<button> Submit </button>
+	                	{ !this.props.loading ? 
+	                		<button> Submit </button> 
+	                		:
+							<Spinner animation="border" role="status">
+							  <span className="sr-only">Loading...</span>
+							</Spinner>
+
+	                	}
 	                </div>
 	              </form>
 
@@ -58,12 +84,13 @@ const mapStateToProps = (state) => {
     return {
         isAuthenticated: state.token !== null,
         username: state.username,
+        loading: state.loading
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        newTrip: (country, startDate, endDate) => dispatch(actions.newTrip(country, startDate, endDate)) 
+        newTrip: (country, startDate, endDate) => dispatch(actions.newTrip(country, startDate, endDate)),
     }
 }
 

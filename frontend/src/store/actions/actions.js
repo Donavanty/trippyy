@@ -19,7 +19,6 @@ export const authSuccessed = (token, username, userId) => {
 }
 
 export const authFailed = (error) => {
-	alert(error);
 	return {
 		error: error,
 		type: actionTypes.AUTH_FAIL
@@ -27,6 +26,18 @@ export const authFailed = (error) => {
 }
 
 export const logouted = () => {
+	localStorage.removeItem('username');
+	localStorage.removeItem('user');
+	localStorage.removeItem('expirationDate');
+	localStorage.removeItem('token');
+	localStorage.removeItem('userId');
+	localStorage.removeItem('country');
+	return {
+		type: actionTypes.AUTH_LOGOUT
+	}
+}
+
+export const notLoggedIn = () => {
 	localStorage.removeItem('username');
 	localStorage.removeItem('user');
 	localStorage.removeItem('expirationDate');
@@ -88,8 +99,8 @@ export const authCheckedState = () => {
 	return dispatch => {
 		const token = localStorage.getItem('token');
 		const username = localStorage.getItem('username');
-		if (token === undefined) {
-			dispatch(logouted());
+		if (token === undefined || token === null) {
+			dispatch(notLoggedIn());
 		} else {
 			const expirationDate = new Date(localStorage.getItem('expirationDate'));
 			if (expirationDate <= new Date() ) {
@@ -105,7 +116,7 @@ export const authCheckedState = () => {
 
 // ---------------------------------------------------------------------------------
 
-export const newTrip = (country, startDate, endDate) => {
+export const newTripData = (country, startDate, endDate) => {
 	const data = {
 				destination: country,
 				tripName: "Trip to " + country + " from " + startDate + " to " + endDate,
@@ -122,7 +133,16 @@ export const newTrip = (country, startDate, endDate) => {
 		type: actionTypes.NEW_TRIP,
 		country: country,
 		startDate: startDate,
-		endDate: endDate
+		endDate: endDate,
 	}
 
 }
+
+export const newTrip = (country, startDate, endDate) => {
+	return dispatch => {
+		dispatch(authStarted());
+		dispatch(newTripData(country, startDate, endDate));
+	}
+}
+
+

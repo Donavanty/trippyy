@@ -14,7 +14,6 @@ const initialState = {
 }
 
 const authStart = (state, action) => {
-	console.log("staaaart");
 	return updateObject(state, {
 		error: null,
 		loading: true
@@ -48,7 +47,8 @@ const newTrip = (state, action) => {
 	return updateObject(state, {
 		country: action.country,
 		startDate: action.startDate,
-		endDate: action.endDate
+		endDate: action.endDate,
+		loading: false
 	})
 }
 

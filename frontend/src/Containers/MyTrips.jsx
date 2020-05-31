@@ -1,7 +1,13 @@
-import React, {Component} from 'react';
-import axios from "axios";
-import { connect } from 'react-redux';
+// Basic Imports
+import React, { Component, Fragment } from "react";
+// -------------------------------------------------------------------------
+
+//Imports needed for redux
 import * as actions from '../store/actions/actions';
+import { connect } from 'react-redux';
+// -------------------------------------------------------------------------
+
+import axios from "axios";
 import NavBar from '../Components/navBar';
 import { Spinner } from 'react-bootstrap';
 

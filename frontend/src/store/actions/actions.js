@@ -3,12 +3,14 @@ import axios from 'axios';
 
 const DATABASE_URL = "https://trippyy-backend.herokuapp.com/"
 
+// Sends an action to reducer to change loading to true.
 export const authStarted = () => {
 	return {
 		type: actionTypes.AUTH_START
 	}
 }
 
+// Sends an action to reducer to update REDUX token, username, userId upon login.
 export const authSuccessed = (token, username, userId) => {
 	return {
 		token: token,
@@ -18,6 +20,7 @@ export const authSuccessed = (token, username, userId) => {
 	}
 }
 
+// Sends an action to alert an error.
 export const authFailed = (error) => {
 	return {
 		error: error,
@@ -25,18 +28,15 @@ export const authFailed = (error) => {
 	}
 }
 
+// Called upon logout, removes everything in LOCALSTORAGE 
 export const logouted = () => {
-	localStorage.removeItem('username');
-	localStorage.removeItem('user');
-	localStorage.removeItem('expirationDate');
-	localStorage.removeItem('token');
-	localStorage.removeItem('userId');
-	localStorage.removeItem('country');
+	localStorage.clear();
 	return {
 		type: actionTypes.AUTH_LOGOUT
 	}
 }
 
+// Called during checking of authentication state, updates REDUX token, remove all USER attributes in LOCALSTORAGE
 export const notLoggedIn = () => {
 	localStorage.removeItem('username');
 	localStorage.removeItem('user');
@@ -55,6 +55,9 @@ export const checkAuthTimeouted = expirationTime => {
 		}, expirationTime * 1000)
 	}
 }
+
+// Called upon login, logins by checking with backend, updates USER attributes in LOCALSTORAGE, 
+// and calls authSuccessed or authFailed, depending on outcome.
 export const authLogined = (username, password) => {
 	return dispatch => {
 		dispatch(authStarted());
@@ -78,6 +81,7 @@ export const authLogined = (username, password) => {
 	}
 }
 
+// Signs up by sending POST req to backend, then calls authLogined.
 export const authSignuped = (username, email, password1, password2) => {
 	return dispatch => {
 		dispatch(authStarted());
@@ -95,6 +99,7 @@ export const authSignuped = (username, email, password1, password2) => {
 	}
 }
 
+// Checks with LOCALSTORAGE (token) if user is logged in, and updates REDUX token accordingly.
 export const authCheckedState = () => {
 	return dispatch => {
 		const token = localStorage.getItem('token');
@@ -116,32 +121,46 @@ export const authCheckedState = () => {
 
 // ---------------------------------------------------------------------------------
 
-export const newTripData = (country, startDate, endDate) => {
+// Stores trip variables into local storage, POSTS data if logined, and updates redux state for trip.
+export const newTripData = (tripCountry, tripLat, tripLng, startDate, endDate) => {
 	const data = {
-				destination: country,
-				tripName: "Trip to " + country + " from " + startDate + " to " + endDate,
+				destination: tripCountry,
+				tripName: "Trip to " + tripCountry + " from " + startDate + " to " + endDate,
 				startDate: startDate,
 				endDate: endDate
 			}
 	axios.post(DATABASE_URL + 'api/trips/', data, {
 			headers: {Authorization: "Token " + localStorage.token},
 		}).then(res => console.log(res));
-	localStorage.setItem('country', country);
-	localStorage.setItem('startDate', startDate);
-	localStorage.setItem('endDate', endDate);
+
+	const trip = {
+		'country' : tripCountry,
+		'lat' : tripLat,
+		'lng' : tripLng,
+		'startDate' : startDate,
+		'endDate' : endDate,
+	}
+	localStorage.setItem('trip', JSON.stringify(trip));
 	return {
 		type: actionTypes.NEW_TRIP,
-		country: country,
-		startDate: startDate,
-		endDate: endDate,
+		trip: trip
 	}
 
 }
 
-export const newTrip = (country, startDate, endDate) => {
+// Calls authStarted to change REDUX loading to true, then proceeds on to call newTripData.
+export const newTrip = (tripCountry, tripLat, tripLng, startDate, endDate) => {
 	return dispatch => {
 		dispatch(authStarted());
-		dispatch(newTripData(country, startDate, endDate));
+		dispatch(newTripData(tripCountry, tripLat, tripLng, startDate, endDate));
+	}
+}
+
+//Gets trip details from local storage
+export const checkedTrip = () => {
+	return {
+		type: actionTypes.NEW_TRIP,
+		trip: JSON.parse(localStorage.trip)
 	}
 }
 

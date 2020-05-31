@@ -1,13 +1,18 @@
-import React, {Component} from 'react';
+// Basic Imports
+import React, { Component, Fragment } from "react";
+// -------------------------------------------------------------------------
+
+//Imports needed for redux
+import * as actions from '../store/actions/actions';
+import { connect } from 'react-redux';
+// -------------------------------------------------------------------------
+
 import "bootstrap/dist/css/bootstrap.css";
 import NavBar from '../Components/navBar';
-import InputForm from '../Components/StartComponents/inputForm'
-import Calendar from '../Components/StartComponents/calendar'
+import InputForm from '../Components/StartComponents/InputForm'
+import Calendar from '../Components/StartComponents/Calendar'
 import "./CSS/global.css"
 import axios from "axios";
-
-import {connect} from 'react-redux';
-import * as actions from '../store/actions/actions'
 
 
 class StartPage extends Component {

@@ -8,9 +8,13 @@ const initialState = {
 	username: null,
 	userId: null,
 
-	country: "Alaska",
-	startDate: null,
-	endDate: null,
+	trip: {
+		'country' : null,
+		'lat' : null,
+		'lng' : null,
+		'startDate': null,
+		'endDate' : null,
+	}
 }
 
 const authStart = (state, action) => {
@@ -45,9 +49,7 @@ const authLogout = (state, action) => {
 
 const newTrip = (state, action) => {
 	return updateObject(state, {
-		country: action.country,
-		startDate: action.startDate,
-		endDate: action.endDate,
+		trip: action.trip,
 		loading: false
 	})
 }
@@ -56,7 +58,6 @@ const reducer = (state=initialState, action) => {
 	switch(action.type) {
 
 		case actionTypes.NEW_TRIP: return newTrip(state, action);
-
 		case actionTypes.AUTH_START: return authStart(state, action);
 		case actionTypes.AUTH_SUCCESS: return authSuccess(state, action);
 		case actionTypes.AUTH_FAIL: return authFail(state, action);

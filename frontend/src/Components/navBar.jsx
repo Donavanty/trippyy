@@ -1,10 +1,15 @@
-import React, {Component} from 'react';
+
+// Basic Imports
+import React, { Component, Fragment } from "react";
+// -------------------------------------------------------------------------
+
+//Imports needed for redux
+import * as actions from '../store/actions/actions';
+import { connect } from 'react-redux';
+// -------------------------------------------------------------------------
 import { Link } from 'react-router-dom';
 import "./CSS/navBar.css";
 
-//Imports needed for Redux
-import { connect } from 'react-redux';
-import * as actions from '../store/actions/actions';
 
 class NavBar extends Component {
 

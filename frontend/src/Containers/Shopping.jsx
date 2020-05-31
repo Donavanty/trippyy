@@ -1,18 +1,26 @@
-import React, {Component} from 'react';
-import axios from "axios";
-import { connect } from 'react-redux';
+// Basic Imports
+import React, { Component, Fragment } from "react";
+// -------------------------------------------------------------------------
+
+//Imports needed for redux
 import * as actions from '../store/actions/actions';
+import { connect } from 'react-redux';
+// -------------------------------------------------------------------------
+
+import axios from "axios";
 import NavBar from '../Components/navBar';
+import Map from '../Components/Map'
 import "./CSS/global.css"
 
 class Shopping extends Component {
 
     componentDidMount() {
-      //Updates login status into redux.
+      //Updates login status and trip status into redux.
       this.props.onTryAutoSignup();
+      this.props.checkedTrip();
 
       //Checks if logged in, redirect to mainpage.
-      if (localStorage.country === null || localStorage.country === undefined) {
+      if (localStorage.trip === null || localStorage.trip === undefined) {
         this.props.history.push('/');
       }
     }
@@ -27,7 +35,16 @@ class Shopping extends Component {
           <div className = "container-fluid align-items-center">
               <NavBar from={this.props.location.pathname}/>
               <div className = "jumbotron startBox">
-                <h1> Shopping!</h1> 
+                <div className = "row">
+                  <div className = "col-4">
+                    <h1> Shopping! </h1>
+                    <p> Welcome to {this.props.trip["country"]} </p>
+                  </div>
+
+                  <div className ="col-8">
+                    <Map/>
+                  </div>
+                </div>
               </div>
           </div>);
 
@@ -40,7 +57,7 @@ class Shopping extends Component {
 const mapStateToProps = (state) => {
     return {
       isAuthenticated: state.token !== null,
-
+      trip: state.trip,
       loading: state.loading,
       error: state.error
     }
@@ -49,7 +66,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
     return {
         onTryAutoSignup: () => dispatch(actions.authCheckedState()),
-        onAuth: (username, password) => dispatch(actions.authLogined(username, password)) 
+        onAuth: (username, password) => dispatch(actions.authLogined(username, password)),
+        checkedTrip: () => dispatch(actions.checkedTrip()),
     }
 }
 

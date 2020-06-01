@@ -23,6 +23,13 @@
 </p>
 
 <p>
+<strong>Deployment site (in-progress):</strong>
+</p>
+<p>
+<a href="http://trippyyy.herokuapp.com/">http://trippyyy.herokuapp.com/</a>
+</p>
+
+<p>
 <strong>Proposed Level of Achievement: </strong>
 </p>
 <p>
@@ -757,7 +764,7 @@ project, come up with an updated proposal, poster and video.
 <li><span style="text-decoration:underline;">Week 3</span>
 <p>
     <strong>Web interface: </strong>Basic web interface of a layout page,
-including a navigation bar and a simple design.
+including a navigation bar and a simple design. Deploy via Heroku.
 </p>
 <ol>
 <li><span style="text-decoration:underline;">Week 4</span>
@@ -933,7 +940,9 @@ Poster: https://i.imgur.com/e4NAmWJ.png
 Video: https://youtu.be/QrqgEPEkC4E
 </p>
 <p>
-Development Site:
+Development Site:<a
+href="http://trippyyy.herokuapp.com/">http://trippyyy.herokuapp.com/</a>
+</p>
 </p>
 <p>
 <strong><span style="text-decoration:underline;">About us:</span></strong>

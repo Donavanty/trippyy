@@ -312,15 +312,15 @@ For example:
 
     => Number of activities suggested: 2 sightseeing activities, 8 food places, and 4 shopping places.
 
-**2. Fixed Activities criteria:**Users can also construct/customise their itinerary that takes into consideration several fixed location and timings for certain events they have in mind (the algorithm builds around these criteria). This is done after the itinerary is generated in the Results Phase.
+**2. Fixed Activities criteria:** Users can also construct/customise their itinerary that takes into consideration several fixed location and timings for certain events they have in mind (the algorithm builds around these criteria). This is done after the itinerary is generated in the Results Phase.
 
-**3. Customisation of Modes of Transport (‘Upgrade’ option):**The default itinerary returned would use the cheapest transport option in its cost-tabulation. However, for longer trips, an alternative ‘upgrade’ option would be made available to the user. (This is done with the help of Google Places API.) This option would be higher in transport costs, but would save a significant amount of time (e.g. travelling via a Taxi, Bullet Train in Japan instead), and an optimised itinerary would be built around the ‘upgraded’ option as well.
+**3. Customisation of Modes of Transport (‘Upgrade’ option):** The default itinerary returned would use the cheapest transport option in its cost-tabulation. However, for longer trips, an alternative ‘upgrade’ option would be made available to the user. (This is done with the help of Google Places API.) This option would be higher in transport costs, but would save a significant amount of time (e.g. travelling via a Taxi, Bullet Train in Japan instead), and an optimised itinerary would be built around the ‘upgraded’ option as well.
 
 The ‘upgrade’ option would also show how much the increase in cost would be and how much time they would be able to save, in comparison to the original mode of transport that minimises travel costs with longer transport time. This would enable the user to visually & more easily decide on which option he/she would want to use for their trip. Users can switch to either option at any time, and the itinerary would be adjusted accordingly.
 
 **4. Enhanced User Interaction:** Once the itinerary is auto-generated, the user can view the itinerary at a glance across a user-friendly horizontal/vertical timetable, where blocks of activities can be rearranged according to their preference. 
 
-**5. Collaboration:**Users can download a picture of their itinerary, and obtain a unique sharing link that can be shared with others for others to view the itinerary online,
+**5. Collaboration:** Users can download a picture of their itinerary, and obtain a unique sharing link that can be shared with others for others to view the itinerary online,
 
 
 
@@ -366,15 +366,15 @@ We aim to come up with a functional web application by the end of Orbital, and t
 
 1. <span style="text-decoration:underline;">Week 1</span>
 
-    **General:**Learn more about technologies required for the project.
+    **General:** Learn more about technologies required for the project.
 
 2. <span style="text-decoration:underline;">Week 2</span>
 
-    **General:**Finalize ideas and technologies to use for the project, come up with an updated proposal, poster and video.
+    **General:** Finalize ideas and technologies to use for the project, come up with an updated proposal, poster and video.
 
 3. <span style="text-decoration:underline;">Week 3</span>
 
-    **Web interface:**Basic web interface of a layout page, including a navigation bar and a simple design.
+    **Web interface:** Basic web interface of a layout page, including a navigation bar and a simple design.
 
 4. <span style="text-decoration:underline;">Week 4</span>
 
@@ -397,17 +397,17 @@ We aim to come up with a functional web application by the end of Orbital, and t
 
 7. <span style="text-decoration:underline;">Week 3</span>
 
-    **Web interface:**Basic web interface to display results generated from the algorithm.
+    **Web interface:** Basic web interface to display results generated from the algorithm.
 
 
-    **Algorithm:**To develop an algorithm to update and recalibrate the itinerary when any updates are made from the ‘Results’ page.
+    **Algorithm:** To develop an algorithm to update and recalibrate the itinerary when any updates are made from the ‘Results’ page.
 
 8. <span style="text-decoration:underline;">Week 4</span>
 
-    **Web interface:**Update web interface to update the ‘Results’ page to reflect recalibrated itinerary upon any changes are made. Add a basic design to the website.
+    **Web interface:** Update web interface to update the ‘Results’ page to reflect recalibrated itinerary upon any changes are made. Add a basic design to the website.
 
 
-    **Algorithm:**Optimise algorithms.
+    **Algorithm:** Optimise algorithms.
 
 
 
@@ -418,18 +418,18 @@ We aim to come up with a functional web application by the end of Orbital, and t
 
 9. <span style="text-decoration:underline;">Week 1</span>
 
-    **Algorithm:**Algorithm testing, and further optimization of algorithms.
+    **Algorithm:** Algorithm testing, and further optimization of algorithms.
 
 10. <span style="text-decoration:underline;">Week 2</span>
 
-    **Algorithm:**Algorithm to auto-select activities to be included in the itinerary based on length of the trip.
+    **Algorithm:** Algorithm to auto-select activities to be included in the itinerary based on length of the trip.
 
 
-    **Web interface:**Add extension of having the option to auto-select activities to be included in the itinerary. 
+    **Web interface:** Add extension of having the option to auto-select activities to be included in the itinerary. 
 
 11. <span style="text-decoration:underline;">Week 3</span>
 
-    **Algorithm:**Further testing and optimization.
+    **Algorithm:** Further testing and optimization.
 
 
     **Web interface:

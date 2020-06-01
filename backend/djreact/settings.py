@@ -165,6 +165,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_REQUIRED = False
+AUTH_PASSWORD_VALIDATORS = []
 
 
 prod_db = dj_database_url.config(conn_max_age=500)

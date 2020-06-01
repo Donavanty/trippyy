@@ -47,11 +47,11 @@ class Signup extends Component {
                     </div>
 
                     <div className = "element">
-                      <input type = "text" name = "password1" placeholder = "Enter Password" />
+                      <input type = "password" name = "password1" placeholder = "Enter Password" />
                     </div>
 
                     <div className = "element">
-                      <input type = "text" name = "password2" placeholder = "Enter Password again" />
+                      <input type = "password" name = "password2" placeholder = "Enter Password again" />
                     </div>
                     
                     <button className ="element" type="submit" value = "Submit"> Signup </button>

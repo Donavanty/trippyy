@@ -55,7 +55,7 @@ class Login extends Component {
                     </div>
                     
                     <div className = "element">
-                      <input type = "text" name = "password" placeholder = "Enter Password" />
+                      <input type = "password" name = "password" placeholder = "Enter Password" />
                     </div>
                     {
                       this.props.loading ? 

@@ -211,9 +211,6 @@ Phase:</span></strong>
 </p>
 <p>
 
-<img src="images/image1.png" width="" alt="alt_text" title="image_tooltip">
-</p>
-
 
 <p align="center">
 <img src="https://github.com/pongzers/trippyy/blob/master/media/inputPhase.png" width="450" height="300">

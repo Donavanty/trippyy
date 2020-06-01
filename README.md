@@ -22,9 +22,15 @@
 <p>
 <strong>Team Name:</strong>
 </p>
-<p>
+
+<p align="center">
+<img src="https://github.com/pongzers/trippyy/blob/master/media/logo.PNG" width="250" height="250">
+</p>
+
+<p align="center">
 <em>trippyy</em>
 </p>
+
 <p>
 <strong>Proposed Level of Achievement: </strong>
 </p>
@@ -173,6 +179,7 @@ traveller’s experience should be.
 <p>
 <strong><span style="text-decoration:underline;">Features</span></strong>
 </p>
+
 <p>
 Under the scope of Orbital, a travel <strong>website interface </strong>hosting
 the application for users to interact with would be developed, and we would
@@ -180,7 +187,12 @@ focus on planning itineraries for one city per trip only (i.e. Cross-city trips
 are not supported). Refer to Diagram 1 for the illustrated user flow of
 <em>trippyy</em>:
 </p>
-<p>
+
+<p align="center">
+<img src="https://github.com/pongzers/trippyy/blob/master/media/UserFlow.png" width="500" height="300">
+</p>
+
+<p align="center">
 <strong><span style="text-decoration:underline;">Diagram 1. A simplified
 illustration of the user flow of <em>trippyy</em>.</span></strong>
 </p>
@@ -207,7 +219,13 @@ href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span
 style="color: red; font-weight: bold">>>>>> </span></p>
 <img src="images/image1.png" width="" alt="alt_text" title="image_tooltip">
 </p>
-<p>
+
+
+<p align="center">
+<img src="https://github.com/pongzers/trippyy/blob/master/media/inputPhase.png" width="450" height="300">
+</p>
+
+<p align="center">
 <strong><span style="text-decoration:underline;">Diagram 2. A rough draft of
 inputting location of travel, and number of days</span></strong>
 </p>
@@ -230,7 +248,12 @@ their itinerary subsequently.
 </p>
 </li>
 </ul>
-<p>
+
+<p align="center">
+<img src="https://github.com/pongzers/trippyy/blob/master/media/inputPhase2.png" width="600" height="500">
+</p>
+
+<p align="center">
 <strong><span style="text-decoration:underline;">Diagram 3. Sample Aesthetic
 Design (to be improved on)</span></strong>
 </p>
@@ -242,7 +265,12 @@ proceed to generate his/her optimised itinerary via Phase 2, the Shopping Phase.
 <strong><span style="text-decoration:underline;">Phase 2: Shopping
 Phase:</span></strong>
 </p>
-<p>
+
+<p align="center">
+<img src="https://github.com/pongzers/trippyy/blob/master/media/Shopping1.png" width="500" height="300">
+</p>
+
+<p align="center">
 <strong><span style="text-decoration:underline;">Diagram 4. A draft layout of
 the Shopping Phase.</span></strong>
 </p>
@@ -316,7 +344,13 @@ their itinerary to be <strong>filled with activities that are in close
 proximity/would not require unfavourable travelling time over long
 distances.</strong>
 </p>
-<p>
+
+<p align="center">
+<img src="https://github.com/pongzers/trippyy/blob/master/media/Shopping1.png" width="400" height="250">
+<img src="https://github.com/pongzers/trippyy/blob/master/media/Shopping2.png" width="400" height="250">
+</p>
+
+<p align="center">
 <strong><span style="text-decoration:underline;">Diagram 5.</span></strong>
 </p>
 <p>
@@ -336,7 +370,12 @@ user, organised in a tile-like layout that can be segregated by filters. These
 will all be shown in the central column of the webpage (Refer to Diagram 6).
 </li>
 </ul>
-<p>
+
+<p align="center">
+<img src="https://github.com/pongzers/trippyy/blob/master/media/Details.png" width="550" height="500">
+</p>
+
+<p align="center">
 <strong><span style="text-decoration:underline;">Diagram 6. A draft illustrating
 a list of activities shown in a tile-like layout.</span></strong>
 </p>
@@ -433,7 +472,12 @@ style="color: red; font-weight: bold">>>>>> </span></p>
 <img src="images/image2.png" width="" alt="alt_text" title="image_tooltip">
 <strong> </strong>
 </p>
-<p>
+
+<p align="center">
+<img src="https://github.com/pongzers/trippyy/blob/master/media/iti.png" width="300" height="250">
+</p>
+
+<p align="center">
 <strong><span style="text-decoration:underline;">Diagram 7. A rough draft of an
 output itinerary (vertical layout)</span></strong>
 </p>
@@ -449,7 +493,12 @@ itinerary has not been reflected.
 <strong><span style="text-decoration:underline;">Phase 3: Results
 Phase:</span></strong>
 </p>
-<p>
+
+<p align="center">
+<img src="https://github.com/pongzers/trippyy/blob/master/media/results.png" width="600" height="400">
+</p>
+
+<p align="center">
 <strong><span style="text-decoration:underline;">Diagram 8. A rough draft of an
 output itinerary (horizontal layout)</span></strong>
 </p>
@@ -488,9 +537,6 @@ their preference, one of which includes the addition of premeditated activities
 into their itinerary (<em>see section on Further Info below</em>).
 </p>
 
-
-<pre
-class="prettyprint">Diagram 9. A rough draft of the webpage in the Results Phase.</pre>
 <p>
 In addition, options for sharing the itinerary will be made available in the
 section below of the Horizontal Itinerary Layout. This would allow users to
@@ -890,9 +936,14 @@ Deployment
 </p>
 <p>
 </p>
-<p>
+<p align="center">
 <strong>Project Log:</strong>
 </p>
+
+<p align="center">
+<img src="https://github.com/pongzers/trippyy/blob/master/media/projectlog.png" width="700" height="500">
+</p>
+
 <p>
 <strong>Additional Information on <em>trippyy</em></strong>
 </p>

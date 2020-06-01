@@ -1,6 +1,6 @@
 <p>
 <strong>ReadMe Submission for Orbital 2020</strong>
-</p>f
+</p>
 <p>
 <strong>Milestone #1</strong>
 </p>
@@ -917,7 +917,7 @@ auto-select activities to be included in the itinerary.
 8. Sygic Travels API
 </p>
 <p>
-Deployment
+<strong>Deployment</strong>
 </p>
 <p>
 9. Heroku

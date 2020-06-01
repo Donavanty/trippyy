@@ -28,7 +28,7 @@ In the process of planning for an itinerary, travellers are **often met with has
 
  
 
-Therefore, we are inspired to **build a user-friendly platform** where travellers can plan their trip with the activities they desire to do, while **skipping the hassles of dealing with the nitty-gritty details**, which would be** dealt with by the algorithms in our platform.**
+Therefore, we are inspired to **build a user-friendly platform** where travellers can plan their trip with the activities they desire to do, while **skipping the hassles of dealing with the nitty-gritty details**, which would be **dealt with by the algorithms in our platform.**
 
  
 
@@ -76,15 +76,13 @@ In summary, the itinerary auto-curation scene remains rather untapped amidst ser
 
 
                 
-
-
-                **Features and Timeline**
+**Features and Timeline**
 
  
 
 **<span style="text-decoration:underline;">Features</span>**
 
-Under the scope of Orbital, a travel **website interface **hosting the application for users to interact with would be developed, and we would focus on planning itineraries for one city per trip only (i.e. Cross-city trips are not supported). Refer to Diagram 1 for the illustrated user flow of _trippyy_:
+Under the scope of Orbital, a travel **website interface** hosting the application for users to interact with would be developed, and we would focus on planning itineraries for one city per trip only (i.e. Cross-city trips are not supported). Refer to Diagram 1 for the illustrated user flow of _trippyy_:
 
 **<span style="text-decoration:underline;">Diagram 1. A simplified illustration of the user flow of _trippyy_.</span>**
 
@@ -167,9 +165,9 @@ Upon inputting the required fields in the Input Phase, the user is then taken to
 
 The rationale for implementing 2 differing modes to select activities to populate their itinerary would stem from the UI/UX benefits that each mode offers over the other when choosing their activities.
 
-A list-centric focus (Mode 1) would allow the user to see at a glance, the list of activities at their respective locations available to them in a tiled-format across the screen. Users would only have to **focus their attention on the nature of activities they wish to participate in **via filters that filter activities by categories** and not on their locations **(see details)**. **This mode is catered for users who wish for their itinerary to be **filled with activities that best suit their personality/interests/character. **
+A list-centric focus (Mode 1) would allow the user to see at a glance, the list of activities at their respective locations available to them in a tiled-format across the screen. Users would only have to **focus their attention on the nature of activities they wish to participate in** via filters that filter activities by categories** and not on their locations **(see details)**. **This mode is catered for users who wish for their itinerary to be **filled with activities that best suit their personality/interests/character.**
 
-A geographic-centric focus (Mode 2) on the other hand would** place the emphasis on the location of the activities** that the user would like to select for his/her itinerary. Users would be allowed to select their activities from the map itself through drop-pins dotted across the map, and thus **see at a glance their destinations around the region **they are travelling to.** **This mode is catered for users who wish for their itinerary to be **filled with activities that are in close proximity/would not require unfavourable travelling time over long distances.**
+A geographic-centric focus (Mode 2) on the other hand would **place the emphasis on the location of the activities** that the user would like to select for his/her itinerary. Users would be allowed to select their activities from the map itself through drop-pins dotted across the map, and thus **see at a glance their destinations around the region** they are travelling to. This mode is catered for users who wish for their itinerary to be **filled with activities that are in close proximity/would not require unfavourable travelling time over long distances.**
 
 **<span style="text-decoration:underline;">Diagram 5.</span>**
 
@@ -243,7 +241,7 @@ A geographic-centric focus (Mode 2) on the other hand would** place the emphasis
 
 **<span style="text-decoration:underline;">Diagram 7. A rough draft of an output itinerary (vertical layout)</span>**
 
-*This is a rough draft to showcase functionality,** design would be largely improved upon.**
+*This is a rough draft to showcase functionality, **design would be largely improved upon.**
 
 **This is only the summary portion of the output, a detailed day-to-day itinerary has not been reflected.
 
@@ -251,9 +249,9 @@ A geographic-centric focus (Mode 2) on the other hand would** place the emphasis
 
 **<span style="text-decoration:underline;">Diagram 8. A rough draft of an output itinerary (horizontal layout)</span>**
 
-*This is a rough draft to showcase functionality,** design would be largely improved upon.**
+*This is a rough draft to showcase functionality, **design would be largely improved upon.**
 
-**This is only the summary portion of the output, a detailed day-to-day itinerary has not been reflected.
+**This is only the summary portion of the output, a detailed day-to-day itinerary has not been reflected.**
 
 The Results Phase would consist of primarily of 2 main segments:
 
@@ -302,15 +300,15 @@ Users would be able to easily click and drag any selected activity into a differ
 
  
 
-**1. Number of Days criteria:** For both Option 1 and 2,** **based on the number of days input by the user, a certain number of activities would be suggested to him/her. This will be calculated by factoring in average durations for these activities onto the total duration of the trip (which will be provided by Google Places API).
+**1. Number of Days criteria:** For both Option 1 and 2, based on the number of days input by the user, a certain number of activities would be suggested to him/her. This will be calculated by factoring in average durations for these activities onto the total duration of the trip (which will be provided by Google Places API).
 
 For example:
 
 
-    Number of days: 3 days 2 nights
+   Number of days: 3 days 2 nights
 
 
-    => Number of activities suggested: 2 sightseeing activities, 8 food places, and 4 shopping places.
+   => Number of activities suggested: 2 sightseeing activities, 8 food places, and 4 shopping places.
 
 **2. Fixed Activities criteria:** Users can also construct/customise their itinerary that takes into consideration several fixed location and timings for certain events they have in mind (the algorithm builds around these criteria). This is done after the itinerary is generated in the Results Phase.
 
@@ -432,8 +430,7 @@ We aim to come up with a functional web application by the end of Orbital, and t
     **Algorithm:** Further testing and optimization.
 
 
-    **Web interface:
-    **Further design improvements
+    **Web interface:** Further design improvements
 
 12. <span style="text-decoration:underline;">Week 4</span>
 

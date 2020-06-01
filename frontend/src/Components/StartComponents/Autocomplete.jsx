@@ -15,6 +15,7 @@ class Autocomplete extends Component {
 
   handleChange = address => {
     this.setState({ address });
+    this.props.updateCountry(address, null);
   };
 
   handleSelect = address => {

@@ -57,6 +57,8 @@ class MyTrips extends Component {
 						}
 					});	
 				}
+				// In the event that there is 0 trips, it will change loading to false.
+				this.setState({local_loading: false});
 			})
 		} catch (error) {
 			alert(error);

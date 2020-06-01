@@ -1,6 +1,6 @@
 <p>
 <strong>ReadMe Submission for Orbital 2020</strong>
-</p>
+</p>f
 <p>
 <strong>Milestone #1</strong>
 </p>
@@ -527,6 +527,22 @@ share their itinerary via hyperlinks which the public can access to to view the
 itinerary. Alternatively, the user can export/download the horizontal itinerary
 as a PDF/PNG file in which they can share by their own means afterwards.
 </p>
+
+
+
+<p>
+<strong><span style="text-decoration:underline;">Summary of the 3 Phases:</span></strong>
+</p>
+
+<p align="center">
+<img src="https://github.com/pongzers/trippyy/blob/master/media/flowchart.png" width="800" height="600">
+</p>
+
+<p align="center">
+<strong><span style="text-decoration:underline;">Diagram 10. <em>trippyy</em>’s Web Architecture</span></strong>
+</p>
+
+
 <p>
 </p>
 <p>
@@ -924,7 +940,7 @@ Deployment
 </p>
 
 <p align="center">
-<img src="https://github.com/pongzers/trippyy/blob/master/media/projectlog.png" width="700" height="500">
+<img src="https://github.com/pongzers/trippyy/blob/master/media/projectlog.png" width="800" height="600">
 </p>
 
 <p>

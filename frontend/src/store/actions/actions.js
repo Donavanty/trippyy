@@ -158,9 +158,16 @@ export const newTrip = (tripCountry, tripLat, tripLng, startDate, endDate) => {
 
 //Gets trip details from local storage
 export const checkedTrip = () => {
-	return {
-		type: actionTypes.NEW_TRIP,
-		trip: JSON.parse(localStorage.trip)
+	if (localStorage.trip !== null && localStorage.trip !== undefined) {
+		return {
+			type: actionTypes.NEW_TRIP,
+			trip: JSON.parse(localStorage.trip)
+		}
+	} else {
+		return {
+			type: actionTypes.AUTH_FAIL,
+			error: "No trip found"
+		}
 	}
 }
 

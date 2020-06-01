@@ -47,16 +47,16 @@ class InputForm extends Component {
 	}
 
 	//If new trip created is true, and loading is complete, then go to shopping page.
-	static getDerivedStateFromProps(nextProps, prevState){
-	  if (nextProps.loading===false && prevState.newTripCreated===true){
-	     return { goToShoppingPage: true };
-	  }
-	  else return null;
-	}
+	// static getDerivedStateFromProps(nextProps, prevState){
+	//   if (nextProps.loading===false && prevState.newTripCreated===true){
+	//      return { goToShoppingPage: true };
+	//   }
+	//   else return null;
+	// }
 
 	//Happens upon receiving updated information.
     componentDidUpdate(prevProps, prevState, snapshot) {
-    	if (this.state.goToShoppingPage === true) {
+    	if (this.props.loading===false && this.state.newTripCreated===true) {
     		this.props.history.push("/shopping");
     	}
     }

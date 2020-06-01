@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 
 import axios from "axios";
 import NavBar from '../Components/navBar';
+import { Spinner } from 'react-bootstrap';
 
 class Signup extends Component {
 
@@ -23,11 +24,17 @@ class Signup extends Component {
       }
     }
 
+    //Happens upon receiving updated login information.
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.props.isAuthenticated) {
+            this.props.history.push('/');
+        }
+    }
+
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.onAuth(event.target.username.value, event.target.email.value,
           event.target.password1.value, event.target.password2.value);
-        this.props.history.push('/');
       }
 
     render() {
@@ -53,8 +60,14 @@ class Signup extends Component {
                     <div className = "element">
                       <input type = "password" name = "password2" placeholder = "Enter Password again" />
                     </div>
-                    
-                    <button className ="element" type="submit" value = "Submit"> Signup </button>
+                    {
+                      this.props.loading ? 
+                        <Spinner animation="border" role="status" className = "element">
+                          <span className="sr-only">Loading...</span>
+                        </Spinner>
+                      :
+                        <button className = "element" type="submit" value = "Submit"> Submit </button>
+                    }
                   </form>
               </div>
           </div>);
@@ -65,6 +78,8 @@ class Signup extends Component {
 
 const mapStateToProps = (state) => {
     return {
+      loading: state.loading,
+      isAuthenticated: state.token !== null
 
     }
 }

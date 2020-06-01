@@ -18,32 +18,23 @@ class Map extends Component{
 
     state = {
         trip: null,
-        startLat: null,
-        startLng: null
+        startLat: 0,
+        startLng: 0
     }
     componentDidMount() {
-        this.props.checkedTrip();
-        this.setState({
-            startLng: JSON.parse(localStorage.trip)["lng"],
-            startLat: JSON.parse(localStorage.trip)["lat"],
-        })
-    }
-
-    static getDerivedStateFromProps(nextProps, prevState){
-      if (nextProps.trip!==null){
-         return { trip: nextProps.trip };
-      }
-      else return null;
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-
+        if (localStorage.trip !== undefined) {
+            this.setState({
+                startLng: JSON.parse(localStorage.trip)["lng"],
+                startLat: JSON.parse(localStorage.trip)["lat"],
+            })
+        }
     }
 
     static defaultProps = {
         googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyB-tj53yeTQiKnUmi_Jr2a7caz5RJVY60Y&v=3.exp&libraries=geometry,drawing,places",
     }
 
+    //First load, thus need to use local storage.
     WrappedMap = withScriptjs(withGoogleMap(props =>
         <GoogleMap
           defaultZoom={12}
@@ -66,7 +57,7 @@ class Map extends Component{
                     center= {{ lat: 40.730610, lng:  -73.935242 }} 
                 >
                     <Marker
-                        position={{ lat: -34.397, lng: 150.644 }}
+                        position={{ lat: this.props.trip["lat"], lng: this.props.trip["lng"] }}
                     />
 
                 </this.WrappedMap>

@@ -15,14 +15,14 @@ import "./CSS/global.css"
 class Shopping extends Component {
 
     componentDidMount() {
+      if (localStorage.getItem('trip') === null || localStorage.getItem('trip') === undefined) {
+        this.props.history.push('/');
+      } 
       //Updates login status and trip status into redux.
       this.props.onTryAutoSignup();
       this.props.checkedTrip();
+      
 
-      //Checks if logged in, redirect to mainpage.
-      if (localStorage.trip === null || localStorage.trip === undefined) {
-        this.props.history.push('/');
-      }
     }
 
     //Happens upon receiving updated login information.
@@ -31,6 +31,9 @@ class Shopping extends Component {
     }
 
     render() {
+        if (this.props.trip === null ) {
+          return <h1> loading </h1>
+        }
         return (
           <div className = "container-fluid align-items-center">
               <NavBar from={this.props.location.pathname}/>
@@ -46,7 +49,8 @@ class Shopping extends Component {
                   </div>
                 </div>
               </div>
-          </div>);
+          </div>
+        );
 
     }
 

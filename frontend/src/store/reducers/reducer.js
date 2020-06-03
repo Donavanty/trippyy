@@ -9,11 +9,11 @@ const initialState = {
 	userId: null,
 
 	trip: {
-		'country' : null,
-		'lat' : null,
-		'lng' : null,
-		'startDate': null,
-		'endDate' : null,
+		'country' : "",
+		'lat' : 0,
+		'lng' : 0,
+		'startDate': "",
+		'endDate' : "",
 	},
 
 	map: {
@@ -59,7 +59,6 @@ const authFail = (state, action) => {
 const authLogout = (state, action) => {
 	return updateObject(state, {
 		token: null,
-		trip: null,
 	});
 }
 

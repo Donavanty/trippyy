@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import axios from "axios";
 import NavBar from '../Components/navBar';
 import Map from '../Components/Map'
+import ActivityList from '../Components/ActivityList'
 import "./CSS/global.css"
 
 class Shopping extends Component {
@@ -31,9 +32,7 @@ class Shopping extends Component {
     }
 
     render() {
-        if (this.props.trip === null ) {
-          return <h1> loading </h1>
-        }
+
         return (
           <div className = "container-fluid align-items-center">
               <NavBar from={this.props.location.pathname}/>
@@ -42,6 +41,7 @@ class Shopping extends Component {
                   <div className = "col-4">
                     <h1> Shopping! </h1>
                     <p> Welcome to {this.props.trip["country"]} </p>
+                    <ActivityList/>
                   </div>
 
                   <div className ="col-8">

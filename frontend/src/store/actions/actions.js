@@ -171,4 +171,11 @@ export const checkedTrip = () => {
 	}
 }
 
+export const mapBoundsChanged = (bounds) => {
+	return {
+		type: actionTypes.MAP_BOUNDS_CHANGED,
+		bounds: bounds
+	}
+}
+
 

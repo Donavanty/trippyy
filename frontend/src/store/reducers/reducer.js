@@ -14,6 +14,21 @@ const initialState = {
 		'lng' : null,
 		'startDate': null,
 		'endDate' : null,
+	},
+
+	map: {
+		'bounds': {
+			"upper": {
+				"lat": 0,
+				"lng": 0,
+
+			}, 
+
+			"lower": {
+				"lat": 0,
+				"lng": 0,
+			},
+		}
 	}
 }
 
@@ -55,9 +70,19 @@ const newTrip = (state, action) => {
 	})
 }
 
+const updateBounds = (state, action) => {
+	const newMap = updateObject(state.map, {
+		bounds: action.bounds
+	})
+
+	return updateObject(state, {
+		map: newMap
+	})
+}
 const reducer = (state=initialState, action) => {
 	switch(action.type) {
 
+		case actionTypes.MAP_BOUNDS_CHANGED: return updateBounds(state, action);
 		case actionTypes.NEW_TRIP: return newTrip(state, action);
 		case actionTypes.AUTH_START: return authStart(state, action);
 		case actionTypes.AUTH_SUCCESS: return authSuccess(state, action);

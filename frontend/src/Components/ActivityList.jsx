@@ -7,13 +7,25 @@ import * as actions from '../store/actions/actions';
 import { connect } from 'react-redux';
 // -------------------------------------------------------------------------
 
+import axios from "axios";
+
+const API_KEY = "AIzaSyDyb0_iNF_gpoxydk5Vd8IpWj1Hy1Tp5Vc"
 
 class ActivityList extends Component{
 
     state = {
+        activities: []
     }
-    componentDidMount() {
 
+    componentDidMount() {
+        axios.get("https://maps.googleapis.com/maps/api/place/textsearch/xml?query=restaurants+in+Sydney&key="+API_KEY) 
+          .then( (res) => {
+
+            alert(res);
+            console.log(res);
+        }).catch( (error) => {
+            alert(error);
+        });
     }
 
     render() {

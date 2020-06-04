@@ -15,6 +15,22 @@ import {
 
 let ref
 
+// Given bounds, gets radius.
+function getBoundsRadius(bounds){
+    // r = radius of the earth in km
+    var r = 6378.8
+    // degrees to radians (divide by 57.2958)
+    var ne_lat = bounds.getNorthEast().lat() / 57.2958
+    var ne_lng = bounds.getNorthEast().lng() / 57.2958
+    var c_lat = bounds.getCenter().lat() / 57.2958
+    var c_lng = bounds.getCenter().lng() / 57.2958
+    // distance = circle radius from center to Northeast corner of bounds
+    var r_km = r * Math.acos(
+    Math.sin(c_lat) * Math.sin(ne_lat) + 
+    Math.cos(c_lat) * Math.cos(ne_lat) * Math.cos(ne_lng - c_lng)
+    )
+    return r_km *1000 // radius in meters
+}
 class Map extends Component{
 
     state = {
@@ -56,7 +72,11 @@ class Map extends Component{
             "lower": {
                 "lat": newBounds["Ya"]["i"],
                 "lng": newBounds["Ua"]["i"],
-            }
+            },
+
+            "center": ref.getCenter(),
+
+            "radius": getBoundsRadius(newBounds),
         }
 
         //Updates new bounds to Redux
@@ -79,6 +99,7 @@ class Map extends Component{
         if (this.state.startBounds === null) {
             this.setState({startBounds: ref.getBounds()})
         }
+        this.uponBoundsChanged();
     }
     //First load, thus need to use local storage.
     WrappedMap = withScriptjs(withGoogleMap(props =>

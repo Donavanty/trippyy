@@ -18,11 +18,22 @@ class ActivityList extends Component{
     }
 
     componentDidMount() {
-        axios.get("https://maps.googleapis.com/maps/api/place/textsearch/xml?query=restaurants+in+Sydney&key="+API_KEY) 
-          .then( (res) => {
+        alert("Note: Current list of data is hard-coded to be Singapore, retrieving of data should be moved to redux store.")
 
-            alert(res);
-            console.log(res);
+        // Data parameters as such: 
+        // for api/TextSearch/ - key: API_KEY, query: text query
+        // for api/BoundedTextSearch/ - key: API_KEY, query: text query, lat: lat of center, lng: lng of center, radius: radius of map
+        // for api/NextKeySearch/ - key: API_KEY, next_page_token: next page token
+        const data = {
+            key: API_KEY,
+            query: "singapore+places+of+interest"
+        }
+
+        // Retrieves Singapore places of interest.
+        axios.post("http://trippyy-backend.herokuapp.com/api/TextSearch/", data)
+          .then( (res) => {
+            console.log(res.data.results);
+            this.setState({activities: res.data.results});
         }).catch( (error) => {
             alert(error);
         });
@@ -33,6 +44,9 @@ class ActivityList extends Component{
             <Fragment>
                 <ul>
                     <li> Hello sir! </li>
+                    { 
+                        this.state.activities.map((value,index) => <li key={index}> {value.name} </li>)
+                    }
                 </ul>
             </Fragment>
         );

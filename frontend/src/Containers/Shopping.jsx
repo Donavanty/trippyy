@@ -36,7 +36,7 @@ class Shopping extends Component {
         return (
           <div className = "container-fluid align-items-center">
               <NavBar from={this.props.location.pathname}/>
-              <div className = "jumbotron startBox">
+              <div className = "startBox">
                 <div className = "row">
                   <div className = "col-4">
                     <h1> Shopping! </h1>

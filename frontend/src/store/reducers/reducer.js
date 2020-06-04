@@ -28,6 +28,10 @@ const initialState = {
 				"lat": 0,
 				"lng": 0,
 			},
+
+            "center": null,
+
+            "radius": 0,
 		}
 	}
 }
@@ -78,6 +82,7 @@ const updateBounds = (state, action) => {
 		map: newMap
 	})
 }
+
 const reducer = (state=initialState, action) => {
 	switch(action.type) {
 

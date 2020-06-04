@@ -1,9 +1,12 @@
 from rest_framework.generics import ListAPIView, RetrieveAPIView, ListCreateAPIView, RetrieveUpdateDestroyAPIView
-
+from rest_framework.views import APIView
 from trips.models import Trip
 
-from django.contrib.auth.models import User
+import requests
+import json
+from rest_framework.renderers import JSONRenderer
 
+from django.contrib.auth.models import User
 from .serializers import UserSerializer, TripSerializer
 from rest_framework import permissions
 from .permissions import UserIsOwner, TripIsOwner
@@ -18,16 +21,45 @@ class TripList(ListCreateAPIView):
 class TripDetail(RetrieveUpdateDestroyAPIView):
     queryset = Trip.objects.all()
     serializer_class = TripSerializer
-    # permission_classes = [permissions.IsAuthenticatedOrReadOnly,TripIsOwner]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,TripIsOwner]
 
 class UserList(ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
 class UserDetail(RetrieveAPIView):
-    # permission_classes = [permissions.IsAuthenticatedOrReadOnly,UserIsOwner]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,UserIsOwner]
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+class TextSearch(APIView):
+    def post(self, request, *args, **kwargs):
+        data = request.data
+        url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + data["query"] + "&key=" + data["key"]
+        r = requests.get(url)
+        output = r.json()
+
+        return Response(output, status=200)
+
+class NextKeySearch(APIView):
+    def post(self, request, *args, **kwargs):
+        data = request.data
+        url = "https://maps.googleapis.com/maps/api/place/textsearch/json?pagetoken=" + data["next_page_token"] + "&key=" + data["key"]
+        r = requests.get(url)
+        output = r.json()
+
+        return Response(output, status=200)
+
+class BoundedTextSearch(APIView):
+    def post(self, request, *args, **kwargs):
+        data = request.data
+        url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + data["query"] + "&location=" + data["lat"] + "," + data["lng"] + "&radius=" + data["radius"] + "&key=" + data["key"]
+        r = requests.get(url)
+        output = r.json()
+
+        return Response(output, status=200)
+
+
 
 # Custom View to Login such that UserID is returned.
 from rest_framework.authtoken.views import ObtainAuthToken

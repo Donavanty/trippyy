@@ -19,29 +19,20 @@ class MyTrips extends Component {
 		trips: [],
 		local_loading: null
 	}
-	componentDidMount() {
 
-		this.setState({local_loading: true});
-
-		//Updates login status to redux.
-		this.props.onTryAutoSignup();
-
-		//If user is not logged in, redirect to Login page
-		if (localStorage.getItem('token') == null || localStorage.getItem('token') == undefined) {
-			this.props.history.push({
-					pathname: "/login",
-					state: { from: this.props.location.pathname }
-				});
-		}
-
-		// Loads trips from backend assuming logged in, catch doesnt handle!
-		// Need to add checks 
+	loadTrips = () => {
 		try {
 			axios.get(DATABASE_URL + "api/users/" + localStorage.userId, {
 				headers: {Authorization: "Token " + localStorage.token}
 			}).then(res => {
 				this.setState({tripIDs: res.data.trips});
 			}).then(res => {
+				// If no trips, finish loading.
+				if (this.state.tripIDs.length <= 0) {
+					this.setState({local_loading: false});
+				}
+
+				// If have trips, get trips.
 				for (let i = 0; i < this.state.tripIDs.length; i++) {
 					axios.get(DATABASE_URL + "api/trips/" + this.state.tripIDs[i], 
 					{
@@ -57,13 +48,32 @@ class MyTrips extends Component {
 						}
 					});	
 				}
-				// In the event that there is 0 trips, it will change loading to false.
-				this.setState({local_loading: false});
 			})
 		} catch (error) {
 			alert(error);
 			this.props.history.push("/");
 		}
+	}
+	componentDidMount() {
+
+		this.setState({local_loading: true});
+
+		//Updates login status to redux.
+		this.props.onTryAutoSignup();
+
+		//If user is not logged in, redirect to Login page
+		if (localStorage.getItem('token') == null || localStorage.getItem('token') == undefined) {
+			this.props.history.push({
+					pathname: "/login",
+					state: { from: this.props.location.pathname }
+				});
+		}
+
+		this.loadTrips()
+
+		// Loads trips from backend assuming logged in, catch doesnt handle!
+		// Need to add checks 
+		
 	}
 
 render() {

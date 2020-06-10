@@ -178,4 +178,38 @@ export const mapBoundsChanged = (bounds) => {
 	}
 }
 
+export const activitiesStart = () => {
+	return {
+		type: actionTypes.ACTIVITIES_START
+	}
+}
+
+export const activitiesLoaded = (data) => {
+	return (dispatch) => {
+		dispatch(activitiesStart());
+		dispatch(activitiesLoadedData(data));
+	}
+}
+
+export const activitiesLoadedData = (data) => {
+	return (dispatch) => {
+
+	axios.post("http://trippyy-backend.herokuapp.com/api/TextSearch/", data)
+          .then( (res) => {
+          	console.log(res.data["results"])
+            dispatch({
+            	type: actionTypes.ACTIVITIES_LOAD,
+            	activitiesShown: res.data["results"]
+            })
+        }).catch( (error) => {
+            alert(error);
+            dispatch({
+            	type: actionTypes.ACTIVITIES_LOAD,
+            	activitiesShown: []
+            })
+        });
+
+    }
+}
+
 

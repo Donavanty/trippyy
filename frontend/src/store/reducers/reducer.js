@@ -5,6 +5,7 @@ const initialState = {
 	token: null,
 	error: null,
 	loading: false,
+	activitiesLoading: false,
 	username: null,
 	userId: null,
 
@@ -33,7 +34,9 @@ const initialState = {
 
             "radius": 0,
 		}
-	}
+	},
+
+	activitiesShown: []
 }
 
 const authStart = (state, action) => {
@@ -83,9 +86,24 @@ const updateBounds = (state, action) => {
 	})
 }
 
+const activitiesLoad = (state, action) => {
+	return updateObject(state, {
+		activitiesShown: action.activitiesShown,
+		activitiesLoading: false
+	})
+}
+
+const activitiesStart = (state, action) => {
+	return updateObject(state, {
+		activitiesLoading: true
+	})
+}
+
 const reducer = (state=initialState, action) => {
 	switch(action.type) {
 
+		case actionTypes.ACTIVITIES_START: return activitiesStart(state, action);
+		case actionTypes.ACTIVITIES_LOAD: return activitiesLoad(state, action);
 		case actionTypes.MAP_BOUNDS_CHANGED: return updateBounds(state, action);
 		case actionTypes.NEW_TRIP: return newTrip(state, action);
 		case actionTypes.AUTH_START: return authStart(state, action);

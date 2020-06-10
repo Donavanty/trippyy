@@ -78,9 +78,7 @@ class Login extends Component {
 const mapStateToProps = (state) => {
     return {
       isAuthenticated: state.token !== null,
-
       loading: state.loading,
-      error: state.error
     }
 }
 

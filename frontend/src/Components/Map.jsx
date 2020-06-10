@@ -10,10 +10,12 @@ import {
     withScriptjs,
     withGoogleMap,
     GoogleMap,
-    Marker
+    Marker,
+    InfoWindow
 } from "react-google-maps";
 
 let ref
+
 
 // Given bounds, gets radius.
 function getBoundsRadius(bounds){
@@ -31,6 +33,7 @@ function getBoundsRadius(bounds){
     )
     return r_km *1000 // radius in meters
 }
+
 class Map extends Component{
 
     state = {
@@ -42,6 +45,9 @@ class Map extends Component{
         startZoom: 0,
 
         startBounds: null,
+
+        showInfoWindow: false,
+        currentInfoWindow: 0,
     }
     componentDidMount() {
         if (localStorage.trip !== undefined) {
@@ -122,6 +128,10 @@ class Map extends Component{
         </GoogleMap>
       ));
 
+    markerClickHandler = (event, index) => {
+        this.setState({showInfoWindow: true})
+        this.setState({currentInfoWindow: index})
+    }
 
     render() {
         return (
@@ -134,9 +144,22 @@ class Map extends Component{
                     containerElement={<div style={{ height: `600px` }} />}
                     mapElement={<div style={{ height: `100%` }} />}
                 >
-                    <Marker
-                        position = {{ lat: this.props.map["bounds"]["lower"]["lat"], lng: this.props.map["bounds"]["lower"]["lng"]}}
-                    />
+                 
+                    { 
+                        this.props.activitiesShown.map((value,index) => 
+                            <Marker key={index} position = {value.geometry.location} label={(index+1).toString()}
+                                onClick = {(event) => this.markerClickHandler(event, index)}>
+
+                                {this.state.showInfoWindow && (this.state.currentInfoWindow == index) && 
+                                    (<InfoWindow onCloseClick= {() => this.setState({showInfoWindow: false})}> 
+                                        <span>{value.name}</span> 
+                                    </InfoWindow>)
+                                }
+
+                            </Marker>)
+
+                    }
+
 
                 </this.WrappedMap>
             </Fragment>
@@ -147,13 +170,13 @@ class Map extends Component{
 const mapStateToProps = (state) => {
     return {
         trip: state.trip,
-        map: state.map
+        map: state.map,
+        activitiesShown: state.activitiesShown
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        checkedTrip: () => dispatch(actions.checkedTrip()),
         mapBoundsChanged: (bounds) => dispatch(actions.mapBoundsChanged(bounds)),
     }
 }

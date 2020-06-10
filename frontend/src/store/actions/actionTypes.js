@@ -4,3 +4,5 @@ export const AUTH_FAIL = 'AUTH_FAIL';
 export const AUTH_LOGOUT = 'AUTH_LOGOUT';
 export const NEW_TRIP = 'NEW_TRIP'
 export const MAP_BOUNDS_CHANGED = 'MAP_BOUNDS_CHANGED'
+export const ACTIVITIES_LOAD = 'ACTIVITIES_LOAD'
+export const ACTIVITIES_START = 'ACTIVITIES_START'

@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
-
+import {updateObject, recommendTime} from '../utility';
 const DATABASE_URL = "https://trippyy-backend.herokuapp.com/"
 
 // Sends an action to reducer to change loading to true.
@@ -178,7 +178,12 @@ export const activitiesLoadedData = (data) => {
 
 	axios.post("http://trippyy-backend.herokuapp.com/api/TextSearch/", data)
           .then( (res) => {
-          	console.log(res.data["results"])
+          	for ( var item of res.data["results"]) {
+          		const wrapper = recommendTime(item)
+          		item["recommendedTime"] = wrapper[0];
+          		item["category"] = wrapper[1];
+          	}
+          	console.log(JSON.stringify(res.data["results"]))
             dispatch({
             	type: actionTypes.ACTIVITIES_LOAD,
             	activitiesShown: res.data["results"]

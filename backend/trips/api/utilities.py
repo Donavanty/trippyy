@@ -15,9 +15,9 @@ def addTimeAndSummary(r):
 		# else:
 		# 	place["summary"] = "No information available"
 		# Summary to be postponed ----------------------------------------------------------------
-	print(data["results"][0])
+		
 	output = json.dumps(data)
-	return output.json()
+	return output
 
 def recommendTime(place):
 	if ("amusement_park" in place["types"]):

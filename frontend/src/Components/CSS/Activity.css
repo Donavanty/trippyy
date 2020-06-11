@@ -1,0 +1,14 @@
+#notAdded {
+	background-color: peachpuff;
+}
+
+#added {
+	background-color: grey;
+}
+
+.activity {
+	border-radius: 10px;
+	margin-top: 20px;
+	padding: 20px;
+	width: 100%;
+}

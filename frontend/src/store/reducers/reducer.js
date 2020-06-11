@@ -14,6 +14,8 @@ const initialState = {
 		'lng' : -1,
 		'startDate': "",
 		'endDate' : "",
+		'activitiesAdded' : [],
+		'activitiesAddedIds' : [],
 	},
 
 	map: {
@@ -102,9 +104,35 @@ const activitiesStart = (state, action) => {
 	})
 }
 
+const activitiesAdd = (state, action) => {
+	// Retrieve trip for cache, can be done using state too, but both works.
+	var currentTrip = JSON.parse(localStorage.trip);
+
+	// Retrieve activity that was added by referencing the index (id) 
+	// Update the activity such that {added: true}
+	var activityAdded = state.activitiesShown[action.index];
+	activityAdded = updateObject(activityAdded, {added: true});
+
+	// Replace the activity in ActivitiesShown with a new one that says added:true
+	var activitiesShown = [...state.activitiesShown];
+	activitiesShown[action.index] = activityAdded;
+
+	// Merge all changes into currentTrip
+	currentTrip['activitiesAdded'].push(activityAdded);
+	currentTrip['activitiesAddedIds'].push(activityAdded.id)
+
+	// Update currentTrip
+	localStorage.setItem('trip', JSON.stringify(currentTrip));
+
+	return updateObject(state, {
+		trip: currentTrip,
+		activitiesShown: activitiesShown,
+	})
+}
 const reducer = (state=initialState, action) => {
 	switch(action.type) {
 
+		case actionTypes.ACTIVITY_ADD: return activitiesAdd(state,action);
 		case actionTypes.ACTIVITIES_START: return activitiesStart(state, action);
 		case actionTypes.ACTIVITIES_LOAD: return activitiesLoad(state, action);
 		case actionTypes.MAP_BOUNDS_CHANGED: return updateBounds(state, action);

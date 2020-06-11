@@ -121,6 +121,8 @@ export const newTripData = (tripCountry, tripLat, tripLng, startDate, endDate) =
 		'lng' : tripLng,
 		'startDate' : startDate,
 		'endDate' : endDate,
+		'activitiesAdded': [],
+		'activitiesAddedIds': [],
 	}
 	localStorage.setItem('trip', JSON.stringify(trip));
 	return {
@@ -178,11 +180,20 @@ export const activitiesLoadedData = (data) => {
 
 	axios.post("http://trippyy-backend.herokuapp.com/api/TextSearch/", data)
           .then( (res) => {
-          	res = (JSON.parse(res.data))
-          	// console.log(JSON.stringify(res["results"]))
+
+          	// Upon loading data, check if the activities ID are already added into trip, by comparing with local
+          	// if added already, add a {added: true} to the activity
+          	res = (JSON.parse(res.data))["results"]
+          	for (var i = 0; i < res.length; i++) {
+          		if (JSON.parse(localStorage.trip)["activitiesAddedIds"].includes(res[i].id)) {
+          			const newPlace = updateObject(res[i], {added: true})
+          			res[i] = newPlace
+          		}
+          	}
+
             dispatch({
             	type: actionTypes.ACTIVITIES_LOAD,
-            	activitiesShown: res["results"]
+            	activitiesShown: res
             })
         }).catch( (error) => {
             alert(error);
@@ -195,4 +206,10 @@ export const activitiesLoadedData = (data) => {
     }
 }
 
+export const activitiesAdded = (index) => {
+	return {
+		type: actionTypes.ACTIVITY_ADD,
+		index: index
+	}
+}
 

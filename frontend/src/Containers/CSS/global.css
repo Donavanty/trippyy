@@ -10,3 +10,9 @@
 .element {
 	margin-top: 10px;
 }
+
+#activitiesBox {
+	border-color: peachpuff;
+	border-style: solid;
+	padding-top: 10px;
+}

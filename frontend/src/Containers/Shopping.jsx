@@ -11,6 +11,7 @@ import axios from "axios";
 import NavBar from '../Components/navBar';
 import Map from '../Components/Map'
 import ActivityList from '../Components/ActivityList'
+import SelectedActivityList from '../Components/SelectedActivityList'
 import "./CSS/global.css"
 
 class Shopping extends Component {
@@ -38,13 +39,16 @@ class Shopping extends Component {
               <NavBar from={this.props.location.pathname}/>
               <div className = "startBox">
                 <div className = "row">
-                  <div className = "col-4">
-                    <h1> Shopping! </h1>
-                    <p> Welcome to {this.props.trip["country"]} </p>
+                  <div className = "col-3">
+                    <h2> Welcome to {this.props.trip["country"]} </h2>
+                    <SelectedActivityList/>
+                  </div>
+                  <div className = "col-3" id="activitiesBox">
+                    <h2> Activities: </h2>
                     <ActivityList/>
                   </div>
 
-                  <div className ="col-8">
+                  <div className ="col-6">
                     <Map/>
                   </div>
                 </div>

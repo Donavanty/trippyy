@@ -9,6 +9,8 @@ import { connect } from 'react-redux';
 
 import axios from "axios";
 import { Spinner } from 'react-bootstrap';
+import "./CSS/ActivityList.css";
+import Activity from './Activity'
 
 const API_KEY = "AIzaSyDyb0_iNF_gpoxydk5Vd8IpWj1Hy1Tp5Vc"
 
@@ -25,6 +27,11 @@ class ActivityList extends Component{
         }
         return text
     }
+
+    activityClickHandler = (index) => {
+        this.props.activitiesAdded(index);
+    }
+
     componentDidMount() {
         // Data parameters as such: 
         // for api/TextSearch/ - key: API_KEY, query: text query
@@ -41,8 +48,8 @@ class ActivityList extends Component{
 
     render() {
         return (
-            <Fragment>
-                <ul>
+            <div id="activityList">
+                    
                     { this.props.activitiesLoading ?
                      
                         <Spinner animation="border" role="status">
@@ -51,12 +58,12 @@ class ActivityList extends Component{
 
                         : 
 
-                        this.props.activitiesShown.map((value,index) => <li key={index}> {index+1} : {value.name} </li>)
+                        this.props.activitiesShown.map((value,index) => <Activity key ={index} value={value} index={index} activityClickHandler={this.activityClickHandler}/>)
 
                     }
                         
-                </ul>
-            </Fragment>
+                
+            </div>
         );
     }
 }
@@ -75,6 +82,7 @@ const mapDispatchToProps = dispatch => {
         checkedTrip: () => dispatch(actions.checkedTrip()),
         mapBoundsChanged: (bounds) => dispatch(actions.mapBoundsChanged(bounds)),
         activitiesLoaded: (data) => dispatch(actions.activitiesLoaded(data)),
+        activitiesAdded: (index) => dispatch(actions.activitiesAdded(index)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ActivityList);

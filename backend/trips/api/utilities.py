@@ -25,15 +25,15 @@ def recommendTime(place):
 	elif ("zoo" in place["types"]):
 		return [360, "zoo"]
 	elif ("shopping_mall" in place["types"]):
-		return [360, "shopping_mall"]
+		return [180, "shopping_mall"]
 	elif ("museum" in place["types"]):
-		return [360, "museum"]
+		return [180, "museum"]
 	elif ("park" in place["types"]):
-		return [360, "park"]
+		return [120, "park"]
 	elif ("hindu_temple" in place["types"]):
-		return [360, "hindu_temple"]
+		return [120, "hindu_temple"]
 	elif ("church" in place["types"]):
-		return [360, "church"]
+		return [120, "church"]
 	else:
 		return [120, "others"]
 

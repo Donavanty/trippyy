@@ -147,16 +147,32 @@ class Map extends Component{
                  
                     { 
                         this.props.activitiesShown.map((value,index) => 
-                            <Marker key={index} position = {value.geometry.location} label={(index+1).toString()}
-                                onClick = {(event) => this.markerClickHandler(event, index)}>
 
-                                {this.state.showInfoWindow && (this.state.currentInfoWindow == index) && 
-                                    (<InfoWindow onCloseClick= {() => this.setState({showInfoWindow: false})}> 
-                                        <span>{value.name}</span> 
-                                    </InfoWindow>)
-                                }
+                            value.added ? 
 
-                            </Marker>)
+                                <Marker key={index} position = {value.geometry.location} label={(index+1).toString()}
+                                    onClick = {(event) => this.markerClickHandler(event, index)} icon ="http://maps.google.com/mapfiles/ms/icons/blue.png">
+
+                                    {this.state.showInfoWindow && (this.state.currentInfoWindow == index) && 
+                                        (<InfoWindow onCloseClick= {() => this.setState({showInfoWindow: false})}> 
+                                            <span>{value.name}</span> 
+                                        </InfoWindow>)
+                                    }
+
+                                </Marker>                            
+
+                            :
+
+                                <Marker key={index} position = {value.geometry.location} label={(index+1).toString()}
+                                    onClick = {(event) => this.markerClickHandler(event, index)}>
+
+                                    {this.state.showInfoWindow && (this.state.currentInfoWindow == index) && 
+                                        (<InfoWindow onCloseClick= {() => this.setState({showInfoWindow: false})}> 
+                                            <span>{value.name}</span> 
+                                        </InfoWindow>)
+                                    }
+
+                                </Marker>)
 
                     }
 

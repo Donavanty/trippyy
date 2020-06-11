@@ -17,7 +17,7 @@ def addTimeAndSummary(r):
 		# Summary to be postponed ----------------------------------------------------------------
 	print(data["results"][0])
 	output = json.dumps(data)
-	return output
+	return output.json()
 
 def recommendTime(place):
 	if ("amusement_park" in place["types"]):

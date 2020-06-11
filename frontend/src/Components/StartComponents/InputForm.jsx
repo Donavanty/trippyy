@@ -66,7 +66,7 @@ class InputForm extends Component {
 	      <div className = "container-fluid align-items-center inputForm">
 	      	{
 	    		 (this.props.isAuthenticated) ?
-	    			 <h1>Hello, {this.props.username}!</h1> : (<h1>Hello stranger:)</h1>)
+	    			 <h1>Hello, {this.props.user.username}!</h1> : (<h1>Hello stranger:)</h1>)
 	    	}
 	          <div className = "jumbotron">
 	              <form onSubmit = {this.newTrip}> 
@@ -102,8 +102,8 @@ class InputForm extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        isAuthenticated: state.token !== null,
-        username: state.username,
+        isAuthenticated: state.user !== null,
+        user: state.user,
         loading: state.loading
     }
 }

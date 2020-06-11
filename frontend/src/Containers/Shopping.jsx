@@ -60,7 +60,7 @@ class Shopping extends Component {
 
 const mapStateToProps = (state) => {
     return {
-      isAuthenticated: state.token !== null,
+      isAuthenticated: state.user !== null,
       trip: state.trip,
       loading: state.loading,
       error: state.error

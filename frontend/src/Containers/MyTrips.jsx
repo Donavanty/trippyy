@@ -22,8 +22,9 @@ class MyTrips extends Component {
 
 	loadTrips = () => {
 		try {
-			axios.get(DATABASE_URL + "api/users/" + localStorage.userId, {
-				headers: {Authorization: "Token " + localStorage.token}
+			const user = JSON.parse(localStorage.user);
+			axios.get(DATABASE_URL + "api/users/" + user['id'], {
+				headers: {Authorization: "Token " + user['token']}
 			}).then(res => {
 				this.setState({tripIDs: res.data.trips});
 			}).then(res => {
@@ -36,7 +37,7 @@ class MyTrips extends Component {
 				for (let i = 0; i < this.state.tripIDs.length; i++) {
 					axios.get(DATABASE_URL + "api/trips/" + this.state.tripIDs[i], 
 					{
-						headers: {Authorization: "Token " + localStorage.token}
+						headers: {Authorization: "Token " + user['token']}
 					}).then( res => {
 						this.setState(
 							{trips: [...this.state.trips, res.data]}
@@ -62,14 +63,14 @@ class MyTrips extends Component {
 		this.props.onTryAutoSignup();
 
 		//If user is not logged in, redirect to Login page
-		if (localStorage.getItem('token') == null || localStorage.getItem('token') == undefined) {
+		if (localStorage.user == null || localStorage.user == undefined) {
 			this.props.history.push({
 					pathname: "/login",
 					state: { from: this.props.location.pathname }
 				});
+		} else {
+			this.loadTrips()
 		}
-
-		this.loadTrips()
 
 		// Loads trips from backend assuming logged in, catch doesnt handle!
 		// Need to add checks 
@@ -106,8 +107,8 @@ render() {
 
 const mapStateToProps = (state) => {
 	return {
-		isAuthenticated: state.token !== null,
-		username: state.username
+		isAuthenticated: state.user !== null,
+		user: state.user
 	}
 }
 

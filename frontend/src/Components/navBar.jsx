@@ -42,7 +42,7 @@ class NavBar extends Component {
 				</li>
 
 				<li className="nav-item">
-				<Link to="/mytrips" className="nav-link"> Account: {this.props.username} </Link>
+				<Link to="/mytrips" className="nav-link"> Account: {this.props.user.username} </Link>
 				</li>
 				</React.Fragment>
 				:
@@ -75,8 +75,8 @@ class NavBar extends Component {
 const mapStateToProps = (state) => {
 	return {
 		// Basic stats needed for NAV ------------
-		isAuthenticated: state.token !== null,
-		username: state.username
+		isAuthenticated: state.user !== null,
+		user: state.user
 		// Basic stats needed for NAV ------------
 	}
 }

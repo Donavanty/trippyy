@@ -19,7 +19,7 @@ class Login extends Component {
       this.props.onTryAutoSignup();
 
       //Checks if logged in, redirect to mainpage.
-      if (localStorage.token !== null && localStorage.token !== undefined) {
+      if (localStorage.user !== null && localStorage.user !== undefined) {
         this.props.history.push('/');
       }
     }

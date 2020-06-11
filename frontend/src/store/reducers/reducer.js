@@ -2,17 +2,16 @@ import * as actionTypes from '../actions/actionTypes';
 import {updateObject} from '../utility';
 
 const initialState = {
-	token: null,
 	error: null,
 	loading: false,
 	activitiesLoading: false,
-	username: null,
-	userId: null,
+
+	user: null,
 
 	trip: {
 		'country' : "",
-		'lat' : 0,
-		'lng' : 0,
+		'lat' : -1,
+		'lng' : -1,
 		'startDate': "",
 		'endDate' : "",
 	},
@@ -20,19 +19,19 @@ const initialState = {
 	map: {
 		'bounds': {
 			"upper": {
-				"lat": 0,
-				"lng": 0,
+				"lat": -1,
+				"lng": -1,
 
 			}, 
 
 			"lower": {
-				"lat": 0,
-				"lng": 0,
+				"lat": -1,
+				"lng": -1,
 			},
 
             "center": null,
 
-            "radius": 0,
+            "radius": -1,
 		}
 	},
 
@@ -47,12 +46,16 @@ const authStart = (state, action) => {
 }
 
 const authSuccess = (state, action) => {
+	const user = {
+		'id': action.userId,
+		'token': action.token,
+		'username': action.username
+	}
+	
 	return updateObject(state, {
-		token: action.token,
+		user: user,
 		error: null,
 		loading: false,
-		username: action.username,
-		userId: action.userId,
 	});
 }
 
@@ -65,7 +68,7 @@ const authFail = (state, action) => {
 
 const authLogout = (state, action) => {
 	return updateObject(state, {
-		token: null,
+		user: null,
 	});
 }
 

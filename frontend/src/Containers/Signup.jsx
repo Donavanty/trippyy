@@ -18,7 +18,7 @@ class Signup extends Component {
       this.props.onTryAutoSignup();
 
       //If user is logged in, redirect to main page.
-      if (localStorage.token !== null && localStorage.token !== undefined) {
+      if (localStorage.user !== null && localStorage.user !== undefined) {
         alert("Please logout to create a new account");
         this.props.history.push('/');
       }
@@ -79,7 +79,7 @@ class Signup extends Component {
 const mapStateToProps = (state) => {
     return {
       loading: state.loading,
-      isAuthenticated: state.token !== null
+      isAuthenticated: state.user !== null
 
     }
 }

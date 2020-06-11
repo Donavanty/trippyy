@@ -38,21 +38,9 @@ export const logouted = () => {
 
 // Called during checking of authentication state, updates REDUX token, remove all USER attributes in LOCALSTORAGE
 export const notLoggedIn = () => {
-	localStorage.removeItem('username');
 	localStorage.removeItem('user');
-	localStorage.removeItem('expirationDate');
-	localStorage.removeItem('token');
-	localStorage.removeItem('userId');
 	return {
 		type: actionTypes.AUTH_LOGOUT
-	}
-}
-
-export const checkAuthTimeouted = expirationTime => {
-	return dispatch => {
-		setTimeout( () => {
-			dispatch(logouted());
-		}, expirationTime * 1000)
 	}
 }
 
@@ -67,13 +55,13 @@ export const authLogined = (username, password) => {
 		}).then(res => {
 			const token = res.data.token;
 			const userId = res.data.id;
-			const expirationDate = new Date(new Date().getTime() + 3600 * 1000);
-			localStorage.setItem('token', token);
-			localStorage.setItem('expirationDate', expirationDate);
-			localStorage.setItem('username', username);
-			localStorage.setItem('userId', userId);
+			const user = {
+				'id': userId,
+				'token': token,
+				'username': username
+			}
+			localStorage.setItem('user', JSON.stringify(user));
 			dispatch(authSuccessed(token, username, userId));
-			dispatch(checkAuthTimeouted(3600));
 		})
 		.catch(err => {
 			dispatch(authFailed(err))
@@ -102,19 +90,13 @@ export const authSignuped = (username, email, password1, password2) => {
 // Checks with LOCALSTORAGE (token) if user is logged in, and updates REDUX token accordingly.
 export const authCheckedState = () => {
 	return dispatch => {
-		const token = localStorage.getItem('token');
-		const username = localStorage.getItem('username');
-		if (token === undefined || token === null) {
+		const user = JSON.parse(localStorage.getItem('user'));
+		if (user === undefined || user === null) {
 			dispatch(notLoggedIn());
 		} else {
-			const expirationDate = new Date(localStorage.getItem('expirationDate'));
-			if (expirationDate <= new Date() ) {
-				dispatch(logouted());
-			} else {
-				dispatch(authSuccessed(token, username));
-				dispatch(checkAuthTimeouted( (expirationDate.getTime() - new Date().getTime()) / 1000 ));
-			}
-
+			const token = user['token'];
+			const username = user['username'];
+			dispatch(authSuccessed(token, username));
 		}
 	}	
 }

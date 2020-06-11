@@ -178,15 +178,11 @@ export const activitiesLoadedData = (data) => {
 
 	axios.post("http://trippyy-backend.herokuapp.com/api/TextSearch/", data)
           .then( (res) => {
-          	for ( var item of res.data["results"]) {
-          		const wrapper = recommendTime(item)
-          		item["recommendedTime"] = wrapper[0];
-          		item["category"] = wrapper[1];
-          	}
-          	console.log(JSON.stringify(res.data["results"]))
+          	res = (JSON.parse(res.data))
+          	// console.log(JSON.stringify(res["results"]))
             dispatch({
             	type: actionTypes.ACTIVITIES_LOAD,
-            	activitiesShown: res.data["results"]
+            	activitiesShown: res["results"]
             })
         }).catch( (error) => {
             alert(error);

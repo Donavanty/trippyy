@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 from .serializers import UserSerializer, TripSerializer
 from rest_framework import permissions
 from .permissions import UserIsOwner, TripIsOwner
+from .utilities import recommendTime, addTimeAndSummary
 
 class TripList(ListCreateAPIView):
     queryset = Trip.objects.all()
@@ -36,8 +37,9 @@ class TextSearch(APIView):
     def post(self, request, *args, **kwargs):
         data = request.data
         url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + data["query"] + "&key=" + data["key"]
+        # url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=Singapore+points+of+interest&key=AIzaSyDyb0_iNF_gpoxydk5Vd8IpWj1Hy1Tp5Vc"
         r = requests.get(url)
-        output = r.json()
+        output = addTimeAndSummary(r)
 
         return Response(output, status=200)
 

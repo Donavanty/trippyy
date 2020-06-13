@@ -177,29 +177,51 @@ export const activitiesLoaded = (data) => {
 
 export const activitiesLoadedData = (data) => {
 	return (dispatch) => {
-
-	axios.post("http://trippyy-backend.herokuapp.com/api/TextSearch/", data)
+	// Change URL depending on dataType.
+	var url;
+	if (data.dataType == "TEXTSEARCH") {
+		url = "http://trippyy-backend.herokuapp.com/api/TextSearch/"
+	} else if (data.dataType == "NEXTKEYSEARCH") {
+		url = "http://trippyy-backend.herokuapp.com/api/NextKeySearch/"
+	} else if (data.dataType == "BOUNDEDTEXTSEARCH") {
+		url = "http://trippyy-backend.herokuapp.com/api/BoundedTextSearch/"
+	}
+	axios.post(url, data)
           .then( (res) => {
-
           	// Upon loading data, check if the activities ID are already added into trip, by comparing with local
           	// if added already, add a {added: true} to the activity
-          	res = (JSON.parse(res.data))["results"]
-          	for (var i = 0; i < res.length; i++) {
-          		if (JSON.parse(localStorage.trip)["activitiesAddedIds"].includes(res[i].id)) {
-          			const newPlace = updateObject(res[i], {added: true})
-          			res[i] = newPlace
+          	res = (JSON.parse(res.data));
+          	console.log(res);
+          	// Check for next page token, if exist, store it.
+          	var nextPageToken;
+          	if (res["next_page_token"]) {
+          		nextPageToken = res["next_page_token"];
+          	} else {
+          		nextPageToken = -1;
+          	}
+
+          	// Storing results, and checking if place is alr added
+          	var results = res["results"]
+          	for (var i = 0; i < results.length; i++) {
+          		if (JSON.parse(localStorage.trip)["activitiesAddedIds"].includes(results[i].id)) {
+          			const newPlace = updateObject(results[i], {added: true})
+          			results[i] = newPlace
           		}
           	}
 
+          	// Dispatch results
             dispatch({
             	type: actionTypes.ACTIVITIES_LOAD,
-            	activitiesShown: res
+            	dataType: data.dataType,
+            	activitiesShown: results,
+            	nextPageToken: nextPageToken,
             })
         }).catch( (error) => {
             alert(error);
             dispatch({
             	type: actionTypes.ACTIVITIES_LOAD,
-            	activitiesShown: []
+            	dataType: data.dataType,
+            	activitiesShown: [],
             })
         });
 

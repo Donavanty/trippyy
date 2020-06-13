@@ -6,9 +6,18 @@
 	background-color: grey;
 }
 
-.activity {
+.activityTop {
 	border-radius: 10px;
 	margin-top: 20px;
 	padding: 20px;
 	width: 100%;
+	scroll-snap-align: start none;
+}
+
+.activityBottom {
+	border-radius: 10px;
+	margin-top: 20px;
+	padding: 20px;
+	width: 100%;
+	scroll-snap-align: end none;
 }

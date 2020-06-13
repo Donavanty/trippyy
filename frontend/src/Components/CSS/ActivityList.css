@@ -1,4 +1,19 @@
 #activityList {
 	overflow: auto;
 	height: 80vh;
+	overscroll-behavior: contain;
+	position: relative;
+	scroll-snap-type: y mandatory;
+}
+
+#prevPage {
+	height: 200px;
+	text-align: center;
+	line-height: 350px;
+}
+
+#nextPage {
+	height: 200px;
+	text-align: center;
+	line-height: 50px;
 }

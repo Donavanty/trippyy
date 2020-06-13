@@ -37,7 +37,10 @@ const initialState = {
 		}
 	},
 
-	activitiesShown: []
+	activitiesShown: [],
+	fullActivitiesShown: [],
+	firstActivityCounter: 0, 
+	nextPageToken: -1,
 }
 
 const authStart = (state, action) => {
@@ -92,10 +95,27 @@ const updateBounds = (state, action) => {
 }
 
 const activitiesLoad = (state, action) => {
-	return updateObject(state, {
-		activitiesShown: action.activitiesShown,
-		activitiesLoading: false
-	})
+	// If load next page, get and display next page data, and add onto fullActivitiesShown list
+	if (action.dataType == "NEXTKEYSEARCH") {
+		const newFullActivitiesShown = [...state.fullActivitiesShown, action.activitiesShown ];
+		return updateObject(state, {
+			activitiesShown: action.activitiesShown,
+			fullActivitiesShown: newFullActivitiesShown,
+			activitiesLoading: false,
+			nextPageToken: action.nextPageToken,
+			pageNumber: state.pageNumber + 1
+		})
+
+	// On first load of data, re-initiate everything.
+	} else {
+		return updateObject(state, {
+			activitiesShown: action.activitiesShown,
+			fullActivitiesShown: [action.activitiesShown],
+			activitiesLoading: false,
+			pageNumber: 0,
+			nextPageToken: action.nextPageToken,
+		})
+	}
 }
 
 const activitiesStart = (state, action) => {

@@ -142,7 +142,7 @@ class ActivityList extends Component{
                       <Button variant="info" className="customButton" onClick={this.changeCategory} value="Local Favorite">Local Favorites</Button>
                     {
                         (!this.props.isFirstPage) &&
-                            <button onClick = {this.loadPrev}> Scroll to Prev Page </button>
+                            <Button variant="primary" className="customButton" onClick ={this.loadPrev}> Scroll to Prev Page </Button>
                     }
 
                     {this.props.activitiesShown.currentList.map((value,index) => 
@@ -159,7 +159,7 @@ class ActivityList extends Component{
                         this.props.isLastPage ?
                             <div> No more! Try changing category or moving the map </div>
                         :
-                            <button onClick = {this.loadNext}> Scroll to Next Page </button>
+                            <Button variant="primary" className="customButton" onClick ={this.loadNext}> Scroll to Next Page </Button>
                     }
                 </Fragment>
             }

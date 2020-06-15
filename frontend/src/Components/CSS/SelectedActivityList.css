@@ -3,5 +3,6 @@
 	height: 75vh;
 	overscroll-behavior: contain;
 	position: relative;
+	margin-top: 30px;
 	/*scroll-snap-type: y mandatory;*/
 }

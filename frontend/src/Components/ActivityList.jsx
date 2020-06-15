@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 
 import ReactPullToRefresh from 'react-pull-to-refresh'
 import axios from "axios";
-import { Spinner } from 'react-bootstrap';
+import { Spinner ,ButtonGroup , Button} from 'react-bootstrap';
 import "./CSS/ActivityList.css";
 import Activity from './Activity'
 import InfiniteScroll from 'react-infinite-scroller';
@@ -44,7 +44,7 @@ class ActivityList extends Component{
         const data = {
             dataType: "TEXTSEARCH",
             key: API_KEY,
-            query: this.convertSpaceToPlus(JSON.parse(localStorage.trip)["country"]) + "+points+of+interest"
+            query: this.convertSpaceToPlus(JSON.parse(localStorage.trip)["country"] + " points of interest")
         }
         // Retrieves Singapore places of interest.
         this.props.activitiesLoad(data);
@@ -98,6 +98,26 @@ class ActivityList extends Component{
         }
 
     }
+
+    changeCategory = (event) => {
+        if (event.target.value == "general") {
+            const data = {
+                dataType: "TEXTSEARCH",
+                key: API_KEY,
+                query: this.convertSpaceToPlus(JSON.parse(localStorage.trip)["country"] + " points of interest")
+            }
+            // Retrieves Singapore places of interest.
+            this.props.activitiesLoad(data);
+        } else {
+            const data = {
+                dataType: "TEXTSEARCH",
+                key: API_KEY,
+                query: this.convertSpaceToPlus(JSON.parse(localStorage.trip)["country"] + " " + event.target.value + " attractions")
+            }
+            console.log(data.query)
+            this.props.activitiesLoad(data);
+        }
+    }
     render() {
         return (
             <div id="activityList" ref="myscroll">
@@ -109,6 +129,15 @@ class ActivityList extends Component{
 
                 : 
                 <Fragment>
+
+                      <Button variant="info" className="customButton" onClick={this.changeCategory} value="general">General</Button>
+                      <Button variant="info" className="customButton" onClick={this.changeCategory} value="Food">Food</Button>
+                      <Button variant="info" className="customButton" onClick={this.changeCategory} value="Outdoor">Outdoors</Button>
+                      <Button variant="info" className="customButton" onClick={this.changeCategory} value="Art & Culture">Art & Culture</Button>
+                      <Button variant="info" className="customButton" onClick={this.changeCategory} value="Beaches">Beaches</Button>
+                      <Button variant="info" className="customButton" onClick={this.changeCategory} value="Museums">Museums</Button>
+                      <Button variant="info" className="customButton" onClick={this.changeCategory} value="Amusement park">Amusement Parks</Button>
+                      <Button variant="info" className="customButton" onClick={this.changeCategory} value="Local Favorite">Local Favorites</Button>
                     {
                         (!this.props.isFirstPage) &&
                             <button onClick = {this.loadPrev}> Scroll to Prev Page </button>

@@ -1,5 +1,5 @@
 #activityList {
-	overflow: auto;
+	overflow-y: auto;
 	height: 80vh;
 	overscroll-behavior: contain;
 	position: relative;
@@ -16,4 +16,8 @@
 	height: 200px;
 	text-align: center;
 	line-height: 50px;
+}
+
+.customButton {
+	margin: 1px;
 }

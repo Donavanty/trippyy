@@ -1,0 +1,1861 @@
+{"places": [{		"id": "poi:53207",
+    "level": "poi",
+    "rating": 1.3674257866946,
+    "rating_local": 6.837128933473,
+    "quadkey": "132232231111201203111",
+    "location": {
+        "lat": 1.355245,
+        "lng": 103.9881758
+    },
+    "bounding_box": {
+        "south": 1.3203137,
+        "west": 103.971355,
+        "north": 1.3897295,
+        "east": 104.003957
+    },
+    "name": "Singapore Changi Airport",
+    "name_suffix": "Singapore",
+    "name_local": "Singapore Changi Airport (SIN)",
+    "name_en": "Singapore Changi Airport",
+    "name_translated": "Singapore Changi Airport",
+    "url": "https://go.sygic.com/travel/place?id=poi:53207",
+    "duration_estimate": 5400,
+    "marker": "traveling-airport",
+    "class": {
+        "slug": "traveling:airport:international",
+        "name": "International Airport"
+    },
+    "categories": [
+        "traveling"
+    ],
+    "tag_keys": [
+        "Airport",
+        "Free Wi-Fi",
+        "International Airport"
+    ],
+    "parents": [
+        {
+            "id": "region:61281",
+            "name": "Southeast",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "The main airport of Singapore is located about 25 km from the downtown area and is one of the major transportation hubs in Asia.",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:53207"
+},
+{
+    "id": "poi:36690",
+    "level": "poi",
+    "rating": 1.110207090275,
+    "rating_local": 3.0950633307710382,
+    "quadkey": "132232231103123131323",
+    "location": {
+        "lat": 1.2812928,
+        "lng": 103.8643521
+    },
+    "bounding_box": {
+        "south": 1.2759258,
+        "west": 103.8594257,
+        "north": 1.2954899,
+        "east": 103.8766799
+    },
+    "name": "Gardens by the Bay",
+    "name_suffix": "Singapore",
+    "name_local": "Gardens by the Bay",
+    "name_en": "Gardens by the Bay",
+    "name_translated": "Gardens by the Bay",
+    "url": "https://go.sygic.com/travel/place?id=poi:36690",
+    "duration_estimate": 10800,
+    "marker": "relaxing-park-garden",
+    "class": {
+        "slug": "relaxing:park:garden",
+        "name": "Garden"
+    },
+    "categories": [
+        "hiking",
+        "relaxing",
+        "sightseeing",
+        "discovering"
+    ],
+    "tag_keys": [
+        "360° Content",
+        "Strolling Area",
+        "Park",
+        "Garden",
+        "City Park",
+        "Neo-Futurist Architecture",
+        "Botanical Garden",
+        "Free"
+    ],
+    "parents": [
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "This huge garden complex featuring the futuristic Supertrees is a reason in itself to visit Singapore.",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:36690"
+},
+{
+    "id": "poi:37035862",
+    "level": "poi",
+    "rating": 0.83704000398484,
+    "rating_local": 2.333521237087581,
+    "quadkey": "132232231103121222032",
+    "location": {
+        "lat": 1.2861278,
+        "lng": 103.8542517
+    },
+    "bounding_box": {
+        "south": 1.284885,
+        "west": 103.8536029,
+        "north": 1.2870787,
+        "east": 103.8548166
+    },
+    "name": "Merlion Park",
+    "name_suffix": "Singapore",
+    "name_local": "Merlion Park",
+    "name_en": "Merlion Park",
+    "name_translated": "Merlion Park",
+    "url": "https://go.sygic.com/travel/place?id=poi:37035862",
+    "duration_estimate": 1800,
+    "marker": "sightseeing-fountain",
+    "class": {
+        "slug": "sightseeing:fountain",
+        "name": "Fountain"
+    },
+    "categories": [
+        "sightseeing",
+        "relaxing"
+    ],
+    "tag_keys": [
+        "360° Content",
+        "Wheelchair Accessible",
+        "Park",
+        "Free",
+        "Fountain",
+        "Statue",
+        "Singapore City Pass",
+        "Mythical"
+    ],
+    "parents": [
+        {
+            "id": "region:61340",
+            "name": "Central",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "This park is notable especially because it holds the iconic landmark and \"mascot\" of Singapore: Merlion, a mythical half-lion, half-fish…",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:37035862"
+},
+{
+    "id": "poi:21541",
+    "level": "poi",
+    "rating": 0.78047795145083,
+    "rating_local": 2.3724536830489233,
+    "quadkey": "132232231103101222222",
+    "location": {
+        "lat": 1.3073737,
+        "lng": 103.8538653
+    },
+    "bounding_box": {
+        "south": 1.3035168,
+        "west": 103.8495375,
+        "north": 1.311776,
+        "east": 103.857772
+    },
+    "name": "Little India",
+    "name_suffix": "Singapore",
+    "name_local": "Little India",
+    "name_en": "Little India",
+    "name_translated": "Little India",
+    "url": "https://go.sygic.com/travel/place?id=poi:21541",
+    "duration_estimate": 7200,
+    "marker": "shopping-centre",
+    "class": {
+        "slug": "shopping:centre:district",
+        "name": "Shopping District"
+    },
+    "categories": [
+        "eating",
+        "shopping",
+        "sightseeing"
+    ],
+    "tag_keys": [
+        "Spices",
+        "Ethnic District",
+        "Indian Cuisine",
+        "Dining District",
+        "Shopping Area",
+        "District"
+    ],
+    "parents": [
+        {
+            "id": "region:61340",
+            "name": "Central",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "Located near Chinatown, Little India is a lively and charming Tamil neighbourhood with lots of small spice and textile shops, fortune…",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:21541"
+},
+{
+    "id": "poi:21420",
+    "level": "poi",
+    "rating": 0.72098660205983,
+    "rating_local": 2.009984635803258,
+    "quadkey": "132232231103123103001",
+    "location": {
+        "lat": 1.2839193,
+        "lng": 103.8608732
+    },
+    "bounding_box": "None",
+    "name": "Sands SkyPark",
+    "name_suffix": "Singapore",
+    "name_local": "Sands SkyPark",
+    "name_en": "Sands SkyPark",
+    "name_translated": "Sands SkyPark",
+    "url": "https://go.sygic.com/travel/place?id=poi:21420",
+    "duration_estimate": 5400,
+    "marker": "other",
+    "class": {
+        "slug": "other:building:convention_centre",
+        "name": "Convention Centre"
+    },
+    "categories": [
+        "shopping",
+        "sightseeing",
+        "going_out"
+    ],
+    "tag_keys": [
+        "360° Content",
+        "Convention Centre",
+        "Observation Deck",
+        "Luxury",
+        "Casino",
+        "View Point"
+    ],
+    "parents": [
+        {
+            "id": "region:61340",
+            "name": "Central",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "Rather on the expensive side, yet totally worth it, this luxurious complex houses everything you can imagine - from hotels to a casino,…",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:21420"
+},
+{
+    "id": "poi:21433",
+    "level": "poi",
+    "rating": 0.5776236338574,
+    "rating_local": 1.6103137367785307,
+    "quadkey": "132232231103120201323",
+    "location": {
+        "lat": 1.2894972,
+        "lng": 103.8451606
+    },
+    "bounding_box": "None",
+    "name": "Clarke Quay",
+    "name_suffix": "Singapore",
+    "name_local": "Clarke Quay",
+    "name_en": "Clarke Quay",
+    "name_translated": "Clarke Quay",
+    "url": "https://go.sygic.com/travel/place?id=poi:21433",
+    "duration_estimate": 5400,
+    "marker": "eating-restaurant",
+    "class": {
+        "slug": "eating:restaurant:international",
+        "name": "International Restaurant"
+    },
+    "categories": [
+        "going_out",
+        "sightseeing",
+        "eating"
+    ],
+    "tag_keys": [
+        "360° Content",
+        "Entertainment District",
+        "Riverside",
+        "Dining District",
+        "Wharf",
+        "Local Cuisine",
+        "International Cuisine"
+    ],
+    "parents": [
+        {
+            "id": "region:61340",
+            "name": "Central",
+            "level": "region"
+        },
+        {
+            "id": "region:1976232",
+            "name": "Singapore",
+            "level": "island"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "Named after Sir Andrew Clarke, this once historical quay is now a riverside development with an abundance of restaurants, nightclubs, and…",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:21433"
+},
+{
+    "id": "poi:21439",
+    "level": "poi",
+    "rating": 0.5254395126562,
+    "rating_local": 1.4648335273715287,
+    "quadkey": "132232231103121013110",
+    "location": {
+        "lat": 1.294766,
+        "lng": 103.8589165
+    },
+    "bounding_box": {
+        "south": 1.2945525,
+        "west": 103.8587035,
+        "north": 1.2949795,
+        "east": 103.8591294
+    },
+    "name": "Fountain of Wealth",
+    "name_suffix": "Singapore",
+    "name_local": "Fountain of Wealth",
+    "name_en": "Fountain of Wealth",
+    "name_translated": "Fountain of Wealth",
+    "url": "https://go.sygic.com/travel/place?id=poi:21439",
+    "duration_estimate": 900,
+    "marker": "sightseeing-fountain",
+    "class": {
+        "slug": "sightseeing:fountain",
+        "name": "Fountain"
+    },
+    "categories": [
+        "hiking",
+        "sightseeing",
+        "playing"
+    ],
+    "tag_keys": [
+        "360° Content",
+        "Light Show",
+        "Fountain",
+        "Guinness World Record",
+        "Budget-Friendly",
+        "Family Friendly"
+    ],
+    "parents": [
+        {
+            "id": "region:61340",
+            "name": "Central",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "This 14-metre high fountain is made out of silicon bronze and follows the Feng Shui principles.",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:21439"
+},
+{
+    "id": "poi:21419",
+    "level": "poi",
+    "rating": 0.49970605536877,
+    "rating_local": 1.393093146030099,
+    "quadkey": "132232231103122021220",
+    "location": {
+        "lat": 1.2814885,
+        "lng": 103.8442285
+    },
+    "bounding_box": {
+        "south": 1.2812128,
+        "west": 103.8438576,
+        "north": 1.2817778,
+        "east": 103.8446034
+    },
+    "name": "Buddha Tooth Relic Temple",
+    "name_suffix": "Singapore",
+    "name_local": "Buddha Tooth Relic Temple",
+    "name_en": "Buddha Tooth Relic Temple",
+    "name_translated": "Buddha Tooth Relic Temple",
+    "url": "https://go.sygic.com/travel/place?id=poi:21419",
+    "duration_estimate": 3600,
+    "marker": "other-place_of_worship-temple",
+    "class": {
+        "slug": "other:place_of_worship:temple",
+        "name": "Temple"
+    },
+    "categories": [
+        "discovering",
+        "sightseeing"
+    ],
+    "tag_keys": [
+        "360° Content",
+        "Place of Worship",
+        "Buddhist",
+        "Temple",
+        "Museum",
+        "Buddha",
+        "Free",
+        "Editor's Choice"
+    ],
+    "parents": [
+        {
+            "id": "region:61340",
+            "name": "Central",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "Even though its style is reminiscent of the Tang dynasty, the building is brand new.",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:21419"
+},
+{
+    "id": "poi:21426",
+    "level": "poi",
+    "rating": 0.49019894572606,
+    "rating_local": 1.3665889859553486,
+    "quadkey": "132232231103121312110",
+    "location": {
+        "lat": 1.2894103,
+        "lng": 103.8631252
+    },
+    "bounding_box": {
+        "south": 1.2889731,
+        "west": 103.8625828,
+        "north": 1.2898475,
+        "east": 103.8636677
+    },
+    "name": "Singapore Flyer Wheel;Singapore Flyer",
+    "name_suffix": "Singapore",
+    "name_local": "Singapore Flyer Wheel;Singapore Flyer",
+    "name_en": "Singapore Flyer Wheel;Singapore Flyer",
+    "name_translated": "Singapore Flyer Wheel;Singapore Flyer",
+    "url": "https://go.sygic.com/travel/place?id=poi:21426",
+    "duration_estimate": 3600,
+    "marker": "playing-park-theme",
+    "class": {
+        "slug": "playing:park:theme",
+        "name": "Theme Park"
+    },
+    "categories": [
+        "sightseeing",
+        "playing"
+    ],
+    "tag_keys": [
+        "Lookout",
+        "Singapore City Pass",
+        "Ferris Wheel",
+        "View Point",
+        "Wheelchair Accessible",
+        "Theme Park"
+    ],
+    "parents": [
+        {
+            "id": "region:61340",
+            "name": "Central",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "This 165-metre high Ferris wheel offers you one of the best views of the city.",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:21426"
+},
+{
+    "id": "poi:21427",
+    "level": "poi",
+    "rating": 0.47276935759358,
+    "rating_local": 1.437098128871645,
+    "quadkey": "132232231103103033212",
+    "location": {
+        "lat": 1.3021611,
+        "lng": 103.8583261
+    },
+    "bounding_box": "None",
+    "name": "Arab Street",
+    "name_suffix": "Singapore",
+    "name_local": "Arab Street",
+    "name_en": "Arab Street",
+    "name_translated": "Arab Street",
+    "url": "https://go.sygic.com/travel/place?id=poi:21427",
+    "duration_estimate": 5400,
+    "marker": "shopping-centre",
+    "class": {
+        "slug": "shopping:centre:district",
+        "name": "Shopping District"
+    },
+    "categories": [
+        "shopping",
+        "sightseeing",
+        "eating"
+    ],
+    "tag_keys": [
+        "Street",
+        "Traditional District",
+        "Dining District",
+        "Middle Eastern Cuisine",
+        "Souvenirs",
+        "Shopping Area",
+        "District"
+    ],
+    "parents": [
+        {
+            "id": "region:61340",
+            "name": "Central",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "Explore this colourful district to its fullest by browsing through its charming houses, textile shops, and small cafés.",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:21427"
+},
+{
+    "id": "poi:21448",
+    "level": "poi",
+    "rating": 0.47202144569807,
+    "rating_local": 1.5984466363049232,
+    "quadkey": "132232231103212221302",
+    "location": {
+        "lat": 1.2542221,
+        "lng": 103.8230274
+    },
+    "bounding_box": {
+        "south": 1.251859,
+        "west": 103.8200833,
+        "north": 1.2566073,
+        "east": 103.8258984
+    },
+    "name": "Universal Studios Singapore",
+    "name_suffix": "Sentosa, Singapore",
+    "name_local": "Universal Studios Singapore",
+    "name_en": "Universal Studios Singapore",
+    "name_translated": "Universal Studios Singapore",
+    "url": "https://go.sygic.com/travel/place?id=poi:21448",
+    "duration_estimate": 14400,
+    "marker": "playing-park-theme",
+    "class": {
+        "slug": "playing:park:theme:universal",
+        "name": "Universal"
+    },
+    "categories": [
+        "playing",
+        "relaxing"
+    ],
+    "tag_keys": [
+        "Singapore City Pass",
+        "Entertainment Venue",
+        "Theme Park",
+        "Universal Theme Park",
+        "Amusement Park",
+        "Free Wi-Fi",
+        "Recreational Area"
+    ],
+    "parents": [
+        {
+            "id": "poi:34366507",
+            "name": "Sentosa",
+            "level": "neighbourhood"
+        },
+        {
+            "id": "poi:36774357",
+            "name": "South West Community Development Council",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "This huge entertainment park consists of several themed lands ranging from Ancient Egypt to Hollywood, Madagascar and the land of Far Far…",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:21448"
+},
+{
+    "id": "poi:21422",
+    "level": "poi",
+    "rating": 0.42720407111947,
+    "rating_local": 1.1909702855081366,
+    "quadkey": "132232231103121201231",
+    "location": {
+        "lat": 1.2896757,
+        "lng": 103.8557953
+    },
+    "bounding_box": {
+        "south": 1.2890062,
+        "west": 103.8549423,
+        "north": 1.2903079,
+        "east": 103.8564262
+    },
+    "name": "Esplanade",
+    "name_suffix": "Singapore",
+    "name_local": "Esplanade Theatres",
+    "name_en": "Esplanade",
+    "name_translated": "Esplanade",
+    "url": "https://go.sygic.com/travel/place?id=poi:21422",
+    "duration_estimate": 7200,
+    "marker": "discovering-gallery-art",
+    "class": {
+        "slug": "discovering:gallery:art",
+        "name": "Art Gallery"
+    },
+    "categories": [
+        "sightseeing",
+        "discovering",
+        "going_out",
+        "shopping"
+    ],
+    "tag_keys": [
+        "Art Gallery",
+        "Cultural Festival",
+        "Art Festival",
+        "Film Festival",
+        "Music Festival",
+        "Budget-Friendly",
+        "Theatre",
+        "Wheelchair Accessible",
+        "Shopping Mall",
+        "Modern Architecture",
+        "Concert Hall",
+        "Free"
+    ],
+    "parents": [
+        {
+            "id": "region:61340",
+            "name": "Central",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "Nicknamed Durian thanks to its shape, this huge complex is one of the most visited art venues in the world - it has seen to the needs of…",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:21422"
+},
+{
+    "id": "poi:6011891",
+    "level": "poi",
+    "rating": 0.41578773290856,
+    "rating_local": 1.5596068059023456,
+    "quadkey": "132232231103132002111",
+    "location": {
+        "lat": 1.2838599,
+        "lng": 103.8660277
+    },
+    "bounding_box": {
+        "south": 1.2834666,
+        "west": 103.8655764,
+        "north": 1.284283,
+        "east": 103.8664991
+    },
+    "name": "Cloud Forest",
+    "name_suffix": "Singapore",
+    "name_local": "Cloud Forest",
+    "name_en": "Cloud Forest",
+    "name_translated": "Cloud Forest",
+    "url": "https://go.sygic.com/travel/place?id=poi:6011891",
+    "duration_estimate": 3600,
+    "marker": "relaxing-park-garden",
+    "class": {
+        "slug": "relaxing:park:garden",
+        "name": "Garden"
+    },
+    "categories": [
+        "sightseeing",
+        "relaxing",
+        "discovering"
+    ],
+    "tag_keys": [
+        "360° Content",
+        "Wheelchair Accessible",
+        "Botanical Garden",
+        "Garden",
+        "Flora",
+        "Tropical Garden",
+        "Waterfall"
+    ],
+    "parents": [
+        {
+            "id": "poi:36690",
+            "name": "Gardens by the Bay",
+            "level": "poi"
+        },
+        {
+            "id": "region:61340",
+            "name": "Central",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "This conservatory does not house only an immense number of tropical and rare plants and flowers but also the world's tallest indoor…",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:6011891"
+},
+{
+    "id": "poi:21421",
+    "level": "poi",
+    "rating": 0.39994150075214,
+    "rating_local": 1.1149670041513338,
+    "quadkey": "132232231103122003332",
+    "location": {
+        "lat": 1.2826809,
+        "lng": 103.8452079
+    },
+    "bounding_box": {
+        "south": 1.2825652,
+        "west": 103.8449888,
+        "north": 1.2828051,
+        "east": 103.845412
+    },
+    "name": "Sri Mariamman Temple",
+    "name_suffix": "Singapore",
+    "name_local": "Sri Mariamman Temple",
+    "name_en": "Sri Mariamman Temple",
+    "name_translated": "Sri Mariamman Temple",
+    "url": "https://go.sygic.com/travel/place?id=poi:21421",
+    "duration_estimate": 1800,
+    "marker": "other-place_of_worship-temple",
+    "class": {
+        "slug": "other:place_of_worship:temple",
+        "name": "Temple"
+    },
+    "categories": [
+        "sightseeing"
+    ],
+    "tag_keys": [
+        "360° Content",
+        "Deities",
+        "Place of Worship",
+        "Shrine",
+        "Hinduism",
+        "Temple",
+        "Dravidian Architecture",
+        "Historic Building"
+    ],
+    "parents": [
+        {
+            "id": "region:61340",
+            "name": "Central",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "Located in the heart of Chinatown, this is the oldest and most important Hindu temple in Singapore.",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:21421"
+},
+{
+    "id": "poi:21435",
+    "level": "poi",
+    "rating": 0.37283837988496,
+    "rating_local": 1.8641918994248,
+    "quadkey": "132232231100111102310",
+    "location": {
+        "lat": 1.403902,
+        "lng": 103.7944029
+    },
+    "bounding_box": {
+        "south": 1.4008648,
+        "west": 103.7904796,
+        "north": 1.4065665,
+        "east": 103.7979975
+    },
+    "name": "Singapore Zoo",
+    "name_suffix": "Singapore",
+    "name_local": "Singapore Zoo",
+    "name_en": "Singapore Zoo",
+    "name_translated": "Singapore Zoo",
+    "url": "https://go.sygic.com/travel/place?id=poi:21435",
+    "duration_estimate": 10800,
+    "marker": "discovering-zoo",
+    "class": {
+        "slug": "discovering:zoo",
+        "name": "Zoo"
+    },
+    "categories": [
+        "hiking",
+        "discovering",
+        "playing"
+    ],
+    "tag_keys": [
+        "Orangutans",
+        "Singapore City Pass",
+        "Wheelchair Accessible",
+        "Animals",
+        "Zoo",
+        "Panda"
+    ],
+    "parents": [
+        {
+            "id": "region:61342",
+            "name": "North West Community Development Council",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "This award-winning zoo is well known for holding the largest orangutan colony.",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:21435"
+},
+{
+    "id": "poi:21445",
+    "level": "poi",
+    "rating": 0.35117757414145,
+    "rating_local": 1.5466953903190477,
+    "quadkey": "132232231103001122011",
+    "location": {
+        "lat": 1.3140226,
+        "lng": 103.8159519
+    },
+    "bounding_box": {
+        "south": 1.3067474,
+        "west": 103.8125078,
+        "north": 1.3225919,
+        "east": 103.8195886
+    },
+    "name": "Singapore Botanic Gardens",
+    "name_suffix": "Singapore",
+    "name_local": "Singapore Botanic Gardens",
+    "name_en": "Singapore Botanic Gardens",
+    "name_translated": "Singapore Botanic Gardens",
+    "url": "https://go.sygic.com/travel/place?id=poi:21445",
+    "duration_estimate": 7200,
+    "marker": "discovering-garden-tropical",
+    "class": {
+        "slug": "discovering:garden:tropical",
+        "name": "Tropical Garden"
+    },
+    "categories": [
+        "hiking",
+        "relaxing",
+        "discovering",
+        "sightseeing"
+    ],
+    "tag_keys": [
+        "Flora",
+        "UNESCO",
+        "Botanical Garden",
+        "Strolling Area",
+        "Tropical Garden",
+        "Park",
+        "Non-smoking throughout",
+        "Free",
+        "Editor's Choice",
+        "Heritage"
+    ],
+    "parents": [
+        {
+            "id": "region:61340",
+            "name": "Central",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "Established in 1859, this historical tropical garden is a vast haven for all nature lovers.",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:21445"
+},
+{
+    "id": "poi:50796",
+    "level": "poi",
+    "rating": 0.34782301431002,
+    "rating_local": 0.9696697729813035,
+    "quadkey": "132232231103122123123",
+    "location": {
+        "lat": 1.2806042,
+        "lng": 103.8505361
+    },
+    "bounding_box": {
+        "south": 1.2802962,
+        "west": 103.850229,
+        "north": 1.2809164,
+        "east": 103.8508343
+    },
+    "name": "Lau Pa Sat",
+    "name_suffix": "Singapore",
+    "name_local": "Lau Pa Sat",
+    "name_en": "Lau Pa Sat",
+    "name_translated": "Lau Pa Sat",
+    "url": "https://go.sygic.com/travel/place?id=poi:50796",
+    "duration_estimate": 3600,
+    "marker": "shopping-market",
+    "class": {
+        "slug": "shopping:market:food",
+        "name": "Food Market"
+    },
+    "categories": [
+        "eating",
+        "shopping",
+        "sightseeing"
+    ],
+    "tag_keys": [
+        "360° Content",
+        "Street Food Stall",
+        "Local Products",
+        "Local Cuisine",
+        "Food Market",
+        "Food Hall",
+        "Singaporean Cuisine",
+        "Cheap",
+        "Wheelchair Accessible",
+        "Open 24/7",
+        "Restaurant",
+        "Outdoor Seating"
+    ],
+    "parents": [
+        {
+            "id": "region:61340",
+            "name": "Central",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "Also known as Telok Ayer Market, this 19th-century octagonal building houses one of the best places where to taste authentic Singaporean…",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:50796"
+},
+{
+    "id": "poi:21509",
+    "level": "poi",
+    "rating": 0.31483765069416,
+    "rating_local": 0.9570260666087339,
+    "quadkey": "132232231103103200333",
+    "location": {
+        "lat": 1.3005509,
+        "lng": 103.854971
+    },
+    "bounding_box": {
+        "south": 1.2997461,
+        "west": 103.8542155,
+        "north": 1.3013657,
+        "east": 103.8557208
+    },
+    "name": "Bugis Village",
+    "name_suffix": "Singapore",
+    "name_local": "Bugis Village",
+    "name_en": "Bugis Village",
+    "name_translated": "Bugis Village",
+    "url": "https://go.sygic.com/travel/place?id=poi:21509",
+    "duration_estimate": 3600,
+    "marker": "shopping-market",
+    "class": {
+        "slug": "shopping:market:flea",
+        "name": "Flea Market"
+    },
+    "categories": [
+        "shopping",
+        "sightseeing"
+    ],
+    "tag_keys": [
+        "Shopping Area",
+        "Flea Market",
+        "Hawker Centre",
+        "Souvenirs",
+        "Clothes",
+        "Electronics"
+    ],
+    "parents": [
+        {
+            "id": "region:61340",
+            "name": "Central",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "This place used to be a real motley of cultures and activities. Now, redeveloped, this building that comprises more than 30 historical shop…",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:21509"
+},
+{
+    "id": "poi:21493",
+    "level": "poi",
+    "rating": 0.29822535907079,
+    "rating_local": 0.9329762192710183,
+    "quadkey": "132232231103013300101",
+    "location": {
+        "lat": 1.3016604,
+        "lng": 103.8381579
+    },
+    "bounding_box": "None",
+    "name": "Orchard Road",
+    "name_suffix": "Singapore",
+    "name_local": "Orchard Road",
+    "name_en": "Orchard Road",
+    "name_translated": "Orchard Road",
+    "url": "https://go.sygic.com/travel/place?id=poi:21493",
+    "duration_estimate": 3600,
+    "marker": "shopping-centre",
+    "class": {
+        "slug": "shopping:centre:district",
+        "name": "Shopping District"
+    },
+    "categories": [
+        "shopping"
+    ],
+    "tag_keys": [
+        "Singapore City Pass",
+        "Shopping Area",
+        "Street",
+        "Boulevard"
+    ],
+    "parents": [
+        {
+            "id": "region:61340",
+            "name": "Central",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "This is where all shopping lovers head first. 2,2 km-long street lined with huge shopping malls and big brand boutiques.",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:21493"
+},
+{
+    "id": "poi:21430",
+    "level": "poi",
+    "rating": 0.2877750527947,
+    "rating_local": 0.8022665511845651,
+    "quadkey": "132232231103123032001",
+    "location": {
+        "lat": 1.2811322,
+        "lng": 103.8566836
+    },
+    "bounding_box": "None",
+    "name": "Wonder Full",
+    "name_suffix": "Singapore",
+    "name_local": "Wonder Full Light and Water Show",
+    "name_en": "Wonder Full",
+    "name_translated": "Wonder Full",
+    "url": "https://go.sygic.com/travel/place?id=poi:21430",
+    "duration_estimate": 900,
+    "marker": "hiking-viewpoint",
+    "class": {
+        "slug": "hiking:viewpoint",
+        "name": "View Point"
+    },
+    "categories": [
+        "sightseeing"
+    ],
+    "tag_keys": [
+        "360° Content",
+        "Light Show",
+        "Show",
+        "Fountain",
+        "Free",
+        "View Point"
+    ],
+    "parents": [
+        {
+            "id": "poi:5068670",
+            "name": "The Shoppes",
+            "level": "poi"
+        },
+        {
+            "id": "region:61340",
+            "name": "Central",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "This breathtaking multimedia show is a perfect way how to wrap up your day in Singapore.",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:21430"
+},
+{
+    "id": "poi:21434",
+    "level": "poi",
+    "rating": 0.26480609369429,
+    "rating_local": 1.1467657490239862,
+    "quadkey": "132232231103201131020",
+    "location": {
+        "lat": 1.2711515,
+        "lng": 103.8194592
+    },
+    "bounding_box": "None",
+    "name": "Faber Peak",
+    "name_suffix": "Singapore",
+    "name_local": "Faber Peak",
+    "name_en": "Faber Peak",
+    "name_translated": "Faber Peak",
+    "url": "https://go.sygic.com/travel/place?id=poi:21434",
+    "duration_estimate": 2700,
+    "marker": "traveling-cable_car",
+    "class": {
+        "slug": "traveling:cable_car:station",
+        "name": "Cable Car Station"
+    },
+    "categories": [
+        "traveling"
+    ],
+    "tag_keys": [
+        "Aerial Views",
+        "Cable Car",
+        "Cable Car Station"
+    ],
+    "parents": [
+        {
+            "id": "poi:7485349",
+            "name": "Mount Faber",
+            "level": "poi"
+        },
+        {
+            "id": "region:61340",
+            "name": "Central",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "This cable car going from Mt. Faber to the Sentosa island resort is one of the much-loved tourist attractions.",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:21434"
+},
+{
+    "id": "poi:24219",
+    "level": "poi",
+    "rating": 0.24041361034306,
+    "rating_local": 0.7521163925765333,
+    "quadkey": "132232231103013020023",
+    "location": {
+        "lat": 1.3039807,
+        "lng": 103.8320119
+    },
+    "bounding_box": {
+        "south": 1.3032717,
+        "west": 103.83123,
+        "north": 1.3046372,
+        "east": 103.8327182
+    },
+    "name": "ION Orchard",
+    "name_suffix": "Singapore",
+    "name_local": "ION Orchard",
+    "name_en": "ION Orchard",
+    "name_translated": "ION Orchard",
+    "url": "https://go.sygic.com/travel/place?id=poi:24219",
+    "duration_estimate": 5400,
+    "marker": "sightseeing-architecture-modern",
+    "class": {
+        "slug": "sightseeing:architecture:modern",
+        "name": "Modern Architecture"
+    },
+    "categories": [
+        "sightseeing",
+        "shopping",
+        "eating"
+    ],
+    "tag_keys": [
+        "Wheelchair Accessible",
+        "Food Hall",
+        "Modern Architecture",
+        "Free Wi-Fi",
+        "Shopping Mall",
+        "Shopping Area",
+        "Shop"
+    ],
+    "parents": [
+        {
+            "id": "region:61340",
+            "name": "Central",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "Futuristic and spaceship-like, this mall spans eight retail and 48 residential floors and is regarded as one of the best shopping malls in…",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:24219"
+},
+{
+    "id": "poi:21449",
+    "level": "poi",
+    "rating": 0.23843123880478,
+    "rating_local": 1.0879922827405428,
+    "quadkey": "132232231101322011200",
+    "location": {
+        "lat": 1.3284306,
+        "lng": 103.8469406
+    },
+    "bounding_box": {
+        "south": 1.3282972,
+        "west": 103.8467153,
+        "north": 1.328564,
+        "east": 103.8471659
+    },
+    "name": "Burmese Buddhist Temple",
+    "name_suffix": "Singapore",
+    "name_local": "Burmese Buddhist Temple",
+    "name_en": "Burmese Buddhist Temple",
+    "name_translated": "Burmese Buddhist Temple",
+    "url": "https://go.sygic.com/travel/place?id=poi:21449",
+    "duration_estimate": 1800,
+    "marker": "other-place_of_worship-temple",
+    "class": {
+        "slug": "other:place_of_worship:temple",
+        "name": "Temple"
+    },
+    "categories": [
+        "sightseeing"
+    ],
+    "tag_keys": [
+        "Place of Worship",
+        "Buddhist",
+        "Buddha",
+        "Temple",
+        "Historic Building",
+        "Marble",
+        "Free"
+    ],
+    "parents": [
+        {
+            "id": "region:61340",
+            "name": "Central",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "Also called Maha Sasana Ramsi, this is the oldest Theravada temple in Singapore.",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:21449"
+},
+{
+    "id": "poi:21447",
+    "level": "poi",
+    "rating": 0.23745602010636,
+    "rating_local": 0.9255449164315402,
+    "quadkey": "132232231103022033220",
+    "location": {
+        "lat": 1.280104,
+        "lng": 103.80298
+    },
+    "bounding_box": "None",
+    "name": "The Southern Ridges",
+    "name_suffix": "Singapore",
+    "name_local": "The Southern Ridges",
+    "name_en": "The Southern Ridges",
+    "name_translated": "The Southern Ridges",
+    "url": "https://go.sygic.com/travel/place?id=poi:21447",
+    "duration_estimate": 10800,
+    "marker": "hiking-park",
+    "class": {
+        "slug": "hiking:park:nature_reserve",
+        "name": "Nature Reserve"
+    },
+    "categories": [
+        "hiking",
+        "doing_sports",
+        "relaxing"
+    ],
+    "tag_keys": [
+        "Trail",
+        "Nature Reserve",
+        "Park",
+        "View Point",
+        "Aerial Views",
+        "Scenic Lookout",
+        "Bridge",
+        "Editor's Choice"
+    ],
+    "parents": [
+        {
+            "id": "poi:36774357",
+            "name": "South West Community Development Council",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "Nature lovers must not hesitate to set out on this 10 kilometers long trail connecting these nature parks: Mount Faber, Kent Ridge, Telok…",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:21447"
+},
+{
+    "id": "poi:21476",
+    "level": "poi",
+    "rating": 0.22970509361019,
+    "rating_local": 0.6403776541799278,
+    "quadkey": "132232231103121233133",
+    "location": {
+        "lat": 1.2861483,
+        "lng": 103.8591547
+    },
+    "bounding_box": {
+        "south": 1.2857439,
+        "west": 103.8588445,
+        "north": 1.2865133,
+        "east": 103.8594439
+    },
+    "name": "ArtScience Museum",
+    "name_suffix": "Singapore",
+    "name_local": "Art Science Museum",
+    "name_en": "ArtScience Museum",
+    "name_translated": "ArtScience Museum",
+    "url": "https://go.sygic.com/travel/place?id=poi:21476",
+    "duration_estimate": 5400,
+    "marker": "sightseeing-architecture-modern",
+    "class": {
+        "slug": "sightseeing:architecture:modern",
+        "name": "Modern Architecture"
+    },
+    "categories": [
+        "sightseeing",
+        "discovering"
+    ],
+    "tag_keys": [
+        "Science Museum",
+        "Museum",
+        "Art",
+        "Modern Architecture",
+        "Art Museum"
+    ],
+    "parents": [
+        {
+            "id": "region:61340",
+            "name": "Central",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "Opened in 2011 as the first ArtScience museum in the world, this building is notable for its innovative lotus-like architectural form.",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:21476"
+},
+{
+    "id": "poi:21464",
+    "level": "poi",
+    "rating": 0.22639461349116,
+    "rating_local": 1.1319730674558,
+    "quadkey": "132232231103230020310",
+    "location": {
+        "lat": 1.248811,
+        "lng": 103.8218487
+    },
+    "bounding_box": {
+        "south": 1.246826,
+        "west": 103.8193091,
+        "north": 1.2502825,
+        "east": 103.8246973
+    },
+    "name": "Palawan Beach",
+    "name_suffix": "Sentosa, Singapore",
+    "name_local": "Palawan Beach",
+    "name_en": "Palawan Beach",
+    "name_translated": "Palawan Beach",
+    "url": "https://go.sygic.com/travel/place?id=poi:21464",
+    "duration_estimate": 7200,
+    "marker": "relaxing-beach",
+    "class": {
+        "slug": "relaxing:beach:sandy",
+        "name": "Sandy Beach"
+    },
+    "categories": [
+        "relaxing",
+        "doing_sports",
+        "sightseeing",
+        "hiking"
+    ],
+    "tag_keys": [
+        "360° Content",
+        "Sandy Beach",
+        "Seaside",
+        "Swimming",
+        "Beach"
+    ],
+    "parents": [
+        {
+            "id": "poi:34366507",
+            "name": "Sentosa",
+            "level": "neighbourhood"
+        },
+        {
+            "id": "poi:36774357",
+            "name": "South West Community Development Council",
+            "level": "region"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "This vast sandy beach is lined with shops, stalls, eateries and cafés. Calm, crystal-clear water and plenty of space for everyone.",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:21464"
+},
+{
+    "id": "poi:21436",
+    "level": "poi",
+    "rating": 0.19472625019733,
+    "rating_local": 0.5428627521870856,
+    "quadkey": "132232231103122033011",
+    "location": {
+        "lat": 1.2810568,
+        "lng": 103.8475315
+    },
+    "bounding_box": {
+        "south": 1.2806486,
+        "west": 103.8472404,
+        "north": 1.2813638,
+        "east": 103.847833
+    },
+    "name": "Thian Hock Keng",
+    "name_suffix": "Singapore",
+    "name_local": "Thian Hock Keng",
+    "name_en": "Thian Hock Keng",
+    "name_translated": "Thian Hock Keng",
+    "url": "https://go.sygic.com/travel/place?id=poi:21436",
+    "duration_estimate": 2700,
+    "marker": "other-place_of_worship-temple",
+    "class": {
+        "slug": "other:place_of_worship:temple",
+        "name": "Temple"
+    },
+    "categories": [
+        "sightseeing"
+    ],
+    "tag_keys": [
+        "360° Content",
+        "Place of Worship",
+        "Taoism",
+        "Buddhist",
+        "Temple",
+        "National Monument",
+        "Historic Building",
+        "Free"
+    ],
+    "parents": [
+        {
+            "id": "region:61340",
+            "name": "Central",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "This hidden gem is one of the most beautiful, and most ornate, Hokkien temples in the country.",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:21436"
+}]}
+
+
+
+
+
+

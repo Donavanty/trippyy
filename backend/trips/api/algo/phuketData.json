@@ -1,0 +1,1000 @@
+{"places" : [
+    {
+        "business_status": "CLOSED_TEMPORARILY",
+        "formatted_address": "Ratsada, Mueang Phuket District, Phuket 83000, Thailand",
+        "geometry": {
+            "location": {
+                "lat": 7.896741699999999,
+                "lng": 98.3949957
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 7.898100629892721,
+                    "lng": 98.39640017989274
+                },
+                "southwest": {
+                    "lat": 7.895400970107278,
+                    "lng": 98.39370052010729
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+        "id": "81815bf4a92ee8cf89e346770982482809923072",
+        "name": "Monkey Hill Viewpoint",
+        "permanently_closed": true,
+        "photos": [
+            {
+                "height": 3024,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/105541915034712064664\">A Google User</a>"
+                ],
+                "photo_reference": "CmRaAAAAcOSKZWcI_aCildo_8hHfMj4InJCSfHs6d5PHG_ePozc-FLwsSizPiGcrrgiGnGnHuWPFLEd5rmAaflYsaoAkhVDRHm7oy8gKgZc2-TXqH-i560NUfwWfRK0L2srTWPndEhDSmvTALqJcD3Jo3c6ut0f_GhQeYcRBKgV1BFrgn41PNzx2oc9BZQ",
+                "width": 4032
+            }
+        ],
+        "place_id": "ChIJl2G9wYoxUDARTQpdJDE2lsI",
+        "plus_code": {
+            "compound_code": "V9WV+MX Ratsada, Mueang Phuket District, Phuket, Thailand",
+            "global_code": "6MVWV9WV+MX"
+        },
+        "rating": 4.5,
+        "reference": "ChIJl2G9wYoxUDARTQpdJDE2lsI",
+        "types": [
+            "tourist_attraction",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 713,
+        "recommendedTime": 120,
+        "category": "others"
+    },
+    {
+        "business_status": "OPERATIONAL",
+        "formatted_address": "130 1 Phangnga Rd, Talad Yai Mueang Phuket District, Phuket 83000, Thailand",
+        "geometry": {
+            "location": {
+                "lat": 7.8832092,
+                "lng": 98.3923264
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 7.884636029892722,
+                    "lng": 98.39368772989273
+                },
+                "southwest": {
+                    "lat": 7.881936370107279,
+                    "lng": 98.39098807010728
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+        "id": "41cab7e585eb14571f83894a70cfa5ed40c66900",
+        "name": "Phuket 3D Museum",
+        "opening_hours": {
+            "open_now": false
+        },
+        "photos": [
+            {
+                "height": 3480,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/100673697647614800997\">Kapil Rishi Yadav</a>"
+                ],
+                "photo_reference": "CmRaAAAAJgwljVLl4mT8wQn76iEeWGBT4mzhwVRpoHTaoQRK0cicp0XBLjBJ1oXGgRnJq4bATumuXQeaoQo11cSrhLdiUbbYpUdKrtCi7ECshmHJEgSjSQYJxboRLG_k41nV4K-nEhDYOj19jBDvVWuGgGdt7gPmGhSBxSUq6_I_NLMbJbXjJ4mxEwenDQ",
+                "width": 4640
+            }
+        ],
+        "place_id": "ChIJXVc-CvkxUDARvYTLiExFiTo",
+        "plus_code": {
+            "compound_code": "V9MR+7W Phuket, Mueang Phuket District, Phuket, Thailand",
+            "global_code": "6MVWV9MR+7W"
+        },
+        "rating": 4.2,
+        "reference": "ChIJXVc-CvkxUDARvYTLiExFiTo",
+        "types": [
+            "museum",
+            "tourist_attraction",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 2368,
+        "recommendedTime": 180,
+        "category": "museum"
+    },
+    {
+        "business_status": "OPERATIONAL",
+        "formatted_address": "145/5 Patiphat Rd, Tambon Wichit, Mueang Phuket District, Phuket 83000, Thailand",
+        "geometry": {
+            "location": {
+                "lat": 7.892425299999999,
+                "lng": 98.38021839999999
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 7.894258429892719,
+                    "lng": 98.38137862989271
+                },
+                "southwest": {
+                    "lat": 7.891558770107276,
+                    "lng": 98.37867897010727
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+        "id": "ea146405e193814cffa6d635d3a1bd364b0835ba",
+        "name": "Rang Hill view point",
+        "opening_hours": {
+            "open_now": true
+        },
+        "photos": [
+            {
+                "height": 3024,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/101709204530476105766\">A Google User</a>"
+                ],
+                "photo_reference": "CmRaAAAAiSHOJpWVCmKWARVx4L8QoKhxwtMn5cRLaZd-NzLQ5Nm_aAJiGpZTQOaIfzewn5p9W6aL2Al55yhhY4D1or0ygI_4sA4BUcIlX8biOTOdk00zXZPzDV6Rmw68ixVzf7XPEhCTcA_R1B2zEGhqDK2iVeRMGhTTOTWm8YOOfufX6ysq0dxiyimryQ",
+                "width": 4032
+            }
+        ],
+        "place_id": "ChIJ36TUGOsxUDAR7hcbGCJ8tlc",
+        "plus_code": {
+            "compound_code": "V9RJ+X3 Wichit, Mueang Phuket District, Phuket, Thailand",
+            "global_code": "6MVWV9RJ+X3"
+        },
+        "rating": 4.5,
+        "reference": "ChIJ36TUGOsxUDAR7hcbGCJ8tlc",
+        "types": [
+            "tourist_attraction",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 3013,
+        "recommendedTime": 120,
+        "category": "others"
+    },
+    {
+        "business_status": "CLOSED_TEMPORARILY",
+        "formatted_address": "61 Phuket Rd, Tambon Talat Yai, Mueang Phuket District, Phuket 83000, Thailand",
+        "geometry": {
+            "location": {
+                "lat": 7.882207800000001,
+                "lng": 98.3912663
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 7.883542579892723,
+                    "lng": 98.39258782989273
+                },
+                "southwest": {
+                    "lat": 7.88084292010728,
+                    "lng": 98.38988817010728
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+        "id": "5419e2b739c12ea182cba83af5f70853bacc0a4f",
+        "name": "Phuket Old Town",
+        "permanently_closed": true,
+        "photos": [
+            {
+                "height": 3456,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/101183847083177531890\">Sivansak NEY</a>"
+                ],
+                "photo_reference": "CmRaAAAAe3ZTnxmNMhxYIVPJg_XhiIxeItt2ISNE_0Vv8QzX6Ds_MqLx0aq3bh0wM9Z4VGu_0Ulm8rxrgTMEG7VicEDO1Y_2EC8Uwe1MCnKiiP-K0VkRTQgsx1iIDnFSTJ8E0gljEhCMcCUUiRyH1Ft89G8Jp1DnGhRnkdG202OLgIi7F404QwgthfXo0w",
+                "width": 4608
+            }
+        ],
+        "place_id": "ChIJc-UffPcxUDARly93zQbUP3c",
+        "plus_code": {
+            "compound_code": "V9JR+VG Phuket, Mueang Phuket District, Phuket, Thailand",
+            "global_code": "6MVWV9JR+VG"
+        },
+        "rating": 4.3,
+        "reference": "ChIJc-UffPcxUDARly93zQbUP3c",
+        "types": [
+            "tourist_attraction",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 517,
+        "recommendedTime": 120,
+        "category": "others"
+    },
+    {
+        "business_status": "CLOSED_TEMPORARILY",
+        "formatted_address": "วงเวียน Soi Surin, Talat Yai, Mueang Phuket District, Phuket 83000, Thailand",
+        "geometry": {
+            "location": {
+                "lat": 7.8804041,
+                "lng": 98.3921786
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 7.881671179892722,
+                    "lng": 98.39350567989273
+                },
+                "southwest": {
+                    "lat": 7.878971520107278,
+                    "lng": 98.39080602010728
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+        "id": "30ee17676575db587b4a461c9f46d6c47f579f99",
+        "name": "หอนาฬิกาวงเวียนสุรินทร์",
+        "permanently_closed": true,
+        "photos": [
+            {
+                "height": 4000,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/100529122282580461516\">tersit71</a>"
+                ],
+                "photo_reference": "CmRaAAAA145wfI8zE31OiMUChnCgSWUSx11ZVY6ygIwXAliu1D-p10Bt8tG0L0ifl0L9MrnlmK5eWt5MQMAJ_GGLxttVYflnhPpdOuD2RvKpX_ztJKjngNnJH9nYS7796f5arLbAEhB9LnJyAEkueroI3xP-okOqGhQ09RvBomcdolMJKhgaafdlPWga6g",
+                "width": 3000
+            }
+        ],
+        "place_id": "ChIJqWrjtP4xUDARYrCunUyz97Q",
+        "plus_code": {
+            "compound_code": "V9JR+5V Phuket, Mueang Phuket District, Phuket, Thailand",
+            "global_code": "6MVWV9JR+5V"
+        },
+        "rating": 4.3,
+        "reference": "ChIJqWrjtP4xUDARYrCunUyz97Q",
+        "types": [
+            "tourist_attraction",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 405,
+        "recommendedTime": 120,
+        "category": "others"
+    },
+    {
+        "business_status": "CLOSED_TEMPORARILY",
+        "formatted_address": "283 Soi Phutorn, Tambon Talat Nuea, Mueang Phuket District, Phuket 83000, Thailand",
+        "geometry": {
+            "location": {
+                "lat": 7.8831788,
+                "lng": 98.3831044
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 7.884527379892723,
+                    "lng": 98.38462957989272
+                },
+                "southwest": {
+                    "lat": 7.881827720107279,
+                    "lng": 98.38192992010728
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+        "id": "ec5d6464a9867399f5bffdf6b5c7ccc022573e31",
+        "name": "Jui Tui Shrine",
+        "permanently_closed": true,
+        "photos": [
+            {
+                "height": 2242,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/105554964704008014456\">Vincent Oliver</a>"
+                ],
+                "photo_reference": "CmRaAAAA5ogrCDKncb4X6IXh3q-tvP67U-3mfHHzxcgyrZ3Iuhur-hyTj218YrVTc0fNM7DeVgZXVgrWbHcP9VTOg2gf62krDGaaZjDmBKqhfBmWuOnA25OrJDlYkCCAJj93e2cnEhD2qk--cEl8I1DRM5uX0yjqGhQiDDaiQ8Nkr6itGU5ms4w755o3nw",
+                "width": 2423
+            }
+        ],
+        "place_id": "ChIJGedEH-UxUDAR-y-sHvyXihQ",
+        "plus_code": {
+            "compound_code": "V9MM+76 Phuket, Mueang Phuket District, Phuket, Thailand",
+            "global_code": "6MVWV9MM+76"
+        },
+        "rating": 4.6,
+        "reference": "ChIJGedEH-UxUDAR-y-sHvyXihQ",
+        "types": [
+            "place_of_worship",
+            "tourist_attraction",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 86,
+        "recommendedTime": 120,
+        "category": "others"
+    },
+    {
+        "business_status": "OPERATIONAL",
+        "formatted_address": "Thalang Rd, Tambon Talat Yai, Mueang Phuket District, Phuket 83000, Thailand",
+        "geometry": {
+            "location": {
+                "lat": 7.884778299999999,
+                "lng": 98.3890333
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 7.886092329892723,
+                    "lng": 98.39038097989273
+                },
+                "southwest": {
+                    "lat": 7.883392670107279,
+                    "lng": 98.38768132010729
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/shopping-71.png",
+        "id": "718f9571a6c80624aeade7290fa22ab3ca5dd36c",
+        "name": "Sunday Walking Street Market",
+        "opening_hours": {
+            "open_now": false
+        },
+        "photos": [
+            {
+                "height": 3024,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/100999480235750363616\">Katy Villa</a>"
+                ],
+                "photo_reference": "CmRaAAAAFhbCWVJ1CO0JMCmyFeS17cxFyPhbsSGeEc7OMI9YC1ODRsNrFNearwvgpK41Dx8qXuR9I9NkJ2xeJIj2sa463LDscbkLmb3dZ9cXGdZrGIuTMIFeRdrSvrY90UVLQka2EhA52eXZXeAKe770Vrr4vqAWGhRtSqR-2c8MZVJexwKxrAfWyv7H9A",
+                "width": 4032
+            }
+        ],
+        "place_id": "ChIJUbVORB8uUDARGdvuRjktC0Q",
+        "plus_code": {
+            "compound_code": "V9MQ+WJ Phuket, Mueang Phuket District, Phuket, Thailand",
+            "global_code": "6MVWV9MQ+WJ"
+        },
+        "rating": 4.4,
+        "reference": "ChIJUbVORB8uUDARGdvuRjktC0Q",
+        "types": [
+            "tourist_attraction",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 3492,
+        "recommendedTime": 120,
+        "category": "others"
+    },
+    {
+        "business_status": "OPERATIONAL",
+        "formatted_address": "ยอดเขานาคเกิด Karon, Mueang Phuket District, Phuket 83100, Thailand",
+        "geometry": {
+            "location": {
+                "lat": 7.8275763,
+                "lng": 98.3128423
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 7.828967929892722,
+                    "lng": 98.31429062989272
+                },
+                "southwest": {
+                    "lat": 7.826268270107278,
+                    "lng": 98.31159097010729
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+        "id": "40f1d18a81378df751fa2c6b20ce761bf4535660",
+        "name": "Big Buddha Phuket",
+        "opening_hours": {
+            "open_now": false
+        },
+        "photos": [
+            {
+                "height": 2268,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/101016525744590337791\">A Google User</a>"
+                ],
+                "photo_reference": "CmRaAAAAzJryd0mOpm2H3CPjoHc8hTVbeI2InC6qWEZy9XYGNS8F830vpHNWRAx1OozKGKyKb_TnMlpfzQ9BSIPKKqva-mhXKKWJ8sK3bVzdWJgZmnGhhxr-jL0NzPRGiZWgGYCpEhABRX_siwZ2BIjXOVa1fCQzGhTcmsDsga1BhuSIoV_i1y4p3GRNag",
+                "width": 4032
+            }
+        ],
+        "place_id": "ChIJOSmXz2AvUDARXCxlBBs7y38",
+        "plus_code": {
+            "compound_code": "R8H7+24 Karon, Mueang Phuket District, Phuket, Thailand",
+            "global_code": "6MVWR8H7+24"
+        },
+        "rating": 4.6,
+        "reference": "ChIJOSmXz2AvUDARXCxlBBs7y38",
+        "types": [
+            "tourist_attraction",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 15426,
+        "recommendedTime": 120,
+        "category": "others"
+    },
+    {
+        "business_status": "OPERATIONAL",
+        "formatted_address": "หมู่ที่ 5 51/11 Chalermprakiat Ratchakan Thi 9 Road, Ratsada, Mueang Phuket District, Phuket 83000, Thailand",
+        "geometry": {
+            "location": {
+                "lat": 7.938417599999999,
+                "lng": 98.37982009999999
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 7.93986522989272,
+                    "lng": 98.38092097989271
+                },
+                "southwest": {
+                    "lat": 7.937165570107276,
+                    "lng": 98.37822132010726
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+        "id": "ad544f3b4e2dda590102eb7f2cfb1cc3b3e073ce",
+        "name": "Baan Teelanka - The UpsideDown House of Phuket",
+        "opening_hours": {
+            "open_now": false
+        },
+        "photos": [
+            {
+                "height": 1062,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/113569435473697797451\">Baan Teelanka</a>"
+                ],
+                "photo_reference": "CmRaAAAAakgpGKNiqOYmPuhsZa42N-UABGJ-VkEk7S-fVOdpRfHRbMPyoBq84oA0adMJlymh3332bGg5Yrbpo3s8Y41LkgK3HGy4bAu3PfltnPwA1-v3clYfK_tXmuSKi3vXDBj1EhAyJHXqRUNm3hwRBE_NL1uXGhT4kBrg75oiVUstGlxtVv6qnkalrw",
+                "width": 1536
+            }
+        ],
+        "place_id": "ChIJ96sHIWoxUDARhRhVuhEdqkg",
+        "plus_code": {
+            "compound_code": "W9QH+9W Ko Kaeo, Mueang Phuket District, Phuket, Thailand",
+            "global_code": "6MVWW9QH+9W"
+        },
+        "rating": 4,
+        "reference": "ChIJ96sHIWoxUDARhRhVuhEdqkg",
+        "types": [
+            "tourist_attraction",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 1544,
+        "recommendedTime": 120,
+        "category": "others"
+    },
+    {
+        "business_status": "CLOSED_TEMPORARILY",
+        "formatted_address": "Dibuk Rd, Tambon Talat Nuea, Mueang Phuket District, Phuket 83000, Thailand",
+        "geometry": {
+            "location": {
+                "lat": 7.886423400000001,
+                "lng": 98.3875027
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 7.887707579892723,
+                    "lng": 98.38884352989271
+                },
+                "southwest": {
+                    "lat": 7.885007920107279,
+                    "lng": 98.38614387010728
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+        "id": "3c14e54aab87fbb9ae4b55e70b7dcd4923420400",
+        "name": "ตึกโบราณสถาปัตยกรรมแบบชิโน-โปรตุกีส",
+        "permanently_closed": true,
+        "photos": [
+            {
+                "height": 3264,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/108458674742243977626\">pipat p</a>"
+                ],
+                "photo_reference": "CmRaAAAAqnuImiFJ1QSaJFuKu69Urd2H2JkiHnkqiBfhowwtYtC-_5vaj_kXM9WDcY2bbo3e8tRz3QC5BzjaMRP-wz1udSNP7Jznsz-NlgVVOqVpUzyjhfQcat-1xq8ax0v-COIFEhA4PEJjcx6oa2Fx3I8M6EJOGhSUul_t02Eh8wUcPgAYClr8nQEc-A",
+                "width": 4896
+            }
+        ],
+        "place_id": "ChIJ391Xd_AxUDARQufJGz3NUlY",
+        "plus_code": {
+            "compound_code": "V9PQ+H2 Phuket, Mueang Phuket District, Phuket, Thailand",
+            "global_code": "6MVWV9PQ+H2"
+        },
+        "rating": 4.3,
+        "reference": "ChIJ391Xd_AxUDARQufJGz3NUlY",
+        "types": [
+            "tourist_attraction",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 1007,
+        "recommendedTime": 120,
+        "category": "others"
+    },
+    {
+        "business_status": "OPERATIONAL",
+        "formatted_address": "50 33 Chalong, Mueang Phuket District, 83130, Thailand",
+        "geometry": {
+            "location": {
+                "lat": 7.842278199999999,
+                "lng": 98.3568265
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 7.843715429892721,
+                    "lng": 98.35817607989271
+                },
+                "southwest": {
+                    "lat": 7.841015770107277,
+                    "lng": 98.35547642010727
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+        "id": "7d6a64c62ec1b476e3eda106d2f584a761543463",
+        "name": "Dolphins Bay Phuket",
+        "photos": [
+            {
+                "height": 1365,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/116845952149674242151\">Dolphins Bay Phuket (โชว์โลมา)</a>"
+                ],
+                "photo_reference": "CmRaAAAA-Vn1RKx8xTtb33l8yy3z5XKtPLDBuq-zhp9L1wdVu6ighACHaAyTNlF0tiPTF_d7iBdBNx0DVWGaTP98RCMFH_YPWbugNl-gQEXm0aYVCzIVkhc8JFoJTJHRpvQpvEXcEhB8VmQHEaticW0d1Fwp2ChjGhQyhna57gZgdxCs-T0jMCllJ77OsQ",
+                "width": 2048
+            }
+        ],
+        "place_id": "ChIJ33J1DVIuUDARPeLYBVDFRC8",
+        "plus_code": {
+            "compound_code": "R9R4+WP Chalong, Mueang Phuket District, Phuket, Thailand",
+            "global_code": "6MVWR9R4+WP"
+        },
+        "rating": 4.6,
+        "reference": "ChIJ33J1DVIuUDARPeLYBVDFRC8",
+        "types": [
+            "tourist_attraction",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 4445,
+        "recommendedTime": 120,
+        "category": "others"
+    },
+    {
+        "business_status": "CLOSED_TEMPORARILY",
+        "formatted_address": "28 Krabi, ตำบล ตลาดเหนือ Mueang Phuket District, Phuket 83000, Thailand",
+        "geometry": {
+            "location": {
+                "lat": 7.8855551,
+                "lng": 98.3868502
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 7.886600729892722,
+                    "lng": 98.38816572989273
+                },
+                "southwest": {
+                    "lat": 7.883901070107278,
+                    "lng": 98.38546607010728
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+        "id": "95bc7a7ff09a5d17601c0b7437958d8a089b5323",
+        "name": "Thai Hua Museum",
+        "permanently_closed": true,
+        "photos": [
+            {
+                "height": 3939,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/106038849322801149128\">Ronnatham Thabthed</a>"
+                ],
+                "photo_reference": "CmRaAAAAcrRzKrULazCmlD6DLuaWAYzr7vLQvuII-gPrfdDVyKJDxNn9eHsEyCaGmx4pXUXp6W5svoBl84J92wBjNATbE1L_Xk9a6KHxoa_yFtbu7lO089E_dU1yefeh6vBMMGf5EhD0VBmmfu-PayU-_-nfJR_EGhTEESs5-Wc9ApCHQTgU-v6AaOdcfQ",
+                "width": 5908
+            }
+        ],
+        "place_id": "ChIJW_ZuovoxUDARO9tP_1sCA30",
+        "plus_code": {
+            "compound_code": "V9PP+6P Phuket, Mueang Phuket District, Phuket, Thailand",
+            "global_code": "6MVWV9PP+6P"
+        },
+        "rating": 3.9,
+        "reference": "ChIJW_ZuovoxUDARO9tP_1sCA30",
+        "types": [
+            "museum",
+            "tourist_attraction",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 448,
+        "recommendedTime": 180,
+        "category": "museum"
+    },
+    {
+        "business_status": "CLOSED_TEMPORARILY",
+        "formatted_address": "Phangnga Rd, Talat Yai, Mueang Phuket District, Phuket 83000, Thailand",
+        "geometry": {
+            "location": {
+                "lat": 7.8837255,
+                "lng": 98.39072859999999
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 7.885021179892721,
+                    "lng": 98.39207537989272
+                },
+                "southwest": {
+                    "lat": 7.882321520107277,
+                    "lng": 98.38937572010727
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+        "id": "4c264023b50b93ec5bd7030c17484e2a8b82ebd1",
+        "name": "Phuket Baba Museum",
+        "permanently_closed": true,
+        "photos": [
+            {
+                "height": 3024,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/116335597648811608503\">Adhie Indrawan</a>"
+                ],
+                "photo_reference": "CmRaAAAA-GZDtCRpqw_oTjnMNj276uIWWA5ZxpkcOw06wa7nnYekkG0SluMQYUuUef6Zp5w0yDWPU7LlSeV254WX5SkUfUQp1ENJNI4JjnrP41WqZXzFFfiK0Xx6h-vuzkF0vH9jEhADGEou-LefD4mlzPg3bWHbGhSPnEnHMbAEHrpo5Juc5ccQBGRU8g",
+                "width": 4032
+            }
+        ],
+        "place_id": "ChIJo4R7KfoxUDAR6mcjrrRyOG4",
+        "plus_code": {
+            "compound_code": "V9MR+F7 Phuket, Mueang Phuket District, Phuket, Thailand",
+            "global_code": "6MVWV9MR+F7"
+        },
+        "rating": 3.8,
+        "reference": "ChIJo4R7KfoxUDAR6mcjrrRyOG4",
+        "types": [
+            "museum",
+            "tourist_attraction",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 66,
+        "recommendedTime": 180,
+        "category": "museum"
+    },
+    {
+        "business_status": "OPERATIONAL",
+        "formatted_address": "118/88 Moo 7, Kathu, Phuket, Thailand",
+        "geometry": {
+            "location": {
+                "lat": 7.907038200000001,
+                "lng": 98.3300115
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 7.908453979892724,
+                    "lng": 98.33141972989273
+                },
+                "southwest": {
+                    "lat": 7.90575432010728,
+                    "lng": 98.32872007010728
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+        "id": "fcf4521ba1ab22065c2e998b821e1ccb36643fa3",
+        "name": "Tiger Kingdom - Phuket",
+        "opening_hours": {
+            "open_now": false
+        },
+        "photos": [
+            {
+                "height": 3024,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/115785962158499047681\">Parikshit Patil</a>"
+                ],
+                "photo_reference": "CmRYAAAAX_DXrecEG8EHIwyOfVNnE0CMZPdVDtfuaRLvLuJ0mOVbAIbIXcK64UhutiLIVoyJRGFMBlMMbUXGN2FrRW8UcgvSAD66UjmYdoa949FHgb8kIPGNQbPrskhG7hEWbo5jEhChEf9TRhcDG6iAqREmGbTfGhSB-ejJoEcHfq0cM3loQQCiA1K5nQ",
+                "width": 4032
+            }
+        ],
+        "place_id": "ChIJ0xtyOmgwUDARKUcz6kOyiEQ",
+        "plus_code": {
+            "compound_code": "W84J+R2 Kathu, Kathu District, Phuket, Thailand",
+            "global_code": "6MVWW84J+R2"
+        },
+        "rating": 4,
+        "reference": "ChIJ0xtyOmgwUDARKUcz6kOyiEQ",
+        "types": [
+            "zoo",
+            "tourist_attraction",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 8079,
+        "recommendedTime": 360,
+        "category": "zoo"
+    },
+    {
+        "business_status": "CLOSED_TEMPORARILY",
+        "formatted_address": "Chalong, Mueang Phuket District, Phuket 83000, Thailand",
+        "geometry": {
+            "location": {
+                "lat": 7.8213963,
+                "lng": 98.3448133
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 7.822736079892723,
+                    "lng": 98.34613147989273
+                },
+                "southwest": {
+                    "lat": 7.82003642010728,
+                    "lng": 98.34343182010728
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+        "id": "d6eec05e2945f22a72975f7383526e467eef6976",
+        "name": "Port Phuket",
+        "permanently_closed": true,
+        "photos": [
+            {
+                "height": 2340,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/117172283449092390202\">Lantis Tam</a>"
+                ],
+                "photo_reference": "CmRZAAAAShmGzOUxq2BFWuIXleGw3kQWyhzkxGH6dcFmmcLIjz5C5cRDog8Al4qcU19eDBmbVdKlZ_R57LuOlE4d-Dr0apb0lUIN2BQUYd4d5Y7sTlNJT8qeWnzhpXkOB_6ptF_zEhD8VzGHhYxtAur0ypMtD3vQGhRcL99BoWUvkXuCxHfgz3EWTItU4w",
+                "width": 4160
+            }
+        ],
+        "place_id": "ChIJ21_cJRsvUDAR5BHgaiEk6Ko",
+        "plus_code": {
+            "compound_code": "R8CV+HW Chalong, Mueang Phuket District, Phuket, Thailand",
+            "global_code": "6MVWR8CV+HW"
+        },
+        "rating": 4,
+        "reference": "ChIJ21_cJRsvUDAR5BHgaiEk6Ko",
+        "types": [
+            "tourist_attraction",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 51,
+        "recommendedTime": 120,
+        "category": "others"
+    },
+    {
+        "business_status": "CLOSED_TEMPORARILY",
+        "formatted_address": "1/95 moo 5, Chalong, Muang, Phuket, 83130, Thailand",
+        "geometry": {
+            "location": {
+                "lat": 7.8622955,
+                "lng": 98.3451554
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 7.863747979892722,
+                    "lng": 98.34641187989271
+                },
+                "southwest": {
+                    "lat": 7.861048320107278,
+                    "lng": 98.34371222010726
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+        "id": "97c50b190dcf77ca00408b00959fa32a34a82419",
+        "name": "Phuket Crocodile World",
+        "permanently_closed": true,
+        "photos": [
+            {
+                "height": 656,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/100920448336095333927\">Алексей Бобровский</a>"
+                ],
+                "photo_reference": "CmRaAAAARuTc-UhJ4RjP1mwEJBcJKgW2HoD8oYjBYHKXQo4YpgM_3JrTLHdX9GCFVAu7Yv52uriyUuPBTTtQbshRP9svcLPQN2LC340snkDp8INga5q9d41qZCiHSW0mpklymPADEhCElAGN_jcgYLIz3KiD99ZhGhQ_gJxQ7S7mZCZ118oaYcqkqXNw1A",
+                "width": 1024
+            }
+        ],
+        "place_id": "ChIJK5IzZ84vUDARtJimFma1Ti8",
+        "plus_code": {
+            "compound_code": "V86W+W3 Chalong, Mueang Phuket District, Phuket, Thailand",
+            "global_code": "6MVWV86W+W3"
+        },
+        "rating": 3.8,
+        "reference": "ChIJK5IzZ84vUDARtJimFma1Ti8",
+        "types": [
+            "tourist_attraction",
+            "museum",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 559,
+        "recommendedTime": 180,
+        "category": "museum"
+    },
+    {
+        "business_status": "CLOSED_TEMPORARILY",
+        "formatted_address": "72/1 Yaowarat Rd, Tambon Talat Yai, Mueang Phuket District, Phuket 83000, Thailand",
+        "geometry": {
+            "location": {
+                "lat": 7.8835427,
+                "lng": 98.38763929999999
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 7.884910379892721,
+                    "lng": 98.38882847989272
+                },
+                "southwest": {
+                    "lat": 7.882210720107278,
+                    "lng": 98.38612882010727
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+        "id": "3f07f9e99e00b7abe450564ecf9dd739b18ffc16",
+        "name": "Shrine of The Serene Light",
+        "permanently_closed": true,
+        "photos": [
+            {
+                "height": 3024,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/115462999820321928079\">A Google User</a>"
+                ],
+                "photo_reference": "CmRaAAAAWtqr8hd-xzT4d2GH8qXW7KUckALRYZV0tNBYPXUplypZsHY95uwSwqGOQHDN4PMjP3kRkEfYPYomcX_Zuu_FLLgr8sib8rnmoWH4e8ixA_OkStl9RJaWo9fYCSsDbTXIEhDloDEyUBqO2te00_DwML8GGhSc3N5n4mv9qqlD-PxEet9PEyXOyQ",
+                "width": 4032
+            }
+        ],
+        "place_id": "ChIJDUXO8_oxUDARqIUzjdM_4qQ",
+        "plus_code": {
+            "compound_code": "V9MQ+C3 Phuket, Mueang Phuket District, Phuket, Thailand",
+            "global_code": "6MVWV9MQ+C3"
+        },
+        "rating": 4.2,
+        "reference": "ChIJDUXO8_oxUDARqIUzjdM_4qQ",
+        "types": [
+            "place_of_worship",
+            "tourist_attraction",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 27,
+        "recommendedTime": 120,
+        "category": "others"
+    },
+    {
+        "business_status": "CLOSED_TEMPORARILY",
+        "formatted_address": "Ratsada, Mueang Phuket District, Phuket 83000, Thailand",
+        "geometry": {
+            "location": {
+                "lat": 7.875507799999999,
+                "lng": 98.42407589999999
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 7.876844079892722,
+                    "lng": 98.42543992989273
+                },
+                "southwest": {
+                    "lat": 7.874144420107278,
+                    "lng": 98.42274027010728
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+        "id": "867e6a1e136956585c19c426494b2739abbf209c",
+        "name": "Pp島碼頭",
+        "permanently_closed": true,
+        "photos": [
+            {
+                "height": 2721,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/114894336811074557542\">wei lili</a>"
+                ],
+                "photo_reference": "CmRaAAAAubjOdMYYrCE7qbL_H7UwGF0WFYbH_vnYsoO--3apK0sOq6FmMsE8DU5vzZOkyCPvPPqe1a4lQMNUDrE58R6D8BJZ9OWeCJjo9uJACOyomKw4NggQJT-BztC5mnRqhmsTEhA_d2p7UGzAlirjmo0e-18uGhRxsNNPxNQy44rgsOYgSgkYjd8kcA",
+                "width": 3987
+            }
+        ],
+        "place_id": "ChIJjasqCnYyUDARJ8OXGqpVJe0",
+        "plus_code": {
+            "compound_code": "VCGF+6J Ratsada, Mueang Phuket District, Phuket, Thailand",
+            "global_code": "6MVWVCGF+6J"
+        },
+        "rating": 4.3,
+        "reference": "ChIJjasqCnYyUDARJ8OXGqpVJe0",
+        "types": [
+            "tourist_attraction",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 462,
+        "recommendedTime": 120,
+        "category": "others"
+    },
+    {
+        "business_status": "CLOSED_TEMPORARILY",
+        "formatted_address": "Mueang Phuket, Mueang Phuket District, Phuket 83000, Thailand",
+        "geometry": {
+            "location": {
+                "lat": 7.8939596,
+                "lng": 98.38166609999999
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 7.895299529892721,
+                    "lng": 98.38309857989272
+                },
+                "southwest": {
+                    "lat": 7.892599870107277,
+                    "lng": 98.38039892010728
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/worship_general-71.png",
+        "id": "16fee9bed8f86bffb7c4e0376a971f3b87ea56f7",
+        "name": "Wat Khao Rang Samakkhitham",
+        "permanently_closed": true,
+        "photos": [
+            {
+                "height": 4032,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/107015661556305232218\">Максим Лозюк</a>"
+                ],
+                "photo_reference": "CmRaAAAAIWLZP66Wr1YQIL0CxYxXxqa-eApCiQJuFbtbVDHBvV5vaaYRAK9E4tQRSBz1xZn1s9VmIUPZ78tGGD7-RqZEYN-F1CCDVW1_ywXWk7EyYSMKuBdoRaZr5YYuZy007vXDEhAraSKdADF_cuDPkzUDl7gOGhRvcTrUFqVrO43zJFH7EPD1i7TT4g",
+                "width": 3024
+            }
+        ],
+        "place_id": "ChIJlXRfXuwxUDARrUn05h4uF6U",
+        "plus_code": {
+            "compound_code": "V9VJ+HM Wichit, Mueang Phuket District, Phuket, Thailand",
+            "global_code": "6MVWV9VJ+HM"
+        },
+        "rating": 4.5,
+        "reference": "ChIJlXRfXuwxUDARrUn05h4uF6U",
+        "types": [
+            "tourist_attraction",
+            "place_of_worship",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 340,
+        "recommendedTime": 120,
+        "category": "others"
+    },
+    {
+        "business_status": "OPERATIONAL",
+        "formatted_address": "แหลมพรหมเทพ, Rawai, Mueang Phuket District, Phuket 83100, Thailand",
+        "geometry": {
+            "location": {
+                "lat": 7.758863000000001,
+                "lng": 98.303519
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 7.765134200000001,
+                    "lng": 98.307332
+                },
+                "southwest": {
+                    "lat": 7.756772599999997,
+                    "lng": 98.302248
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+        "id": "cfa8ab79576e0f7462556dd29dd9bc4be15e8783",
+        "name": "แหลมพรหมเทพ",
+        "photos": [
+            {
+                "height": 1452,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/107901221099090565023\">ธเนศ โรจนะเทพประสิทธิ์</a>"
+                ],
+                "photo_reference": "CmRaAAAACxuskkfJDKV1JozEJo0gFG3PD5EGnKKT9xrjrXmCkBNvhpDTCAF4r85w9xzZT6OxHtEneF1RGqNemhKtFvFgy2rfzttNHJF_6HUezp-ceLyzxk65PBOMxn4AHz29e47fEhBlkzed-_5Xkt7tP2Sv3CpgGhR93Jjdjs4dUAHk8H9B7yNUTK0yWg",
+                "width": 2217
+            }
+        ],
+        "place_id": "ChIJtZgCJiEmUDARG1q53LLQaAs",
+        "plus_code": {
+            "compound_code": "Q853+GC Rawai, Mueang Phuket District, Phuket, Thailand",
+            "global_code": "6MVWQ853+GC"
+        },
+        "rating": 4.6,
+        "reference": "ChIJtZgCJiEmUDARG1q53LLQaAs",
+        "types": [
+            "tourist_attraction",
+            "point_of_interest",
+            "establishment"
+        ],
+        "user_ratings_total": 5665,
+        "recommendedTime": 120,
+        "category": "others"
+    }
+]}

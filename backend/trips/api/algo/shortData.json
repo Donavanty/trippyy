@@ -1,0 +1,269 @@
+{"places": [{		"id": "poi:53207",
+    "level": "poi",
+    "rating": 1.3674257866946,
+    "rating_local": 6.837128933473,
+    "quadkey": "132232231111201203111",
+    "location": {
+        "lat": 1.355245,
+        "lng": 103.9881758
+    },
+    "bounding_box": {
+        "south": 1.3203137,
+        "west": 103.971355,
+        "north": 1.3897295,
+        "east": 104.003957
+    },
+    "name": "Singapore Changi Airport",
+    "name_suffix": "Singapore",
+    "name_local": "Singapore Changi Airport (SIN)",
+    "name_en": "Singapore Changi Airport",
+    "name_translated": "Singapore Changi Airport",
+    "url": "https://go.sygic.com/travel/place?id=poi:53207",
+    "duration_estimate": 5400,
+    "marker": "traveling-airport",
+    "class": {
+        "slug": "traveling:airport:international",
+        "name": "International Airport"
+    },
+    "categories": [
+        "traveling"
+    ],
+    "tag_keys": [
+        "Airport",
+        "Free Wi-Fi",
+        "International Airport"
+    ],
+    "parents": [
+        {
+            "id": "region:61281",
+            "name": "Southeast",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "The main airport of Singapore is located about 25 km from the downtown area and is one of the major transportation hubs in Asia.",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:53207"
+},
+{
+    "id": "poi:36690",
+    "level": "poi",
+    "rating": 1.110207090275,
+    "rating_local": 3.0950633307710382,
+    "quadkey": "132232231103123131323",
+    "location": {
+        "lat": 1.2812928,
+        "lng": 103.8643521
+    },
+    "bounding_box": {
+        "south": 1.2759258,
+        "west": 103.8594257,
+        "north": 1.2954899,
+        "east": 103.8766799
+    },
+    "name": "Gardens by the Bay",
+    "name_suffix": "Singapore",
+    "name_local": "Gardens by the Bay",
+    "name_en": "Gardens by the Bay",
+    "name_translated": "Gardens by the Bay",
+    "url": "https://go.sygic.com/travel/place?id=poi:36690",
+    "duration_estimate": 10800,
+    "marker": "relaxing-park-garden",
+    "class": {
+        "slug": "relaxing:park:garden",
+        "name": "Garden"
+    },
+    "categories": [
+        "hiking",
+        "relaxing",
+        "sightseeing",
+        "discovering"
+    ],
+    "tag_keys": [
+        "360° Content",
+        "Strolling Area",
+        "Park",
+        "Garden",
+        "City Park",
+        "Neo-Futurist Architecture",
+        "Botanical Garden",
+        "Free"
+    ],
+    "parents": [
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "This huge garden complex featuring the futuristic Supertrees is a reason in itself to visit Singapore.",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:36690"
+},
+{
+    "id": "poi:37035862",
+    "level": "poi",
+    "rating": 0.83704000398484,
+    "rating_local": 2.333521237087581,
+    "quadkey": "132232231103121222032",
+    "location": {
+        "lat": 1.2861278,
+        "lng": 103.8542517
+    },
+    "bounding_box": {
+        "south": 1.284885,
+        "west": 103.8536029,
+        "north": 1.2870787,
+        "east": 103.8548166
+    },
+    "name": "Merlion Park",
+    "name_suffix": "Singapore",
+    "name_local": "Merlion Park",
+    "name_en": "Merlion Park",
+    "name_translated": "Merlion Park",
+    "url": "https://go.sygic.com/travel/place?id=poi:37035862",
+    "duration_estimate": 1800,
+    "marker": "sightseeing-fountain",
+    "class": {
+        "slug": "sightseeing:fountain",
+        "name": "Fountain"
+    },
+    "categories": [
+        "sightseeing",
+        "relaxing"
+    ],
+    "tag_keys": [
+        "360° Content",
+        "Wheelchair Accessible",
+        "Park",
+        "Free",
+        "Fountain",
+        "Statue",
+        "Singapore City Pass",
+        "Mythical"
+    ],
+    "parents": [
+        {
+            "id": "region:61340",
+            "name": "Central",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "This park is notable especially because it holds the iconic landmark and \"mascot\" of Singapore: Merlion, a mythical half-lion, half-fish…",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:37035862"
+},
+{
+    "id": "poi:21541",
+    "level": "poi",
+    "rating": 0.78047795145083,
+    "rating_local": 2.3724536830489233,
+    "quadkey": "132232231103101222222",
+    "location": {
+        "lat": 1.3073737,
+        "lng": 103.8538653
+    },
+    "bounding_box": {
+        "south": 1.3035168,
+        "west": 103.8495375,
+        "north": 1.311776,
+        "east": 103.857772
+    },
+    "name": "Little India",
+    "name_suffix": "Singapore",
+    "name_local": "Little India",
+    "name_en": "Little India",
+    "name_translated": "Little India",
+    "url": "https://go.sygic.com/travel/place?id=poi:21541",
+    "duration_estimate": 7200,
+    "marker": "shopping-centre",
+    "class": {
+        "slug": "shopping:centre:district",
+        "name": "Shopping District"
+    },
+    "categories": [
+        "eating",
+        "shopping",
+        "sightseeing"
+    ],
+    "tag_keys": [
+        "Spices",
+        "Ethnic District",
+        "Indian Cuisine",
+        "Dining District",
+        "Shopping Area",
+        "District"
+    ],
+    "parents": [
+        {
+            "id": "region:61340",
+            "name": "Central",
+            "level": "region"
+        },
+        {
+            "id": "city:3355",
+            "name": "Singapore",
+            "level": "city"
+        },
+        {
+            "id": "country:84",
+            "name": "Singapore",
+            "level": "country"
+        },
+        {
+            "id": "continent:4",
+            "name": "Asia",
+            "level": "continent"
+        }
+    ],
+    "perex": "Located near Chinatown, Little India is a lively and charming Tamil neighbourhood with lots of small spice and textile shops, fortune…",
+    "customer_rating": "None",
+    "hotel_star_rating": "None",
+    "hotel_star_rating_unofficial": "None",
+    "thumbnail_url": "https://media-cdn.sygictraveldata.com/media/poi:21541"
+}]}

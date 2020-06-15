@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import UserList, UserDetail, TripList, TripDetail, CustomObtainAuthToken, TextSearch, NextKeySearch, BoundedTextSearch
+from .views import UserList, UserDetail, TripList, TripDetail, CustomObtainAuthToken, TextSearch, NextKeySearch, BoundedTextSearch, AlgoOptimize
 
 urlpatterns = [
 	path('users/', UserList.as_view()),
@@ -11,4 +11,5 @@ urlpatterns = [
 	path('TextSearch/', TextSearch.as_view()),
 	path('NextKeySearch/', NextKeySearch.as_view()),
 	path('BoundedTextSearch/', BoundedTextSearch.as_view()),
+	path('algo/', AlgoOptimize.as_view()),
 	]

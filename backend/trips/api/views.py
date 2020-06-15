@@ -11,6 +11,7 @@ from .serializers import UserSerializer, TripSerializer
 from rest_framework import permissions
 from .permissions import UserIsOwner, TripIsOwner
 from .utilities import recommendTime, addTimeAndSummary
+from .algo/optimize import optimize
 
 class TripList(ListCreateAPIView):
     queryset = Trip.objects.all()
@@ -61,6 +62,12 @@ class BoundedTextSearch(APIView):
 
         return Response(output, status=200)
 
+class AlgoOptimize(APIView):
+    def post(self, request, *args, **kwargs):
+        data = request.data
+        output = optimize(data["activitiesAdded"], data["lengthOfTrip"])
+
+        return Response(output, status=200)
 
 
 # Custom View to Login such that UserID is returned.

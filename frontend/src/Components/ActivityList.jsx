@@ -88,6 +88,7 @@ class ActivityList extends Component{
         } 
     }
 
+    // Called when load prev page.
     loadPrev = () => {
         this.refs.myscroll.scrollTop = 0;
         if (!this.props.isFirstPage) {
@@ -99,6 +100,7 @@ class ActivityList extends Component{
 
     }
 
+    // Upon clicking of button to change category,
     changeCategory = (event) => {
         if (event.target.value == "general") {
             const data = {

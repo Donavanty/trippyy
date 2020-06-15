@@ -11,7 +11,7 @@ from .serializers import UserSerializer, TripSerializer
 from rest_framework import permissions
 from .permissions import UserIsOwner, TripIsOwner
 from .utilities import recommendTime, addTimeAndSummary
-from .algo/optimize import optimize
+from .algo.optimize import optimize
 
 class TripList(ListCreateAPIView):
     queryset = Trip.objects.all()

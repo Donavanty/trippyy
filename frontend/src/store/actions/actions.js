@@ -4,14 +4,14 @@ import {updateObject, recommendTime} from '../utility';
 const DATABASE_URL = "https://trippyy-backend.herokuapp.com/"
 
 // Sends an action to reducer to change loading to true.
-export const authStarted = () => {
+export const authStart = () => {
 	return {
 		type: actionTypes.AUTH_START
 	}
 }
 
 // Sends an action to reducer to update REDUX token, username, userId upon login.
-export const authSuccessed = (token, username, userId) => {
+export const authSuccess = (token, username, userId) => {
 	return {
 		token: token,
 		type: actionTypes.AUTH_SUCCESS,
@@ -21,7 +21,7 @@ export const authSuccessed = (token, username, userId) => {
 }
 
 // Sends an action to alert an error.
-export const authFailed = (error) => {
+export const authFail = (error) => {
 	return {
 		error: error,
 		type: actionTypes.AUTH_FAIL
@@ -29,7 +29,7 @@ export const authFailed = (error) => {
 }
 
 // Called upon logout, removes everything in LOCALSTORAGE 
-export const logouted = () => {
+export const logout = () => {
 	localStorage.clear();
 	return {
 		type: actionTypes.AUTH_LOGOUT
@@ -45,10 +45,10 @@ export const notLoggedIn = () => {
 }
 
 // Called upon login, logins by checking with backend, updates USER attributes in LOCALSTORAGE, 
-// and calls authSuccessed or authFailed, depending on outcome.
-export const authLogined = (username, password) => {
+// and calls authSuccess or authFailed, depending on outcome.
+export const authLogin = (username, password) => {
 	return dispatch => {
-		dispatch(authStarted());
+		dispatch(authStart());
 		axios.post(DATABASE_URL + 'api/authenticate/', {
 			username: username,
 			password: password
@@ -61,34 +61,34 @@ export const authLogined = (username, password) => {
 				'username': username
 			}
 			localStorage.setItem('user', JSON.stringify(user));
-			dispatch(authSuccessed(token, username, userId));
+			dispatch(authSuccess(token, username, userId));
 		})
 		.catch(err => {
-			dispatch(authFailed(err))
+			dispatch(authFail(err))
 		})
 	}
 }
 
-// Signs up by sending POST req to backend, then calls authLogined.
-export const authSignuped = (username, email, password1, password2) => {
+// Signs up by sending POST req to backend, then calls authLogin.
+export const authSignup = (username, email, password1, password2) => {
 	return dispatch => {
-		dispatch(authStarted());
+		dispatch(authStart());
 		axios.post(DATABASE_URL + 'rest-auth/registration/', {
 			username: username,
 			email: email,
 			password1: password1,
 			password2: password2
 		}).then(res => {
-			dispatch(authLogined(username, password1));
+			dispatch(authLogin(username, password1));
 		})
 		.catch(err => {
-			dispatch(authFailed(err))
+			dispatch(authFail(err))
 		})
 	}
 }
 
 // Checks with LOCALSTORAGE (token) if user is logged in, and updates REDUX token accordingly.
-export const authCheckedState = () => {
+export const authCheckState = () => {
 	return dispatch => {
 		const user = JSON.parse(localStorage.getItem('user'));
 		if (user === undefined || user === null) {
@@ -96,7 +96,7 @@ export const authCheckedState = () => {
 		} else {
 			const token = user['token'];
 			const username = user['username'];
-			dispatch(authSuccessed(token, username));
+			dispatch(authSuccess(token, username));
 		}
 	}	
 }
@@ -132,16 +132,16 @@ export const newTripData = (tripCountry, tripLat, tripLng, startDate, endDate) =
 
 }
 
-// Calls authStarted to change REDUX loading to true, then proceeds on to call newTripData.
+// Calls authStart to change REDUX loading to true, then proceeds on to call newTripData.
 export const newTrip = (tripCountry, tripLat, tripLng, startDate, endDate) => {
 	return dispatch => {
-		dispatch(authStarted());
+		dispatch(authStart());
 		dispatch(newTripData(tripCountry, tripLat, tripLng, startDate, endDate));
 	}
 }
 
 //Gets trip details from local storage
-export const checkedTrip = () => {
+export const checkTrip = () => {
 	if (localStorage.trip !== null && localStorage.trip !== undefined) {
 		return {
 			type: actionTypes.NEW_TRIP,
@@ -155,7 +155,7 @@ export const checkedTrip = () => {
 	}
 }
 
-export const mapBoundsChanged = (bounds) => {
+export const mapBoundsChange = (bounds) => {
 	return {
 		type: actionTypes.MAP_BOUNDS_CHANGED,
 		bounds: bounds
@@ -168,14 +168,14 @@ export const activitiesStart = () => {
 	}
 }
 
-export const activitiesLoaded = (data) => {
+export const activitiesLoad = (data) => {
 	return (dispatch) => {
 		dispatch(activitiesStart());
-		dispatch(activitiesLoadedData(data));
+		dispatch(activitiesLoadData(data));
 	}
 }
 
-export const activitiesLoadedData = (data) => {
+export const activitiesLoadData = (data) => {
 	return (dispatch) => {
 	// Change URL depending on dataType.
 	var url;
@@ -185,7 +185,27 @@ export const activitiesLoadedData = (data) => {
 		url = "http://trippyy-backend.herokuapp.com/api/NextKeySearch/"
 	} else if (data.dataType == "BOUNDEDTEXTSEARCH") {
 		url = "http://trippyy-backend.herokuapp.com/api/BoundedTextSearch/"
+
+		// If input type was to go to previous page, simply change activities shown
+		// inside reducer.
+	} else if (data.dataType == "GOPREV") {
+		dispatch({
+			type: actionTypes.ACTIVITIES_LOAD,
+			dataType: data.dataType,
+		})
+		return;
+
+		// If input type was to go to next page, simply change activities shown
+		// inside reducer.
+	} else if (data.dataType == "GONEXT") {
+		axios.get("www.wikipedia.com").then((res) => {console.log("e")});
+		dispatch({
+			type: actionTypes.ACTIVITIES_LOAD,
+			dataType: data.dataType,
+		})
+		return;
 	}
+	
 	axios.post(url, data)
           .then( (res) => {
           	// Upon loading data, check if the activities ID are already added into trip, by comparing with local
@@ -209,7 +229,7 @@ export const activitiesLoadedData = (data) => {
           		}
           	}
 
-          	// Dispatch results
+          	// Dispatch results IF LOADING NEW PAGE DATA
             dispatch({
             	type: actionTypes.ACTIVITIES_LOAD,
             	dataType: data.dataType,
@@ -228,7 +248,7 @@ export const activitiesLoadedData = (data) => {
     }
 }
 
-export const activitiesAdded = (index) => {
+export const activitiesAdd = (index) => {
 	return {
 		type: actionTypes.ACTIVITY_ADD,
 		index: index

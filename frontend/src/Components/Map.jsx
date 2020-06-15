@@ -86,7 +86,7 @@ class Map extends Component{
         }
 
         //Updates new bounds to Redux
-        this.props.mapBoundsChanged(bounds);
+        this.props.mapBoundsChange(bounds);
 
         //Updates zoom and center to local state.
         this.setState({zoom: ref.getZoom()});
@@ -146,36 +146,34 @@ class Map extends Component{
                 >
                  
                     { 
-                        this.props.activitiesShown.map((value,index) => 
-
-                            value.added ? 
-
-                                <Marker key={index} position = {value.geometry.location} label={(index+1).toString()}
-                                    onClick = {(event) => this.markerClickHandler(event, index)} icon ="http://maps.google.com/mapfiles/ms/icons/blue.png">
-
-                                    {this.state.showInfoWindow && (this.state.currentInfoWindow == index) && 
-                                        (<InfoWindow onCloseClick= {() => this.setState({showInfoWindow: false})}> 
-                                            <span>{value.name}</span> 
-                                        </InfoWindow>)
-                                    }
-
-                                </Marker>                            
-
-                            :
-
-                                <Marker key={index} position = {value.geometry.location} label={(index+1).toString()}
+                        this.props.activitiesShown.currentList.map((value,index) => 
+                            (!value.added) && <Marker key={index} position = {value.geometry.location} label={(this.props.activitiesShown.firstActivityCounter + index + 1).toString()}
                                     onClick = {(event) => this.markerClickHandler(event, index)}>
 
                                     {this.state.showInfoWindow && (this.state.currentInfoWindow == index) && 
                                         (<InfoWindow onCloseClick= {() => this.setState({showInfoWindow: false})}> 
                                             <span>{value.name}</span> 
-                                        </InfoWindow>)
+                                        </InfoWindow> )
                                     }
 
-                                </Marker>)
+                                </Marker> )
 
                     }
 
+                    {
+                        this.props.trip.activitiesAdded.map((value,index) => 
+                            <Marker key={index} position = {value.geometry.location} label={(this.props.activitiesShown.firstActivityCounter + index + 1).toString()}
+                                onClick = {(event) => this.markerClickHandler(event, index)} icon ="http://maps.google.com/mapfiles/ms/icons/blue.png">
+
+                                {this.state.showInfoWindow && (this.state.currentInfoWindow == index) && 
+                                    (<InfoWindow onCloseClick= {() => this.setState({showInfoWindow: false})}> 
+                                        <span>{value.name}</span> 
+                                    </InfoWindow> )
+                                }
+
+                            </Marker> )
+
+                    }
 
                 </this.WrappedMap>
             </Fragment>
@@ -193,7 +191,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        mapBoundsChanged: (bounds) => dispatch(actions.mapBoundsChanged(bounds)),
+        mapBoundsChange: (bounds) => dispatch(actions.mapBoundsChange(bounds)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Map);

@@ -33,7 +33,7 @@ class ActivityList extends Component{
     } 
 
     activityClickHandler = (index) => {
-            this.props.activitiesAdded(index);
+            this.props.activitiesAdd(index);
     }
 
     componentDidMount() {
@@ -47,34 +47,56 @@ class ActivityList extends Component{
             query: this.convertSpaceToPlus(JSON.parse(localStorage.trip)["country"]) + "+points+of+interest"
         }
         // Retrieves Singapore places of interest.
-        this.props.activitiesLoaded(data);
+        this.props.activitiesLoad(data);
 
 
-        var timeout = null;
-        this.refs.myscroll.addEventListener("scroll", () => {
-            // timeout = setTimeout( () => console.log("hey"), 500);
-            const endHeight = this.refs.myscroll.scrollHeight - this.refs.myscroll.clientHeight
+        // var timeout = null;
+        // this.refs.myscroll.addEventListener("scroll", () => {
+        //     // timeout = setTimeout( () => console.log("hey"), 500);
+        //     const endHeight = this.refs.myscroll.scrollHeight - this.refs.myscroll.clientHeight
             
-            if (this.refs.myscroll.scrollTop == 0) {
-                console.log( "Go prev page")
-            } else if (this.refs.myscroll.scrollTop >= endHeight) {
-                this.loadMore();
-            }
+        //     if (this.refs.myscroll.scrollTop == 0) {
+        //         // this.loadPrev(); when the component mounts it will auto call previous :-()
+        //     } else if (this.refs.myscroll.scrollTop >= endHeight) {
+        //         this.loadNext();
+        //     }
 
-        });
+        // });
     
 
     }
 
-    loadMore() {
+    loadNext = () => {
+        this.refs.myscroll.scrollTop = 0;
         if (!this.props.isLastPage) {
-            const data = {
-                dataType: "NEXTKEYSEARCH",
-                key: API_KEY,
-                next_page_token: this.props.nextPageToken,
+            if (this.props.activitiesShown.hasNextPageLoaded) {
+                const data = {
+                    dataType: "GONEXT",
+                    pageNumber: this.props.activitiesShown.pageNumber
+                }
+                this.props.activitiesLoad(data);
+                return;
+            } else {
+                const data = {
+                    dataType: "NEXTKEYSEARCH",
+                    key: API_KEY,
+                    next_page_token: this.props.activitiesShown.nextPageToken,
+                }
+                this.props.activitiesLoad(data);
+                return;
             }
-            this.props.activitiesLoaded(data);
         } 
+    }
+
+    loadPrev = () => {
+        this.refs.myscroll.scrollTop = 0;
+        if (!this.props.isFirstPage) {
+            const data = {
+                dataType: "GOPREV",
+            }
+            this.props.activitiesLoad(data);
+        }
+
     }
     render() {
         return (
@@ -82,19 +104,32 @@ class ActivityList extends Component{
             { this.props.activitiesLoading ?
 
                 <Spinner animation="border" role="status">
-                <span className="sr-only">Loading...</span>
+                    <span className="sr-only">Loading...</span>
                 </Spinner> 
 
                 : 
                 <Fragment>
-                <div id="prevPage"> Scroll to Prev Page </div>
-                {this.props.activitiesShown.map((value,index) => <Activity key={index} value={value} index={index} activityClickHandler={this.activityClickHandler}/>)}
-                {this.props.isLastPage 
-                    ? 
-                        <div> No more! Try changing category or moving the map </div>
-                    :
-                        <div id="nextPage"> Scroll to Next Page </div>
-                }
+                    {
+                        (!this.props.isFirstPage) &&
+                            <button onClick = {this.loadPrev}> Scroll to Prev Page </button>
+                    }
+
+                    {this.props.activitiesShown.currentList.map((value,index) => 
+                        <Activity 
+                        key={index} 
+                        value={value} 
+                        displayIndex={index + this.props.activitiesShown.firstActivityCounter} 
+                        activityClickHandler={this.activityClickHandler}
+                        index={index}
+                        />)
+                    }
+
+                    {
+                        this.props.isLastPage ?
+                            <div> No more! Try changing category or moving the map </div>
+                        :
+                            <button onClick = {this.loadNext}> Scroll to Next Page </button>
+                    }
                 </Fragment>
             }
             </div>
@@ -108,17 +143,17 @@ const mapStateToProps = (state) => {
         map: state.map,
         activitiesShown: state.activitiesShown,
         activitiesLoading: state.activitiesLoading,
-        isLastPage: state.nextPageToken == -1,
-        nextPageToken: state.nextPageToken
+        isLastPage: (!state.activitiesShown.hasNextPageLoaded) && (state.activitiesShown.nextPageToken == -1),
+        isFirstPage: state.activitiesShown.pageNumber == 0,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        checkedTrip: () => dispatch(actions.checkedTrip()),
-        mapBoundsChanged: (bounds) => dispatch(actions.mapBoundsChanged(bounds)),
-        activitiesLoaded: (data) => dispatch(actions.activitiesLoaded(data)),
-        activitiesAdded: (index) => dispatch(actions.activitiesAdded(index)),
+        checkTrip: () => dispatch(actions.checkTrip()),
+        mapBoundsChange: (bounds) => dispatch(actions.mapBoundsChange(bounds)),
+        activitiesLoad: (data) => dispatch(actions.activitiesLoad(data)),
+        activitiesAdd: (index) => dispatch(actions.activitiesAdd(index)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ActivityList);

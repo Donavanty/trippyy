@@ -1,0 +1,7 @@
+#selectedActivityList {
+	overflow: auto;
+	height: 75vh;
+	overscroll-behavior: contain;
+	position: relative;
+	/*scroll-snap-type: y mandatory;*/
+}

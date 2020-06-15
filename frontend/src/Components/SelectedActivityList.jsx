@@ -7,17 +7,19 @@ import * as actions from '../store/actions/actions';
 import { connect } from 'react-redux';
 // -------------------------------------------------------------------------
 
+import "./CSS/SelectedActivityList.css";
+
 class SelectedActivityList extends Component{
     componentDidMount() {
     }
 
     render() {
         return (
-        	<Fragment>
+        	<div id="selectedActivityList">
         		{
         			this.props.trip["activitiesAdded"].map( (value, index) => <p key={index}> {value.name} </p>)
         		}
-        	</Fragment>);
+        	</div>);
     }
 }
 

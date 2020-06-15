@@ -9,11 +9,11 @@ const initialState = {
 	user: null,
 
 	trip: {
-		'country' : "",
+		'country' : -1,
 		'lat' : -1,
 		'lng' : -1,
-		'startDate': "",
-		'endDate' : "",
+		'startDate': -1,
+		'endDate' : -1,
 		'activitiesAdded' : [],
 		'activitiesAddedIds' : [],
 	},
@@ -31,16 +31,23 @@ const initialState = {
 				"lng": -1,
 			},
 
-            "center": null,
+            "center": -1,
 
             "radius": -1,
 		}
 	},
 
-	activitiesShown: [],
-	fullActivitiesShown: [],
-	firstActivityCounter: 0, 
-	nextPageToken: -1,
+	activitiesShown: {
+		"currentList": [],
+		"fullList": [], 
+		"firstActivityCounter": -1, 
+		"pageNumber": -1,
+		
+		"nextPageToken": -1,
+
+		"hasNextPageLoaded": false,
+		"pageLoadedUpTo": -1,
+	}
 }
 
 const authStart = (state, action) => {
@@ -97,23 +104,73 @@ const updateBounds = (state, action) => {
 const activitiesLoad = (state, action) => {
 	// If load next page, get and display next page data, and add onto fullActivitiesShown list
 	if (action.dataType == "NEXTKEYSEARCH") {
-		const newFullActivitiesShown = [...state.fullActivitiesShown, action.activitiesShown ];
-		return updateObject(state, {
-			activitiesShown: action.activitiesShown,
-			fullActivitiesShown: newFullActivitiesShown,
-			activitiesLoading: false,
+		const newFullList = [...state.activitiesShown.fullList, action.activitiesShown ];
+		const activitiesShown = {
+			currentList: action.activitiesShown,
+			fullList: newFullList,
+			pageLoadedUpTo: state.activitiesShown.pageNumber + 1,
+			pageNumber: state.activitiesShown.pageNumber + 1,
+			firstActivityCounter: state.activitiesShown.firstActivityCounter + 20,
 			nextPageToken: action.nextPageToken,
-			pageNumber: state.pageNumber + 1
+		}
+		return updateObject(state, {
+			activitiesShown: activitiesShown,
+			activitiesLoading: false,
 		})
 
-	// On first load of data, re-initiate everything.
-	} else {
+
+	// If the request was to go to a prev page, 
+	// ASSERT that fullList at this point would have shit.
+	} else if (action.dataType == "GOPREV") {
+		const newCurrentList = [...state.activitiesShown.fullList[state.activitiesShown.pageNumber - 1]]
+		const activitiesShown = updateObject(state.activitiesShown, {
+			currentList: newCurrentList,
+			pageNumber: state.activitiesShown.pageNumber - 1,
+			firstActivityCounter: state.activitiesShown.firstActivityCounter - 20,
+			hasNextPageLoaded: true,
+		})
 		return updateObject(state, {
-			activitiesShown: action.activitiesShown,
-			fullActivitiesShown: [action.activitiesShown],
+			activitiesShown: activitiesShown,
 			activitiesLoading: false,
+		})
+
+
+	// If has next page loaded, pressing next page will call to this instead,
+	// just reassign the activities shown and hasNextPageLoaded.
+	} else if (action.dataType == "GONEXT") {
+		const newCurrentList = [...state.activitiesShown.fullList[state.activitiesShown.pageNumber + 1]]
+		var hasNextPageLoaded;
+		if (state.activitiesShown.pageNumber + 1 >= state.activitiesShown.pageLoadedUpTo) {
+			hasNextPageLoaded = false
+		} else {
+			hasNextPageLoaded = true
+		}
+		const activitiesShown = updateObject(state.activitiesShown, {
+			currentList: newCurrentList,
+			pageNumber: state.activitiesShown.pageNumber + 1,
+			firstActivityCounter: state.activitiesShown.firstActivityCounter + 20,
+			hasNextPageLoaded: hasNextPageLoaded,
+		})
+		return updateObject(state, {
+			activitiesShown: activitiesShown,
+			activitiesLoading: false,
+		})
+	}
+
+
+	// If data type = bounded search or text search (meaning it is first load)
+	else {
+		const activitiesShown = {
+			currentList: action.activitiesShown,
+			fullList: [action.activitiesShown],
+
 			pageNumber: 0,
+			firstActivityCounter: 0,
 			nextPageToken: action.nextPageToken,
+		}
+		return updateObject(state, {
+			activitiesShown: activitiesShown,
+			activitiesLoading: false,
 		})
 	}
 }
@@ -130,12 +187,21 @@ const activitiesAdd = (state, action) => {
 
 	// Retrieve activity that was added by referencing the index (id) 
 	// Update the activity such that {added: true}
-	var activityAdded = state.activitiesShown[action.index];
+	var activityAdded = state.activitiesShown.currentList[action.index];
 	activityAdded = updateObject(activityAdded, {added: true});
 
 	// Replace the activity in ActivitiesShown with a new one that says added:true
-	var activitiesShown = [...state.activitiesShown];
-	activitiesShown[action.index] = activityAdded;
+	var activitiesShownCurrentList = [...state.activitiesShown.currentList];
+	activitiesShownCurrentList[action.index] = activityAdded;
+
+	var activitiesShownFullList = [...state.activitiesShown.fullList];
+	activitiesShownFullList[state.activitiesShown.pageNumber][action.index] = activityAdded;
+
+	var activitiesShown = updateObject(state.activitiesShown, {
+		currentList: activitiesShownCurrentList,
+		fullList: activitiesShownFullList,
+	})
+
 
 	// Merge all changes into currentTrip
 	currentTrip['activitiesAdded'].push(activityAdded);
@@ -149,6 +215,9 @@ const activitiesAdd = (state, action) => {
 		activitiesShown: activitiesShown,
 	})
 }
+
+
+
 const reducer = (state=initialState, action) => {
 	switch(action.type) {
 

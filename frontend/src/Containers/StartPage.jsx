@@ -20,7 +20,7 @@ class StartPage extends Component {
 	componentDidMount() {
 		//Updates login status into redux.
 		this.props.onTryAutoSignup();
-		this.props.checkedTrip();
+		this.props.checkTrip();
 	}
 
 	render() {
@@ -41,8 +41,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		onTryAutoSignup: () => dispatch(actions.authCheckedState()),
-		checkedTrip: () => dispatch(actions.checkedTrip())
+		onTryAutoSignup: () => dispatch(actions.authCheckState()),
+		checkTrip: () => dispatch(actions.checkTrip())
 	}
 }
 export default connect(mapStateToProps, mapDispatchToProps)(StartPage);

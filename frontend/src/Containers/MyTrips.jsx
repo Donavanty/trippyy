@@ -114,7 +114,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		onTryAutoSignup: () => dispatch(actions.authCheckedState()),
+		onTryAutoSignup: () => dispatch(actions.authCheckState()),
 	}
 }
 export default connect(mapStateToProps, mapDispatchToProps)(MyTrips);

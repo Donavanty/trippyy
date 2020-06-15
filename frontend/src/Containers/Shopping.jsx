@@ -22,7 +22,7 @@ class Shopping extends Component {
       } 
       //Updates login status and trip status into redux.
       this.props.onTryAutoSignup();
-      this.props.checkedTrip();
+      this.props.checkTrip();
       
 
     }
@@ -39,7 +39,7 @@ class Shopping extends Component {
               <NavBar from={this.props.location.pathname}/>
               <div className = "startBox">
                 <div className = "row">
-                  <div className = "col-3">
+                  <div className = "col-3" id="selectedActivitiesBox">
                     <h2> Welcome to {this.props.trip["country"]} </h2>
                     <SelectedActivityList/>
                   </div>
@@ -73,8 +73,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onTryAutoSignup: () => dispatch(actions.authCheckedState()),
-        checkedTrip: () => dispatch(actions.checkedTrip()),
+        onTryAutoSignup: () => dispatch(actions.authCheckState()),
+        checkTrip: () => dispatch(actions.checkTrip()),
     }
 }
 

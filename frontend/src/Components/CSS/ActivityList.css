@@ -3,7 +3,7 @@
 	height: 80vh;
 	overscroll-behavior: contain;
 	position: relative;
-	scroll-snap-type: y mandatory;
+	/*scroll-snap-type: y mandatory;*/
 }
 
 #prevPage {

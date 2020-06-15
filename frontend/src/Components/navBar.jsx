@@ -84,8 +84,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
 	return {
 		// Basic stats needed for NAV ------------
-		onTryAutoSignup: () => dispatch(actions.authCheckedState()),
-		logout: () => dispatch(actions.logouted())
+		onTryAutoSignup: () => dispatch(actions.authCheckState()),
+		logout: () => dispatch(actions.logout())
 		// Basic stats needed for NAV ------------
 	}
 }

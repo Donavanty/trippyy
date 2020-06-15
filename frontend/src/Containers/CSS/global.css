@@ -14,5 +14,12 @@
 #activitiesBox {
 	border-color: peachpuff;
 	border-style: solid;
+  border-left: 0px;
 	padding-top: 10px;
+}
+
+#selectedActivitiesBox {
+  border-color: peachpuff;
+  border-style: solid;
+  padding-top: 10px;
 }

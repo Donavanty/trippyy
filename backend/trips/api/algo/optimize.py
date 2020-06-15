@@ -68,8 +68,8 @@ def optimize(data, days):
 		output.append([0])
 
 	# Calculate max & min duration of total activities per day
-	minTimePerDay = max(240, (total_time / days) - 90)
-	maxTimePerDay = min(840, (total_time / days) + 180)
+	minTimePerDay = min(120, (total_time / days) - 90)
+	maxTimePerDay = max(480, (total_time / days) + 180)
 	dayCounter = 0
 
 	while pq:
@@ -87,9 +87,11 @@ def optimize(data, days):
 		# EXCEPTION: if alr on last day, just keep adding lel.
 		activityAdded = False
 		tempDayCounter = dayCounter
+		print("tempDayCounter " + str(tempDayCounter))
 		while not (activityAdded):
+			print("tempDayCounter " + str(tempDayCounter))
 			newTotalDuration = currentActivity.data["recommendedTime"] + output[tempDayCounter][0]
-			if (output[tempDayCounter][0] > minTimePerDay and (dayCounter < (days-1))):
+			if (output[tempDayCounter][0] > minTimePerDay and (dayCounter < (days-1)) and tempDayCounter < (days-1)):
 				tempDayCounter += 1
 			else:
 				if ((newTotalDuration < maxTimePerDay) or (tempDayCounter == (days-1))):
@@ -108,15 +110,16 @@ def optimize(data, days):
 				if (duration < pq[activity]):
 					pq[activity] = duration
 
-	# Print results
-	# count = 1
-	# for item in output:
-	# 	print ("DAY: " + str(count) + " ------------------------------------------------------ ")
-	# 	print("Total Duration (hrs): " + str(item[0]/60))
-	# 	for activity in item[1:]:
-	# 		print(activity.data["name"])
-	# 	count += 1
-		return JSON.dump(results)
+	count = 1
+	for i in range(0, len(output)):
+		print ("DAY: " + str(count) + " ------------------------------------------------------ ")
+		print("Total Duration (hrs): " + str(output[i][0]/60))
+		for j in range(1, len(output[i])):
+			print(output[i][j].data["name"])
+			output[i][j] = output[i][j].toJson()
+		count += 1
+	return json.dumps(output)
+	# return "{}"
 
 
 

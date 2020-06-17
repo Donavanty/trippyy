@@ -5,6 +5,7 @@ import Login from './Containers/Login';
 import Signup from './Containers/Signup';
 import MyTrips from './Containers/MyTrips';
 import Shopping from './Containers/Shopping';
+import Results from './Containers/Results';
 
 const BaseRoute = () => (
 	<Switch> 
@@ -13,6 +14,8 @@ const BaseRoute = () => (
 		<Route exact path ='/signup/' component = {Signup} />
 		<Route exact path ='/mytrips' component = {MyTrips} />
 		<Route exact path ='/shopping' component = {Shopping} />
+		<Route exact path ='/results' component = {Results} />
+
 	</Switch> );
 
 export default BaseRoute;

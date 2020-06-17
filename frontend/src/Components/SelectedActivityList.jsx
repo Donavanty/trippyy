@@ -11,29 +11,21 @@ import axios from "axios"
 import { Button , Spinner} from 'react-bootstrap'
 import "./CSS/SelectedActivityList.css";
 import Popup from "reactjs-popup";
+import { Link } from 'react-router-dom';
 
 class SelectedActivityList extends Component{
     componentDidMount() {
     }
 
     state = {
-        open: false,
-        iti :[],
-        localLoading : false
     }
 
     getItinerary = () => {
-        this.setState({localLoading: true})
         const data = {
             lengthOfTrip: 5,
             activitiesAdded: this.props.trip.activitiesAdded
         }
-        axios.post("https://trippyy-backend.herokuapp.com/api/algo/", data).then( (res) => {
-            this.setState({ iti: JSON.parse(res.data)});
-            this.setState({localLoading: false})
-        })
-
-        this.setState({open: true})
+        this.props.itineraryLoad(data);
     }
 
     closeModal = () => {
@@ -43,44 +35,12 @@ class SelectedActivityList extends Component{
     render() {
         return (
             <Fragment>
-                <Button variant="info" className="customButton" onClick={this.getItinerary} value="general">Get Itinerary</Button>
+                <Link to="/results" className="itiButton" onClick={this.getItinerary} value="general">Get Itinerary</Link>
             	<div id="selectedActivityList">
             		{
             			this.props.trip["activitiesAdded"].map( (value, index) => <p key={index}> {value.name} </p>)
             		}
-            	</div>;
-
-                <Popup
-                    open={this.state.open}
-                    closeOnDocumentClick
-                    onClose={this.closeModal}
-                >
-                    <div>
-                        <button className="close" onClick={this.closeModal}>
-                            CLOSE
-                        </button>
-                        <h2> NOTE: CURRENT LENGTH OF TRIP HARD-CODED TO 5 </h2>
-
-                        {
-                            this.state.localLoading ? 
-                                <Spinner animation="border" role="status">
-                                    <span className="sr-only">Loading...</span>
-                                </Spinner> 
-                            :
-                                this.state.iti.map((value,index) => 
-                                <div key={index}>
-                                    <h2> Day {index+1} </h2>
-                                {
-                                    value.map((value,index) => 
-                                        <p key={index}> {JSON.parse(value)["name"]} </p>
-                                    )
-                                }
-
-                            </div>)
-                        }
-
-                    </div>
-                </Popup>
+            	</div>
             </Fragment>)
     }
 }
@@ -93,6 +53,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
+        itineraryLoad: (data) => dispatch(actions.itineraryLoad(data)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(SelectedActivityList);

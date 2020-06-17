@@ -1,0 +1,24 @@
+#timetable {
+	
+	content: "";
+	display: table;
+	clear: both;
+	position: absolute;
+}
+
+.timetableActivity {
+  float: left;
+  height: 80px;
+  width: 100px;
+  padding: 0 10px;
+  margin: 10px;
+  background-color: peachpuff;
+  border-radius: 5px;
+}
+
+.day {
+  height: 100px;
+  width: 500px;
+  background-color: blue;
+  margin:20px;
+}

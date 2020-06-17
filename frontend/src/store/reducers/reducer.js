@@ -5,6 +5,7 @@ const initialState = {
 	error: null,
 	loading: false,
 	activitiesLoading: false,
+	getItineraryLoading: false,
 
 	user: null,
 
@@ -16,6 +17,7 @@ const initialState = {
 		'endDate' : -1,
 		'activitiesAdded' : [],
 		'activitiesAddedIds' : [],
+		'itinerary' : [[]],
 	},
 
 	map: {
@@ -216,7 +218,49 @@ const activitiesAdd = (state, action) => {
 	})
 }
 
+const itineraryLoad = (state, action) => {
+	const trip = updateObject(state.trip, {
+		itinerary: action.itinerary
+	})
 
+	return updateObject(state, {
+		trip: trip,
+		getItineraryLoading: false,
+
+	})
+
+}
+
+const itineraryStart = (state, action) => {
+	return updateObject(state, {
+		getItineraryLoading: true,
+	})
+}
+
+const itineraryUpdate = (state, action) => {
+	var currentIti = [...state.trip.itinerary];
+	var fromDay = currentIti[action.fromIndex[0]];
+	var toDay = currentIti[action.toIndex[0]];
+	var fromActivity = fromDay[action.fromIndex[1]]
+
+	// Delete FROM activity
+	fromDay.splice(action.fromIndex[1], 1);
+
+	// Add TO activity
+	toDay.splice(action.toIndex[1], 0, fromActivity);
+
+	// Update currentIti
+	currentIti[action.fromIndex[0]] = fromDay;
+	currentIti[action.toIndex[0]] = toDay;
+
+	const trip = updateObject(state.trip, {
+		itinerary: currentIti,
+	})
+	return updateObject(state, {
+		trip: trip,
+	})
+
+}
 
 const reducer = (state=initialState, action) => {
 	switch(action.type) {
@@ -230,6 +274,10 @@ const reducer = (state=initialState, action) => {
 		case actionTypes.AUTH_SUCCESS: return authSuccess(state, action);
 		case actionTypes.AUTH_FAIL: return authFail(state, action);
 		case actionTypes.AUTH_LOGOUT: return authLogout(state, action);
+		
+		case actionTypes.ITINERARY_LOAD: return itineraryLoad(state, action);
+		case actionTypes.ITINERARY_START: return itineraryStart(state, action);
+		case actionTypes.ITINERARY_UPDATE: return itineraryUpdate(state, action);
 
 		default:
 			return state;

@@ -101,7 +101,7 @@ export const authCheckState = () => {
 	}	
 }
 
-// ---------------------------------------------------------------------------------
+// TRIP // --------------------------------------------------------------------------------------------------------------------------------------------------
 
 // Stores trip variables into local storage, POSTS data if logined, and updates redux state for trip.
 export const newTripData = (tripCountry, tripLat, tripLng, startDate, endDate) => {
@@ -123,6 +123,7 @@ export const newTripData = (tripCountry, tripLat, tripLng, startDate, endDate) =
 		'endDate' : endDate,
 		'activitiesAdded': [],
 		'activitiesAddedIds': [],
+		'itinerary' : [[]],
 	}
 	localStorage.setItem('trip', JSON.stringify(trip));
 	return {
@@ -155,6 +156,7 @@ export const checkTrip = () => {
 	}
 }
 
+// MAP / ACTIVITIES // --------------------------------------------------------------------------
 export const mapBoundsChange = (bounds) => {
 	return {
 		type: actionTypes.MAP_BOUNDS_CHANGED,
@@ -254,4 +256,46 @@ export const activitiesAdd = (index) => {
 		index: index
 	}
 }
+
+
+// GET ITINERARY // --------------------------------------------------------------------------
+
+export const itineraryLoadStart = () => {
+	return {
+		type: actionTypes.ITINERARY_START,
+	}
+}
+
+export const itineraryLoadData = (data) => {
+	return (dispatch) => {
+	    axios.post("https://trippyy-backend.herokuapp.com/api/algo/", data).then( (res) => {
+	        var iti = JSON.parse(res.data);
+	        dispatch({
+				type: actionTypes.ITINERARY_LOAD,
+				itinerary: iti,
+				getItineraryLoading: false,
+			});
+	    });
+	}
+}
+
+export const itineraryLoad = (data) => {
+	return (dispatch) => {
+		dispatch(itineraryLoadStart());
+		dispatch(itineraryLoadData(data));
+	}
+}
+
+export const itineraryUpdate = (toIndex, fromIndex) => {
+	return {
+		type: actionTypes.ITINERARY_UPDATE,
+		toIndex: toIndex,
+		fromIndex: fromIndex,
+	}
+}
+
+
+
+
+
 

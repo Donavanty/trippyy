@@ -1,9 +1,9 @@
 #timetable {
-	
 	content: "";
 	display: table;
 	clear: both;
 	position: absolute;
+  margin-top: 40px;
 }
 
 .timetableActivity {

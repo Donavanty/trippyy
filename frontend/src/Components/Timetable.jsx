@@ -86,7 +86,7 @@ class Timetable extends Component {
 								onDragStart = {(event) => this.onDragStart(event, value.taskName)}
 							    style ={{backgroundColor: value.bgcolor}}
 							>
-							    {JSON.parse(value)["name"]}
+							    <p> {JSON.parse(value)["name"]} </p>
 					    	</div>
 					    	}
 					    })

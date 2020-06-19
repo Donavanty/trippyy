@@ -9,9 +9,19 @@ import { connect } from 'react-redux';
 
 import "./CSS/Results.css"
 import Timetable from '../Components/Timetable'
+import NavBar from '../Components/navBar'
 class Results extends Component {
+    componentDidMount() {
+        this.props.checkTrip();
+        this.props.onTryAutoSignup();
+    }
+
 	render() {
-		return <Timetable/>
+		return (
+            <Fragment>
+                <NavBar from={this.props.location.pathname}/>
+                <Timetable/>
+            </Fragment>);
 	} 
 	        
   	
@@ -26,6 +36,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
+        onTryAutoSignup: () => dispatch(actions.authCheckState()),
+        checkTrip: () => dispatch(actions.checkTrip()),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Results);

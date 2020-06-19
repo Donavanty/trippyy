@@ -102,6 +102,7 @@ class ActivityList extends Component{
 
     // Upon clicking of button to change category,
     changeCategory = (event) => {
+        console.log(JSON.stringify(this.props.activitiesShown))
         if (event.target.value == "general") {
             const data = {
                 dataType: "TEXTSEARCH",
@@ -142,7 +143,7 @@ class ActivityList extends Component{
                       <Button variant="info" className="customButton" onClick={this.changeCategory} value="Local Favorite">Local Favorites</Button>
                     {
                         (!this.props.isFirstPage) &&
-                            <Button variant="primary" className="customButton" onClick ={this.loadPrev}> Scroll to Prev Page </Button>
+                            <Button id="prevPageButton" variant="primary" className="customButton" onClick ={this.loadPrev}> Scroll to Prev Page </Button>
                     }
 
                     {this.props.activitiesShown.currentList.map((value,index) => 
@@ -159,7 +160,7 @@ class ActivityList extends Component{
                         this.props.isLastPage ?
                             <div> No more! Try changing category or moving the map </div>
                         :
-                            <Button variant="primary" className="customButton" onClick ={this.loadNext}> Scroll to Next Page </Button>
+                            <Button variant="primary" className="customButton" id="nextPageButton" onClick ={this.loadNext}> Scroll to Next Page </Button>
                     }
                 </Fragment>
             }

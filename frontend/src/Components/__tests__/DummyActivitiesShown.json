@@ -1,0 +1,2050 @@
+{"currentList": [
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "30 Raffles Ave, Singapore 039803",
+            "geometry": {
+                "location": {
+                    "lat": 1.2892988,
+                    "lng": 103.8631368
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.291054829892722,
+                        "lng": 103.8643521798927
+                    },
+                    "southwest": {
+                        "lat": 1.288355170107278,
+                        "lng": 103.8616525201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+            "id": "021245e36680793a72b3c428607f0a01ed5d1786",
+            "name": "Singapore Flyer",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100559618274592297894\">simika 007</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAWVfmZ2itB4WsldhE1RiGEDQ3R4VrSaDbHTUQe4GwA1vzadtlQe5ytRQ89i4aaHNZ_XoVkP-EGMjku3k8P1oyFi0Yel3dbqpCBUy70K0uscm3gdpUI4_2ZHzCWvQalTsAEhCV8sXsIsJn84l52Xoy10-KGhS8OUDnmT0al5r7XuZS3gv6NiZO7A",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJzVHFNqkZ2jERboLN2YrltH8",
+            "plus_code": {
+                "compound_code": "7VQ7+P7 Singapore",
+                "global_code": "6PH57VQ7+P7"
+            },
+            "rating": 4.6,
+            "reference": "ChIJzVHFNqkZ2jERboLN2YrltH8",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 14011,
+            "recommendedTime": 120,
+            "category": "others"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "18 Marina Gardens Dr, Singapore 018953",
+            "geometry": {
+                "location": {
+                    "lat": 1.2815683,
+                    "lng": 103.8636132
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.289729149999999,
+                        "lng": 103.87225075
+                    },
+                    "southwest": {
+                        "lat": 1.27342295,
+                        "lng": 103.85607655
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_recreational-71.png",
+            "id": "142bb06a5f161cffc232950c7297c39a8aba1fab",
+            "name": "Gardens by the Bay",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103946352416554158740\">Atul Aranke</a>"
+                    ],
+                    "photo_reference": "CmRaAAAACKJdINXRDbumaBZTT1pS_zelLtVdq1i_8PAHFTNx0p07LsFCUHBeyMuuLN9iNMyQPv8dsJGa8GK9YdnVnujW3iwswhEE-w5PdUIdmfbiHX78A9js0wlllixdciojbv99EhA5kpkAsPcsH3CxqLZ6Rp11GhRmeZCsE9tytJ9jGEOI5i4s3F2Iig",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJMxZ-kwQZ2jERdsqftXeWCWI",
+            "plus_code": {
+                "compound_code": "7VJ7+JC Singapore",
+                "global_code": "6PH57VJ7+JC"
+            },
+            "rating": 4.7,
+            "reference": "ChIJMxZ-kwQZ2jERdsqftXeWCWI",
+            "types": [
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 104676,
+            "recommendedTime": 120,
+            "category": "park"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Cluny Rd, Singapore 259569",
+            "geometry": {
+                "location": {
+                    "lat": 1.3138397,
+                    "lng": 103.8159136
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.32691575,
+                        "lng": 103.8200812
+                    },
+                    "southwest": {
+                        "lat": 1.30297515,
+                        "lng": 103.8124892
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_recreational-71.png",
+            "id": "d6c0cf575512f60903ec186f89ad7e69542442b3",
+            "name": "Singapore Botanic Gardens",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/115947664656321194299\">Neil Evans</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAXja-YQqszscPgRHJb-sWyhaV9yPttBaiKP2Ifm7TA-yYButv1pf5HqmXiDSWJRcRvQQvOccF6db6PvuWxu83L3K9VmZGGNKURcEzLJzbHIBMJfFG934zAfh0I3cMmIaHEhDo74ZKB-EDV5DbJsYFhCoFGhQPCnyujZx9gtm9mQeQPAROVXxh4Q",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJvWDbfRwa2jERgNnTOpAU3-o",
+            "plus_code": {
+                "compound_code": "8R78+G9 Singapore",
+                "global_code": "6PH58R78+G9"
+            },
+            "rating": 4.7,
+            "reference": "ChIJvWDbfRwa2jERgNnTOpAU3-o",
+            "types": [
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 30434,
+            "recommendedTime": 120,
+            "category": "park"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "2 Jurong Hill, Singapore 628925",
+            "geometry": {
+                "location": {
+                    "lat": 1.3187065,
+                    "lng": 103.7064417
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.322741350000001,
+                        "lng": 103.7082018798927
+                    },
+                    "southwest": {
+                        "lat": 1.31736155,
+                        "lng": 103.7055022201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_recreational-71.png",
+            "id": "94157c8e8edde42ff550f01a8b3d985011ce2501",
+            "name": "Jurong Bird Park",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 333,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111966172166725274079\">Sanely Sober</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAITnF-sxc6lmGbU7A613by1A-ZgCf9vt7B-VHUQLwzimVOwJ9v_SKXzmhI9Y4Cbn23QNpjI-nM-R1AY-Eh5Lcn9N519op8gcA4FxwxTL7V77NLfmjqUPKa1d6x8QdjrWNEhChXfWXMmZ4BtbdAS0MJPnlGhTnqxlDcbY3SimQQ8JWMcsFR7gNIg",
+                    "width": 500
+                }
+            ],
+            "place_id": "ChIJOVLiR10F2jERTB2-cCujA4o",
+            "plus_code": {
+                "compound_code": "8P94+FH Singapore",
+                "global_code": "6PH58P94+FH"
+            },
+            "rating": 4.5,
+            "reference": "ChIJOVLiR10F2jERTB2-cCujA4o",
+            "types": [
+                "zoo",
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 17276,
+            "recommendedTime": 360,
+            "category": "zoo"
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "80 Mandai Lake Rd, Singapore 729826",
+            "geometry": {
+                "location": {
+                    "lat": 1.4021872,
+                    "lng": 103.7880606
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.40564755,
+                        "lng": 103.7902812
+                    },
+                    "southwest": {
+                        "lat": 1.40103375,
+                        "lng": 103.7873204
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_recreational-71.png",
+            "id": "568a2bc1f8631fa321c700dbf3f1c0918bdf3f1b",
+            "name": "Night Safari",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 2368,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/111313156859818352305\">Venky Shankar</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA-8q10JBfSpmi_4G1C_MZGNeIFppKqx66dBK4xjT1fYAmKVFe7jXWxwMQLpSUvhbpyFrc7sl5dWTHYWtKWjvgd_7GmAHrs6wAuNMgtvqZJqGMIgv-g2rUXhWDWV8b5ciCEhBr5O8bszc3Qw0uLptsCrluGhQvDykr-ThzX1kBgga8o3SGq3e5bQ",
+                    "width": 3200
+                }
+            ],
+            "place_id": "ChIJ9xUuiNcT2jER49FS2OpE8W8",
+            "plus_code": {
+                "compound_code": "CQ2Q+V6 Singapore",
+                "global_code": "6PH5CQ2Q+V6"
+            },
+            "rating": 4.2,
+            "reference": "ChIJ9xUuiNcT2jER49FS2OpE8W8",
+            "types": [
+                "zoo",
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 22674,
+            "recommendedTime": 360,
+            "category": "zoo"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Singapore",
+            "geometry": {
+                "location": {
+                    "lat": 1.2867892,
+                    "lng": 103.8545014
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.287595279892722,
+                        "lng": 103.8554918298927
+                    },
+                    "southwest": {
+                        "lat": 1.284895620107278,
+                        "lng": 103.8527921701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_recreational-71.png",
+            "id": "657645e25f2cbd037a3e69b15bc54985f06bdb80",
+            "name": "Merlion",
+            "opening_hours": {},
+            "photos": [
+                {
+                    "height": 5304,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103707554972570958086\">r92522825</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAhaLcpH0FR9haYWWNZTnsxwQrOfyoXXWqZA5dQj9hwZrjMkFmNavJPF1JjPMUcug4SvYt6zmH7EOEOWVXM7tBkW_U6zwYEU2_4eIovZ9WZA2Ys5Ky1OPoSkwGx0zKysN1EhAa-Moqdy2YoIUJkbdySIfOGhSBzFZOb8KdmLwdHUyYK2uNb9o5Hg",
+                    "width": 7952
+                }
+            ],
+            "place_id": "ChIJ29omWQgZ2jEROEz2yZFzQp8",
+            "plus_code": {
+                "compound_code": "7VP3+PR Singapore",
+                "global_code": "6PH57VP3+PR"
+            },
+            "rating": 4.6,
+            "reference": "ChIJ29omWQgZ2jEROEz2yZFzQp8",
+            "types": [
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 24912,
+            "recommendedTime": 120,
+            "category": "park"
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "93 Stamford Rd, Singapore 178897",
+            "geometry": {
+                "location": {
+                    "lat": 1.2966147,
+                    "lng": 103.8485095
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.298156229892722,
+                        "lng": 103.8503791
+                    },
+                    "southwest": {
+                        "lat": 1.295456570107278,
+                        "lng": 103.8473567
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+            "id": "94b904e3c65669d9031ef2a4f9ff36974f42f58b",
+            "name": "National Museum of Singapore",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 2432,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117361692267327351835\">frietz osorio</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAwvqUnRVgheYp-FSfNUELcYjpzJMGsHTzxzcCCPJQnFU72UgwE8LOe-mkN1BXWS-IDdNMGNNNX3wFKIQLCXcC12K61TAhNxKL0DIZSlKJYBd8K7BSujLYlIYqRRDMSFH7EhBSL60K30SOGv5XOUH_r0f8GhQ_uMYZ3N46P9cYVYTjuzvXKExiJQ",
+                    "width": 3286
+                }
+            ],
+            "place_id": "ChIJD1u-EaMZ2jERaLhNfFkR45I",
+            "plus_code": {
+                "compound_code": "7RWX+JC Singapore",
+                "global_code": "6PH57RWX+JC"
+            },
+            "rating": 4.5,
+            "reference": "ChIJD1u-EaMZ2jERaLhNfFkR45I",
+            "types": [
+                "tourist_attraction",
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 8851,
+            "recommendedTime": 180,
+            "category": "museum"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Boon Lay Way, Singapore 619795",
+            "geometry": {
+                "location": {
+                    "lat": 1.3385396,
+                    "lng": 103.7303578
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.339775529892722,
+                        "lng": 103.73215605
+                    },
+                    "southwest": {
+                        "lat": 1.337075870107278,
+                        "lng": 103.72496305
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_recreational-71.png",
+            "id": "c38c857bf6f0ed71961ea0e9f73381e9c2ce2a7e",
+            "name": "Chinese Garden",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3265,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103687421981987812113\">Franziska Paul</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA8vUafjLgxzPLLIUdcW0XVBygcuhtXITT7BvlSQTG2unKvnvYzHMi-eqPRDJU6oYggo0bTv5VWrWk-D_qF171VsCfJvoCCb0QOGDwA2BB3KSvtDq58Uk-M4-TghgPKbGQEhB4TIkSputwyY0iTjVovW1xGhQO5g0TkcKbc3LicipWOROyHBya9Q",
+                    "width": 4898
+                }
+            ],
+            "place_id": "ChIJuZ4kdB0Q2jERdp1SrojDF_I",
+            "plus_code": {
+                "compound_code": "8PQJ+C4 Singapore",
+                "global_code": "6PH58PQJ+C4"
+            },
+            "rating": 4.4,
+            "reference": "ChIJuZ4kdB0Q2jERdp1SrojDF_I",
+            "types": [
+                "park",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 2839,
+            "recommendedTime": 120,
+            "category": "park"
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "1 Esplanade Dr, Singapore 038981",
+            "geometry": {
+                "location": {
+                    "lat": 1.2897934,
+                    "lng": 103.8558166
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.291118629892722,
+                        "lng": 103.8566367798927
+                    },
+                    "southwest": {
+                        "lat": 1.288418970107278,
+                        "lng": 103.8539371201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+            "id": "98e466cc7b7ae57670e4aceeca1fd7d5cae7b45a",
+            "name": "Esplanade - Theatres on the Bay, Singapore",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 540,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/104115331459718090169\">Michel Duong</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA5bh3LOreSeKqwhBB7AWt62hUtgIJH_wCDxdX22i5Yx5t9bmpthD7GFj-KeZxB16rZRvL2uRA8tl_I4qeRIrR0jeODnXKcl5OnM9ofZigck0d3zyvuHCEfuvsIkXraUVJEhBXDw6iXAan7VJpl9yOT1apGhTkDYB1HqpWvH4og7TfRHCSSjtP7A",
+                    "width": 720
+                }
+            ],
+            "place_id": "ChIJSeUa7KcZ2jERNVg2CvmlVbk",
+            "plus_code": {
+                "compound_code": "7VQ4+W8 Singapore",
+                "global_code": "6PH57VQ4+W8"
+            },
+            "rating": 4.6,
+            "reference": "ChIJSeUa7KcZ2jERNVg2CvmlVbk",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 15037,
+            "recommendedTime": 120,
+            "category": "others"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Singapore",
+            "geometry": {
+                "location": {
+                    "lat": 1.2876834,
+                    "lng": 103.8605974
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.2901518,
+                        "lng": 103.8617719798927
+                    },
+                    "southwest": {
+                        "lat": 1.2852146,
+                        "lng": 103.8590723201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+            "id": "53d2902928d262a8dc2b6701def181a757b70c55",
+            "name": "Helix Bridge",
+            "photos": [
+                {
+                    "height": 1536,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112020919587623959117\">parkhan ngamwannakorn</a>"
+                    ],
+                    "photo_reference": "CmRaAAAADsZRGt_1UQ5uqlyK7sUlgb0S-UVlKPewxMAQkPoceiz5ucflX4P1IOnLU8kWwZpcLJHIgZkREOkx92BTEJzrEnjT0CvkPVCHtwT5oPq9GZd0NRKoe2POEvhWo58xzuoWEhAJBGJ0kYTTpOLJJ799wLwIGhR2EJ3pA06a5OYfbgAHTrkyiLrYkQ",
+                    "width": 2048
+                }
+            ],
+            "place_id": "ChIJT4AHFwcZ2jERDJbPVLTEbOk",
+            "plus_code": {
+                "compound_code": "7VQ6+36 Singapore",
+                "global_code": "6PH57VQ6+36"
+            },
+            "rating": 4.7,
+            "reference": "ChIJT4AHFwcZ2jERDJbPVLTEbOk",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 3434,
+            "recommendedTime": 120,
+            "category": "others"
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "262 Pasir Panjang Rd, Singapore 118628",
+            "geometry": {
+                "location": {
+                    "lat": 1.2842878,
+                    "lng": 103.7824933
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.285510029892722,
+                        "lng": 103.7832685
+                    },
+                    "southwest": {
+                        "lat": 1.282810370107278,
+                        "lng": 103.7801677
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+            "id": "db6bd077825e5ddba7aa0340226a298de72d6aab",
+            "name": "Haw Par Villa",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 2224,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/101815979397957222365\">A Google User</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA2NhVsBYbuF2EXKGM9afEow4v_6zx283ByzCdtuJK2whvQl2Ww0ZL42bIkUaMPnmS_tLs0EGnRkjjYAmBCFoiLJBHTnGvGCa7fjesaci12SNPVzkmYnimeb5mqcMLRdhUEhAiJqJYc1iOTTHbXNdlN5lWGhS44iEAv9_fFb1J53cGRHRSdYi3-w",
+                    "width": 3344
+                }
+            ],
+            "place_id": "ChIJ9ak4I6wb2jERO6x4oAUh_-g",
+            "plus_code": {
+                "compound_code": "7QMJ+PX Singapore",
+                "global_code": "6PH57QMJ+PX"
+            },
+            "rating": 4.1,
+            "reference": "ChIJ9ak4I6wb2jERO6x4oAUh_-g",
+            "types": [
+                "tourist_attraction",
+                "amusement_park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 3988,
+            "recommendedTime": 360,
+            "category": "amusement_park"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "8 Marina Gardens Dr, Singapore 018951",
+            "geometry": {
+                "location": {
+                    "lat": 1.2805282,
+                    "lng": 103.8711747
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.283734,
+                        "lng": 103.87598375
+                    },
+                    "southwest": {
+                        "lat": 1.2781548,
+                        "lng": 103.86685275
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+            "id": "d7795a03de93562504c3be36a19609fed39a4a41",
+            "name": "Marina Barrage",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/117267129641261978506\">Megan F</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA-61NtWPz1uaTCpjMBVBFrJRI8gwbZzHBS66cfAPCKJ0y8CM01xPnjwNjVitvnIO5TPdw8bo3XOcgzvTuMvJSZLTVxv2CI6jp_bzmnAr9oVF_xo_G7hWw6OwcctHjnMdXEhC_UwB-8JvHZ2oKJG_98Zs2GhTLqS_7ndaLip-24U2799pOMPiKmg",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJ50uIMa0Z2jER0cTt5fLaZt0",
+            "plus_code": {
+                "compound_code": "7VJC+6F Singapore",
+                "global_code": "6PH57VJC+6F"
+            },
+            "rating": 4.6,
+            "reference": "ChIJ50uIMa0Z2jER0cTt5fLaZt0",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 4186,
+            "recommendedTime": 120,
+            "category": "others"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "15 Science Centre Rd, Singapore 609081",
+            "geometry": {
+                "location": {
+                    "lat": 1.3331687,
+                    "lng": 103.7356443
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.3358396,
+                        "lng": 103.73844795
+                    },
+                    "southwest": {
+                        "lat": 1.3300336,
+                        "lng": 103.73470975
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+            "id": "f688a8b766a7939d412c9d8bc45fda7f1691bd21",
+            "name": "Science Centre Singapore",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 423,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103303765460399465764\">Vadapalli Satyanarayana</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAdfveAoOeaLpLXOvAuUJPKU1iTx4pkloQaPsyA7jz932aqP6E0CtSmFpRjzygXbdFgNGpNgg_zvxMhjZfONBfm838BLo4q71Jd23IX8b8ioXGDI7DCJ_-5KZF_hPjHH7cEhDFuNqo4qEjPRcKN06Gy08dGhSjJlpRYDygpiuxvZ8lrhvhGMJWVw",
+                    "width": 719
+                }
+            ],
+            "place_id": "ChIJY618FAQQ2jERzo1f5IAj4Bg",
+            "plus_code": {
+                "compound_code": "8PMP+77 Singapore",
+                "global_code": "6PH58PMP+77"
+            },
+            "rating": 4.4,
+            "reference": "ChIJY618FAQQ2jERzo1f5IAj4Bg",
+            "types": [
+                "tourist_attraction",
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 6317,
+            "recommendedTime": 180,
+            "category": "museum"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "244 South Bridge Rd, Singapore 058793",
+            "geometry": {
+                "location": {
+                    "lat": 1.2826867,
+                    "lng": 103.8451462
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.284106179892722,
+                        "lng": 103.8466562798927
+                    },
+                    "southwest": {
+                        "lat": 1.281406520107278,
+                        "lng": 103.8439566201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/worship_hindu-71.png",
+            "id": "1d30af4455a5707af3901589199cb5a570798cdf",
+            "name": "Sri Mariamman Temple",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2662,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109187158308383171686\">John</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAsLa5LZmPDEelW2VQhGmPR3xagcJCbNkSUSfjjGbVWvE54yIO7erCSEIMtEg6D1gAYyORkgGQlFklSdQ5D5coYVla3IeQqBICeFzOQ9C1c1li2oHVHkdh5o-kRm52baegEhBxzzoW7yBT-SsRfx-oedNVGhSZyL88krpwboP-U8QDbo_Chl1YUw",
+                    "width": 4733
+                }
+            ],
+            "place_id": "ChIJ0yjU0QwZ2jER6gg0ImuCTRU",
+            "plus_code": {
+                "compound_code": "7RMW+33 Singapore",
+                "global_code": "6PH57RMW+33"
+            },
+            "rating": 4.5,
+            "reference": "ChIJ0yjU0QwZ2jER6gg0ImuCTRU",
+            "types": [
+                "hindu_temple",
+                "tourist_attraction",
+                "place_of_worship",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 3420,
+            "recommendedTime": 120,
+            "category": "hindu_temple"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "48 Pagoda St, Singapore 059207",
+            "geometry": {
+                "location": {
+                    "lat": 1.2834607,
+                    "lng": 103.844404
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.285076379892722,
+                        "lng": 103.8452263298927
+                    },
+                    "southwest": {
+                        "lat": 1.282376720107278,
+                        "lng": 103.8425266701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+            "id": "5d3837202a27de8eb073347a0a792de1a32a2f04",
+            "name": "Chinatown Heritage Centre",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 5504,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112311730646477194456\">Panupong Yokyongsakul</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAA5EvC-TmflcT3ObHCMXdSaVPq4F4pEwl0j-2q9ubMS4JhAPs645CJOyQCquNw6MS16z97EMMT_rxpPbUGzWZA8OapevqUsjBXibdKLbute27kQt2ZC0ReJl-ySnu6itVEhAIiz8sH-5PVk7zg0KaWn7eGhTdAx_xJAS6jvQEvtMYTCB9EOzqlA",
+                    "width": 8256
+                }
+            ],
+            "place_id": "ChIJ3eg6SXMZ2jERCxutt4adUyY",
+            "plus_code": {
+                "compound_code": "7RMV+9Q Singapore",
+                "global_code": "6PH57RMV+9Q"
+            },
+            "rating": 4.4,
+            "reference": "ChIJ3eg6SXMZ2jERCxutt4adUyY",
+            "types": [
+                "tourist_attraction",
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1651,
+            "recommendedTime": 180,
+            "category": "museum"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "18 Marina Gardens Dr, Singapore 018953",
+            "geometry": {
+                "location": {
+                    "lat": 1.2838677,
+                    "lng": 103.8660024
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.285562249999999,
+                        "lng": 103.8672806298927
+                    },
+                    "southwest": {
+                        "lat": 1.278784049999999,
+                        "lng": 103.8645809701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+            "id": "944385516b2336245bfd32da32ed9437af65f124",
+            "name": "Cloud Forest",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 5840,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/116512725698190435144\">Eason Hsu</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAWDZdQXQ5wBOB9yWGVWdilSlCBnhA-o_PFjcpFRozX3d6ZMWtxfNxr__bjovVDmadK2e3Z4yGDuZChgJs36SC9pPZEsmyUDqPZZdNp5nJl-M4ZItyVE23kyRfU-lHLL6PEhBGf7HcyUkwxLw08D-SpeAzGhTL5BlUiPcxz8n1pUTw6HXals5yNw",
+                    "width": 9504
+                }
+            ],
+            "place_id": "ChIJd0VihwEZ2jERKeREhO6G1Qg",
+            "plus_code": {
+                "compound_code": "7VM8+GC Singapore",
+                "global_code": "6PH57VM8+GC"
+            },
+            "rating": 4.7,
+            "reference": "ChIJd0VihwEZ2jERKeREhO6G1Qg",
+            "types": [
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 13350,
+            "recommendedTime": 120,
+            "category": "park"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "3 River Valley Rd, Singapore 179024",
+            "geometry": {
+                "location": {
+                    "lat": 1.2906024,
+                    "lng": 103.8464742
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.292177829892722,
+                        "lng": 103.8477626798927
+                    },
+                    "southwest": {
+                        "lat": 1.289478170107278,
+                        "lng": 103.8450630201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/shopping-71.png",
+            "id": "6da89f801091f44c7cbd6582d8944d1edc378453",
+            "name": "Clarke Quay",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2560,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/103985948387192179781\">bhavin dabhi</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAQz-WJBpfNavIby0BC7KmIrZhUCQX5MDHIDmYYrIAXzhMyasGHBlN0XwNVpwu2U6pOwPkniEYAvD0V7ovvUyinkcvd9t5wZTqgYqSBXbE-slq3lD1uThGvVF0TwwjAS1jEhB3Yx8rmRC8PNuTuDJo4DAlGhR03MU9sIBmyuLMIHgWrC9iG213qg",
+                    "width": 1920
+                }
+            ],
+            "place_id": "ChIJnXwAOKAZ2jERAs-MHs1aDgI",
+            "plus_code": {
+                "compound_code": "7RRW+6H Singapore",
+                "global_code": "6PH57RRW+6H"
+            },
+            "rating": 4.5,
+            "reference": "ChIJnXwAOKAZ2jERAs-MHs1aDgI",
+            "types": [
+                "shopping_mall",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 33312,
+            "recommendedTime": 180,
+            "category": "shopping_mall"
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "39 Armenian St, Singapore 179941",
+            "geometry": {
+                "location": {
+                    "lat": 1.2943669,
+                    "lng": 103.8490391
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.295533529892722,
+                        "lng": 103.8505335298927
+                    },
+                    "southwest": {
+                        "lat": 1.292833870107278,
+                        "lng": 103.8478338701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+            "id": "da8145fbe439294fc4ab8394a43b35ea0666f583",
+            "name": "Peranakan Museum",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/109641485461646377275\">A Google User</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAcVw68rPCQA3_LdWM92NqpE1DF8SjqKIlRy6QBO3zseGefJ-PCZuA-3j8qzqFmqIsawWoVgwF5TUuFgh6soWam39oelRLuzyW5KKyLMwu-2_Fx_WX-nvTO-R8HY9ODYWXEhDxCSL3knsiI9zGwV5dPSDoGhROXlPSjRXzpsW1dmdvuFpRK1Kpfw",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJWZX956MZ2jERIGdnbs_SgMw",
+            "plus_code": {
+                "compound_code": "7RVX+PJ Singapore",
+                "global_code": "6PH57RVX+PJ"
+            },
+            "rating": 4.3,
+            "reference": "ChIJWZX956MZ2jERIGdnbs_SgMw",
+            "types": [
+                "tourist_attraction",
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1012,
+            "recommendedTime": 180,
+            "category": "museum"
+        },
+        {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "80 Mandai Lake Rd, Singapore 729826",
+            "geometry": {
+                "location": {
+                    "lat": 1.4043485,
+                    "lng": 103.793023
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.405632279892722,
+                        "lng": 103.7952513
+                    },
+                    "southwest": {
+                        "lat": 1.402932620107278,
+                        "lng": 103.7863381
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+            "id": "2e0c38d271d4446f0315aaef985b2e13619e6e4a",
+            "name": "Singapore Zoo",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 2592,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/112136757469292155196\">Ilkka Hämäläinen</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAz9JL-Tvzig_NG6359ZY9d21W1Mjtt26jQv_fwk2Awo9Zak7tUFKQhlmM2GEMP9FOU6J3EBlHr5a7gyv89Y_-lEyqGeAm24HDzOpouy7cGyLCX-s_zzdna-bJFBHwm1r1EhCWbVPbTBe6YMzCo6hHDuk7GhTWOAg1qg0DtMY1Iq0rqAdOV_xpLg",
+                    "width": 3872
+                }
+            ],
+            "place_id": "ChIJr9wqENkT2jERkRs7pMj6FLQ",
+            "plus_code": {
+                "compound_code": "CQ3V+P6 Singapore",
+                "global_code": "6PH5CQ3V+P6"
+            },
+            "rating": 4.6,
+            "reference": "ChIJr9wqENkT2jERkRs7pMj6FLQ",
+            "types": [
+                "zoo",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 32307,
+            "recommendedTime": 360,
+            "category": "zoo"
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Singapore",
+            "geometry": {
+                "location": {
+                    "lat": 1.4479987,
+                    "lng": 103.7245442
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.449348529892722,
+                        "lng": 103.7258940298927
+                    },
+                    "southwest": {
+                        "lat": 1.446648870107278,
+                        "lng": 103.7231943701073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_recreational-71.png",
+            "id": "bbbc2a0d98df75f838c998a30696fb7b4508541d",
+            "name": "Sungei Buloh Wetland Reserve",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2268,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/113676317613719872898\">Man Hound</a>"
+                    ],
+                    "photo_reference": "CmRaAAAA4Phtwd9aoTbFlvCKMcRyqYhV7uEyn3575M6SxSRMsZie-SXBNTPHbPNiHi0dRDzdz2Fp5TuE2ff1uejbUYxL9sn8XjM68a78kLlOBjh6geCY91YjH4Z2RytyuKYXXrekEhDrT4xxlxef-qhMLb1Gm2FHGhRaWTrYp1wylTpCZsblKifTBDVU1Q",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJe0cEPoIS2jERs_rS2qvGOxw",
+            "plus_code": {
+                "compound_code": "CPXF+5R Singapore",
+                "global_code": "6PH5CPXF+5R"
+            },
+            "rating": 4.5,
+            "reference": "ChIJe0cEPoIS2jERs_rS2qvGOxw",
+            "types": [
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1797,
+            "recommendedTime": 120,
+            "category": "park"
+        }
+    ],
+    "fullList": [
+        [
+            {
+                "business_status": "CLOSED_TEMPORARILY",
+                "formatted_address": "30 Raffles Ave, Singapore 039803",
+                "geometry": {
+                    "location": {
+                        "lat": 1.2892988,
+                        "lng": 103.8631368
+                    },
+                    "viewport": {
+                        "northeast": {
+                            "lat": 1.291054829892722,
+                            "lng": 103.8643521798927
+                        },
+                        "southwest": {
+                            "lat": 1.288355170107278,
+                            "lng": 103.8616525201073
+                        }
+                    }
+                },
+                "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+                "id": "021245e36680793a72b3c428607f0a01ed5d1786",
+                "name": "Singapore Flyer",
+                "permanently_closed": true,
+                "photos": [
+                    {
+                        "height": 3000,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/100559618274592297894\">simika 007</a>"
+                        ],
+                        "photo_reference": "CmRaAAAAWVfmZ2itB4WsldhE1RiGEDQ3R4VrSaDbHTUQe4GwA1vzadtlQe5ytRQ89i4aaHNZ_XoVkP-EGMjku3k8P1oyFi0Yel3dbqpCBUy70K0uscm3gdpUI4_2ZHzCWvQalTsAEhCV8sXsIsJn84l52Xoy10-KGhS8OUDnmT0al5r7XuZS3gv6NiZO7A",
+                        "width": 4000
+                    }
+                ],
+                "place_id": "ChIJzVHFNqkZ2jERboLN2YrltH8",
+                "plus_code": {
+                    "compound_code": "7VQ7+P7 Singapore",
+                    "global_code": "6PH57VQ7+P7"
+                },
+                "rating": 4.6,
+                "reference": "ChIJzVHFNqkZ2jERboLN2YrltH8",
+                "types": [
+                    "tourist_attraction",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "user_ratings_total": 14011,
+                "recommendedTime": 120,
+                "category": "others"
+            },
+            {
+                "business_status": "OPERATIONAL",
+                "formatted_address": "18 Marina Gardens Dr, Singapore 018953",
+                "geometry": {
+                    "location": {
+                        "lat": 1.2815683,
+                        "lng": 103.8636132
+                    },
+                    "viewport": {
+                        "northeast": {
+                            "lat": 1.289729149999999,
+                            "lng": 103.87225075
+                        },
+                        "southwest": {
+                            "lat": 1.27342295,
+                            "lng": 103.85607655
+                        }
+                    }
+                },
+                "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_recreational-71.png",
+                "id": "142bb06a5f161cffc232950c7297c39a8aba1fab",
+                "name": "Gardens by the Bay",
+                "opening_hours": {
+                    "open_now": true
+                },
+                "photos": [
+                    {
+                        "height": 3024,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/103946352416554158740\">Atul Aranke</a>"
+                        ],
+                        "photo_reference": "CmRaAAAACKJdINXRDbumaBZTT1pS_zelLtVdq1i_8PAHFTNx0p07LsFCUHBeyMuuLN9iNMyQPv8dsJGa8GK9YdnVnujW3iwswhEE-w5PdUIdmfbiHX78A9js0wlllixdciojbv99EhA5kpkAsPcsH3CxqLZ6Rp11GhRmeZCsE9tytJ9jGEOI5i4s3F2Iig",
+                        "width": 4032
+                    }
+                ],
+                "place_id": "ChIJMxZ-kwQZ2jERdsqftXeWCWI",
+                "plus_code": {
+                    "compound_code": "7VJ7+JC Singapore",
+                    "global_code": "6PH57VJ7+JC"
+                },
+                "rating": 4.7,
+                "reference": "ChIJMxZ-kwQZ2jERdsqftXeWCWI",
+                "types": [
+                    "tourist_attraction",
+                    "park",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "user_ratings_total": 104676,
+                "recommendedTime": 120,
+                "category": "park"
+            },
+            {
+                "business_status": "OPERATIONAL",
+                "formatted_address": "1 Cluny Rd, Singapore 259569",
+                "geometry": {
+                    "location": {
+                        "lat": 1.3138397,
+                        "lng": 103.8159136
+                    },
+                    "viewport": {
+                        "northeast": {
+                            "lat": 1.32691575,
+                            "lng": 103.8200812
+                        },
+                        "southwest": {
+                            "lat": 1.30297515,
+                            "lng": 103.8124892
+                        }
+                    }
+                },
+                "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_recreational-71.png",
+                "id": "d6c0cf575512f60903ec186f89ad7e69542442b3",
+                "name": "Singapore Botanic Gardens",
+                "opening_hours": {
+                    "open_now": true
+                },
+                "photos": [
+                    {
+                        "height": 4032,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/115947664656321194299\">Neil Evans</a>"
+                        ],
+                        "photo_reference": "CmRaAAAAXja-YQqszscPgRHJb-sWyhaV9yPttBaiKP2Ifm7TA-yYButv1pf5HqmXiDSWJRcRvQQvOccF6db6PvuWxu83L3K9VmZGGNKURcEzLJzbHIBMJfFG934zAfh0I3cMmIaHEhDo74ZKB-EDV5DbJsYFhCoFGhQPCnyujZx9gtm9mQeQPAROVXxh4Q",
+                        "width": 3024
+                    }
+                ],
+                "place_id": "ChIJvWDbfRwa2jERgNnTOpAU3-o",
+                "plus_code": {
+                    "compound_code": "8R78+G9 Singapore",
+                    "global_code": "6PH58R78+G9"
+                },
+                "rating": 4.7,
+                "reference": "ChIJvWDbfRwa2jERgNnTOpAU3-o",
+                "types": [
+                    "tourist_attraction",
+                    "park",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "user_ratings_total": 30434,
+                "recommendedTime": 120,
+                "category": "park"
+            },
+            {
+                "business_status": "OPERATIONAL",
+                "formatted_address": "2 Jurong Hill, Singapore 628925",
+                "geometry": {
+                    "location": {
+                        "lat": 1.3187065,
+                        "lng": 103.7064417
+                    },
+                    "viewport": {
+                        "northeast": {
+                            "lat": 1.322741350000001,
+                            "lng": 103.7082018798927
+                        },
+                        "southwest": {
+                            "lat": 1.31736155,
+                            "lng": 103.7055022201073
+                        }
+                    }
+                },
+                "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_recreational-71.png",
+                "id": "94157c8e8edde42ff550f01a8b3d985011ce2501",
+                "name": "Jurong Bird Park",
+                "opening_hours": {
+                    "open_now": true
+                },
+                "photos": [
+                    {
+                        "height": 333,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/111966172166725274079\">Sanely Sober</a>"
+                        ],
+                        "photo_reference": "CmRaAAAAITnF-sxc6lmGbU7A613by1A-ZgCf9vt7B-VHUQLwzimVOwJ9v_SKXzmhI9Y4Cbn23QNpjI-nM-R1AY-Eh5Lcn9N519op8gcA4FxwxTL7V77NLfmjqUPKa1d6x8QdjrWNEhChXfWXMmZ4BtbdAS0MJPnlGhTnqxlDcbY3SimQQ8JWMcsFR7gNIg",
+                        "width": 500
+                    }
+                ],
+                "place_id": "ChIJOVLiR10F2jERTB2-cCujA4o",
+                "plus_code": {
+                    "compound_code": "8P94+FH Singapore",
+                    "global_code": "6PH58P94+FH"
+                },
+                "rating": 4.5,
+                "reference": "ChIJOVLiR10F2jERTB2-cCujA4o",
+                "types": [
+                    "zoo",
+                    "tourist_attraction",
+                    "park",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "user_ratings_total": 17276,
+                "recommendedTime": 360,
+                "category": "zoo"
+            },
+            {
+                "business_status": "CLOSED_TEMPORARILY",
+                "formatted_address": "80 Mandai Lake Rd, Singapore 729826",
+                "geometry": {
+                    "location": {
+                        "lat": 1.4021872,
+                        "lng": 103.7880606
+                    },
+                    "viewport": {
+                        "northeast": {
+                            "lat": 1.40564755,
+                            "lng": 103.7902812
+                        },
+                        "southwest": {
+                            "lat": 1.40103375,
+                            "lng": 103.7873204
+                        }
+                    }
+                },
+                "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_recreational-71.png",
+                "id": "568a2bc1f8631fa321c700dbf3f1c0918bdf3f1b",
+                "name": "Night Safari",
+                "permanently_closed": true,
+                "photos": [
+                    {
+                        "height": 2368,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/111313156859818352305\">Venky Shankar</a>"
+                        ],
+                        "photo_reference": "CmRaAAAA-8q10JBfSpmi_4G1C_MZGNeIFppKqx66dBK4xjT1fYAmKVFe7jXWxwMQLpSUvhbpyFrc7sl5dWTHYWtKWjvgd_7GmAHrs6wAuNMgtvqZJqGMIgv-g2rUXhWDWV8b5ciCEhBr5O8bszc3Qw0uLptsCrluGhQvDykr-ThzX1kBgga8o3SGq3e5bQ",
+                        "width": 3200
+                    }
+                ],
+                "place_id": "ChIJ9xUuiNcT2jER49FS2OpE8W8",
+                "plus_code": {
+                    "compound_code": "CQ2Q+V6 Singapore",
+                    "global_code": "6PH5CQ2Q+V6"
+                },
+                "rating": 4.2,
+                "reference": "ChIJ9xUuiNcT2jER49FS2OpE8W8",
+                "types": [
+                    "zoo",
+                    "tourist_attraction",
+                    "park",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "user_ratings_total": 22674,
+                "recommendedTime": 360,
+                "category": "zoo"
+            },
+            {
+                "business_status": "OPERATIONAL",
+                "formatted_address": "Singapore",
+                "geometry": {
+                    "location": {
+                        "lat": 1.2867892,
+                        "lng": 103.8545014
+                    },
+                    "viewport": {
+                        "northeast": {
+                            "lat": 1.287595279892722,
+                            "lng": 103.8554918298927
+                        },
+                        "southwest": {
+                            "lat": 1.284895620107278,
+                            "lng": 103.8527921701073
+                        }
+                    }
+                },
+                "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_recreational-71.png",
+                "id": "657645e25f2cbd037a3e69b15bc54985f06bdb80",
+                "name": "Merlion",
+                "opening_hours": {},
+                "photos": [
+                    {
+                        "height": 5304,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/103707554972570958086\">r92522825</a>"
+                        ],
+                        "photo_reference": "CmRaAAAAhaLcpH0FR9haYWWNZTnsxwQrOfyoXXWqZA5dQj9hwZrjMkFmNavJPF1JjPMUcug4SvYt6zmH7EOEOWVXM7tBkW_U6zwYEU2_4eIovZ9WZA2Ys5Ky1OPoSkwGx0zKysN1EhAa-Moqdy2YoIUJkbdySIfOGhSBzFZOb8KdmLwdHUyYK2uNb9o5Hg",
+                        "width": 7952
+                    }
+                ],
+                "place_id": "ChIJ29omWQgZ2jEROEz2yZFzQp8",
+                "plus_code": {
+                    "compound_code": "7VP3+PR Singapore",
+                    "global_code": "6PH57VP3+PR"
+                },
+                "rating": 4.6,
+                "reference": "ChIJ29omWQgZ2jEROEz2yZFzQp8",
+                "types": [
+                    "tourist_attraction",
+                    "park",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "user_ratings_total": 24912,
+                "recommendedTime": 120,
+                "category": "park"
+            },
+            {
+                "business_status": "CLOSED_TEMPORARILY",
+                "formatted_address": "93 Stamford Rd, Singapore 178897",
+                "geometry": {
+                    "location": {
+                        "lat": 1.2966147,
+                        "lng": 103.8485095
+                    },
+                    "viewport": {
+                        "northeast": {
+                            "lat": 1.298156229892722,
+                            "lng": 103.8503791
+                        },
+                        "southwest": {
+                            "lat": 1.295456570107278,
+                            "lng": 103.8473567
+                        }
+                    }
+                },
+                "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+                "id": "94b904e3c65669d9031ef2a4f9ff36974f42f58b",
+                "name": "National Museum of Singapore",
+                "permanently_closed": true,
+                "photos": [
+                    {
+                        "height": 2432,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/117361692267327351835\">frietz osorio</a>"
+                        ],
+                        "photo_reference": "CmRaAAAAwvqUnRVgheYp-FSfNUELcYjpzJMGsHTzxzcCCPJQnFU72UgwE8LOe-mkN1BXWS-IDdNMGNNNX3wFKIQLCXcC12K61TAhNxKL0DIZSlKJYBd8K7BSujLYlIYqRRDMSFH7EhBSL60K30SOGv5XOUH_r0f8GhQ_uMYZ3N46P9cYVYTjuzvXKExiJQ",
+                        "width": 3286
+                    }
+                ],
+                "place_id": "ChIJD1u-EaMZ2jERaLhNfFkR45I",
+                "plus_code": {
+                    "compound_code": "7RWX+JC Singapore",
+                    "global_code": "6PH57RWX+JC"
+                },
+                "rating": 4.5,
+                "reference": "ChIJD1u-EaMZ2jERaLhNfFkR45I",
+                "types": [
+                    "tourist_attraction",
+                    "museum",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "user_ratings_total": 8851,
+                "recommendedTime": 180,
+                "category": "museum"
+            },
+            {
+                "business_status": "OPERATIONAL",
+                "formatted_address": "Boon Lay Way, Singapore 619795",
+                "geometry": {
+                    "location": {
+                        "lat": 1.3385396,
+                        "lng": 103.7303578
+                    },
+                    "viewport": {
+                        "northeast": {
+                            "lat": 1.339775529892722,
+                            "lng": 103.73215605
+                        },
+                        "southwest": {
+                            "lat": 1.337075870107278,
+                            "lng": 103.72496305
+                        }
+                    }
+                },
+                "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_recreational-71.png",
+                "id": "c38c857bf6f0ed71961ea0e9f73381e9c2ce2a7e",
+                "name": "Chinese Garden",
+                "opening_hours": {
+                    "open_now": true
+                },
+                "photos": [
+                    {
+                        "height": 3265,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/103687421981987812113\">Franziska Paul</a>"
+                        ],
+                        "photo_reference": "CmRaAAAA8vUafjLgxzPLLIUdcW0XVBygcuhtXITT7BvlSQTG2unKvnvYzHMi-eqPRDJU6oYggo0bTv5VWrWk-D_qF171VsCfJvoCCb0QOGDwA2BB3KSvtDq58Uk-M4-TghgPKbGQEhB4TIkSputwyY0iTjVovW1xGhQO5g0TkcKbc3LicipWOROyHBya9Q",
+                        "width": 4898
+                    }
+                ],
+                "place_id": "ChIJuZ4kdB0Q2jERdp1SrojDF_I",
+                "plus_code": {
+                    "compound_code": "8PQJ+C4 Singapore",
+                    "global_code": "6PH58PQJ+C4"
+                },
+                "rating": 4.4,
+                "reference": "ChIJuZ4kdB0Q2jERdp1SrojDF_I",
+                "types": [
+                    "park",
+                    "tourist_attraction",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "user_ratings_total": 2839,
+                "recommendedTime": 120,
+                "category": "park"
+            },
+            {
+                "business_status": "CLOSED_TEMPORARILY",
+                "formatted_address": "1 Esplanade Dr, Singapore 038981",
+                "geometry": {
+                    "location": {
+                        "lat": 1.2897934,
+                        "lng": 103.8558166
+                    },
+                    "viewport": {
+                        "northeast": {
+                            "lat": 1.291118629892722,
+                            "lng": 103.8566367798927
+                        },
+                        "southwest": {
+                            "lat": 1.288418970107278,
+                            "lng": 103.8539371201073
+                        }
+                    }
+                },
+                "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+                "id": "98e466cc7b7ae57670e4aceeca1fd7d5cae7b45a",
+                "name": "Esplanade - Theatres on the Bay, Singapore",
+                "permanently_closed": true,
+                "photos": [
+                    {
+                        "height": 540,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/104115331459718090169\">Michel Duong</a>"
+                        ],
+                        "photo_reference": "CmRaAAAA5bh3LOreSeKqwhBB7AWt62hUtgIJH_wCDxdX22i5Yx5t9bmpthD7GFj-KeZxB16rZRvL2uRA8tl_I4qeRIrR0jeODnXKcl5OnM9ofZigck0d3zyvuHCEfuvsIkXraUVJEhBXDw6iXAan7VJpl9yOT1apGhTkDYB1HqpWvH4og7TfRHCSSjtP7A",
+                        "width": 720
+                    }
+                ],
+                "place_id": "ChIJSeUa7KcZ2jERNVg2CvmlVbk",
+                "plus_code": {
+                    "compound_code": "7VQ4+W8 Singapore",
+                    "global_code": "6PH57VQ4+W8"
+                },
+                "rating": 4.6,
+                "reference": "ChIJSeUa7KcZ2jERNVg2CvmlVbk",
+                "types": [
+                    "tourist_attraction",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "user_ratings_total": 15037,
+                "recommendedTime": 120,
+                "category": "others"
+            },
+            {
+                "business_status": "OPERATIONAL",
+                "formatted_address": "Singapore",
+                "geometry": {
+                    "location": {
+                        "lat": 1.2876834,
+                        "lng": 103.8605974
+                    },
+                    "viewport": {
+                        "northeast": {
+                            "lat": 1.2901518,
+                            "lng": 103.8617719798927
+                        },
+                        "southwest": {
+                            "lat": 1.2852146,
+                            "lng": 103.8590723201073
+                        }
+                    }
+                },
+                "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+                "id": "53d2902928d262a8dc2b6701def181a757b70c55",
+                "name": "Helix Bridge",
+                "photos": [
+                    {
+                        "height": 1536,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/112020919587623959117\">parkhan ngamwannakorn</a>"
+                        ],
+                        "photo_reference": "CmRaAAAADsZRGt_1UQ5uqlyK7sUlgb0S-UVlKPewxMAQkPoceiz5ucflX4P1IOnLU8kWwZpcLJHIgZkREOkx92BTEJzrEnjT0CvkPVCHtwT5oPq9GZd0NRKoe2POEvhWo58xzuoWEhAJBGJ0kYTTpOLJJ799wLwIGhR2EJ3pA06a5OYfbgAHTrkyiLrYkQ",
+                        "width": 2048
+                    }
+                ],
+                "place_id": "ChIJT4AHFwcZ2jERDJbPVLTEbOk",
+                "plus_code": {
+                    "compound_code": "7VQ6+36 Singapore",
+                    "global_code": "6PH57VQ6+36"
+                },
+                "rating": 4.7,
+                "reference": "ChIJT4AHFwcZ2jERDJbPVLTEbOk",
+                "types": [
+                    "tourist_attraction",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "user_ratings_total": 3434,
+                "recommendedTime": 120,
+                "category": "others"
+            },
+            {
+                "business_status": "CLOSED_TEMPORARILY",
+                "formatted_address": "262 Pasir Panjang Rd, Singapore 118628",
+                "geometry": {
+                    "location": {
+                        "lat": 1.2842878,
+                        "lng": 103.7824933
+                    },
+                    "viewport": {
+                        "northeast": {
+                            "lat": 1.285510029892722,
+                            "lng": 103.7832685
+                        },
+                        "southwest": {
+                            "lat": 1.282810370107278,
+                            "lng": 103.7801677
+                        }
+                    }
+                },
+                "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+                "id": "db6bd077825e5ddba7aa0340226a298de72d6aab",
+                "name": "Haw Par Villa",
+                "permanently_closed": true,
+                "photos": [
+                    {
+                        "height": 2224,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/101815979397957222365\">A Google User</a>"
+                        ],
+                        "photo_reference": "CmRaAAAA2NhVsBYbuF2EXKGM9afEow4v_6zx283ByzCdtuJK2whvQl2Ww0ZL42bIkUaMPnmS_tLs0EGnRkjjYAmBCFoiLJBHTnGvGCa7fjesaci12SNPVzkmYnimeb5mqcMLRdhUEhAiJqJYc1iOTTHbXNdlN5lWGhS44iEAv9_fFb1J53cGRHRSdYi3-w",
+                        "width": 3344
+                    }
+                ],
+                "place_id": "ChIJ9ak4I6wb2jERO6x4oAUh_-g",
+                "plus_code": {
+                    "compound_code": "7QMJ+PX Singapore",
+                    "global_code": "6PH57QMJ+PX"
+                },
+                "rating": 4.1,
+                "reference": "ChIJ9ak4I6wb2jERO6x4oAUh_-g",
+                "types": [
+                    "tourist_attraction",
+                    "amusement_park",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "user_ratings_total": 3988,
+                "recommendedTime": 360,
+                "category": "amusement_park"
+            },
+            {
+                "business_status": "OPERATIONAL",
+                "formatted_address": "8 Marina Gardens Dr, Singapore 018951",
+                "geometry": {
+                    "location": {
+                        "lat": 1.2805282,
+                        "lng": 103.8711747
+                    },
+                    "viewport": {
+                        "northeast": {
+                            "lat": 1.283734,
+                            "lng": 103.87598375
+                        },
+                        "southwest": {
+                            "lat": 1.2781548,
+                            "lng": 103.86685275
+                        }
+                    }
+                },
+                "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+                "id": "d7795a03de93562504c3be36a19609fed39a4a41",
+                "name": "Marina Barrage",
+                "opening_hours": {
+                    "open_now": true
+                },
+                "photos": [
+                    {
+                        "height": 3024,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/117267129641261978506\">Megan F</a>"
+                        ],
+                        "photo_reference": "CmRaAAAA-61NtWPz1uaTCpjMBVBFrJRI8gwbZzHBS66cfAPCKJ0y8CM01xPnjwNjVitvnIO5TPdw8bo3XOcgzvTuMvJSZLTVxv2CI6jp_bzmnAr9oVF_xo_G7hWw6OwcctHjnMdXEhC_UwB-8JvHZ2oKJG_98Zs2GhTLqS_7ndaLip-24U2799pOMPiKmg",
+                        "width": 4032
+                    }
+                ],
+                "place_id": "ChIJ50uIMa0Z2jER0cTt5fLaZt0",
+                "plus_code": {
+                    "compound_code": "7VJC+6F Singapore",
+                    "global_code": "6PH57VJC+6F"
+                },
+                "rating": 4.6,
+                "reference": "ChIJ50uIMa0Z2jER0cTt5fLaZt0",
+                "types": [
+                    "tourist_attraction",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "user_ratings_total": 4186,
+                "recommendedTime": 120,
+                "category": "others"
+            },
+            {
+                "business_status": "OPERATIONAL",
+                "formatted_address": "15 Science Centre Rd, Singapore 609081",
+                "geometry": {
+                    "location": {
+                        "lat": 1.3331687,
+                        "lng": 103.7356443
+                    },
+                    "viewport": {
+                        "northeast": {
+                            "lat": 1.3358396,
+                            "lng": 103.73844795
+                        },
+                        "southwest": {
+                            "lat": 1.3300336,
+                            "lng": 103.73470975
+                        }
+                    }
+                },
+                "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+                "id": "f688a8b766a7939d412c9d8bc45fda7f1691bd21",
+                "name": "Science Centre Singapore",
+                "opening_hours": {
+                    "open_now": true
+                },
+                "photos": [
+                    {
+                        "height": 423,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/103303765460399465764\">Vadapalli Satyanarayana</a>"
+                        ],
+                        "photo_reference": "CmRaAAAAdfveAoOeaLpLXOvAuUJPKU1iTx4pkloQaPsyA7jz932aqP6E0CtSmFpRjzygXbdFgNGpNgg_zvxMhjZfONBfm838BLo4q71Jd23IX8b8ioXGDI7DCJ_-5KZF_hPjHH7cEhDFuNqo4qEjPRcKN06Gy08dGhSjJlpRYDygpiuxvZ8lrhvhGMJWVw",
+                        "width": 719
+                    }
+                ],
+                "place_id": "ChIJY618FAQQ2jERzo1f5IAj4Bg",
+                "plus_code": {
+                    "compound_code": "8PMP+77 Singapore",
+                    "global_code": "6PH58PMP+77"
+                },
+                "rating": 4.4,
+                "reference": "ChIJY618FAQQ2jERzo1f5IAj4Bg",
+                "types": [
+                    "tourist_attraction",
+                    "museum",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "user_ratings_total": 6317,
+                "recommendedTime": 180,
+                "category": "museum"
+            },
+            {
+                "business_status": "OPERATIONAL",
+                "formatted_address": "244 South Bridge Rd, Singapore 058793",
+                "geometry": {
+                    "location": {
+                        "lat": 1.2826867,
+                        "lng": 103.8451462
+                    },
+                    "viewport": {
+                        "northeast": {
+                            "lat": 1.284106179892722,
+                            "lng": 103.8466562798927
+                        },
+                        "southwest": {
+                            "lat": 1.281406520107278,
+                            "lng": 103.8439566201073
+                        }
+                    }
+                },
+                "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/worship_hindu-71.png",
+                "id": "1d30af4455a5707af3901589199cb5a570798cdf",
+                "name": "Sri Mariamman Temple",
+                "opening_hours": {
+                    "open_now": true
+                },
+                "photos": [
+                    {
+                        "height": 2662,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/109187158308383171686\">John</a>"
+                        ],
+                        "photo_reference": "CmRaAAAAsLa5LZmPDEelW2VQhGmPR3xagcJCbNkSUSfjjGbVWvE54yIO7erCSEIMtEg6D1gAYyORkgGQlFklSdQ5D5coYVla3IeQqBICeFzOQ9C1c1li2oHVHkdh5o-kRm52baegEhBxzzoW7yBT-SsRfx-oedNVGhSZyL88krpwboP-U8QDbo_Chl1YUw",
+                        "width": 4733
+                    }
+                ],
+                "place_id": "ChIJ0yjU0QwZ2jER6gg0ImuCTRU",
+                "plus_code": {
+                    "compound_code": "7RMW+33 Singapore",
+                    "global_code": "6PH57RMW+33"
+                },
+                "rating": 4.5,
+                "reference": "ChIJ0yjU0QwZ2jER6gg0ImuCTRU",
+                "types": [
+                    "hindu_temple",
+                    "tourist_attraction",
+                    "place_of_worship",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "user_ratings_total": 3420,
+                "recommendedTime": 120,
+                "category": "hindu_temple"
+            },
+            {
+                "business_status": "OPERATIONAL",
+                "formatted_address": "48 Pagoda St, Singapore 059207",
+                "geometry": {
+                    "location": {
+                        "lat": 1.2834607,
+                        "lng": 103.844404
+                    },
+                    "viewport": {
+                        "northeast": {
+                            "lat": 1.285076379892722,
+                            "lng": 103.8452263298927
+                        },
+                        "southwest": {
+                            "lat": 1.282376720107278,
+                            "lng": 103.8425266701073
+                        }
+                    }
+                },
+                "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+                "id": "5d3837202a27de8eb073347a0a792de1a32a2f04",
+                "name": "Chinatown Heritage Centre",
+                "opening_hours": {
+                    "open_now": true
+                },
+                "photos": [
+                    {
+                        "height": 5504,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/112311730646477194456\">Panupong Yokyongsakul</a>"
+                        ],
+                        "photo_reference": "CmRaAAAAA5EvC-TmflcT3ObHCMXdSaVPq4F4pEwl0j-2q9ubMS4JhAPs645CJOyQCquNw6MS16z97EMMT_rxpPbUGzWZA8OapevqUsjBXibdKLbute27kQt2ZC0ReJl-ySnu6itVEhAIiz8sH-5PVk7zg0KaWn7eGhTdAx_xJAS6jvQEvtMYTCB9EOzqlA",
+                        "width": 8256
+                    }
+                ],
+                "place_id": "ChIJ3eg6SXMZ2jERCxutt4adUyY",
+                "plus_code": {
+                    "compound_code": "7RMV+9Q Singapore",
+                    "global_code": "6PH57RMV+9Q"
+                },
+                "rating": 4.4,
+                "reference": "ChIJ3eg6SXMZ2jERCxutt4adUyY",
+                "types": [
+                    "tourist_attraction",
+                    "museum",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "user_ratings_total": 1651,
+                "recommendedTime": 180,
+                "category": "museum"
+            },
+            {
+                "business_status": "OPERATIONAL",
+                "formatted_address": "18 Marina Gardens Dr, Singapore 018953",
+                "geometry": {
+                    "location": {
+                        "lat": 1.2838677,
+                        "lng": 103.8660024
+                    },
+                    "viewport": {
+                        "northeast": {
+                            "lat": 1.285562249999999,
+                            "lng": 103.8672806298927
+                        },
+                        "southwest": {
+                            "lat": 1.278784049999999,
+                            "lng": 103.8645809701073
+                        }
+                    }
+                },
+                "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+                "id": "944385516b2336245bfd32da32ed9437af65f124",
+                "name": "Cloud Forest",
+                "opening_hours": {
+                    "open_now": true
+                },
+                "photos": [
+                    {
+                        "height": 5840,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/116512725698190435144\">Eason Hsu</a>"
+                        ],
+                        "photo_reference": "CmRaAAAAWDZdQXQ5wBOB9yWGVWdilSlCBnhA-o_PFjcpFRozX3d6ZMWtxfNxr__bjovVDmadK2e3Z4yGDuZChgJs36SC9pPZEsmyUDqPZZdNp5nJl-M4ZItyVE23kyRfU-lHLL6PEhBGf7HcyUkwxLw08D-SpeAzGhTL5BlUiPcxz8n1pUTw6HXals5yNw",
+                        "width": 9504
+                    }
+                ],
+                "place_id": "ChIJd0VihwEZ2jERKeREhO6G1Qg",
+                "plus_code": {
+                    "compound_code": "7VM8+GC Singapore",
+                    "global_code": "6PH57VM8+GC"
+                },
+                "rating": 4.7,
+                "reference": "ChIJd0VihwEZ2jERKeREhO6G1Qg",
+                "types": [
+                    "tourist_attraction",
+                    "park",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "user_ratings_total": 13350,
+                "recommendedTime": 120,
+                "category": "park"
+            },
+            {
+                "business_status": "OPERATIONAL",
+                "formatted_address": "3 River Valley Rd, Singapore 179024",
+                "geometry": {
+                    "location": {
+                        "lat": 1.2906024,
+                        "lng": 103.8464742
+                    },
+                    "viewport": {
+                        "northeast": {
+                            "lat": 1.292177829892722,
+                            "lng": 103.8477626798927
+                        },
+                        "southwest": {
+                            "lat": 1.289478170107278,
+                            "lng": 103.8450630201073
+                        }
+                    }
+                },
+                "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/shopping-71.png",
+                "id": "6da89f801091f44c7cbd6582d8944d1edc378453",
+                "name": "Clarke Quay",
+                "opening_hours": {
+                    "open_now": true
+                },
+                "photos": [
+                    {
+                        "height": 2560,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/103985948387192179781\">bhavin dabhi</a>"
+                        ],
+                        "photo_reference": "CmRaAAAAQz-WJBpfNavIby0BC7KmIrZhUCQX5MDHIDmYYrIAXzhMyasGHBlN0XwNVpwu2U6pOwPkniEYAvD0V7ovvUyinkcvd9t5wZTqgYqSBXbE-slq3lD1uThGvVF0TwwjAS1jEhB3Yx8rmRC8PNuTuDJo4DAlGhR03MU9sIBmyuLMIHgWrC9iG213qg",
+                        "width": 1920
+                    }
+                ],
+                "place_id": "ChIJnXwAOKAZ2jERAs-MHs1aDgI",
+                "plus_code": {
+                    "compound_code": "7RRW+6H Singapore",
+                    "global_code": "6PH57RRW+6H"
+                },
+                "rating": 4.5,
+                "reference": "ChIJnXwAOKAZ2jERAs-MHs1aDgI",
+                "types": [
+                    "shopping_mall",
+                    "tourist_attraction",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "user_ratings_total": 33312,
+                "recommendedTime": 180,
+                "category": "shopping_mall"
+            },
+            {
+                "business_status": "CLOSED_TEMPORARILY",
+                "formatted_address": "39 Armenian St, Singapore 179941",
+                "geometry": {
+                    "location": {
+                        "lat": 1.2943669,
+                        "lng": 103.8490391
+                    },
+                    "viewport": {
+                        "northeast": {
+                            "lat": 1.295533529892722,
+                            "lng": 103.8505335298927
+                        },
+                        "southwest": {
+                            "lat": 1.292833870107278,
+                            "lng": 103.8478338701073
+                        }
+                    }
+                },
+                "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png",
+                "id": "da8145fbe439294fc4ab8394a43b35ea0666f583",
+                "name": "Peranakan Museum",
+                "permanently_closed": true,
+                "photos": [
+                    {
+                        "height": 3024,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/109641485461646377275\">A Google User</a>"
+                        ],
+                        "photo_reference": "CmRaAAAAcVw68rPCQA3_LdWM92NqpE1DF8SjqKIlRy6QBO3zseGefJ-PCZuA-3j8qzqFmqIsawWoVgwF5TUuFgh6soWam39oelRLuzyW5KKyLMwu-2_Fx_WX-nvTO-R8HY9ODYWXEhDxCSL3knsiI9zGwV5dPSDoGhROXlPSjRXzpsW1dmdvuFpRK1Kpfw",
+                        "width": 4032
+                    }
+                ],
+                "place_id": "ChIJWZX956MZ2jERIGdnbs_SgMw",
+                "plus_code": {
+                    "compound_code": "7RVX+PJ Singapore",
+                    "global_code": "6PH57RVX+PJ"
+                },
+                "rating": 4.3,
+                "reference": "ChIJWZX956MZ2jERIGdnbs_SgMw",
+                "types": [
+                    "tourist_attraction",
+                    "museum",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "user_ratings_total": 1012,
+                "recommendedTime": 180,
+                "category": "museum"
+            },
+            {
+                "business_status": "CLOSED_TEMPORARILY",
+                "formatted_address": "80 Mandai Lake Rd, Singapore 729826",
+                "geometry": {
+                    "location": {
+                        "lat": 1.4043485,
+                        "lng": 103.793023
+                    },
+                    "viewport": {
+                        "northeast": {
+                            "lat": 1.405632279892722,
+                            "lng": 103.7952513
+                        },
+                        "southwest": {
+                            "lat": 1.402932620107278,
+                            "lng": 103.7863381
+                        }
+                    }
+                },
+                "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+                "id": "2e0c38d271d4446f0315aaef985b2e13619e6e4a",
+                "name": "Singapore Zoo",
+                "permanently_closed": true,
+                "photos": [
+                    {
+                        "height": 2592,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/112136757469292155196\">Ilkka Hämäläinen</a>"
+                        ],
+                        "photo_reference": "CmRaAAAAz9JL-Tvzig_NG6359ZY9d21W1Mjtt26jQv_fwk2Awo9Zak7tUFKQhlmM2GEMP9FOU6J3EBlHr5a7gyv89Y_-lEyqGeAm24HDzOpouy7cGyLCX-s_zzdna-bJFBHwm1r1EhCWbVPbTBe6YMzCo6hHDuk7GhTWOAg1qg0DtMY1Iq0rqAdOV_xpLg",
+                        "width": 3872
+                    }
+                ],
+                "place_id": "ChIJr9wqENkT2jERkRs7pMj6FLQ",
+                "plus_code": {
+                    "compound_code": "CQ3V+P6 Singapore",
+                    "global_code": "6PH5CQ3V+P6"
+                },
+                "rating": 4.6,
+                "reference": "ChIJr9wqENkT2jERkRs7pMj6FLQ",
+                "types": [
+                    "zoo",
+                    "tourist_attraction",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "user_ratings_total": 32307,
+                "recommendedTime": 360,
+                "category": "zoo"
+            },
+            {
+                "business_status": "OPERATIONAL",
+                "formatted_address": "Singapore",
+                "geometry": {
+                    "location": {
+                        "lat": 1.4479987,
+                        "lng": 103.7245442
+                    },
+                    "viewport": {
+                        "northeast": {
+                            "lat": 1.449348529892722,
+                            "lng": 103.7258940298927
+                        },
+                        "southwest": {
+                            "lat": 1.446648870107278,
+                            "lng": 103.7231943701073
+                        }
+                    }
+                },
+                "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_recreational-71.png",
+                "id": "bbbc2a0d98df75f838c998a30696fb7b4508541d",
+                "name": "Sungei Buloh Wetland Reserve",
+                "opening_hours": {
+                    "open_now": true
+                },
+                "photos": [
+                    {
+                        "height": 2268,
+                        "html_attributions": [
+                            "<a href=\"https://maps.google.com/maps/contrib/113676317613719872898\">Man Hound</a>"
+                        ],
+                        "photo_reference": "CmRaAAAA4Phtwd9aoTbFlvCKMcRyqYhV7uEyn3575M6SxSRMsZie-SXBNTPHbPNiHi0dRDzdz2Fp5TuE2ff1uejbUYxL9sn8XjM68a78kLlOBjh6geCY91YjH4Z2RytyuKYXXrekEhDrT4xxlxef-qhMLb1Gm2FHGhRaWTrYp1wylTpCZsblKifTBDVU1Q",
+                        "width": 4032
+                    }
+                ],
+                "place_id": "ChIJe0cEPoIS2jERs_rS2qvGOxw",
+                "plus_code": {
+                    "compound_code": "CPXF+5R Singapore",
+                    "global_code": "6PH5CPXF+5R"
+                },
+                "rating": 4.5,
+                "reference": "ChIJe0cEPoIS2jERs_rS2qvGOxw",
+                "types": [
+                    "tourist_attraction",
+                    "park",
+                    "point_of_interest",
+                    "establishment"
+                ],
+                "user_ratings_total": 1797,
+                "recommendedTime": 120,
+                "category": "park"
+            }
+        ]
+    ],
+    "pageNumber": 0,
+    "firstActivityCounter": 0,
+    "nextPageToken": "CpQCCQEAAFjUboTvboRRSJaFi-RCCnGY4zZejFNUBQzU63gSJg_5Ew9DgK-ejMV-HkWU_Arx3XawF4hoksUtkq-YsKYvI3QFTUdP5gKa7N8ZrIAje4y0bisJ2s1gmwDkBd4_iYezujcGMxKHmV4DloQuxB4eJUaBwXmlQnBFbJvgqy0Xb7ufc4gS28KIQLlHyn-cR22sThX2jw8tNkCM_KUuq8pk_TEuwYWGZTegcv3HkbdNBhaXZ0kG5QPGHwxdaktRanZcmEqrOqQWvhPsH_5c9Bs-Go_Y9A31ur9QdAhZcZ1kWgCa7WvoDtHNSm-YDztfCO2-dTlEaUHP3nbvT9n0dQY1CG083FXqKv7PDyrE8dQJd4JmEhBkgNqZoGxC1eKGvsc8ZIokGhREnzOjX-_uIgZbEdnVQm-F5XbO4Q"
+}

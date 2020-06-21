@@ -8,7 +8,7 @@ import { DateRangePicker } from 'react-dates';
 
 /**
  * Component, renders calendar for entering dates of trip.
- * @memberof Components
+ * @memberof Component
  * @param {updateDates} Method: passed from parent to update date information.
  * @returns Rendered calendar to input dates easily
  */

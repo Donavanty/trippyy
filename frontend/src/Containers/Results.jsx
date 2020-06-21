@@ -12,11 +12,11 @@ import Timetable from '../Components/Timetable'
 import NavBar from '../Components/navBar'
 
 /** Container, renders results page
-* @memberof Containers
-* @param {Navbar} Component, renders navigation bar.
-* @param {Timetable} Component, renders timetable to display activities.
-* @param {checkTrip} Redux-action, updates redux state of trip with local storage
-* @param {authCheckState} Redux-action, updates redux state of user with local storage
+* @memberof Container
+* @param {Component} Navbar, renders navigation bar.
+* @param {Component} Timetable, renders timetable to display activities.
+* @param {ReduxAction} checkTrip, updates redux state of trip with local storage
+* @param {ReduxAction} authCheckState, updates redux state of user with local storage
 */
 class Results extends Component {
     componentDidMount() {

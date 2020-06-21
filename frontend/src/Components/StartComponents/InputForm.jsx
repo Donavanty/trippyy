@@ -16,9 +16,9 @@ import Autocomplete from './Autocomplete'
 
 /**
  * Component, renders input form for user to input City and dates of trip.
- * @memberof Components
+ * @memberof Component
  * @param {user} Redux-state: Contains information about user if logged in. (e.g. token, username)
- * @param {newTrip} Redux-action: Updates redux state with new trip information.
+ * @param {ReduxAction} newTrip: Updates redux state with new trip information.
  */
 class InputForm extends Component {
 
@@ -48,7 +48,7 @@ class InputForm extends Component {
 	/** Called upon pressing the submit button, creates a new trip, 
 	* and checks for basic input validation before submitting, 
 	* and calling the redux-action (newTrip) to update redux-state with trip information.
-	* @param {newTrip} Redux-action: Updates redux state with new trip information.
+	* @param {ReduxAction} newTrip: Updates redux state with new trip information.
 	*/
 	newTrip = (event) => {
 		if (this.state.startDate == null || this.state.endDate == null) {

@@ -12,9 +12,9 @@ import "./CSS/Timetable.css"
 /**
  * Component, renders activities currently added into the trip in a timetable manner,
  * enabling it to be customizable by dragging the blocks around.
- * @memberof Components
- * @param {trip} Redux-state: Contains information about current trip (e.g. trip name/date, and list of current activities added)
- * @param {itineraryUpdate} Redux-action: Updates redux state to update itinerary.
+ * @memberof Component
+ * @param {ReduxState} trip: Contains information about current trip (e.g. trip name/date, and list of current activities added)
+ * @param {ReduxAction} itineraryUpdate: Updates redux state to update itinerary.
  */
 class Timetable extends Component {
 

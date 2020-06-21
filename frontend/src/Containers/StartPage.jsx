@@ -14,12 +14,12 @@ import "./CSS/global.css"
 import axios from "axios";
 
 /** Container, renders sign up page.
-* @memberof Containers
-* @param {Navbar} Component, renders navigation bar.
-* @param {InputForm} Component, renders input form to enter name of country
-* @param {checkTrip} Redux-action, updates redux state of trip with local storage
-* @param {authCheckState} Redux-action, updates redux state of user with local storage
-* @param {newTrip} Redux-action, updates redux state of updated trip info
+* @memberof Container
+* @param {Component} Navbar, renders navigation bar.
+* @param {Component} InputForm, renders input form to enter name of country
+* @param {ReduxAction} checkTrip, updates redux state of trip with local storage
+* @param {ReduxAction} authCheckState, updates redux state of user with local storage
+* @param {ReduxAction} newTrip, updates redux state of updated trip info
 */
 class StartPage extends Component {
 

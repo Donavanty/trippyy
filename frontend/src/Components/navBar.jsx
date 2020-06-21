@@ -13,8 +13,8 @@ import "./CSS/navBar.css";
 /**
  * Component, renders the Navigation Bar
  * Should be able to show whether a user is logged in from here.
- * @memberof Components
- * @param {user} Redux-state: Contains information about user if logged in. (e.g. token, username)
+ * @memberof Component
+ * @param {ReduxState} user: Contains information about user if logged in. (e.g. token, username)
  */
 class NavBar extends Component {
 

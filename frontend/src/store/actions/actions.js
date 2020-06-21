@@ -6,7 +6,7 @@ const DATABASE_URL = "https://trippyy-backend.herokuapp.com/"
 /**
  *
  * Sends an action to reducer to change loading to true.
- * @memberof Actions
+ * @memberof ReduxAction
  */
 export const authStart = () => {
 	return {
@@ -16,7 +16,7 @@ export const authStart = () => {
 
 /** 
 * Sends an action to reducer to update REDUX token, username, userId upon login.
-* @memberof Actions
+* @memberof ReduxAction
 * @param {String} token: token of user account
 * @param {String} username: username
 * @param {String} userid: serial number of user
@@ -32,7 +32,7 @@ export const authSuccess = (token, username, userId) => {
 
 /** 
 * Sends an action to alert an error.
-* @memberof Actions
+* @memberof ReduxAction
 * @param {Object} error: error
 */
 export const authFail = (error) => {
@@ -44,7 +44,7 @@ export const authFail = (error) => {
 
 /** 
 * Called upon logout, removes everything in LOCALSTORAGE 
-* @memberof Actions
+* @memberof ReduxAction
 */
 export const logout = () => {
 	localStorage.clear();
@@ -55,7 +55,7 @@ export const logout = () => {
 
 /** 
 * Called during checking of authentication state, updates REDUX token, remove all USER attributes in LOCALSTORAGE
-* @memberof Actions
+* @memberof ReduxAction
 */
 export const notLoggedIn = () => {
 	localStorage.removeItem('user');
@@ -67,7 +67,7 @@ export const notLoggedIn = () => {
 /** 
 * Called upon login, logins by checking with backend, updates USER attributes in LOCALSTORAGE, 
 * and calls authSuccess or authFailed, depending on outcome.
-* @memberof Actions
+* @memberof ReduxAction
 * @param {String} username: username of user
 * @param {String} password: password of user
 */
@@ -96,7 +96,7 @@ export const authLogin = (username, password) => {
 
 /** 
 * Signs up by sending POST req to backend, then calls authLogin.
-* @memberof Actions
+* @memberof ReduxAction
 * @param {String} username: username of user
 * @param {String} email: email of user
 * @param {String} password1: password1 of user
@@ -121,7 +121,7 @@ export const authSignup = (username, email, password1, password2) => {
 
 /** 
 * Checks with LOCALSTORAGE (token) if user is logged in, and updates REDUX token accordingly.
-* @memberof Actions
+* @memberof ReduxAction
 */
 export const authCheckState = () => {
 	return dispatch => {
@@ -141,7 +141,7 @@ export const authCheckState = () => {
 
 /** 
 * Stores trip variables into local storage, POSTS data if logined, and updates redux state for trip.
-* @memberof Actions
+* @memberof ReduxAction
 * @param {String} tripCountry: country of trip
 * @param {number} tripLat: lattitude of country of trip
 * @param {number} tripLng: longitude of country of trip
@@ -179,7 +179,7 @@ export const newTripData = (tripCountry, tripLat, tripLng, startDate, endDate) =
 
 /** 
 * Calls authStart to change REDUX loading to true, then proceeds on to call newTripData.
-* @memberof Actions
+* @memberof ReduxAction
 * @param {String} tripCountry: country of trip
 * @param {number} tripLat: lattitude of country of trip
 * @param {number} tripLng: longitude of country of trip
@@ -195,7 +195,7 @@ export const newTrip = (tripCountry, tripLat, tripLng, startDate, endDate) => {
 
 /**
 * Gets trip details from local storage, and update it to redux state.
-* @memberof Actions
+* @memberof ReduxAction
 */
 export const checkTrip = () => {
 	if (localStorage.trip !== null && localStorage.trip !== undefined) {
@@ -216,7 +216,7 @@ export const checkTrip = () => {
 
 /**
 * Sends an action to reducer to update map information with new bounds of map
-* @memberof Actions
+* @memberof ReduxAction
 * @param {Object} bounds: new bounds of map
 */
 export const mapBoundsChange = (bounds) => {
@@ -228,7 +228,7 @@ export const mapBoundsChange = (bounds) => {
 
 /**
  * Sends an action to reducer to change activities loading to true.
- * @memberof Actions
+ * @memberof ReduxAction
  */
 export const activitiesStart = () => {
 	return {
@@ -238,7 +238,7 @@ export const activitiesStart = () => {
 
 /**
  * Calls activitiesStart to change REDUX activities loading to true, then proceeds on to call activitiesLoadData
- * @memberof Actions
+ * @memberof ReduxAction
  * @param {Object} data: contains parameters to call for Google API to load data
  */
 export const activitiesLoad = (data) => {
@@ -250,7 +250,7 @@ export const activitiesLoad = (data) => {
 
 /**
  * Loads data to update activities shown in redux state according to data type entered, and update it to redux state.
- * @memberof Actions
+ * @memberof ReduxAction
  * @param {Object} data: contains parameters to call for Google API to load data
  */
 export const activitiesLoadData = (data) => {
@@ -335,7 +335,7 @@ export const activitiesLoadData = (data) => {
 
 /**
 * Adds activity, update redux state to change status of activity to {added: true} 
-* @memberof Actions
+* @memberof ReduxAction
 * @param {number} index: index of activity added.
 */
 export const activitiesAdd = (index) => {
@@ -351,7 +351,7 @@ export const activitiesAdd = (index) => {
 
 /**
  * Sends an action to reducer to change itinerary loading to true, and update it to redux state.
- * @memberof Actions
+ * @memberof ReduxAction
  */
 export const itineraryLoadStart = () => {
 	return {
@@ -361,7 +361,7 @@ export const itineraryLoadStart = () => {
 
 /**
  * Calls itineraryLoadStart to change REDUX itinerary loading to true, then proceeds on to call itineraryLoadData.
- * @memberof Actions
+ * @memberof ReduxAction
  * @param {Object} data: contains a list of activities selected to generate itinerary
  */
 export const itineraryLoad = (data) => {
@@ -373,7 +373,7 @@ export const itineraryLoad = (data) => {
 
 /**
  * Calls backend request to generate itinerary and update it to redux state.
- * @memberof Actions
+ * @memberof ReduxAction
  * @param {Object} data: contains a list of activities selected to generate itinerary
  */
 export const itineraryLoadData = (data) => {
@@ -392,7 +392,7 @@ export const itineraryLoadData = (data) => {
 /**
  * Updates activities of itinerary, deletes the activity at fromIndex, and adds the activity
  * in the position of toIndex, and update it to redux state.
- * @memberof Actions
+ * @memberof ReduxAction
  * @param {number} toIndex: index of intended new position of activity
  * @param {number} fromIndex: index of original position of activity
  */

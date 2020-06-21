@@ -18,12 +18,12 @@ const API_KEY = "AIzaSyDyb0_iNF_gpoxydk5Vd8IpWj1Hy1Tp5Vc"
 
 /**
  * Component, renders a list of activities.
- * @memberof Components
- * @param {Activity} Component
- * @param {activitiesLoad} Redux-action: to load activities from Google API
- * @param {activitiesAdd} Redux-action: to update redux state when adding an activity to the list of selected activities upon selection
- * @param {map} Redux-state: Redux object with map information (e.g. lng/lat of center, and bounds)
- * @param {activitiesShown} Redux-state: Redux object with information about the list of activities currently rendered
+ * @memberof Component
+ * @param {Component} Activity
+ * @param {ReduxAction} activitiesLoad: to load activities from Google API
+ * @param {ReduxAction} activitiesAdd: to update redux state when adding an activity to the list of selected activities upon selection
+ * @param {ReduxState} map: Redux object with map information (e.g. lng/lat of center, and bounds)
+ * @param {ReduxAction} activitiesShown: Redux object with information about the list of activities currently rendered
  * @returns Rendered list of activities
  */
 class ActivityList extends Component{
@@ -79,7 +79,7 @@ class ActivityList extends Component{
     * Function to load next page of activities. If next page was loaded before, call
     * redux-action (activitiesLoad) with "GONEXT" parameter to retrieve next page, else
     * call with "NEXTKEYSEARCH" to retrieve next page from calling Google API.
-    * @param {activitiesLoad} Redux-action: to load activities from Google API
+    * @param {ReduxAction} activitiesLoad: to load activities from Google API
     */
     loadNext = () => {
         this.refs.myscroll.scrollTop = 0;
@@ -107,7 +107,7 @@ class ActivityList extends Component{
     * Called upon pressing the previous page button.
     * Function to load prev page of activities. Call redux-action (activitiesLoad) with
     * "GOPREV" parameter to retrieve activities from prev page.
-    * @param {activitiesLoad} Redux-action: to load activities from Google API
+    * @param {ReduxAction} activitiesLoad: to load activities from Google API
     */
     loadPrev = () => {
         this.refs.myscroll.scrollTop = 0;
@@ -124,7 +124,7 @@ class ActivityList extends Component{
     * Called upon pressing any of the category buttons to change category.
     * Function to load a new category of activities. Call redux-action (activitiesLoad) with
     * "TEXTSEARCH" parameter to retrieve activities from Google API with new category.
-    * @param {activitiesLoad} Redux-action: to load activities from Google API
+    * @param {ReduxAction} activitiesLoad: to load activities from Google API
     */
     changeCategory = (event) => {
         console.log(JSON.stringify(this.props.activitiesShown))

@@ -15,9 +15,9 @@ import { Link } from 'react-router-dom';
 
 /**
  * Component, renders activities currently added into the trip.
- * @memberof Components
- * @param {trip} Redux-state: Contains information about current trip (e.g. trip name/date, and list of current activities added)
- * @param {itineraryLoad} Redux-action: Updates redux state to generate itinerary.
+ * @memberof Component
+ * @param {ReduxState} trip: Contains information about current trip (e.g. trip name/date, and list of current activities added)
+ * @param {ReduxAction} itineraryLoad: Updates redux state to generate itinerary.
  */
 class SelectedActivityList extends Component{
     componentDidMount() {
@@ -28,7 +28,7 @@ class SelectedActivityList extends Component{
 
     /**
     * Called upon clicking button to generate itinerary. Calls Redux-action (itineraryLoad) to generate.
-    * @param {itineraryLoad} Redux-action: Updates redux state to generate itinerary.
+    * @param {ReduxAction} itineraryLoad: Updates redux state to generate itinerary.
     */
     getItinerary = () => {
         const data = {

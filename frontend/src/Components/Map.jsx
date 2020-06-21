@@ -36,11 +36,11 @@ function getBoundsRadius(bounds){
 
 /**
  * Component, renders Google Map.
- * @memberof Components
- * @param {mapBoundsChange} Redux-action: to update redux state object (Map) when changing Google Map bounds with new bounds
- * @param {trip} Redux-state: Contains information about current trip (e.g. trip name/date, and list of current activities added)
- * @param {map} Redux-state: Contains map information (e.g. lng/lat of center, and bounds)
- * @param {activitiesShown} Contains information about the list of activities currently rendered
+ * @memberof Component
+ * @param {ReduxAction} mapBoundsChange: to update redux state object (Map) when changing Google Map bounds with new bounds
+ * @param {ReduxState} trip: Contains information about current trip (e.g. trip name/date, and list of current activities added)
+ * @param {ReduxState} map: Contains map information (e.g. lng/lat of center, and bounds)
+ * @param {ReduxAction} activitiesShown: Contains information about the list of activities currently rendered
  * @returns Rendered Google Map with Markers of activities shown, and activities added.
  */
 class Map extends Component{

@@ -13,11 +13,11 @@ import "./CSS/global.css"
 import { Spinner } from 'react-bootstrap';
 
 /** Container, renders login page.
-* @memberof Containers
-* @param {Navbar} Component, renders navigation bar.
-* @param {checkTrip} Redux-action, updates redux state of trip with local storage
-* @param {authCheckState} Redux-action, updates redux state of user with local storage
-* @param {authLogin} Redux-action, updates redux state of user with logged in information.
+* @memberof Container
+* @param {Component} Navbar, renders navigation bar.
+* @param {ReduxAction} checkTrip, updates redux state of trip with local storage
+* @param {ReduxAction} authCheckState, updates redux state of user with local storage
+* @param {ReduxAction} authLogin, updates redux state of user with logged in information.
 */
 class Login extends Component {
 

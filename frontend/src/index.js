@@ -16,18 +16,18 @@ const store = createStore(reducer, composeEnhances(
 
 
 /**
- * Actions
- * @module Actions
+ * ReduxAction
+ * @module ReduxAction
  */
 
  /**
  * Components
- * @module Components
+ * @module Component
  */
 
  /**
  * Containers
- * @module Containers
+ * @module Container
  */
  
 const app = (

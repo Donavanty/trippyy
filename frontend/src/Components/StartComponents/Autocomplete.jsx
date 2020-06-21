@@ -8,7 +8,7 @@ import PlacesAutocomplete, {
 
 /**
  * Component, renders input bar for entering destination city of trip.
- * @memberof Components
+ * @memberof Component
  * @param {updateCountry} Method: passed from parent to update country information.
  * @returns Rendered input bar with autocomplete functionality
  */

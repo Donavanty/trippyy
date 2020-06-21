@@ -6,7 +6,7 @@ import "./CSS/Activity.css";
 
 /**
  * Component, renders a single activity.
- * @memberof Components
+ * @memberof Component
  * @param {Object} value: details of the activity
  * @param {number} displayIndex: index to show in website
  * @param {number} index: index of activity

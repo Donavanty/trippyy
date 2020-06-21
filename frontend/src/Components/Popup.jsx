@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 
 import Popup from "reactjs-popup";
 
-class Popup extends Component {
+class Popup2 extends Component {
 
     render() {
 
@@ -47,5 +47,5 @@ class Popup extends Component {
     }
 }
 
-export const Popup
+export default Popup2
 

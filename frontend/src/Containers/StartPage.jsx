@@ -10,11 +10,17 @@ import { connect } from 'react-redux';
 import "bootstrap/dist/css/bootstrap.css";
 import NavBar from '../Components/navBar';
 import InputForm from '../Components/StartComponents/InputForm'
-import Calendar from '../Components/StartComponents/Calendar'
 import "./CSS/global.css"
 import axios from "axios";
 
-
+/** Container, renders sign up page.
+* @memberof Containers
+* @param {Navbar} Component, renders navigation bar.
+* @param {InputForm} Component, renders input form to enter name of country
+* @param {checkTrip} Redux-action, updates redux state of trip with local storage
+* @param {authCheckState} Redux-action, updates redux state of user with local storage
+* @param {newTrip} Redux-action, updates redux state of updated trip info
+*/
 class StartPage extends Component {
 
 	componentDidMount() {

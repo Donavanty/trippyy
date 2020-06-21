@@ -3,14 +3,24 @@ import axios from 'axios';
 import {updateObject, recommendTime} from '../utility';
 const DATABASE_URL = "https://trippyy-backend.herokuapp.com/"
 
-// Sends an action to reducer to change loading to true.
+/**
+ *
+ * Sends an action to reducer to change loading to true.
+ * @memberof Actions
+ */
 export const authStart = () => {
 	return {
 		type: actionTypes.AUTH_START
 	}
 }
 
-// Sends an action to reducer to update REDUX token, username, userId upon login.
+/** 
+* Sends an action to reducer to update REDUX token, username, userId upon login.
+* @memberof Actions
+* @param {String} token: token of user account
+* @param {String} username: username
+* @param {String} userid: serial number of user
+*/
 export const authSuccess = (token, username, userId) => {
 	return {
 		token: token,
@@ -20,7 +30,11 @@ export const authSuccess = (token, username, userId) => {
 	}
 }
 
-// Sends an action to alert an error.
+/** 
+* Sends an action to alert an error.
+* @memberof Actions
+* @param {Object} error: error
+*/
 export const authFail = (error) => {
 	return {
 		error: error,
@@ -28,7 +42,10 @@ export const authFail = (error) => {
 	}
 }
 
-// Called upon logout, removes everything in LOCALSTORAGE 
+/** 
+* Called upon logout, removes everything in LOCALSTORAGE 
+* @memberof Actions
+*/
 export const logout = () => {
 	localStorage.clear();
 	return {
@@ -36,7 +53,10 @@ export const logout = () => {
 	}
 }
 
-// Called during checking of authentication state, updates REDUX token, remove all USER attributes in LOCALSTORAGE
+/** 
+* Called during checking of authentication state, updates REDUX token, remove all USER attributes in LOCALSTORAGE
+* @memberof Actions
+*/
 export const notLoggedIn = () => {
 	localStorage.removeItem('user');
 	return {
@@ -44,8 +64,13 @@ export const notLoggedIn = () => {
 	}
 }
 
-// Called upon login, logins by checking with backend, updates USER attributes in LOCALSTORAGE, 
-// and calls authSuccess or authFailed, depending on outcome.
+/** 
+* Called upon login, logins by checking with backend, updates USER attributes in LOCALSTORAGE, 
+* and calls authSuccess or authFailed, depending on outcome.
+* @memberof Actions
+* @param {String} username: username of user
+* @param {String} password: password of user
+*/
 export const authLogin = (username, password) => {
 	return dispatch => {
 		dispatch(authStart());
@@ -69,7 +94,14 @@ export const authLogin = (username, password) => {
 	}
 }
 
-// Signs up by sending POST req to backend, then calls authLogin.
+/** 
+* Signs up by sending POST req to backend, then calls authLogin.
+* @memberof Actions
+* @param {String} username: username of user
+* @param {String} email: email of user
+* @param {String} password1: password1 of user
+* @param {String} password2: password2 of user
+*/
 export const authSignup = (username, email, password1, password2) => {
 	return dispatch => {
 		dispatch(authStart());
@@ -87,7 +119,10 @@ export const authSignup = (username, email, password1, password2) => {
 	}
 }
 
-// Checks with LOCALSTORAGE (token) if user is logged in, and updates REDUX token accordingly.
+/** 
+* Checks with LOCALSTORAGE (token) if user is logged in, and updates REDUX token accordingly.
+* @memberof Actions
+*/
 export const authCheckState = () => {
 	return dispatch => {
 		const user = JSON.parse(localStorage.getItem('user'));
@@ -101,9 +136,18 @@ export const authCheckState = () => {
 	}	
 }
 
-// TRIP // --------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Stores trip variables into local storage, POSTS data if logined, and updates redux state for trip.
+// TRIP ----------------------------------------------------------------------
+
+/** 
+* Stores trip variables into local storage, POSTS data if logined, and updates redux state for trip.
+* @memberof Actions
+* @param {String} tripCountry: country of trip
+* @param {number} tripLat: lattitude of country of trip
+* @param {number} tripLng: longitude of country of trip
+* @param {String} startDate: start date of trip
+* @param {String} endDate: end date of trip
+*/
 export const newTripData = (tripCountry, tripLat, tripLng, startDate, endDate) => {
 	const data = {
 				destination: tripCountry,
@@ -133,7 +177,15 @@ export const newTripData = (tripCountry, tripLat, tripLng, startDate, endDate) =
 
 }
 
-// Calls authStart to change REDUX loading to true, then proceeds on to call newTripData.
+/** 
+* Calls authStart to change REDUX loading to true, then proceeds on to call newTripData.
+* @memberof Actions
+* @param {String} tripCountry: country of trip
+* @param {number} tripLat: lattitude of country of trip
+* @param {number} tripLng: longitude of country of trip
+* @param {String} startDate: start date of trip
+* @param {String} endDate: end date of trip
+*/
 export const newTrip = (tripCountry, tripLat, tripLng, startDate, endDate) => {
 	return dispatch => {
 		dispatch(authStart());
@@ -141,7 +193,10 @@ export const newTrip = (tripCountry, tripLat, tripLng, startDate, endDate) => {
 	}
 }
 
-//Gets trip details from local storage
+/**
+* Gets trip details from local storage, and update it to redux state.
+* @memberof Actions
+*/
 export const checkTrip = () => {
 	if (localStorage.trip !== null && localStorage.trip !== undefined) {
 		return {
@@ -156,7 +211,14 @@ export const checkTrip = () => {
 	}
 }
 
-// MAP / ACTIVITIES // --------------------------------------------------------------------------
+
+// MAP / ACTIVITIES --------------------------------------------------------------------------
+
+/**
+* Sends an action to reducer to update map information with new bounds of map
+* @memberof Actions
+* @param {Object} bounds: new bounds of map
+*/
 export const mapBoundsChange = (bounds) => {
 	return {
 		type: actionTypes.MAP_BOUNDS_CHANGED,
@@ -164,12 +226,21 @@ export const mapBoundsChange = (bounds) => {
 	}
 }
 
+/**
+ * Sends an action to reducer to change activities loading to true.
+ * @memberof Actions
+ */
 export const activitiesStart = () => {
 	return {
 		type: actionTypes.ACTIVITIES_START
 	}
 }
 
+/**
+ * Calls activitiesStart to change REDUX activities loading to true, then proceeds on to call activitiesLoadData
+ * @memberof Actions
+ * @param {Object} data: contains parameters to call for Google API to load data
+ */
 export const activitiesLoad = (data) => {
 	return (dispatch) => {
 		dispatch(activitiesStart());
@@ -177,17 +248,23 @@ export const activitiesLoad = (data) => {
 	}
 }
 
+/**
+ * Loads data to update activities shown in redux state according to data type entered, and update it to redux state.
+ * @memberof Actions
+ * @param {Object} data: contains parameters to call for Google API to load data
+ */
 export const activitiesLoadData = (data) => {
 	return (dispatch) => {
-	// Change URL depending on dataType.
+	// * Change URL depending on dataType.
+	
 	var url;
 	if (data.dataType == "TEXTSEARCH") {
 		url = "http://trippyy-backend.herokuapp.com/api/TextSearch/"
 	} else if (data.dataType == "NEXTKEYSEARCH") {
 		url = "http://trippyy-backend.herokuapp.com/api/NextKeySearch/"
+		
 	} else if (data.dataType == "BOUNDEDTEXTSEARCH") {
-		url = "http://trippyy-backend.herokuapp.com/api/BoundedTextSearch/"
-
+		url = "http:/trippyy-backend.herokuapp.com/api/BoundedTextSearch/"
 		// If input type was to go to previous page, simply change activities shown
 		// inside reducer.
 	} else if (data.dataType == "GOPREV") {
@@ -196,9 +273,9 @@ export const activitiesLoadData = (data) => {
 			dataType: data.dataType,
 		})
 		return;
+		// * If input type was to go to next page, simply change activities shown
+		// * inside reducer.
 
-		// If input type was to go to next page, simply change activities shown
-		// inside reducer.
 	} else if (data.dataType == "GONEXT") {
 		axios.get("www.wikipedia.com").then((res) => {console.log("e")});
 		dispatch({
@@ -210,11 +287,13 @@ export const activitiesLoadData = (data) => {
 	
 	axios.post(url, data)
           .then( (res) => {
-          	// Upon loading data, check if the activities ID are already added into trip, by comparing with local
-          	// if added already, add a {added: true} to the activity
+          	// * Upon loading data, check if the activities ID are already added into trip, by comparing with local
+          	// * if added already, add a {added: true} to the activity
           	res = (JSON.parse(res.data));
           	console.log(res);
-          	// Check for next page token, if exist, store it.
+          	
+          	// * Check for next page token, if exist, store it.
+          	
           	var nextPageToken;
           	if (res["next_page_token"]) {
           		nextPageToken = res["next_page_token"];
@@ -222,7 +301,9 @@ export const activitiesLoadData = (data) => {
           		nextPageToken = -1;
           	}
 
-          	// Storing results, and checking if place is alr added
+          	 
+          	// * Storing results, and checking if place is alr added
+          	
           	var results = res["results"]
           	for (var i = 0; i < results.length; i++) {
           		if (JSON.parse(localStorage.trip)["activitiesAddedIds"].includes(results[i].id)) {
@@ -231,7 +312,9 @@ export const activitiesLoadData = (data) => {
           		}
           	}
 
-          	// Dispatch results IF LOADING NEW PAGE DATA
+          	
+          	// * Dispatch results IF LOADING NEW PAGE DATA
+          	
             dispatch({
             	type: actionTypes.ACTIVITIES_LOAD,
             	dataType: data.dataType,
@@ -250,6 +333,11 @@ export const activitiesLoadData = (data) => {
     }
 }
 
+/**
+* Adds activity, update redux state to change status of activity to {added: true} 
+* @memberof Actions
+* @param {number} index: index of activity added.
+*/
 export const activitiesAdd = (index) => {
 	return {
 		type: actionTypes.ACTIVITY_ADD,
@@ -258,17 +346,39 @@ export const activitiesAdd = (index) => {
 }
 
 
-// GET ITINERARY // --------------------------------------------------------------------------
+ 
+// GET ITINERARY --------------------------------------------------------------------------
 
+/**
+ * Sends an action to reducer to change itinerary loading to true, and update it to redux state.
+ * @memberof Actions
+ */
 export const itineraryLoadStart = () => {
 	return {
 		type: actionTypes.ITINERARY_START,
 	}
 }
 
+/**
+ * Calls itineraryLoadStart to change REDUX itinerary loading to true, then proceeds on to call itineraryLoadData.
+ * @memberof Actions
+ * @param {Object} data: contains a list of activities selected to generate itinerary
+ */
+export const itineraryLoad = (data) => {
+	return (dispatch) => {
+		dispatch(itineraryLoadStart());
+		dispatch(itineraryLoadData(data));
+	}
+}
+
+/**
+ * Calls backend request to generate itinerary and update it to redux state.
+ * @memberof Actions
+ * @param {Object} data: contains a list of activities selected to generate itinerary
+ */
 export const itineraryLoadData = (data) => {
 	return (dispatch) => {
-	    axios.post("https://trippyy-backend.herokuapp.com/api/algo/", data).then( (res) => {
+	    axios.post("https:/trippyy-backend.herokuapp.com/api/algo/", data).then( (res) => {
 	        var iti = JSON.parse(res.data);
 	        dispatch({
 				type: actionTypes.ITINERARY_LOAD,
@@ -279,13 +389,13 @@ export const itineraryLoadData = (data) => {
 	}
 }
 
-export const itineraryLoad = (data) => {
-	return (dispatch) => {
-		dispatch(itineraryLoadStart());
-		dispatch(itineraryLoadData(data));
-	}
-}
-
+/**
+ * Updates activities of itinerary, deletes the activity at fromIndex, and adds the activity
+ * in the position of toIndex, and update it to redux state.
+ * @memberof Actions
+ * @param {number} toIndex: index of intended new position of activity
+ * @param {number} fromIndex: index of original position of activity
+ */
 export const itineraryUpdate = (toIndex, fromIndex) => {
 	return {
 		type: actionTypes.ITINERARY_UPDATE,

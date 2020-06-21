@@ -6,18 +6,32 @@ import PlacesAutocomplete, {
   getLatLng,
 } from 'react-places-autocomplete';
 
-
+/**
+ * Component, renders input bar for entering destination city of trip.
+ * @memberof Components
+ * @param {updateCountry} Method: passed from parent to update country information.
+ * @returns Rendered input bar with autocomplete functionality
+ */
 class Autocomplete extends Component {
   constructor(props) {
     super(props);
     this.state = { address: '' };
   }
 
+  /**
+  * Called upon any character input/delete.
+  * @param {String} address: Address inputted by user
+  */
   handleChange = address => {
     this.setState({ address });
     this.props.updateCountry(address, null);
   };
 
+  /**
+  * Called when user selects a City, updateCountry called upon selection.
+  * @param {updateCountry} Method: passed from parent to update country information.
+  * @param {String} address: Address inputted by user
+  */
   handleSelect = address => {
     this.setState({ address });
     geocodeByAddress(address)

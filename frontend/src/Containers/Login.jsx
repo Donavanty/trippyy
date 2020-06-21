@@ -12,6 +12,13 @@ import NavBar from '../Components/navBar';
 import "./CSS/global.css"
 import { Spinner } from 'react-bootstrap';
 
+/** Container, renders login page.
+* @memberof Containers
+* @param {Navbar} Component, renders navigation bar.
+* @param {checkTrip} Redux-action, updates redux state of trip with local storage
+* @param {authCheckState} Redux-action, updates redux state of user with local storage
+* @param {authLogin} Redux-action, updates redux state of user with logged in information.
+*/
 class Login extends Component {
 
     componentDidMount() {
@@ -37,7 +44,10 @@ class Login extends Component {
           }
         }
     }
-
+    /**
+    * Called upon submission of login form, then calls redux-action (authLogin) to login and update redux state.
+    * @param {Object} event: contains form information about username and password.
+    */
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.onAuth(event.target.username.value, event.target.password.value);
@@ -77,7 +87,7 @@ class Login extends Component {
 
 const mapStateToProps = (state) => {
     return {
-      isAuthenticated: state.token !== null,
+      isAuthenticated: state.user !== null,
       loading: state.loading,
     }
 }

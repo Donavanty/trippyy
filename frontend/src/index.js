@@ -14,6 +14,22 @@ const store = createStore(reducer, composeEnhances(
 		applyMiddleware(thunk)
 	));
 
+
+/**
+ * Actions
+ * @module Actions
+ */
+
+ /**
+ * Components
+ * @module Components
+ */
+
+ /**
+ * Containers
+ * @module Containers
+ */
+ 
 const app = (
 	<Provider store={store}>
 		<Router>

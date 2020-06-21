@@ -2,6 +2,15 @@
 import React, { Component, Fragment } from "react";
 // -------------------------------------------------------------------------
 import "./CSS/Activity.css";
+
+
+/**
+ * Component, renders a single activity.
+ * @memberof Components
+ * @param {Object} value: details of the activity
+ * @param {number} displayIndex: index to show in website
+ * @param {number} index: index of activity
+ */
 class Activity extends Component{
 	render() {
 		var activityClass;

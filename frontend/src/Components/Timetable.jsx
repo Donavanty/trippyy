@@ -38,18 +38,19 @@ class Timetable extends Component {
 	*/
 	onDragOver = (event) => {
 		event.preventDefault()
+		//Defining the positions of the block
 		const toIndex = event.target.dataset.index;
 		const toDayIndex = event.target.dataset.dayindex;
 		const fromIndex = this.state.fromIndex;
 		const fromDayIndex = this.state.fromDayIndex;
 
-		// If is at same position, do not run.
+		// If it is at the same position, do not run.
 		if (toIndex === fromIndex && toDayIndex === fromDayIndex) {
 			return;
 
 		// Update the itinerary in redux.
 		} else if (toIndex !== undefined && toDayIndex !== undefined) {
-			this.props.itineraryUpdate([toDayIndex, toIndex], [fromDayIndex,fromIndex]);
+			this.props.itineraryUpdate([toDayIndex, toIndex], [fromDayIndex, fromIndex]);
 			this.setState({fromIndex: toIndex});
 			this.setState({fromDayIndex: toDayIndex});
 		}

@@ -21,12 +21,12 @@ class Activity extends Component{
 		}
 		return (
 		<div>
-			{this.props.value.added ?
-					<div id="added" className={activityClass}>
+			{this.props.value.added === true ?
+					<div id="added" className={activityClass} onClick={() => this.props.activityClickHandlerToSubtract(this.props.index)}>
 						{(this.props.displayIndex) + 1} : {this.props.value.name}
 					</div>
 				:
-					<div id="notAdded" className={activityClass} onClick={() => this.props.activityClickHandler(this.props.index)}>
+					<div id="notAdded" className={activityClass} onClick={() => this.props.activityClickHandlerToAdd(this.props.index)}>
 						{(this.props.displayIndex) + 1} : {this.props.value.name}
 					</div>
 			}

@@ -258,25 +258,24 @@ export const activitiesLoadData = (data) => {
 	// * Change URL depending on dataType.
 	
 	var url;
-	if (data.dataType == "TEXTSEARCH") {
+	if (data.dataType === "TEXTSEARCH") {
 		url = "http://trippyy-backend.herokuapp.com/api/TextSearch/"
-	} else if (data.dataType == "NEXTKEYSEARCH") {
+	} else if (data.dataType === "NEXTKEYSEARCH") {
 		url = "http://trippyy-backend.herokuapp.com/api/NextKeySearch/"
-		
 	} else if (data.dataType == "BOUNDEDTEXTSEARCH") {
 		url = "http:/trippyy-backend.herokuapp.com/api/BoundedTextSearch/"
+
 		// If input type was to go to previous page, simply change activities shown
 		// inside reducer.
-	} else if (data.dataType == "GOPREV") {
+	} else if (data.dataType === "GOPREV") {
 		dispatch({
 			type: actionTypes.ACTIVITIES_LOAD,
 			dataType: data.dataType,
 		})
 		return;
-		// * If input type was to go to next page, simply change activities shown
-		// * inside reducer.
-
-	} else if (data.dataType == "GONEXT") {
+		// If input type was to go to next page, simply change activities shown
+		// inside reducer.
+	} else if (data.dataType === "GONEXT") {
 		axios.get("www.wikipedia.com").then((res) => {console.log("e")});
 		dispatch({
 			type: actionTypes.ACTIVITIES_LOAD,
@@ -291,9 +290,7 @@ export const activitiesLoadData = (data) => {
           	// * if added already, add a {added: true} to the activity
           	res = (JSON.parse(res.data));
           	console.log(res);
-          	
-          	// * Check for next page token, if exist, store it.
-          	
+          	// Check for next page token, if it exists, store it.
           	var nextPageToken;
           	if (res["next_page_token"]) {
           		nextPageToken = res["next_page_token"];
@@ -345,6 +342,12 @@ export const activitiesAdd = (index) => {
 	}
 }
 
+export const activitiesSubtract = (index) => {
+	return {
+		type: actionTypes.ACTIVITY_SUBTRACT,
+		index: index
+	}
+}
 
  
 // GET ITINERARY --------------------------------------------------------------------------

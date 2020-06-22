@@ -20,7 +20,9 @@ class Results extends Component {
 		return (
             <Fragment>
                 <NavBar from={this.props.location.pathname}/>
-                <Timetable/>
+                <div>
+                    <Timetable/>
+                </div>
             </Fragment>);
 	} 
 	        

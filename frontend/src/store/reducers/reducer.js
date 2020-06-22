@@ -1,5 +1,6 @@
 import * as actionTypes from '../actions/actionTypes';
 import {updateObject} from '../utility';
+import { findAllByTestId } from '@testing-library/react';
 
 const initialState = {
 	error: null,
@@ -105,7 +106,7 @@ const updateBounds = (state, action) => {
 
 const activitiesLoad = (state, action) => {
 	// If load next page, get and display next page data, and add onto fullActivitiesShown list
-	if (action.dataType == "NEXTKEYSEARCH") {
+	if (action.dataType === "NEXTKEYSEARCH") {
 		const newFullList = [...state.activitiesShown.fullList, action.activitiesShown ];
 		const activitiesShown = {
 			currentList: action.activitiesShown,
@@ -122,8 +123,8 @@ const activitiesLoad = (state, action) => {
 
 
 	// If the request was to go to a prev page, 
-	// ASSERT that fullList at this point would have shit.
-	} else if (action.dataType == "GOPREV") {
+	// ASSERT that fullList at this point would have activities added already.
+	} else if (action.dataType === "GOPREV") {
 		const newCurrentList = [...state.activitiesShown.fullList[state.activitiesShown.pageNumber - 1]]
 		const activitiesShown = updateObject(state.activitiesShown, {
 			currentList: newCurrentList,
@@ -139,7 +140,7 @@ const activitiesLoad = (state, action) => {
 
 	// If has next page loaded, pressing next page will call to this instead,
 	// just reassign the activities shown and hasNextPageLoaded.
-	} else if (action.dataType == "GONEXT") {
+	} else if (action.dataType === "GONEXT") {
 		const newCurrentList = [...state.activitiesShown.fullList[state.activitiesShown.pageNumber + 1]]
 		var hasNextPageLoaded;
 		if (state.activitiesShown.pageNumber + 1 >= state.activitiesShown.pageLoadedUpTo) {
@@ -218,6 +219,40 @@ const activitiesAdd = (state, action) => {
 	})
 }
 
+const activitiesSubtract = (state, action) => {
+	// Retrieve trip for cache, can be done using state too, but both works.
+	var currentTrip = JSON.parse(localStorage.trip);
+
+	// Retrieve activity that was selected/clicked on by referencing the index (id) 
+	// Update the activity such that {added: false}
+	var activitySelected = state.activitiesShown.currentList[action.index];
+	activitySelected = updateObject(activitySelected, {added: false});
+
+	// Replace the activity in ActivitiesShown with a new one that says added: false
+	var activitiesShownCurrentList = [...state.activitiesShown.currentList];
+	activitiesShownCurrentList[action.index] = activitySelected;
+
+	var activitiesShownFullList = [...state.activitiesShown.fullList];
+	activitiesShownFullList[state.activitiesShown.pageNumber][action.index] = activitySelected;
+
+	var activitiesShown = updateObject(state.activitiesShown, {
+		currentList: activitiesShownCurrentList,
+		fullList: activitiesShownFullList,
+	})
+
+	// Merge all changes into currentTrip
+	currentTrip['activitiesAdded'].pop(activitySelected);
+	currentTrip['activitiesAddedIds'].pop(activitySelected.id)
+
+	// Update currentTrip
+	localStorage.setItem('trip', JSON.stringify(currentTrip));
+
+	return updateObject(state, {
+		trip: currentTrip,
+		activitiesShown: activitiesShown,
+	})
+}
+
 const itineraryLoad = (state, action) => {
 	const trip = updateObject(state.trip, {
 		itinerary: action.itinerary
@@ -265,7 +300,8 @@ const itineraryUpdate = (state, action) => {
 const reducer = (state=initialState, action) => {
 	switch(action.type) {
 
-		case actionTypes.ACTIVITY_ADD: return activitiesAdd(state,action);
+		case actionTypes.ACTIVITY_SUBTRACT: return activitiesSubtract(state, action);
+		case actionTypes.ACTIVITY_ADD: return activitiesAdd(state, action);
 		case actionTypes.ACTIVITIES_START: return activitiesStart(state, action);
 		case actionTypes.ACTIVITIES_LOAD: return activitiesLoad(state, action);
 		case actionTypes.MAP_BOUNDS_CHANGED: return updateBounds(state, action);

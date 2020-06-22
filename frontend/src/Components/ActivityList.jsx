@@ -7,8 +7,8 @@ import * as actions from '../store/actions/actions';
 import { connect } from 'react-redux';
 // -------------------------------------------------------------------------
 
-import ReactPullToRefresh from 'react-pull-to-refresh'
-import axios from "axios";
+// import ReactPullToRefresh from 'react-pull-to-refresh'
+// import axios from "axios";
 import { Spinner ,ButtonGroup , Button} from 'react-bootstrap';
 import "./CSS/ActivityList.css";
 import Activity from './Activity'
@@ -32,8 +32,12 @@ class ActivityList extends Component{
         return text
     } 
 
-    activityClickHandler = (index) => {
+    activityClickHandlerToAdd = (index) => {
             this.props.activitiesAdd(index);
+    }
+
+    activityClickHandlerToSubtract = (index) => {
+            this.props.activitiesSubtract(index);
     }
 
     componentDidMount() {
@@ -102,7 +106,7 @@ class ActivityList extends Component{
 
     // Upon clicking of button to change category,
     changeCategory = (event) => {
-        if (event.target.value == "general") {
+        if (event.target.value === "general") {
             const data = {
                 dataType: "TEXTSEARCH",
                 key: API_KEY,
@@ -122,7 +126,7 @@ class ActivityList extends Component{
     }
     render() {
         return (
-            <div id="activityList" ref="myscroll">
+            <div id="activityList" ref = "myscroll">
             { this.props.activitiesLoading ?
 
                 <Spinner animation="border" role="status">
@@ -150,7 +154,8 @@ class ActivityList extends Component{
                         key={index} 
                         value={value} 
                         displayIndex={index + this.props.activitiesShown.firstActivityCounter} 
-                        activityClickHandler={this.activityClickHandler}
+                        activityClickHandlerToAdd={this.activityClickHandlerToAdd}
+                        activityClickHandlerToSubtract={this.activityClickHandlerToSubtract}
                         index={index}
                         />)
                     }
@@ -174,8 +179,8 @@ const mapStateToProps = (state) => {
         map: state.map,
         activitiesShown: state.activitiesShown,
         activitiesLoading: state.activitiesLoading,
-        isLastPage: (!state.activitiesShown.hasNextPageLoaded) && (state.activitiesShown.nextPageToken == -1),
-        isFirstPage: state.activitiesShown.pageNumber == 0,
+        isLastPage: (!state.activitiesShown.hasNextPageLoaded) && (state.activitiesShown.nextPageToken === -1),
+        isFirstPage: state.activitiesShown.pageNumber === 0,
     }
 }
 
@@ -185,6 +190,7 @@ const mapDispatchToProps = dispatch => {
         mapBoundsChange: (bounds) => dispatch(actions.mapBoundsChange(bounds)),
         activitiesLoad: (data) => dispatch(actions.activitiesLoad(data)),
         activitiesAdd: (index) => dispatch(actions.activitiesAdd(index)),
+        activitiesSubtract: (index) => dispatch(actions.activitiesSubtract(index))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ActivityList);

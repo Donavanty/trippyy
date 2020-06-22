@@ -63,7 +63,7 @@ class MyTrips extends Component {
 		this.props.onTryAutoSignup();
 
 		//If user is not logged in, redirect to Login page
-		if (localStorage.user == null || localStorage.user == undefined) {
+		if (localStorage.user === null || localStorage.user === undefined) {
 			this.props.history.push({
 					pathname: "/login",
 					state: { from: this.props.location.pathname }

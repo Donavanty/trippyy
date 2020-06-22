@@ -14,6 +14,15 @@ import ActivityList from '../Components/ActivityList'
 import SelectedActivityList from '../Components/SelectedActivityList'
 import "./CSS/global.css"
 
+/** Container, renders shopping page
+* @memberof Container
+* @param {Component} Navbar, renders navigation bar.
+* @param {Component} Map, renders map.
+* @param {Component} ActivityList, renders activity list.
+* @param {Component} SelectedActivityList, renders selected activities list.
+* @param {ReduxAction} checkTrip, updates redux state of trip with local storage
+* @param {ReduxAction} authCheckState, updates redux state of user with local storage
+*/
 class Shopping extends Component {
 
     componentDidMount() {

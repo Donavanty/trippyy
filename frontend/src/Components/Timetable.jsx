@@ -9,24 +9,33 @@ import { connect } from 'react-redux';
 
 import "./CSS/Timetable.css"
 
+/**
+ * Component, renders activities currently added into the trip in a timetable manner,
+ * enabling it to be customizable by dragging the blocks around.
+ * @memberof Component
+ * @param {ReduxState} trip: Contains information about current trip (e.g. trip name/date, and list of current activities added)
+ * @param {ReduxAction} itineraryUpdate: Updates redux state to update itinerary.
+ */
 class Timetable extends Component {
 
 	state = {
-		tasks: [
-	      {id: "0", taskName:"Read book",type:"Done", bgcolor: "peachpuff"},
-	      {id: "1", taskName:"Pay bills", type:"Done", bgcolor:"peachpuff"},
-	      {id: "2", taskName:"Go to the gym", type:"Done", bgcolor:"peachpuff"},
-	      {id: "3", taskName:"Play baseball", type:"Done", bgcolor:"peachpuff"}
-		],
 		fromIndex: -1,
 		fromDayIndex: -1,
 	}
 
-	onDragStart = (event, taskName) => {
+	/**
+	* Called upon selection of activity block.
+	* @param {event} Contains information about mouse location etc.
+	*/
+	onDragStart = (event) => {
     	this.setState({fromIndex: event.target.dataset.index})
     	this.setState({fromDayIndex: event.target.dataset.dayindex})
 	}
 
+	/**
+	* Called everytime the mouse moves when dragging.
+	* @param {event} Contains information about mouse location etc.
+	*/
 	onDragOver = (event) => {
 		event.preventDefault()
 		//Defining the positions of the block
@@ -47,21 +56,12 @@ class Timetable extends Component {
 		}
 	}
 
-	// Just remove original index.
-	replaceActivity = (toIndex, fromIndex) => {
-		var originalActivity = this.state.tasks[fromIndex]
-		originalActivity.bgcolor = "yellow"
-		var newtasks = [...this.state.tasks];
-		newtasks.splice(fromIndex, 1);
-		newtasks.splice(toIndex, 0, originalActivity);
 
-		this.setState({
-			tasks: newtasks
-		})
-
-	}
-
-	onDrop = (event, cat) => {
+	/**
+	* Called when activity is dropped.
+	* @param {event} Contains information about mouse location etc.
+	*/
+	onDrop = (event) => {
 		event.preventDefault();
 	}
 
@@ -72,7 +72,7 @@ class Timetable extends Component {
 	    return (
 		    <div id="timetable"
 		    		onDragOver={(event)=>this.onDragOver(event)}
-	      			onDrop={(event)=>{this.onDrop(event)}}>
+	      			onDrop={this.onDrop}>
 	          {this.props.trip["itinerary"].map( (value, dayindex) => (
 	          	<div className="day">
 	          		{
@@ -84,7 +84,7 @@ class Timetable extends Component {
 				          		data-dayindex={dayindex}
 				          		draggable
 				          		className="timetableActivity"
-								onDragStart = {(event) => this.onDragStart(event, value.taskName)}
+								onDragStart = {this.onDragStart}
 							    style ={{backgroundColor: value.bgcolor}}
 							>
 							    <p> {JSON.parse(value)["name"]} </p>

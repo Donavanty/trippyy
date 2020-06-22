@@ -13,6 +13,12 @@ import "./CSS/SelectedActivityList.css";
 import Popup from "reactjs-popup";
 import { Link } from 'react-router-dom';
 
+/**
+ * Component, renders activities currently added into the trip.
+ * @memberof Component
+ * @param {ReduxState} trip: Contains information about current trip (e.g. trip name/date, and list of current activities added)
+ * @param {ReduxAction} itineraryLoad: Updates redux state to generate itinerary.
+ */
 class SelectedActivityList extends Component{
     componentDidMount() {
     }
@@ -20,6 +26,10 @@ class SelectedActivityList extends Component{
     state = {
     }
 
+    /**
+    * Called upon clicking button to generate itinerary. Calls Redux-action (itineraryLoad) to generate.
+    * @param {ReduxAction} itineraryLoad: Updates redux state to generate itinerary.
+    */
     getItinerary = () => {
         const data = {
             lengthOfTrip: 5,

@@ -14,6 +14,12 @@ import { Link } from 'react-router-dom';
 import { Spinner } from 'react-bootstrap';
 import Autocomplete from './Autocomplete'
 
+/**
+ * Component, renders input form for user to input City and dates of trip.
+ * @memberof Component
+ * @param {user} Redux-state: Contains information about user if logged in. (e.g. token, username)
+ * @param {ReduxAction} newTrip: Updates redux state with new trip information.
+ */
 class InputForm extends Component {
 
 	state = {
@@ -21,19 +27,29 @@ class InputForm extends Component {
 		goToShoppingPage: false,
 	}
 
-	//Called from component Calendar, in which upon input of dates, local state would be updated
+	/** 
+	* Called from component Calendar, in which upon input of dates, local state dates would be updated
+	* @param {String} startDate: start date of trip.
+	* @param {String} endDate: start date of trip.
+	*/
 	updateDates = (startDate, endDate) => {
 		this.setState({startDate, endDate});
 	}
 
-	//Called from component Autocomplete, in which upon selection of country,
-	//Current state would get updated.
+	/** 
+	* Called from component Autocomplete, in which upon input of country, local state country would be updated
+	* @param {String} countryName: name of country.
+	* @param {Object} latLng: coordinates of country.
+	*/
 	updateCountry = (countryName, latLng) => {
 		this.setState({countryName, latLng});
 	}
 
-	// Upon pressing the submit button, creates a new trip, and checks for 
-	// basic input validation before submitting.
+	/** Called upon pressing the submit button, creates a new trip, 
+	* and checks for basic input validation before submitting, 
+	* and calling the redux-action (newTrip) to update redux-state with trip information.
+	* @param {ReduxAction} newTrip: Updates redux state with new trip information.
+	*/
 	newTrip = (event) => {
 		if (this.state.startDate == null || this.state.endDate == null) {
 			alert("Please choose dates first!");

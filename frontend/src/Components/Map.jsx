@@ -34,6 +34,15 @@ function getBoundsRadius(bounds){
     return r_km *1000 // radius in meters
 }
 
+/**
+ * Component, renders Google Map.
+ * @memberof Component
+ * @param {ReduxAction} mapBoundsChange: to update redux state object (Map) when changing Google Map bounds with new bounds
+ * @param {ReduxState} trip: Contains information about current trip (e.g. trip name/date, and list of current activities added)
+ * @param {ReduxState} map: Contains map information (e.g. lng/lat of center, and bounds)
+ * @param {ReduxAction} activitiesShown: Contains information about the list of activities currently rendered
+ * @returns Rendered Google Map with Markers of activities shown, and activities added.
+ */
 class Map extends Component{
 
     state = {
@@ -64,6 +73,11 @@ class Map extends Component{
         googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyB-tj53yeTQiKnUmi_Jr2a7caz5RJVY60Y&v=3.exp&libraries=geometry,drawing,places",
     }
 
+    /**
+     * Called upon moving the map.
+     * Updates the new bounds of the map to redux-state map.
+     * @param {mapBoundsChange} Redux-action: to update redux state object (Map) when changing Google Map bounds with new bounds
+     */
     uponBoundsChanged = () => {
         const newBounds = ref.getBounds()
         if (this.state.test === null) {
@@ -94,6 +108,10 @@ class Map extends Component{
 
     }
 
+    /**
+     * Called upon clicking button to reset map view to starting stage.
+     * Zooms out the map to default stage. 
+     */
     mapReset = () => {
         //When fitbounds is called, zoom will be set to StartZoom - 1
         ref.fitBounds(this.state.startBounds);
@@ -101,6 +119,10 @@ class Map extends Component{
 
     }
 
+    /**
+     * Called upon first load of map.
+     * Updates local state of bounds, and subsequently the redux-state by calling uponBoundsChanged
+     */
     mapLoaded = () => {
         if (this.state.startBounds === null) {
             this.setState({startBounds: ref.getBounds()})

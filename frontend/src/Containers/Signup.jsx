@@ -11,6 +11,13 @@ import axios from "axios";
 import NavBar from '../Components/navBar';
 import { Spinner } from 'react-bootstrap';
 
+/** Container, renders sign up page.
+* @memberof Container
+* @param {Component} Navbar, renders navigation bar.
+* @param {ReduxAction} checkTrip, updates redux state of trip with local storage
+* @param {ReduxAction} authCheckState, updates redux state of user with local storage
+* @param {ReduxAction} authSignup, updates redux state of new user sign up info.
+*/
 class Signup extends Component {
 
     componentDidMount() {
@@ -31,6 +38,10 @@ class Signup extends Component {
         }
     }
 
+    /**
+    * Called upon submission of signup form, then calls redux-action (authLogin) to signup and update redux state.
+    * @param {Object} event: contains form information about username, password and email
+    */
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.onAuth(event.target.username.value, event.target.email.value,

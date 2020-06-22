@@ -13,6 +13,12 @@ import { Spinner } from 'react-bootstrap';
 
 const DATABASE_URL = "https://trippyy-backend.herokuapp.com/";
 
+/** Container, renders my trips page.
+* @memberof Container
+* @param {Component} Navbar, renders navigation bar.
+* @param {ReduxAction} checkTrip, updates redux state of trip with local storage
+* @param {ReduxAction} authCheckState, updates redux state of user with local storage
+*/
 class MyTrips extends Component {
 	state = {
 		tripIDs: [],
@@ -20,6 +26,9 @@ class MyTrips extends Component {
 		local_loading: null
 	}
 
+	/** 
+	* Called upon page load, loads trips from backend.
+	*/
 	loadTrips = () => {
 		try {
 			const user = JSON.parse(localStorage.user);

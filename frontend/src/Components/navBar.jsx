@@ -10,7 +10,12 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import "./CSS/navBar.css";
 
-
+/**
+ * Component, renders the Navigation Bar
+ * Should be able to show whether a user is logged in from here.
+ * @memberof Component
+ * @param {ReduxState} user: Contains information about user if logged in. (e.g. token, username)
+ */
 class NavBar extends Component {
 
 	render() {
@@ -83,10 +88,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		// Basic stats needed for NAV ------------
-		onTryAutoSignup: () => dispatch(actions.authCheckState()),
-		logout: () => dispatch(actions.logout())
-		// Basic stats needed for NAV ------------
 	}
 }
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

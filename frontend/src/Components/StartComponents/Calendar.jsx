@@ -6,6 +6,12 @@ import 'react-dates/lib/css/_datepicker.css';
 
 import { DateRangePicker } from 'react-dates';
 
+/**
+ * Component, renders calendar for entering dates of trip.
+ * @memberof Component
+ * @param {updateDates} Method: passed from parent to update date information.
+ * @returns Rendered calendar to input dates easily
+ */
 class Calendar extends Component {
   constructor(props) {
     super(props);

@@ -48,7 +48,7 @@ class SelectedActivityList extends Component{
                 <Link to="/results" className="itiButton" onClick={this.getItinerary} value="general">Get Itinerary</Link>
             	<div id="selectedActivityList">
             		{
-            			this.props.trip["activitiesAdded"].map( (value, index) => <p key={index}> {value.name} </p>)
+            			this.props.trip["activitiesAdded"].map( (value, index) => <p key={index}>{value.name}</p>)
             		}
             	</div>
             </Fragment>)

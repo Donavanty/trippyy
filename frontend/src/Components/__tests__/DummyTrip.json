@@ -4,8 +4,57 @@
     "lng": 103.819836,
     "startDate": "2020-07-14",
     "endDate": "2020-07-18",
-    "activitiesAdded": [],
-    "activitiesAddedIds": [],
+    "activitiesAdded": [
+    {
+            "business_status": "CLOSED_TEMPORARILY",
+            "formatted_address": "30 Raffles Ave, Singapore 039803",
+            "geometry": {
+                "location": {
+                    "lat": 1.2892988,
+                    "lng": 103.8631368
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 1.291054829892722,
+                        "lng": 103.8643521798927
+                    },
+                    "southwest": {
+                        "lat": 1.288355170107278,
+                        "lng": 103.8616525201073
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+            "id": "021245e36680793a72b3c428607f0a01ed5d1786",
+            "name": "Singapore Flyer",
+            "permanently_closed": true,
+            "photos": [
+                {
+                    "height": 3000,
+                    "html_attributions": [
+                        "<a href=\"https://maps.google.com/maps/contrib/100559618274592297894\">simika 007</a>"
+                    ],
+                    "photo_reference": "CmRaAAAAWVfmZ2itB4WsldhE1RiGEDQ3R4VrSaDbHTUQe4GwA1vzadtlQe5ytRQ89i4aaHNZ_XoVkP-EGMjku3k8P1oyFi0Yel3dbqpCBUy70K0uscm3gdpUI4_2ZHzCWvQalTsAEhCV8sXsIsJn84l52Xoy10-KGhS8OUDnmT0al5r7XuZS3gv6NiZO7A",
+                    "width": 4000
+                }
+            ],
+            "place_id": "ChIJzVHFNqkZ2jERboLN2YrltH8",
+            "plus_code": {
+                "compound_code": "7VQ7+P7 Singapore",
+                "global_code": "6PH57VQ7+P7"
+            },
+            "rating": 4.6,
+            "reference": "ChIJzVHFNqkZ2jERboLN2YrltH8",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 14011,
+            "recommendedTime": 120,
+            "category": "others"
+        }],
+    "activitiesAddedIds": [1],
     "itinerary": [
         []
     ]

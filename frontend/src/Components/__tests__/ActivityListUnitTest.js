@@ -44,6 +44,7 @@ afterEach(() => {
   container = null;
 
   localStorage.clear();
+  store= null;
 });
 
 // Testing starts --------------------------------------------------------------------------

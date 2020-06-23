@@ -53,13 +53,18 @@ class ActivityList extends Component{
         // for api/TextSearch/ - key: API_KEY, query: text query
         // for api/BoundedTextSearch/ - key: API_KEY, query: text query, lat: lat of center, lng: lng of center, radius: radius of map
         // for api/NextKeySearch/ - key: API_KEY, next_page_token: next page token
-        const data = {
-            dataType: "TEXTSEARCH",
-            key: API_KEY,
-            query: this.convertSpaceToPlus(JSON.parse(localStorage.trip)["country"] + " points of interest")
+
+        if (localStorage.trip !== undefined) {
+            const data = {
+                dataType: "TEXTSEARCH",
+                key: API_KEY,
+                query: this.convertSpaceToPlus(JSON.parse(localStorage.trip)["country"] + " points of interest")
+            }
+            
+            // Retrieves Singapore places of interest.
+            this.props.activitiesLoad(data);
         }
-        // Retrieves Singapore places of interest.
-        this.props.activitiesLoad(data);
+        
 
 
         // Use this if were to implement infinite scrolling instead.

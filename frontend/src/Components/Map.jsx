@@ -48,8 +48,8 @@ class Map extends Component{
     state = {
         trip: null,
 
-        center: null,
-        startCenter: null,
+        center: 0,
+        startCenter: 0,
         zoom: 0,
         startZoom: 0,
 
@@ -65,7 +65,7 @@ class Map extends Component{
                 center: JSON.parse(localStorage.trip),
                 startZoom: 12,
                 zoom: 12
-            })
+            })            
         }
     }
 
@@ -124,6 +124,7 @@ class Map extends Component{
      * Updates local state of bounds, and subsequently the redux-state by calling uponBoundsChanged
      */
     mapLoaded = () => {
+        console.log("map loaded!")
         if (this.state.startBounds === null) {
             this.setState({startBounds: ref.getBounds()})
         }

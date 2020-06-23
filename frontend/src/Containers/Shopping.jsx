@@ -28,6 +28,7 @@ class Shopping extends Component {
     componentDidMount() {
       if (localStorage.getItem('trip') === null || localStorage.getItem('trip') === undefined) {
         this.props.history.push('/');
+        return;
       } 
       //Updates login status and trip status into redux.
       this.props.onTryAutoSignup();

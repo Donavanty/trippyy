@@ -47,7 +47,7 @@ class NavBar extends Component {
 				</li>
 
 				<li className="nav-item">
-				<Link to="/mytrips" className="nav-link"> Account: {this.props.user.username} </Link>
+				<Link to="/mytrips" className="nav-link" id="accountLink">Account: {this.props.user.username}</Link>
 				</li>
 				</React.Fragment>
 				:
@@ -58,11 +58,11 @@ class NavBar extends Component {
 				<Link to={{
 					pathname: "/login",
 					state: { from: this.props.from }
-				}} className="nav-link"> Login </Link>
+				}} className="nav-link" id="loginLink"> Login </Link>
 				</li>
 
 				<li className="nav-item">
-				<Link to="/signup" className="nav-link"> Signup </Link>
+				<Link to="/signup" className="nav-link" id="signupLink"> Signup </Link>
 				</li>
 
 				</React.Fragment>
@@ -88,6 +88,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
 	return {
+		logout: () => dispatch(actions.logout())
 	}
 }
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

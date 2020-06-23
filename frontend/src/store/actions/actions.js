@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
-import {updateObject, recommendTime} from '../utility';
+import {updateObject} from '../utility';
 const DATABASE_URL = "https://trippyy-backend.herokuapp.com/"
 
 /**
@@ -262,7 +262,7 @@ export const activitiesLoadData = (data) => {
 		url = "http://trippyy-backend.herokuapp.com/api/TextSearch/"
 	} else if (data.dataType === "NEXTKEYSEARCH") {
 		url = "http://trippyy-backend.herokuapp.com/api/NextKeySearch/"
-	} else if (data.dataType == "BOUNDEDTEXTSEARCH") {
+	} else if (data.dataType === "BOUNDEDTEXTSEARCH") {
 		url = "http:/trippyy-backend.herokuapp.com/api/BoundedTextSearch/"
 
 		// If input type was to go to previous page, simply change activities shown

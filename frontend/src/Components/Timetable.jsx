@@ -1,5 +1,5 @@
 // Basic Imports
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 // -------------------------------------------------------------------------
 
 //Imports needed for redux
@@ -90,6 +90,7 @@ class Timetable extends Component {
 							    <p> {JSON.parse(value)["name"]} </p>
 					    	</div>
 					    	}
+					    	return null;
 					    })
 				    	
 			    	}

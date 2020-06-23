@@ -1,5 +1,5 @@
 // Basic Imports
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 // -------------------------------------------------------------------------
 
 //Imports needed for redux
@@ -7,7 +7,6 @@ import * as actions from '../store/actions/actions';
 import { connect } from 'react-redux';
 // -------------------------------------------------------------------------
 
-import axios from "axios";
 import NavBar from '../Components/navBar';
 import "./CSS/global.css"
 import { Spinner } from 'react-bootstrap';

@@ -1,5 +1,5 @@
 // Basic Imports
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 // -------------------------------------------------------------------------
 
 //Imports needed for redux

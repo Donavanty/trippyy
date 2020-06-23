@@ -7,10 +7,7 @@ import * as actions from '../store/actions/actions';
 import { connect } from 'react-redux';
 // -------------------------------------------------------------------------
 
-import axios from "axios"
-import { Button , Spinner} from 'react-bootstrap'
 import "./CSS/SelectedActivityList.css";
-import Popup from "reactjs-popup";
 import { Link } from 'react-router-dom';
 
 /**

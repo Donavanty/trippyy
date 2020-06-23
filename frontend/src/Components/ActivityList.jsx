@@ -7,7 +7,7 @@ import * as actions from '../store/actions/actions';
 import { connect } from 'react-redux';
 // -------------------------------------------------------------------------
 
-import { Spinner , ButtonGroup , Button} from 'react-bootstrap';
+import { Spinner , Button} from 'react-bootstrap';
 import "./CSS/ActivityList.css";
 import Activity from './Activity'
 

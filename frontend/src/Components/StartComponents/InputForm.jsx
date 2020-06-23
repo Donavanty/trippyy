@@ -1,5 +1,5 @@
 // Basic Imports
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 // -------------------------------------------------------------------------
 
 //Imports needed for redux
@@ -8,9 +8,7 @@ import { connect } from 'react-redux';
 // -------------------------------------------------------------------------
 
 import "./inputForm.css"
-import axios from "axios";
 import Calendar from "./Calendar"
-import { Link } from 'react-router-dom';
 import { Spinner } from 'react-bootstrap';
 import Autocomplete from './Autocomplete'
 

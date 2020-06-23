@@ -1,5 +1,5 @@
 // Basic Imports
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 // -------------------------------------------------------------------------
 
 //Imports needed for redux
@@ -11,7 +11,6 @@ import "bootstrap/dist/css/bootstrap.css";
 import NavBar from '../Components/navBar';
 import InputForm from '../Components/StartComponents/InputForm'
 import "./CSS/global.css"
-import axios from "axios";
 
 /** Container, renders sign up page.
 * @memberof Container

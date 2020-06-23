@@ -6,7 +6,7 @@ cache:
     - node_modules
 script:
   - cd frontend
-  - npm install -g react-scripts
+  - npm install
   - npm test
 on:
   branch: master

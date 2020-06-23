@@ -1,9 +1,11 @@
 #notAdded {
 	background-color: peachpuff;
+	cursor: pointer;
 }
 
 #added {
 	background-color: grey;
+	cursor: pointer;
 }
 
 .activityTop {

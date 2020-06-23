@@ -170,8 +170,8 @@ class Map extends Component{
                  
                     { 
                         this.props.activitiesShown.currentList.map((value,index) => 
-                            (!value.added) && <Marker key={index} position = {value.geometry.location} label={(this.props.activitiesShown.firstActivityCounter + index + 1).toString()}
-                                    onClick = {(event) => this.markerClickHandler(event, index)}>
+                            (!value.added) && <Marker key={index} position={value.geometry.location} label={(this.props.activitiesShown.firstActivityCounter + index + 1).toString()}
+                                    onClick={(event) => this.markerClickHandler(event, index)}>
 
                                     {this.state.showInfoWindow && (this.state.currentInfoWindow === index) && 
                                         (<InfoWindow onCloseClick= {() => this.setState({showInfoWindow: false})}> 
@@ -185,9 +185,14 @@ class Map extends Component{
 
                     {
                         this.props.trip.activitiesAdded.map((value,index) => 
-                            <Marker key={index} position = {value.geometry.location} label={(this.props.activitiesShown.firstActivityCounter + index + 1).toString()}
-                                onClick = {(event) => this.markerClickHandler(event, index)} icon ="http://maps.google.com/mapfiles/ms/icons/blue.png">
-
+                            <Marker key={index} 
+                                position={value.geometry.location} 
+                                label={(this.props.activitiesShown.firstActivityCounter + index + 1).toString()}
+                                onClick={(event) => this.markerClickHandler(event, index)} 
+                                icon = {{url:"http://maps.google.com/mapfiles/ms/icons/blue.png",
+                                        scaledSize: new window.google.maps.Size(44, 44), 
+                                        labelOrigin: new window.google.maps.Point(22, 15), }}>
+                                
                                 {this.state.showInfoWindow && (this.state.currentInfoWindow === index) && 
                                     (<InfoWindow onCloseClick= {() => this.setState({showInfoWindow: false})}> 
                                         <span>{value.name}</span> 

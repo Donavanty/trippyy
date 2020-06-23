@@ -179,7 +179,7 @@ class ActivityList extends Component{
                     }
 
                     {this.props.activitiesShown.currentList.map((value,index) => 
-                        <Activity 
+                        <Activity
                         key={index} 
                         value={value} 
                         displayIndex={index + this.props.activitiesShown.firstActivityCounter} 
@@ -187,6 +187,7 @@ class ActivityList extends Component{
                         activityClickHandlerToSubtract={this.activityClickHandlerToSubtract}
                         index={index}
                         />)
+                    
                     }
 
                     {

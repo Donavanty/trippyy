@@ -14,7 +14,7 @@ import activitiesShown from "./DummyActivitiesShown"
 import trip from "./DummyTrip"
 
 
-// Standard testing starting framework -------------------------------------
+// Standard testing starting framework ------------------------------------
 const mockStore = configureStore([]);
 let container = null;
 let store;

@@ -24,7 +24,7 @@ class Login extends Component {
       //Updates login status into redux.
       this.props.onTryAutoSignup();
 
-      //Checks if logged in, redirect to mainpage.
+      //Checks if logged in, redirect to mainpage/startpage.
       if (localStorage.user !== null && localStorage.user !== undefined) {
         this.props.history.push('/');
       }

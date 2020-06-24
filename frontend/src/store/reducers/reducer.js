@@ -240,8 +240,18 @@ const activitiesSubtract = (state, action) => {
 	})
 
 	// Merge all changes into currentTrip
-	currentTrip['activitiesAdded'].pop(activitySelected);
-	currentTrip['activitiesAddedIds'].pop(activitySelected.id)
+	// currentTrip['activitiesAdded'].pop(activitySelected); //WRONG
+	// currentTrip['activitiesAddedIds'].pop(activitySelected.id); //WRONG
+
+	var filteredTrip = currentTrip['activitiesAdded'].filter(
+		(activity) => activity.name !== activitySelected.name);
+
+	currentTrip['activitiesAdded'] = filteredTrip;
+
+	var filteredTripIds = currentTrip['activitiesAddedIds'].filter(
+		(id) => id !== activitySelected.id);
+	
+	currentTrip['activitiesAddedIds'] = filteredTripIds;
 
 	// Update currentTrip
 	localStorage.setItem('trip', JSON.stringify(currentTrip));

@@ -13,7 +13,7 @@ import {
     Marker,
     InfoWindow
 } from "react-google-maps";
-
+/* global google */
 let ref
 
 
@@ -59,6 +59,7 @@ class Map extends Component{
         currentInfoWindow: 0,
     }
     componentDidMount() {
+
         if (localStorage.trip !== undefined) {
             this.setState({
                 startCenter: JSON.parse(localStorage.trip),
@@ -190,8 +191,8 @@ class Map extends Component{
                                 label={(this.props.activitiesShown.firstActivityCounter + index + 1).toString()}
                                 onClick={(event) => this.markerClickHandler(event, index)} 
                                 icon = {{url:"http://maps.google.com/mapfiles/ms/icons/blue.png",
-                                        scaledSize: new window.google.maps.Size(44, 44), 
-                                        labelOrigin: new window.google.maps.Point(22, 15), }}>
+                                        scaledSize: new google.maps.Size(44, 44), 
+                                        labelOrigin: new google.maps.Point(22, 15), }}>
                                 
                                 {this.state.showInfoWindow && (this.state.currentInfoWindow === index) && 
                                     (<InfoWindow onCloseClick= {() => this.setState({showInfoWindow: false})}> 

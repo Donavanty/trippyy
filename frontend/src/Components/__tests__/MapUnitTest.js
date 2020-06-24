@@ -54,7 +54,7 @@ it("Checks that a map is rendered without errors", () => {
 	act(() => {
 		render(
 			<Provider store={store}>
-				<Map/>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-tj53yeTQiKnUmi_Jr2a7caz5RJVY60Y&libraries=places"></script>
 			</Provider>, container
 		);
 		expect(container).toEqual(expect.anything())

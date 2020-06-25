@@ -42,6 +42,8 @@ const initialState = {
 	activitiesShown: {
 		"currentList": [],
 		"fullList": [], 
+
+		"currentCategory": "", 
 		"firstActivityCounter": -1, 
 		"pageNumber": -1,
 		
@@ -110,6 +112,7 @@ const activitiesLoad = (state, action) => {
 		const activitiesShown = {
 			currentList: action.activitiesShown,
 			fullList: newFullList,
+			currentCategory: action.category,
 			pageLoadedUpTo: state.activitiesShown.pageNumber + 1,
 			pageNumber: state.activitiesShown.pageNumber + 1,
 			firstActivityCounter: state.activitiesShown.firstActivityCounter + 20,
@@ -127,6 +130,7 @@ const activitiesLoad = (state, action) => {
 		const newCurrentList = [...state.activitiesShown.fullList[state.activitiesShown.pageNumber - 1]]
 		const activitiesShown = updateObject(state.activitiesShown, {
 			currentList: newCurrentList,
+			currentCategory: action.category,
 			pageNumber: state.activitiesShown.pageNumber - 1,
 			firstActivityCounter: state.activitiesShown.firstActivityCounter - 20,
 			hasNextPageLoaded: true,
@@ -149,6 +153,7 @@ const activitiesLoad = (state, action) => {
 		}
 		const activitiesShown = updateObject(state.activitiesShown, {
 			currentList: newCurrentList,
+			currentCategory: action.category,
 			pageNumber: state.activitiesShown.pageNumber + 1,
 			firstActivityCounter: state.activitiesShown.firstActivityCounter + 20,
 			hasNextPageLoaded: hasNextPageLoaded,
@@ -165,6 +170,7 @@ const activitiesLoad = (state, action) => {
 		const activitiesShown = {
 			currentList: action.activitiesShown,
 			fullList: [action.activitiesShown],
+			currentCategory: action.category,
 
 			pageNumber: 0,
 			firstActivityCounter: 0,

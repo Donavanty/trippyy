@@ -249,7 +249,8 @@ export const activitiesLoad = (data) => {
 }
 
 /**
- * Loads data to update activities shown in redux state according to data type entered, and update it to redux state.
+ * Loads data to update activities in their corresponding category shown in redux state according to data type entered,
+ * and update it to redux state.
  * @memberof ReduxAction
  * @param {Object} data: contains parameters to call for Google API to load data
  */
@@ -271,6 +272,7 @@ export const activitiesLoadData = (data) => {
 		dispatch({
 			type: actionTypes.ACTIVITIES_LOAD,
 			dataType: data.dataType,
+			category: data.category,
 		})
 		return;
 		// If input type was to go to next page, simply change activities shown
@@ -280,6 +282,7 @@ export const activitiesLoadData = (data) => {
 		dispatch({
 			type: actionTypes.ACTIVITIES_LOAD,
 			dataType: data.dataType,
+			category: data.category,
 		})
 		return;
 	}
@@ -314,7 +317,8 @@ export const activitiesLoadData = (data) => {
           	
             dispatch({
             	type: actionTypes.ACTIVITIES_LOAD,
-            	dataType: data.dataType,
+				dataType: data.dataType,
+				category: data.category,
             	activitiesShown: results,
             	nextPageToken: nextPageToken,
             })
@@ -322,7 +326,8 @@ export const activitiesLoadData = (data) => {
             alert(error);
             dispatch({
             	type: actionTypes.ACTIVITIES_LOAD,
-            	dataType: data.dataType,
+				dataType: data.dataType,
+				category: data.category,
             	activitiesShown: [],
             })
         });

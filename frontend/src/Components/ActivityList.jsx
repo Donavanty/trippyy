@@ -58,15 +58,14 @@ class ActivityList extends Component{
             const data = {
                 dataType: "TEXTSEARCH",
                 key: API_KEY,
-                query: this.convertSpaceToPlus(JSON.parse(localStorage.trip)["country"] + " points of interest")
+                query: this.convertSpaceToPlus(JSON.parse(localStorage.trip)["country"] + " points of interest"),
+                category: "General",
             }
             
             // Retrieves Singapore places of interest.
             this.props.activitiesLoad(data);
         }
         
-
-
         // Use this if were to implement infinite scrolling instead.
         // var timeout = null;
         // this.refs.myscroll.addEventListener("scroll", () => {
@@ -135,24 +134,33 @@ class ActivityList extends Component{
     * @param {ReduxAction} activitiesLoad: to load activities from Google API
     */
     changeCategory = (event) => {
-        if (event.target.value === "general") {
+        if (event.target.value === "General") {
             const data = {
                 dataType: "TEXTSEARCH",
                 key: API_KEY,
-                query: this.convertSpaceToPlus(JSON.parse(localStorage.trip)["country"] + " points of interest")
+                query: this.convertSpaceToPlus(JSON.parse(localStorage.trip)["country"] + " points of interest"),
+                category: event.target.value,
             }
             // Retrieves Singapore places of interest.
             this.props.activitiesLoad(data);
+            console.log("Previous Category: " + this.props.activitiesShown.currentCategory);
+        
         } else {
             const data = {
                 dataType: "TEXTSEARCH",
                 key: API_KEY,
-                query: this.convertSpaceToPlus(JSON.parse(localStorage.trip)["country"] + " " + event.target.value + " attractions")
+                query: this.convertSpaceToPlus(JSON.parse(localStorage.trip)["country"] + " " + event.target.value + " attractions"),
+                category: event.target.value,
             }
-            console.log(data.query)
+            console.log(data.query);
+            // Retrieves Singapore places of interest.
             this.props.activitiesLoad(data);
+            console.log("Previous Category: " + this.props.activitiesShown.currentCategory);
         }
     }
+
+    //Category Buttons: Buttons change to grey ("secondary") when they are clicked, 
+    //and remain turquoise ("info") when they are not.
     render() {
         return (
             <div id="activityList" ref = "myscroll">
@@ -165,14 +173,22 @@ class ActivityList extends Component{
                 : 
                 <Fragment>
 
-                      <Button variant="info" className="customButton" onClick={this.changeCategory} value="general">General</Button>
-                      <Button variant="info" className="customButton" onClick={this.changeCategory} value="Food">Food</Button>
-                      <Button variant="info" className="customButton" onClick={this.changeCategory} value="Outdoor">Outdoors</Button>
-                      <Button variant="info" className="customButton" onClick={this.changeCategory} value="Art & Culture">Art & Culture</Button>
-                      <Button variant="info" className="customButton" onClick={this.changeCategory} value="Beaches">Beaches</Button>
-                      <Button variant="info" className="customButton" onClick={this.changeCategory} value="Museums">Museums</Button>
-                      <Button variant="info" className="customButton" onClick={this.changeCategory} value="Amusement park">Amusement Parks</Button>
-                      <Button variant="info" className="customButton" onClick={this.changeCategory} value="Local Favorite">Local Favorites</Button>
+                      <Button variant="info" className="customButton" onClick={this.changeCategory} value="General"
+                        variant={"General" === this.props.activitiesShown.currentCategory ? "secondary" : "info"}>General</Button>
+                      <Button variant="info" className="customButton" onClick={this.changeCategory} value="Food"
+                        variant={"Food" === this.props.activitiesShown.currentCategory ? "secondary" : "info"}>Food</Button>
+                      <Button variant="info" className="customButton" onClick={this.changeCategory} value="Outdoors"
+                        variant={"Outdoors" === this.props.activitiesShown.currentCategory ? "secondary" : "info"}>Outdoors</Button>
+                      <Button variant="info" className="customButton" onClick={this.changeCategory} value="Art & Culture"
+                        variant={"Art & Culture" === this.props.activitiesShown.currentCategory ? "secondary" : "info"}>Art & Culture</Button>
+                      <Button variant="info" className="customButton" onClick={this.changeCategory} value="Beaches"
+                        variant={"Beaches" === this.props.activitiesShown.currentCategory ? "secondary" : "info"}>Beaches</Button>
+                      <Button variant="info" className="customButton" onClick={this.changeCategory} value="Museums"
+                        variant={"Museums" === this.props.activitiesShown.currentCategory ? "secondary" : "info"}>Museums</Button>
+                      <Button variant="info" className="customButton" onClick={this.changeCategory} value="Amusement Parks"
+                        variant={"Amusement Parks" === this.props.activitiesShown.currentCategory ? "secondary" : "info"}>Amusement Parks</Button>
+                      <Button variant="info" className="customButton" onClick={this.changeCategory} value="Local Favorites"
+                        variant={"Local Favorites" === this.props.activitiesShown.currentCategory ? "secondary" : "info"}>Local Favorites</Button>
                     {
                         (!this.props.isFirstPage) &&
                             <Button id="prevPageButton" variant="primary" className="customButton" onClick ={this.loadPrev}> Scroll to Prev Page </Button>
@@ -217,7 +233,7 @@ const mapDispatchToProps = dispatch => {
     return {
         activitiesLoad: (data) => dispatch(actions.activitiesLoad(data)),
         activitiesAdd: (index) => dispatch(actions.activitiesAdd(index)),
-        activitiesSubtract: (index) => dispatch(actions.activitiesSubtract(index))
+        activitiesSubtract: (index) => dispatch(actions.activitiesSubtract(index)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ActivityList);

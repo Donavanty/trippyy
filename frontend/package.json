@@ -5,7 +5,6 @@
   "dependencies": {
     "@datepicker-react/styled": "^2.5.0",
     "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/user-event": "^7.1.2",
     "@types/googlemaps": "^3.39.7",
     "@types/markerclustererplus": "^2.1.33",
     "antd": "^4.2.4",
@@ -63,7 +62,10 @@
     "npm": "6.14.4"
   },
   "devDependencies": {
+    "@testing-library/dom": "^7.18.0",
     "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
     "redux-mock-store": "^1.5.4"
-  }
+  },
+  "jest": {}
 }

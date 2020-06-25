@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 
 import "bootstrap/dist/css/bootstrap.css";
 import NavBar from '../Components/navBar';
-import InputForm from '../Components/StartComponents/InputForm'
+import InputForm from '../Components/InputForm'
 import "./CSS/global.css"
 
 /** Container, renders sign up page.

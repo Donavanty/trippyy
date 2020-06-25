@@ -81,17 +81,18 @@ class Map extends Component{
      */
     uponBoundsChanged = () => {
         const newBounds = ref.getBounds()
+        console.log(newBounds)
         if (this.state.test === null) {
             this.setState({test: newBounds})
         }
         const bounds = {
             "upper": {
-                "lat": newBounds["Ya"]["j"],
+                "lat": newBounds["Za"]["j"],
                 "lng": newBounds["Ua"]["j"],
             },
 
             "lower": {
-                "lat": newBounds["Ya"]["i"],
+                "lat": newBounds["Za"]["i"],
                 "lng": newBounds["Ua"]["i"],
             },
 

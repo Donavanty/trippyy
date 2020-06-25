@@ -36,7 +36,7 @@ class Calendar extends Component {
               console.log(startDate);
               console.log("End: ")
               console.log(endDate);
-              if (this.state.endDate !== null && this.state.startDate !== null) {
+              if (endDate !== null && startDate !== null) {
                 this.props.updateDates(startDate.format("YYYY-MM-DD"), endDate.format("YYYY-MM-DD"));
               }
             }

@@ -159,39 +159,6 @@ class ActivityList extends Component{
         }
     }
 
-    // /**
-    // * Helper function for clearAll when clearAll is called; helps clearAll cycle through all activities.
-    // * Function to load a new category of activities. Call redux-action (activitiesLoad) with
-    // * "TEXTSEARCH" parameter to retrieve activities from Google API with new category.
-    // * @param {ReduxAction} activitiesLoad: to load activities from Google API
-    // */
-    // changeCategoryNotFromEvent = (category) => {
-    //     if (category === "General") {
-    //         const data = {
-    //             dataType: "TEXTSEARCH",
-    //             key: API_KEY,
-    //             query: this.convertSpaceToPlus(JSON.parse(localStorage.trip)["country"] + " points of interest"),
-    //             category: "General",
-    //         }
-    //         // Retrieves Singapore places of interest.
-    //         this.props.activitiesLoad(data);
-    //         console.log("Previous Category: " + this.props.activitiesShown.currentCategory);
-        
-    //     } else {
-    //         const data = {
-    //             dataType: "TEXTSEARCH",
-    //             key: API_KEY,
-    //             query: this.convertSpaceToPlus(JSON.parse(localStorage.trip)["country"] + " " + category + " attractions"),
-    //             category: "General", //fix to General
-    //         }
-    //         console.log(data.query);
-    //         // Retrieves Singapore places of interest.
-    //         this.props.activitiesLoad(data);
-    //         console.log("Previous Category: " + this.props.activitiesShown.currentCategory);
-    //     }
-    // }
-    
-
     /**
     * Called upon pressing the Clear All button to clear all activities selected.
     * Calls the redux-action (activitiesSubtract) on particular selected activities, and redux-action (clearAllActivities).
@@ -213,16 +180,6 @@ class ActivityList extends Component{
             //Subtract current categories' activities
             subtractAllSelectedActivities();
             this.props.clearAllActivities();
-
-            // // Applying it to for all, but buggy //UNUSED
-            // var categories = ["Food", "Outdoors", "Art & Culture", "Beaches", "Museums", "Amusement Parks", "Local Favourites"];
-            // for (let i = 0; i < categories.length; i++) {
-            //     this.changeCategoryNotFromEvent(categories[i]);
-            //     subtractAllSelectedActivities();
-            
-            // }
-            // this.changeCategoryNotFromEvent("General");
-            // subtractAllSelectedActivities();
         }
       
     }

@@ -354,6 +354,11 @@ export const activitiesSubtract = (index) => {
 	}
 }
 
+export const clearAllActivities = () => {
+	return {
+		type: actionTypes.ACTIVITY_CLEARALL,
+	}
+}
  
 // GET ITINERARY --------------------------------------------------------------------------
 

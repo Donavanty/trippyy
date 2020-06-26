@@ -268,6 +268,27 @@ const activitiesSubtract = (state, action) => {
 	})
 }
 
+const clearAllActivities = (state, action) => {
+	// Retrieve trip for cache, can be done using state too, but both works.
+	var currentTrip = JSON.parse(localStorage.trip);
+
+	//Reset these arrays to [] so that the SelectedActivityList component no longer shows any stored acitivities.
+	//This reducer only focuses on handling the SelectedActivityList component.
+	//For the ActivityList's 'currentList',
+	//the {added: false} is done via the traditional 'activitiesSubtract' reducer.
+	currentTrip['activitiesAdded'] = [];
+	currentTrip['activitiesAddedIds'] = [];
+
+	// Update currentTrip
+	localStorage.setItem('trip', JSON.stringify(currentTrip));
+
+	return updateObject(state, {
+		trip: currentTrip,
+	})
+}
+
+
+//ITINERARY --------------------------------------------------------------------------
 const itineraryLoad = (state, action) => {
 	const trip = updateObject(state.trip, {
 		itinerary: action.itinerary
@@ -319,6 +340,7 @@ const reducer = (state=initialState, action) => {
 		case actionTypes.ACTIVITY_ADD: return activitiesAdd(state, action);
 		case actionTypes.ACTIVITIES_START: return activitiesStart(state, action);
 		case actionTypes.ACTIVITIES_LOAD: return activitiesLoad(state, action);
+		case actionTypes.ACTIVITY_CLEARALL: return clearAllActivities(state, action);
 		case actionTypes.MAP_BOUNDS_CHANGED: return updateBounds(state, action);
 		case actionTypes.NEW_TRIP: return newTrip(state, action);
 		case actionTypes.AUTH_START: return authStart(state, action);

@@ -9,8 +9,9 @@ import { connect } from 'react-redux';
 
 import "./CSS/InputForm.css"
 import Calendar from "./Calendar"
-import { Spinner } from 'react-bootstrap';
+import { Spinner, Button } from 'react-bootstrap';
 import Autocomplete from './Autocomplete'
+
 
 /**
  * Component, renders input form for user to input City and dates of trip.
@@ -41,7 +42,11 @@ class InputForm extends Component {
 	*/
 	updateCountry = (countryName, latLng) => {
 		this.setState({countryName, latLng});
+		this.scrollDownToCalendar();
 	}
+
+	scrollToTheTop = () => window.scrollTo(0, 0);
+	scrollDownToCalendar = () => window.scrollTo(0, 170);
 
 	/** Called upon pressing the submit button, creates a new trip, 
 	* and checks for basic input validation before submitting, 
@@ -55,8 +60,10 @@ class InputForm extends Component {
 			alert("Please select a country from the list!");
 		} else {
 			event.preventDefault();
+			this.scrollToTheTop(); //Scroll back to the top
 			this.props.newTrip(this.state.countryName, this.state.latLng["lat"], this.state.latLng["lng"], this.state.startDate, this.state.endDate);
 			this.setState({newTripCreated: true});
+			
 		}
 	}
 
@@ -73,30 +80,42 @@ class InputForm extends Component {
     	if (this.props.loading===false && this.state.newTripCreated===true) {
     		this.props.history.push("/shopping");
     	}
-    }
+	}
+	
 
 	render() {
 		return (
 	      <div className = "container-fluid align-items-center inputForm">
 	      	{
 	    		 (this.props.isAuthenticated) ?
-	    			 <h1>Hello, {this.props.user.username}!</h1> : (<h1>Hello stranger:)</h1>)
+	    			 <h1>Welcome back, {this.props.user.username}!</h1> : (<h1>Get Started</h1>)
 	    	}
+			<img src={"/logo512.png"} alt="trippyy-logo" className="trippyy-logo"/>
 	          <div className = "jumbotron">
-	              <form onSubmit = {this.newTrip}> 
-	                <div>
+			  	<form onSubmit = {this.newTrip}> 
+	                <div className = "inputForm-country" id="input">
 	                	<h3> Enter Country: </h3>
-	                	<Autocomplete updateCountry={this.updateCountry} name = "country"/>
+	                	<Autocomplete className="autocomplete" updateCountry={this.updateCountry} name = "country" onClick={this.scrollDownToCalendar()}/>
 	                </div>
 
-	                <div className ="inputForm">
+	                <div className ="inputForm-dates" id="input" >
 	                	<h3> Enter dates: </h3>
 	                	<Calendar updateDates={this.updateDates}/>
 	                </div>
+
 	                
-	                <div className = "inputForm">
+					<style type="text/css">
+								{`
+								.btn-trippyy {
+								background-color: #5CCFE9;
+								color: black;
+								}
+								`}
+								</style>
+	                <div className = "inputForm-submit" id="input">
 	                	{ !this.props.loading ? 
-	                		<button> Submit </button> 
+							
+	                		<Button variant="trippyy" onClick = {(event) => {this.newTrip(event); this.scrollToTheTop();}} > Submit </Button> 
 	                		:
 							<Spinner animation="border" role="status">
 							  <span className="sr-only">Loading...</span>

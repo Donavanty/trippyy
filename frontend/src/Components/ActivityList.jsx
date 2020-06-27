@@ -171,7 +171,6 @@ class ActivityList extends Component{
             const subtractAllSelectedActivities = () => {
                 for (let j = 0; j < this.props.activitiesShown.currentList.length; j++) {
                     if (this.props.activitiesShown.currentList[j].added === true) {
-                        //this.props.activitiesShown.currentList[i].added = false;
                         this.props.activitiesSubtract(j);
                     }
                 }

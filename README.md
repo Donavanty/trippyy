@@ -654,12 +654,14 @@ others to view the itinerary online,
  5. As every commit is tested, every commit is deployable, thus aligning with CI/CD standards.
 
 <h2> Testing </h2>
-The strategy we are using with respect to testing for *trippyy* is as follows:
+
+
+The strategy we are using with respect to testing for *trippyy* is as follows 
 
  1. Unit Testing
 	 In order to ensure that every component is working correct individually, 	every component in our app would be tested in isolation so that bugs in the dependencies cannot influence the test. These tests include unit tests for low-level components such as Activity, or NavBar.
 
-	Please find a full list of detailed Unit Test Cases for *trippyy* as follows: -link-
+	Please find a full list of detailed Unit Test Cases for *trippyy* as follows: https://docs.google.com/spreadsheets/d/1cxW6H8bN_nXUCBmZDnVzCbrgqRc_UAo1Bu8Eag9VCDM/edit?usp=sharing
 	 
  2. Integration Testing
 	 In order to ensure that components are able to work together with each other as expected, integration testing is used such that any bugs which would arise from how components interact with each other would be discovered. These tests would check how components within a same Container would interact with each other. They would include tests for containers like Start Page, or Shopping Page. They would also include tests that stimulate a full user flow to catch any potential bugs in any generic user flows that may be used. (e.g. a user creates a new trip, starting from the Start page, to the Shopping page, and lastly to the Results page)

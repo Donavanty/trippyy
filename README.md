@@ -654,7 +654,7 @@ others to view the itinerary online,
  5. As every commit is tested, every commit is deployable, thus aligning with CI/CD standards.
 
 <h2> Testing </h2>
-<p> The strategy we are using with respect to testing for *trippyy* is as follows: </p>
+The strategy we are using with respect to testing for *trippyy* is as follows:
 
  1. Unit Testing
 	 In order to ensure that every component is working correct individually, 	every component in our app would be tested in isolation so that bugs in the dependencies cannot influence the test. These tests include unit tests for low-level components such as Activity, or NavBar.

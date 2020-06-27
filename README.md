@@ -1,5 +1,6 @@
+
 <p>
-<strong>ReadMe Submission for Orbital 2020</strong>
+<h2>ReadMe Submission for Orbital 2020</h2>
 </p>
 <p>
 <strong>Milestone #1</strong>
@@ -38,7 +39,7 @@
 Artemis
 </p>
 <p>
-<strong>Motivation </strong>
+<h2>Motivation </h2>
 </p>
 <p>
 </p>
@@ -72,7 +73,7 @@ platform.</strong>
 <p>
 </p>
 <p>
-<strong>Aim </strong>
+<h2>Aim </h2>
 </p>
 <p>
 </p>
@@ -91,7 +92,7 @@ their final itinerary if desired.
 </li>
 </ul>
 <p>
-<strong>User Stories</strong>
+<h2>User Stories</h2>
 </p>
 <ol>
 <li>Travellers who wish to <strong>build</strong> their itinerary with either
@@ -109,7 +110,7 @@ budget afterwards.
 </li>
 </ol>
 <p>
-<strong>Competitor Analysis</strong>
+<h2>Competitor Analysis</h2>
 </p>
 <p>
     Currently, most major travel applications are focused on providing
@@ -170,12 +171,9 @@ traveller’s experience should be.
 <p>
 </p>
 <p>
-                <strong>Features and Timeline</strong>
 </p>
 <p>
-</p>
-<p>
-<strong><span style="text-decoration:underline;">Features</span></strong>
+<h2><span style="text-decoration:underline;">Features</span></h2>
 </p>
 
 <p>
@@ -645,8 +643,31 @@ others to view the itinerary online,
 <p>
 </p>
 <p>
-<strong><span style="text-decoration:underline;">Future
-enhancements:</span></strong>
+
+<h2> CI/CD Workflow </h2>
+<p> This section discusses a simple instruction sheet and workflow when one is adding a new feature with Git and Travis CI. The paradigm that we are following is a feature-branch development strategy, in which a new branch is made for each feature, bug report, etc., which is merged back into the master branch as soon as it’s done and ready to be released.</p>
+
+ 1. The first step would be to fork the main `trippyy` repository and clone it onto a computer.
+ 2. Once a feature is developed on a seperate branch, those changes should be pushed to the personal, forked version of the repository.
+ 3. This repository would then be **automatically** sent to Travis CI for unit tests to be ran (Refer to the Testing section below for more information on tests to be ran). This is configured via Travis CI's .travis.yml file.
+ 4. A pull request would then be made. Once the pull request is reviewed and accepted, deployment would be **automatically** triggered using Heroku's automatic deployment system.
+ 5. As every commit is tested, every commit is deployable, thus aligning with CI/CD standards.
+
+<h2> Testing </h2>
+<p> The strategy we are using with respect to testing for *trippyy* is as follows: </p>
+
+ 1. Unit Testing
+	 In order to ensure that every component is working correct individually, 	every component in our app would be tested in isolation so that bugs in the dependencies cannot influence the test. These tests include unit tests for low-level components such as Activity, or NavBar.
+
+	Please find a full list of detailed Unit Test Cases for *trippyy* as follows: -link-
+	 
+ 2. Integration Testing
+	 In order to ensure that components are able to work together with each other as expected, integration testing is used such that any bugs which would arise from how components interact with each other would be discovered. These tests would check how components within a same Container would interact with each other. They would include tests for containers like Start Page, or Shopping Page. They would also include tests that stimulate a full user flow to catch any potential bugs in any generic user flows that may be used. (e.g. a user creates a new trip, starting from the Start page, to the Shopping page, and lastly to the Results page)
+
+
+	 
+
+<h2><span style="text-decoration:underline;">Future enhancements:</span></h2>
 </p>
 <p>
 This section discusses future plans and developments for <em>trippyy</em>. There
@@ -741,7 +762,7 @@ interactive filters that would warrant participation.
 </li>
 </ol>
 <p>
-<strong><span style="text-decoration:underline;">Timeline</span></strong>
+<h2><span style="text-decoration:underline;">Timeline</span></h2>
 </p>
 <p>
 For this project, we would have two main pillars to develop: the web interface
@@ -884,7 +905,7 @@ auto-select activities to be included in the itinerary.
 </li>
 </ol>
 <p>
-<strong>Tech Stack</strong>
+<h2>Tech Stack</h2>
 </p>
 <p>
 <strong>Front-end</strong>
@@ -936,7 +957,7 @@ auto-select activities to be included in the itinerary.
 <p>
 </p>
 <p align="center">
-<strong>Project Log:</strong>
+<h2>Project Log:</h2>
 </p>
 
 <p align="center">
@@ -958,7 +979,7 @@ href="http://trippyyy.herokuapp.com/">http://trippyyy.herokuapp.com/</a>
 </p>
 </p>
 <p>
-<strong><span style="text-decoration:underline;">About us:</span></strong>
+<h2><span style="text-decoration:underline;">About us:</span></h2>
 </p>
 <p>
 Donavan Lim: <a

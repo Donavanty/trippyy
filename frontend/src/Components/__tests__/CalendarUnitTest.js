@@ -25,7 +25,7 @@ afterEach(() => {
 });
 
 // Testing starts --------------------------------------------------------------------------
-it("Checks that a calendar renders, and calls a method when dates are inputted", () => {
+it("Checks that a calendar renders.", () => {
 	act(() => {
 		const updateDates = jest.fn()
 		render(
@@ -33,19 +33,8 @@ it("Checks that a calendar renders, and calls a method when dates are inputted",
 				<Calendar updateDates={updateDates}/>
 			</div> , container
 		)
-
-		const startDate = (container.querySelector("input[id='startDate']"))	
-		// console.log(screen.debug())
-
-		const endDate = (container.querySelector("input[id='endDate']"))
-		// userEvent.click(endDate);
-		// console.log(screen.debug())
-		userEvent.type(startDate, '10/10/2025')
-		userEvent.click(endDate);
-		userEvent.type(endDate, '10/12/2025')
-		// console.log(screen.debug())
-		
-
-		expect(updateDates).toHaveBeenCalledTimes(0);
 	})
+
+	const calendar = container.querySelector("div[class='DateRangePickerInput DateRangePickerInput_1 DateRangePickerInput__withBorder DateRangePickerInput__withBorder_2']");
+	expect(calendar).toEqual(expect.anything());
 });

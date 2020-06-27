@@ -24,7 +24,6 @@ class StartPage extends Component {
 
 	componentDidMount() {
 		//Updates login status into redux.
-		console.log(JSON.stringify(window.google))
 		this.props.onTryAutoSignup();
 		this.props.checkTrip();
 	}

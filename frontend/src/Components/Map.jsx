@@ -81,7 +81,7 @@ class Map extends Component{
      */
     uponBoundsChanged = () => {
         const newBounds = ref.getBounds()
-        console.log(newBounds)
+       
         if (this.state.test === null) {
             this.setState({test: newBounds})
         }
@@ -125,8 +125,7 @@ class Map extends Component{
      * Called upon first load of map.
      * Updates local state of bounds, and subsequently the redux-state by calling uponBoundsChanged
      */
-    mapLoaded = () => {
-        console.log("map loaded!")
+    mapLoaded = () => {        
         if (this.state.startBounds === null) {
             this.setState({startBounds: ref.getBounds()})
         }

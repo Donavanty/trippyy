@@ -23,6 +23,7 @@ import "./CSS/Start.css"
 */
 class StartPage extends Component {
 
+
 	componentDidMount() {
 		//Updates login status into redux.
 		this.props.onTryAutoSignup();
@@ -31,7 +32,7 @@ class StartPage extends Component {
 
 	render() {
 	  return (
-	    <div className="startPage">
+	    <div >
 	    	<NavBar from={this.props.location.pathname}/>
 	    	<InputForm history={this.props.history} />
 	    	

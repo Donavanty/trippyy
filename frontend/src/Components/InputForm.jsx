@@ -82,7 +82,7 @@ class InputForm extends Component {
     		this.props.history.push("/shopping");
     	}
 	}
-	
+
 
 	render() {
 		return (

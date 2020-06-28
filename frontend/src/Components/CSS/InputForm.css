@@ -36,14 +36,14 @@ body {
 }
 
 .trippyy-logo{
-  height: 50vh;
-  width: auto;
+  height: auto;
+  width: 30vw;
   float: left;
   margin: auto;
 }
 
 .logo-container {
-  display: flex;
+  display: fixed;
   padding-left: 10vw;
 }
 

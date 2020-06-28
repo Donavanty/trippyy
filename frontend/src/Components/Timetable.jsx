@@ -51,7 +51,7 @@ class Timetable extends Component {
 
 		// Checks and makes sure that the EMPTY box is always at the end.
 		if (this.props.trip["itinerary"][toDayIndex] !== undefined) {
-			if (toIndex == (this.props.trip["itinerary"][toDayIndex].length - 1) && 
+			if (toIndex === (this.props.trip["itinerary"][toDayIndex].length - 1) && 
 				this.props.trip["itinerary"][toDayIndex][toIndex] === "EMPTY" && 
 				(fromIndex < toIndex) &&
 				(toDayIndex === fromDayIndex)) {
@@ -68,7 +68,7 @@ class Timetable extends Component {
 
 		// Get Middle (the number 49 is half the width of a small box)
 		const hoverMiddleX =
-		hoverBoundingRect.left + 49
+		hoverBoundingRect.left + 95
 
 		// Determine mouse position
 		const currentMouseX = event.clientX

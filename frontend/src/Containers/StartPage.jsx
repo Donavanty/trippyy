@@ -31,7 +31,7 @@ class StartPage extends Component {
 
 	render() {
 	  return (
-	    <div>
+	    <div className="startPage">
 	    	<NavBar from={this.props.location.pathname}/>
 	    	<InputForm history={this.props.history} />
 	    	

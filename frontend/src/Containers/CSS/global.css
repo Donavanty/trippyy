@@ -4,14 +4,16 @@
 .startBox {
   margin-top: 60px;
   min-height: 0vh;
-  color: white;
   justify-content: center;
   text-align: left;
   /* font-family: 'Oswald', Arial, Helvetica, sans-serif; */
   font-family: 'Cabin', serif;
+}
 
+.startPage {
   background-image: url('../../assets/startBackground.jpg');
-  background-color: black;
+  background-size: cover;
+  height: 100vh;
 }
 
 .element {

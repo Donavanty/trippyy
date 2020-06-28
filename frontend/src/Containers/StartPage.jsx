@@ -23,27 +23,16 @@ import "./CSS/Start.css"
 */
 class StartPage extends Component {
 
-	constructor(props) {
-		super(props);
-		this.scrollRef = React.createRef();
-	}
 
 	componentDidMount() {
 		//Updates login status into redux.
 		this.props.onTryAutoSignup();
 		this.props.checkTrip();
-		if (window.scrollY !== 0) {
-			window.scrollTo(0, 0);
-		}
-		console.log("SCROLL: ");
-		console.log(window.scrollY);
 	}
-
-	// scrollToTheTop = () => window.scrollTo(0, 0);
 
 	render() {
 	  return (
-	    <div ref={this.scrollRef}>
+	    <div >
 	    	<NavBar from={this.props.location.pathname}/>
 	    	<InputForm history={this.props.history} />
 	    	

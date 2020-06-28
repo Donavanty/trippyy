@@ -1,9 +1,5 @@
 html, body, #root {
-  padding: 0;
-  margin: 0;
-  border: none;    
   font-family: 'Cabin', sans-serif;
-  color: #41403E;
 }
 
 #nav1 { 
@@ -16,7 +12,7 @@ html, body, #root {
 }
 
 .table {
-  height:3vh;
+  height:4vh;
 }
 .navbar-nav ul {
   padding: 0; /* remove the default left-side ul indentation */

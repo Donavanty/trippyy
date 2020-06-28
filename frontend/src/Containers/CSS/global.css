@@ -10,7 +10,7 @@
   font-family: 'Cabin', serif;
 }
 
-.startPage {
+#startPage {
   background-image: url('../../assets/startBackground.jpg');
   background-size: cover;
   height: 100vh;

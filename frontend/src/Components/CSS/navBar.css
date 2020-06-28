@@ -16,7 +16,7 @@ html, body, #root {
 }
 
 .table {
-  height:3vh;
+  height:4vh;
 }
 .navbar-nav ul {
   padding: 0; /* remove the default left-side ul indentation */

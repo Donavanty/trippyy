@@ -19,10 +19,8 @@ class NavBar extends Component {
   render() {
     return (
       <nav className="navbar fixed-top navbar-expand-lg" id="nav1">
-
         <div className="navbar-nav" id="navbar-nav">
-		<div className="table">
-		
+          <div className="table">
             <ul className="navbar-ul">
               <li className="nav-item">
                 <Link to="/" className="nav-link">
@@ -80,19 +78,18 @@ class NavBar extends Component {
                   </li>
                 </React.Fragment>
               )}
+            
+
+            <li className="nav-item-right" id="right">
+              <React.Fragment>
+                <Link to="/" className="navbar-brand" href="#">
+                  trippyy
+                </Link>
+              </React.Fragment>
+			  </li>
             </ul>
           </div>
-		  <React.Fragment>
-		<Link to="/" className="navbar-brand" href="#">
-          trippyy
-        </Link>
-		</React.Fragment>
-       
-
         </div>
-		
-	
-		
       </nav>
     );
   }

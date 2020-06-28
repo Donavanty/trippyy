@@ -98,12 +98,13 @@ class InputForm extends Component {
 	    		}
 			  	<form onSubmit = {this.newTrip}> 
 	                <div className = "inputForm-country" id="input">
-	                	<h3> Enter Country: </h3>
-	                	<Autocomplete className="autocomplete" updateCountry={this.updateCountry} name = "country" onClick={this.scrollDownToCalendar()}/>
+	                	<h3> Enter Country or City: </h3>
+	                	<Autocomplete className="autocomplete" updateCountry={this.updateCountry} name = "country" onClick={this.scrollDownToCalendar()}
+						/>
 	                </div>
 
 	                <div className ="inputForm-dates" id="input" >
-	                	<h3> Enter dates: </h3>
+	                	<h3> Enter Dates: </h3>
 	                	<Calendar updateDates={this.updateDates}/>
 	                </div>
 

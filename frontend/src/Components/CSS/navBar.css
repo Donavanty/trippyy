@@ -1,15 +1,31 @@
-#nav1 {
-  background-color: rgba(80,80,80,0);
-  color: white;
+html, body, #root {
+  padding: 0;
+  margin: 0;
+  border: none;    
+  font-family: 'Cabin', sans-serif;
+  color: #41403E;
 }
 
+#nav1 { 
+  background-color: white;
+}
 .navbar-nav {
-  width:95%
+  height: 50px;
+  width: 100%;
+}
+
+.navbar-nav ul {
+  text-align: center;
+}
+.navbar-nav ul li{
+  display: inline-block;
+  list-style-type: none;
 }
 
 .nav-link, .navbar-brand {
-  color: rgb(213,167,164);
-
+  /* color: rgb(213,167,164); */
+  /* color: #2B879C */
+  color: #5CCFE9;
 }
 
 .nav-link:hover {
@@ -18,6 +34,12 @@
 }
 
 .nav-item {
-  padding-left: 30px;
+  padding-left: 50px;
   padding-right: 30px;
+  font-size: 24px;
+}
+
+.navbar-brand {
+  font-family: 'Cabin', sans-serif;
+  font-size: 24px;
 }

@@ -11,7 +11,7 @@ import NavBar from '../Components/navBar';
 import Map from '../Components/Map'
 import ActivityList from '../Components/ActivityList'
 import SelectedActivityList from '../Components/SelectedActivityList'
-import "./CSS/global.css"
+import "./CSS/Shopping.css"
 
 /** Container, renders shopping page
 * @memberof Container
@@ -27,18 +27,18 @@ class Shopping extends Component {
     componentDidMount() {
       if (localStorage.getItem('trip') === null || localStorage.getItem('trip') === undefined) {
         this.props.history.push('/');
+        
         return;
       } 
       //Updates login status and trip status into redux.
       this.props.onTryAutoSignup();
       this.props.checkTrip();
       
-
     }
 
     //Happens upon receiving updated login information.
     componentDidUpdate(prevProps, prevState, snapshot) {
-
+        window.scrollTo(0, 0); //Scroll right back to the top after InputForm.
     }
 
     render() {

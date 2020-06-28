@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 
@@ -22,6 +21,9 @@ class Calendar extends Component {
     };
   }
 
+  scrollDown = () =>
+    window.scrollTo(0, 170);
+
   render() {
     return (
         <DateRangePicker
@@ -29,6 +31,8 @@ class Calendar extends Component {
           endDateId="endDate"
           startDate={this.state.startDate}
           endDate={this.state.endDate}
+          onClose={this.scrollDown()} //SCROLLS WHEN CLICKED
+          onClick={this.scrollDown()}
           onDatesChange={({ startDate, endDate }) => 
             { 
               this.setState({ startDate, endDate });

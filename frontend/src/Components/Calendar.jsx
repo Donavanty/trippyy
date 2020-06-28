@@ -36,10 +36,6 @@ class Calendar extends Component {
           onDatesChange={({ startDate, endDate }) => 
             { 
               this.setState({ startDate, endDate });
-              console.log("Start: ");
-              console.log(startDate);
-              console.log("End: ")
-              console.log(endDate);
               if (endDate !== null && startDate !== null) {
                 this.props.updateDates(startDate.format("YYYY-MM-DD"), endDate.format("YYYY-MM-DD"));
               }

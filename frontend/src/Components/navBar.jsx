@@ -21,7 +21,7 @@ class NavBar extends Component {
       <nav className="navbar fixed-top navbar-expand-lg" id="nav1">
 
         <div className="navbar-nav" id="navbar-nav">
-		<div class="table">
+		<div className="table">
 		
             <ul className="navbar-ul">
               <li className="nav-item">

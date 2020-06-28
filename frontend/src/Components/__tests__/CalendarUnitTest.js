@@ -28,6 +28,7 @@ afterEach(() => {
 it("Checks that a calendar renders.", () => {
 	act(() => {
 		const updateDates = jest.fn()
+		window.scrollTo = jest.fn()
 		render(
 			<div>
 				<Calendar updateDates={updateDates}/>

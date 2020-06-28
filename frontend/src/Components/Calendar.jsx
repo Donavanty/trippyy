@@ -26,25 +26,26 @@ class Calendar extends Component {
 
   render() {
     return (
-        <DateRangePicker
-          startDateId="startDate"
-          endDateId="endDate"
-          startDate={this.state.startDate}
-          endDate={this.state.endDate}
-          onClose={this.scrollDown()} //SCROLLS WHEN CLICKED
-          onClick={this.scrollDown()}
-          onDatesChange={({ startDate, endDate }) => 
-            { 
-              this.setState({ startDate, endDate });
-              if (endDate !== null && startDate !== null) {
-                this.props.updateDates(startDate.format("YYYY-MM-DD"), endDate.format("YYYY-MM-DD"));
+        <div onClick={this.scrollDown()}>
+          <DateRangePicker
+            startDateId="startDate"
+            endDateId="endDate"
+            startDate={this.state.startDate}
+            endDate={this.state.endDate}
+            onClose={this.scrollDown()} //SCROLLS WHEN CLICKED
+            onDatesChange={({ startDate, endDate }) => 
+              { 
+                this.setState({ startDate, endDate });
+                if (endDate !== null && startDate !== null) {
+                  this.props.updateDates(startDate.format("YYYY-MM-DD"), endDate.format("YYYY-MM-DD"));
+                }
               }
             }
-          }
-          focusedInput={this.state.focusedInput}
-          onFocusChange={(focusedInput) => { this.setState({ focusedInput })}}
-        />
-    );
+            focusedInput={this.state.focusedInput}
+            onFocusChange={(focusedInput) => { this.setState({ focusedInput })}}
+          />
+        </div>
+      );
   }
 }
 

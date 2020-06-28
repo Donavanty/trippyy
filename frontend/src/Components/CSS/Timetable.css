@@ -3,25 +3,45 @@
 	display: table;
 	clear: both;
 	position: relative;
-  margin-top: 40px;
-  margin: 40px auto;
+  margin: 10vh auto;
   text-align: center;
+
 }
 
 .timetableActivity {
   float: left;
-  height: 80px;
-  width: 150px;
-  padding: 0 10px;
-  margin: 20px;
+  height: 8vh;
+  width: 12vw;
   background-color: peachpuff;
-  border-radius: 5px;
+  padding: 0.5vmin;
+
+  border:0.2vw;
+  border-color: lightblue;
+  border-style: solid;
+  border-radius: 8px;
+  text-align: left;
 }
 
 .day {
-  height: 120px;
-  width: 1000px;
+  height: 10vh;
+  width: 80vw;
   background-color: lightblue;
-  margin: 20px;
-  border-radius: 5px;
+  margin: 1vw;
+  border-radius: 10px;
+  overscroll-behavior-x: scroll;
+  padding: 0.5vw;
+
+  display:flex;
+}
+
+.activityFont {
+  font-weight: bold;
+  font-size: 1.5vmin;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+.timeFont {
+  font-size:1.5vmin;
+  font-family: sans-serif;
 }

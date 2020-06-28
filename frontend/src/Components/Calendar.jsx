@@ -39,12 +39,11 @@ class Calendar extends Component {
               if (endDate !== null && startDate !== null) {
                 this.props.updateDates(startDate.format("YYYY-MM-DD"), endDate.format("YYYY-MM-DD"));
               }
-            }
-          }
-          focusedInput={this.state.focusedInput}
-          onFocusChange={(focusedInput) => { this.setState({ focusedInput })}}
-        />
-    );
+            }}
+            focusedInput={this.state.focusedInput}
+            onFocusChange={(focusedInput) => { this.setState({ focusedInput })}}
+          />
+      );
   }
 }
 

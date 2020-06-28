@@ -68,9 +68,11 @@ def optimize(data, days):
 		output.append([0])
 
 	# Calculate max & min duration of total activities per day
-	minTimePerDay = min(120, (total_time / days) - 90)
+	minTimePerDay = max(119, (total_time / days) - 90)
 	maxTimePerDay = max(480, (total_time / days) + 180)
 	dayCounter = 0
+	print("Min Time: " + str(minTimePerDay/60))
+	print("Max Time: " + str(maxTimePerDay/60))
 
 	while pq:
 		currentQueueItem = pq.popitem()
@@ -87,9 +89,7 @@ def optimize(data, days):
 		# EXCEPTION: if alr on last day, just keep adding lel.
 		activityAdded = False
 		tempDayCounter = dayCounter
-		print("tempDayCounter " + str(tempDayCounter))
 		while not (activityAdded):
-			print("tempDayCounter " + str(tempDayCounter))
 			newTotalDuration = currentActivity.data["recommendedTime"] + output[tempDayCounter][0]
 			if (output[tempDayCounter][0] > minTimePerDay and (dayCounter < (days-1)) and tempDayCounter < (days-1)):
 				tempDayCounter += 1

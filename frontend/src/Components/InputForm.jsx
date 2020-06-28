@@ -86,12 +86,16 @@ class InputForm extends Component {
 	render() {
 		return (
 	      <div className = "container-fluid align-items-center inputForm">
-	      	{
+
+	    	<div className = "row">
+		    	<div className = "col-4 logo-container">
+					<img src={"/logo512.png"} alt="trippyy-logo" className="trippyy-logo"/>
+				</div>
+	          <div className = "jumbotron col-8">
+	          	{
 	    		 (this.props.isAuthenticated) ?
 	    			 <h1>Welcome back, {this.props.user.username}!</h1> : (<h1>Get Started</h1>)
-	    	}
-			<img src={"/logo512.png"} alt="trippyy-logo" className="trippyy-logo"/>
-	          <div className = "jumbotron">
+	    		}
 			  	<form onSubmit = {this.newTrip}> 
 	                <div className = "inputForm-country" id="input">
 	                	<h3> Enter Country: </h3>
@@ -124,6 +128,7 @@ class InputForm extends Component {
 	                	}
 	                </div>
 	              </form>
+	              </div>
 
 	              
 	          </div>

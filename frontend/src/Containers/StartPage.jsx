@@ -11,6 +11,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import NavBar from '../Components/navBar';
 import InputForm from '../Components/InputForm'
 import "./CSS/global.css"
+import "./CSS/Start.css"
 
 /** Container, renders sign up page.
 * @memberof Container
@@ -30,7 +31,7 @@ class StartPage extends Component {
 
 	render() {
 	  return (
-	    <div >
+	    <div>
 	    	<NavBar from={this.props.location.pathname}/>
 	    	<InputForm history={this.props.history} />
 	    	

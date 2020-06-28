@@ -2,14 +2,19 @@ body {
   /* height:1150px; */
   height:115vh; /* Using viewport height instead */
 }
+.jumbotron {
+  background: rgba(255, 255, 255, 0.5); 
+  display: flex;
+}
 
 .inputForm {
   padding-top: 90px;
   min-height: 5vh;
-  color: black;
+  color: white;
   justify-content: center;
   text-align: center;
   font-family: 'Cabin', sans-serif;
+
 }
 
 .inputForm-dates {
@@ -25,7 +30,15 @@ body {
 }
 
 .trippyy-logo{
-  height: 300px;
+  height: 50vh;
+  width: auto;
+  float: left;
+  margin: auto;
+}
+
+.logo-container {
+  display: flex;
+  margin: auto;
 }
 
 /* Pertaining to Country Input field*/

@@ -2,7 +2,7 @@
 
 
 .startBox {
-  margin-top: 60px;
+  margin-top: 8vh;
   min-height: 0vh;
   justify-content: center;
   text-align: left;
@@ -18,17 +18,4 @@
 
 .element {
 	margin-top: 10px;
-}
-
-#activitiesBox {
-	border-color: peachpuff;
-	border-style: solid;
-  border-left: 0px;
-	padding-top: 10px;
-}
-
-#selectedActivitiesBox {
-  border-color: peachpuff;
-  border-style: solid;
-  padding-top: 10px;
 }

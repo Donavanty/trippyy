@@ -4,15 +4,19 @@ html, body, #root {
 
 #nav1 { 
   background-color: white;
-  opacity: 0.85;
+  opacity: 1;
 }
 .navbar-nav {
   width: 100vw;
   text-align: center;
 }
 
-.table {
-  height:4vh;
+.navbar {
+  height: 8vh;
+}
+
+.table{
+  height: 4vh;
 }
 .navbar-nav ul {
   padding: 0; /* remove the default left-side ul indentation */

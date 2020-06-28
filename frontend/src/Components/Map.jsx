@@ -160,12 +160,10 @@ class Map extends Component{
     render() {
         return (
             <Fragment>
-                <button onClick={this.mapReset}> Reset </button>
-
                 <this.WrappedMap
                     googleMapURL={this.props.googleMapURL}
                     loadingElement={<div style={{ height: `100%` }} />}
-                    containerElement={<div style={{ height: `85vh` }} />}
+                    containerElement={<div style={{ height: `90vh`, width: `100vw` }} />}
                     mapElement={<div style={{ height: `100%` }} />}
                 >
                  

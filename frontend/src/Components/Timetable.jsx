@@ -51,7 +51,7 @@ class Timetable extends Component {
 
 		// Checks and makes sure that the EMPTY box is always at the end.
 		if (this.props.trip["itinerary"][toDayIndex] !== undefined) {
-			if (toIndex === (this.props.trip["itinerary"][toDayIndex].length - 1) && 
+			if (parseInt(toIndex) === (this.props.trip["itinerary"][toDayIndex].length - 1) && 
 				this.props.trip["itinerary"][toDayIndex][toIndex] === "EMPTY" && 
 				(fromIndex < toIndex) &&
 				(toDayIndex === fromDayIndex)) {

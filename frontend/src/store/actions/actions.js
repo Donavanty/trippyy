@@ -393,6 +393,16 @@ export const itineraryLoadData = (data) => {
 	return (dispatch) => {
 	    axios.post("https:/trippyy-backend.herokuapp.com/api/algo/", data).then( (res) => {
 	        var iti = JSON.parse(res.data);
+	        for (var day in iti) {
+	        	for (var activity in iti[day]) {
+	        		if (activity !== 0) {
+	        			iti[day][activity] = JSON.parse(iti[day][activity])
+	        		}
+	        	}
+	        	iti[day].push("EMPTY")
+	        }
+
+	        console.log(iti)
 	        dispatch({
 				type: actionTypes.ITINERARY_LOAD,
 				itinerary: iti,

@@ -47,12 +47,38 @@ class Timetable extends Component {
 		// If it is at the same position, do not run.
 		if (toIndex === fromIndex && toDayIndex === fromDayIndex) {
 			return;
+		}
 
-		// Update the itinerary in redux.
-		} else if (toIndex !== undefined && toDayIndex !== undefined) {
-			this.props.itineraryUpdate([toDayIndex, toIndex], [fromDayIndex, fromIndex]);
-			this.setState({fromIndex: toIndex});
-			this.setState({fromDayIndex: toDayIndex});
+		// Checks and makes sure that the EMPTY box is always at the end.
+		if (this.props.trip["itinerary"][toDayIndex] !== undefined) {
+			if (toIndex == (this.props.trip["itinerary"][toDayIndex].length - 1) && 
+				this.props.trip["itinerary"][toDayIndex][toIndex] === "EMPTY" && 
+				(fromIndex < toIndex) &&
+				(toDayIndex === fromDayIndex)) {
+				return;
+			}
+		}
+
+
+
+		// Determine rectangle on screen
+		const hoverBoundingRect = event.target.getBoundingClientRect()
+		// const hoverMiddleX =
+		//   hoverBoundingRect.right - ((hoverBoundingRect.right - hoverBoundingRect.left) / 2)
+
+		// Get Middle (the number 49 is half the width of a small box)
+		const hoverMiddleX =
+		hoverBoundingRect.left + 49
+
+		// Determine mouse position
+		const currentMouseX = event.clientX
+		if (currentMouseX < hoverMiddleX) {
+			// Update the itinerary in redux.
+			if (toIndex !== undefined && toDayIndex !== undefined) {
+				this.props.itineraryUpdate([toDayIndex, toIndex], [fromDayIndex, fromIndex]);
+				this.setState({fromIndex: toIndex});
+				this.setState({fromDayIndex: toDayIndex});
+			}
 		}
 	}
 
@@ -73,26 +99,41 @@ class Timetable extends Component {
 		    <div id="timetable"
 		    		onDragOver={(event)=>this.onDragOver(event)}
 	      			onDrop={this.onDrop}>
-	          {this.props.trip["itinerary"].map( (value, dayindex) => (
+
+	      		<h2> Your timetable! </h2>
+	          {this.props.trip["itinerary"].map( (dayValue, dayindex) => (
 	          	<div className="day">
 	          		{
-	          			value.map((value, index) => {
-	          				if (index !== 0) {
-				          	return <div
-				          		key={index}
-				          		data-index={index}
-				          		data-dayindex={dayindex}
-				          		draggable
-				          		className="timetableActivity"
-								onDragStart = {this.onDragStart}
-							    style ={{backgroundColor: value.bgcolor}}
-							>
-							    <p> {JSON.parse(value)["name"]} </p>
-					    	</div>
-					    	}
-					    	return null;
-					    })
-				    	
+	          			dayValue.map((value, index) => {
+	          				if (index !== 0 && value !== "EMPTY") {
+					          	return <div
+					          		key={index}
+					          		data-index={index}
+					          		data-dayindex={dayindex}
+					          		draggable
+					          		className="timetableActivity"
+									onDragStart = {this.onDragStart}
+								    style ={{width: ((value["recommendedTime"]/60.0) * 6)+ "vw"}}
+								>
+								    <p className="activityFont"
+								    data-index={index}
+					          		data-dayindex={dayindex}> {(value)["name"]}
+					          		</p>
+								    <p className="timeFont"
+								    data-index={index}
+					          		data-dayindex={dayindex}> {(value)["recommendedTime"]/60} hours </p>
+								</div>
+					  		} else if (value === "EMPTY") {
+					  			return <div
+					          		key={index}
+					          		data-index={index}
+					          		data-dayindex={dayindex}
+					          		className="timetableActivity"
+									onDragStart = {this.onDragStart}
+									style={{opacity: 0}}/>
+					  		}
+					  		return null;
+						})
 			    	}
 	          	</div>)
 	          )}

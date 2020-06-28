@@ -11,6 +11,7 @@ import "./CSS/InputForm.css"
 import Calendar from "./Calendar"
 import { Spinner, Button } from 'react-bootstrap';
 import Autocomplete from './Autocomplete'
+import Logo from '../assets/logo.PNG'
 
 
 /**
@@ -89,7 +90,7 @@ class InputForm extends Component {
 
 	    	<div className = "row">
 		    	<div className = "col-5 logo-container">
-					<img src={"/logo512.png"} alt="trippyy-logo" className="trippyy-logo"/>
+					<img src={Logo} alt="trippyy-logo" className="trippyy-logo"/>
 				</div>
 	          <div className = "inputForm-box col-7">
 	          	{

@@ -219,7 +219,7 @@ const activitiesAdd = (state, action) => {
 	localStorage.setItem('trip', JSON.stringify(currentTrip));
 	
 	// ENABLE FOR ALGO TESTING ----------------------------------------
-	// console.log(JSON.stringify(currentTrip.activitiesAdded));
+	console.log(JSON.stringify(currentTrip.activitiesAdded));
 
 	return updateObject(state, {
 		trip: currentTrip,

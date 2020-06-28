@@ -124,13 +124,13 @@ class Timetable extends Component {
 					          		data-dayindex={dayindex}> {(value)["recommendedTime"]/60} hours </p>
 								</div>
 					  		} else if (value === "EMPTY") {
-					  			return <div
+					  			return <div 
 					          		key={index}
 					          		data-index={index}
 					          		data-dayindex={dayindex}
-					          		className="timetableActivity"
+					          		className="empty"
 									onDragStart = {this.onDragStart}
-									style={{opacity: 0}}/>
+									/>
 					  		}
 					  		return null;
 						})

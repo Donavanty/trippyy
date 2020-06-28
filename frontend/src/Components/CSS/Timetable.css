@@ -8,6 +8,12 @@
 
 }
 
+.empty {
+  opacity: 0%;
+  width: 100px;
+  background-color: blue;
+}
+
 .timetableActivity {
   float: left;
   height: 8vh;

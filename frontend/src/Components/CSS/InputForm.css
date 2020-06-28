@@ -6,14 +6,25 @@ body {
   /* height:1150px; */
   height:115vh; /* Using viewport height instead */
 }
+.inputForm-box {
+  background: rgba(255, 255, 255, 0.5); 
+  padding: 5vw;
+  padding-left: 5vw;
+  border-right: 10vw;
+  color: black;
+  border-radius: 50px;
+}
 
 .inputForm {
   padding-top: 90px;
   min-height: 5vh;
-  color: black;
-  justify-content: center;
-  text-align: center;
-  font-family: 'Cabin', sans-serif;
+  color: white;
+  font-family: Pangolin;
+
+}
+
+.inputForm-form {
+  margin-top: 5vh;
 }
 
 .inputForm-dates {
@@ -29,7 +40,15 @@ body {
 }
 
 .trippyy-logo{
-  height: 300px;
+  height: auto;
+  width: 30vw;
+  float: left;
+  margin: auto;
+}
+
+.logo-container {
+  display: fixed;
+  padding-left: 10vw;
 }
 
 /* Pertaining to Country Input field*/

@@ -4,11 +4,14 @@
 .startBox {
   margin-top: 60px;
   min-height: 0vh;
-  color: black;
+  color: white;
   justify-content: center;
   text-align: left;
   /* font-family: 'Oswald', Arial, Helvetica, sans-serif; */
   font-family: 'Cabin', serif;
+
+  background-image: url('../../assets/startBackground.jpg');
+  background-color: black;
 }
 
 .element {

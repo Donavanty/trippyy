@@ -8,6 +8,7 @@ html, body, #root {
 
 #nav1 { 
   background-color: white;
+  opacity: 0.85;
 }
 .navbar-nav {
   width: 100vw;
@@ -15,7 +16,7 @@ html, body, #root {
 }
 
 .table {
-  height:4vh;
+  height:3vh;
 }
 .navbar-nav ul {
   padding: 0; /* remove the default left-side ul indentation */
@@ -45,13 +46,19 @@ html, body, #root {
 }
 
 .navbar-brand {
-  font-family: 'Cabin', sans-serif;
-  /* font-size: 24px; */
-  font-size: 2vw;
+  /* font-family: 'Cabin', sans-serif;
+  font-size: 24px;
+  font-size: 1.6vw; */
+  /* max-height: 10%; */
+  /* width: 0.1%; */
+  /* block-size: 1%; */
+  transform: scale(0.4, 0.4);
+  height: 20px;
+  width: 210px;
 }
 .nav-item-right{
   position: fixed;
-  top: 1.7vh;
-  right: 1.7vw;
+  top: 0.7vh;
+  right: 1vw;
   /* text-align: right; */
 }

@@ -82,9 +82,9 @@ class NavBar extends Component {
 
             <li className="nav-item-right" id="right">
               <React.Fragment>
-                <Link to="/" className="navbar-brand" href="#">
-                  trippyy
-                </Link>
+					  <a to="/" className="navbar-brand" href="#">
+                <img src={"/logo word.png"} alt="trippyy-word-logo" />
+                </a>
               </React.Fragment>
 			  </li>
             </ul>

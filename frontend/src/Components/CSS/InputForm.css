@@ -7,7 +7,7 @@ body {
   height:115vh; /* Using viewport height instead */
 }
 .inputForm-box {
-  background: rgba(255, 255, 255, 0.5); 
+  background: rgba(255, 255, 255, 0.65); 
   padding: 5vw;
   padding-left: 5vw;
   border-right: 10vw;

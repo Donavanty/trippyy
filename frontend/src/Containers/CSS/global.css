@@ -25,7 +25,6 @@
 }
 
 #login-startbox {
-  opacity: 100%;
   border-radius: 25px;
   font-family: Montserrat;
 }
@@ -43,7 +42,6 @@
 }
 
 #signup-startbox {
-  opacity: 100%;
   border-radius: 25px;
   font-family: Montserrat;
 }

@@ -1,11 +1,12 @@
 #timetable {
 	content: "";
-	display: table;
 	clear: both;
 	position: relative;
   margin: 10vh auto;
   text-align: center;
   padding-top: 10vh;
+  overflow-y: scroll;
+  height: 100vh;
 }
 
 .empty {
@@ -38,7 +39,7 @@
   height: 10vh;
   width: 80vw;
   background-color: lightblue;
-  margin: 1vw;
+  margin: 1vw auto;
   border-radius: 10px;
   overscroll-behavior-x: scroll;
   padding: 0.5vw;

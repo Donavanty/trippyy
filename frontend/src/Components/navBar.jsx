@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 // -------------------------------------------------------------------------
 import { Link } from "react-router-dom";
 import "./CSS/navBar.css";
+import LogoWord from '../assets/logoWord.png'
 
 /**
  * Component, renders the Navigation Bar
@@ -83,7 +84,7 @@ class NavBar extends Component {
             <li className="nav-item-right" id="right">
               <React.Fragment>
 					  <a to="/" className="navbar-brand" href="/">
-                <img src={"/logo word.png"} alt="trippyy-word-logo" />
+                <img src={LogoWord} alt="trippyy-word-logo" />
                 </a>
               </React.Fragment>
 			  </li>

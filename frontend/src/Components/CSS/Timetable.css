@@ -5,21 +5,33 @@
 	position: relative;
   margin: 10vh auto;
   text-align: center;
+  padding-top: 10vh;
+}
 
+.empty {
+  opacity: 0;
+  width: 100vw;
+  height: 8vh;
+  background-color: black;
 }
 
 .timetableActivity {
   float: left;
   height: 8vh;
-  width: 12vw;
   background-color: peachpuff;
   padding: 0.5vmin;
 
   border:0.2vw;
   border-color: lightblue;
   border-style: solid;
+
+
   border-radius: 8px;
   text-align: left;
+}
+
+.dayDetails {
+  margin-right: 2vw;
 }
 
 .day {
@@ -31,6 +43,7 @@
   overscroll-behavior-x: scroll;
   padding: 0.5vw;
 
+  text-align: left;
   display:flex;
 }
 

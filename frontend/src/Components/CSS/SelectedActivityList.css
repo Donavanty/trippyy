@@ -1,6 +1,6 @@
 #selectedActivityList {
 	overflow: auto;
-	height: 75vh;
+	height: 85vh;
 	overscroll-behavior: contain;
 	position: relative;
 	margin-top: 30px;

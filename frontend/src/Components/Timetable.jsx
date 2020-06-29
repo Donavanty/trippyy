@@ -67,8 +67,12 @@ class Timetable extends Component {
 		//   hoverBoundingRect.right - ((hoverBoundingRect.right - hoverBoundingRect.left) / 2)
 
 		// Get Middle (the number 49 is half the width of a small box)
-		const hoverMiddleX =
-		hoverBoundingRect.left + 95
+		const hoverMiddleX = hoverBoundingRect.right
+
+		// console.log(hoverBoundingRect.right-hoverBoundingRect.left)
+		// if ((hoverBoundingRect.right - hoverBoundingRect.left) > 100) {
+		// 	hoverMiddleX = hoverBoundingRect.left + 100;
+		// }
 
 		// Determine mouse position
 		const currentMouseX = event.clientX
@@ -102,7 +106,9 @@ class Timetable extends Component {
 
 	      		<h2> Your timetable! </h2>
 	          {this.props.trip["itinerary"].map( (dayValue, dayindex) => (
+	          	<React.Fragment>
 	          	<div className="day">
+	          		<div className="dayDetails"> Day {dayindex+1} </div>
 	          		{
 	          			dayValue.map((value, index) => {
 	          				if (index !== 0 && value !== "EMPTY") {
@@ -124,18 +130,19 @@ class Timetable extends Component {
 					          		data-dayindex={dayindex}> {(value)["recommendedTime"]/60} hours </p>
 								</div>
 					  		} else if (value === "EMPTY") {
-					  			return <div
+					  			return <div 
 					          		key={index}
 					          		data-index={index}
 					          		data-dayindex={dayindex}
-					          		className="timetableActivity"
+					          		className="empty"
 									onDragStart = {this.onDragStart}
-									style={{opacity: 0}}/>
+									/>
 					  		}
 					  		return null;
 						})
 			    	}
-	          	</div>)
+	          	</div>
+	          	</React.Fragment>)
 	          )}
 	        </div>
 	    );

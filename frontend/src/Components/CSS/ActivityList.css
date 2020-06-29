@@ -1,6 +1,6 @@
 #activityList {
 	overflow-y: auto;
-	height: 80vh;
+	height: 86vh; /* 93vh is full height */
 	overscroll-behavior: contain;
 	position: relative;
 	/*scroll-snap-type: y mandatory;*/

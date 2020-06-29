@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import "./CSS/Results.css"
 import Timetable from '../Components/Timetable'
 import NavBar from '../Components/navBar'
+import BG from '../assets/shoppingBg.jpg'
 
 /** Container, renders results page
 * @memberof Container
@@ -27,6 +28,7 @@ class Results extends Component {
 	render() {
 		return (
             <Fragment>
+            <img src={BG} alt="boo" id="shoppingBg"/>
                 <NavBar from={this.props.location.pathname}/>
                 <div>
                     <Timetable/>

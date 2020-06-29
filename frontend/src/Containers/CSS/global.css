@@ -2,32 +2,58 @@
 
 
 .startBox {
-  margin-top: 60px;
+  margin-top: 8vh;
   min-height: 0vh;
   justify-content: center;
   text-align: left;
   font-family: 'Cabin', serif;
 }
 
-.startPage {
-  background-image: ('../../startBackground.jpg');
+#startPage {
+  background-image: url('../../assets/startBackground.jpg');
   background-size: cover;
   height: 100vh;
+}
+
+#login {
+  background-image: url('../../assets/startBackground.jpg');
+  background-size: cover;
+  height: 100vh;
+  padding-top: 5vh;
+  font-family: Montserrat;
+}
+
+#login-startbox {
+  opacity: 80%;
+  border-radius: 25px;
+  font-family: Montserrat;
+}
+
+/* #login-startbox input{
+  width: 400px;
+} I want to expand the text fields here */
+
+#signup {
+  background-image: url('../../assets/startBackground.jpg');
+  background-size: cover;
+  height: 100vh;
+  padding-top: 5vh;
+  font-family: Montserrat;
+}
+
+#signup-startbox {
+  opacity: 80%;
+  border-radius: 25px;
+  font-family: Montserrat;
 }
 
 .element {
 	margin-top: 10px;
 }
 
-#activitiesBox {
-	border-color: peachpuff;
-	border-style: solid;
-  border-left: 0px;
-	padding-top: 10px;
-}
-
-#selectedActivitiesBox {
-  border-color: peachpuff;
-  border-style: solid;
-  padding-top: 10px;
+button {
+    background-color: #5CCFE9;
+    color: black;
+    border-radius: 5px;
+    border: 5px solid #5CCFE9;
 }

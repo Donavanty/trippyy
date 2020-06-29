@@ -12,6 +12,7 @@ import Map from '../Components/Map'
 import ActivityList from '../Components/ActivityList'
 import SelectedActivityList from '../Components/SelectedActivityList'
 import "./CSS/Shopping.css"
+import BG from '../assets/shoppingBg.jpg'
 
 /** Container, renders shopping page
 * @memberof Container
@@ -41,11 +42,15 @@ class Shopping extends Component {
         window.scrollTo(0, 0); //Scroll right back to the top after InputForm.
     }
 
+    
     render() {
 
         return (
-          <div className = "container-fluid align-items-center">
-              <NavBar from={this.props.location.pathname}/>
+          <div className = "container-fluid align-items-center" id = "shoppingBox">
+          <img src={BG} alt="boo" id="shoppingBg"/>
+          <div>
+              <NavBar id="navbar-Shopping" from={this.props.location.pathname}/>
+              </div>
               <div className = "startBox">
                 <div className = "row">
                   <div className = "col-3" id="selectedActivitiesBox">
@@ -57,7 +62,7 @@ class Shopping extends Component {
                     <ActivityList/>
                   </div>
 
-                  <div className ="col-6">
+                  <div className ="col-6 mapBox">
                     <Map/>
                   </div>
                 </div>

@@ -23,11 +23,11 @@
   padding-top: 5vh;
   font-family: Montserrat;
 }
-
+/*
 #login-startbox {
   border-radius: 25px;
   font-family: Montserrat;
-}
+}*/
 
 /* #login-startbox input{
   width: 400px;
@@ -40,12 +40,12 @@
   padding-top: 5vh;
   font-family: Montserrat;
 }
-
+/*
 #signup-startbox {
   border-radius: 25px;
   font-family: Montserrat;
 }
-
+*/
 .element {
 	margin-top: 10px;
 }

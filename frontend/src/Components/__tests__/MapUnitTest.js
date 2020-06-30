@@ -25,7 +25,8 @@ beforeEach(() => {
   // Setting mock store
   store = mockStore({
       activitiesShown: activitiesShown,
-      trip: trip
+      trip: trip,
+      focusedActivity: {}
   });
 
   // Setting local storage to Singapore

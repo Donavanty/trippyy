@@ -359,6 +359,20 @@ export const clearAllActivities = () => {
 		type: actionTypes.ACTIVITY_CLEARALL,
 	}
 }
+
+export const activitiesFocus = (index) => {
+	return {
+		type: actionTypes.ACTIVITY_FOCUS,
+		index: index
+	}
+}
+
+export const activitiesUnfocus = (index) => {
+	return {
+		type: actionTypes.ACTIVITY_UNFOCUS,
+		index: index
+	}
+}
  
 // GET ITINERARY --------------------------------------------------------------------------
 

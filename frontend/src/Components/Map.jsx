@@ -11,7 +11,8 @@ import {
     withGoogleMap,
     GoogleMap,
     Marker,
-    InfoWindow
+    InfoWindow,
+    
 } from "react-google-maps";
 
 let ref
@@ -169,28 +170,67 @@ class Map extends Component{
                  
                     { 
                         this.props.activitiesShown.currentList.map((value,index) => 
-                            (!value.added) && <Marker key={index} position={value.geometry.location} label={(this.props.activitiesShown.firstActivityCounter + index + 1).toString()}
-                                    onClick={(event) => this.markerClickHandler(event, index)}>
+                            (!value.added) && ( 
+                                (!(value === this.props.focusedActivity)) 
+                                
+                                ?
 
-                                    {this.state.showInfoWindow && (this.state.currentInfoWindow === index) && 
-                                        (<InfoWindow onCloseClick= {() => this.setState({showInfoWindow: false})}> 
-                                            <span>{value.name}</span> 
-                                        </InfoWindow> )
-                                    }
+                                    <Marker 
+                                        key={index} 
+                                        position={value.geometry.location} 
+                                        label={(this.props.activitiesShown.firstActivityCounter + index + 1).toString()}
+                                        onClick={(event) => this.markerClickHandler(event, index)}
 
-                                </Marker> )
+                                    >
+
+                                        {this.state.showInfoWindow && (this.state.currentInfoWindow === index) && 
+                                            (<InfoWindow onCloseClick= {() => this.setState({showInfoWindow: false})}> 
+                                                <span>{value.name}</span> 
+                                            </InfoWindow> )
+                                        }
+
+                                    </Marker> 
+
+                                :
+                                    <Marker 
+                                        key={index} 
+                                        position={value.geometry.location} 
+                                        onClick={(event) => this.markerClickHandler(event, index)} 
+                                        label = {(this.props.activitiesShown.firstActivityCounter + index + 1).toString()}
+                                        icon = {{
+                                            url:"http://maps.google.com/mapfiles/ms/icons/red.png",
+                                            scaledSize: new window.google.maps.Size(66, 66), 
+                                            labelOrigin: new window.google.maps.Point(32, 15), 
+                                        }}
+                                    >
+
+                                        {this.state.showInfoWindow && (this.state.currentInfoWindow === index) && 
+                                            (<InfoWindow onCloseClick= {() => this.setState({showInfoWindow: false})}> 
+                                                <span>{value.name}</span> 
+                                            </InfoWindow> )
+                                        }
+
+                                    </Marker> 
+                                )
+
+                        )
 
                     }
 
                     {
                         this.props.trip.activitiesAdded.map((value,index) => 
-                            <Marker key={index} 
-                                position={value.geometry.location} 
-                                label={(this.props.activitiesShown.firstActivityCounter + index + 1).toString()}
-                                onClick={(event) => this.markerClickHandler(event, index)} 
-                                icon = {{url:"http://maps.google.com/mapfiles/ms/icons/blue.png",
+                            (!(value["name"] === this.props.focusedActivity["name"]) ?
+                                <Marker 
+                                    key={index} 
+                                    position={value.geometry.location} 
+                                    label={(index + 1).toString()}
+                                    onClick={(event) => this.markerClickHandler(event, index)} 
+                                    icon = {{
+                                        url:"http://maps.google.com/mapfiles/ms/icons/blue.png",
                                         scaledSize: new window.google.maps.Size(44, 44), 
-                                        labelOrigin: new window.google.maps.Point(22, 15), }}>
+                                        labelOrigin: new window.google.maps.Point(22, 15), 
+                                    }}
+                                >
                                 
                                 {this.state.showInfoWindow && (this.state.currentInfoWindow === index) && 
                                     (<InfoWindow onCloseClick= {() => this.setState({showInfoWindow: false})}> 
@@ -198,9 +238,34 @@ class Map extends Component{
                                     </InfoWindow> )
                                 }
 
-                            </Marker> )
+                                </Marker> 
+                            :
+                                <Marker 
+                                    key={index} 
+                                    position={value.geometry.location} 
+                                    label={(index + 1).toString()}
+                                    onClick={(event) => this.markerClickHandler(event, index)} 
+                                    icon = {{
+                                        url:"http://maps.google.com/mapfiles/ms/icons/blue.png",
+                                        scaledSize: new window.google.maps.Size(66, 66), 
+                                        labelOrigin: new window.google.maps.Point(32, 15), 
+                                    }}
+                                >
+                                
+                                {this.state.showInfoWindow && (this.state.currentInfoWindow === index) && 
+                                    (<InfoWindow onCloseClick= {() => this.setState({showInfoWindow: false})}> 
+                                        <span>{value.name}</span> 
+                                    </InfoWindow> )
+                                }
+
+                                </Marker> 
+                                )
+
+                            )
 
                     }
+
+                    
 
                 </this.WrappedMap>
             </Fragment>
@@ -212,7 +277,8 @@ const mapStateToProps = (state) => {
     return {
         trip: state.trip,
         map: state.map,
-        activitiesShown: state.activitiesShown
+        activitiesShown: state.activitiesShown,
+        focusedActivity: state.focusedActivity,
     }
 }
 

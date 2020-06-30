@@ -183,6 +183,13 @@ class ActivityList extends Component{
       
     }
 
+    onMouseEnter = (index) => {
+        this.props.activitiesFocus(index);
+    }
+
+    onMouseLeave = (index)  => {
+        this.props.activitiesUnfocus(index);
+    }
 
     //Category Buttons: Buttons change to grey ("secondary") when they are clicked, 
     //and remain turquoise ("info") when they are not.
@@ -230,6 +237,8 @@ class ActivityList extends Component{
                         activityClickHandlerToAdd={this.activityClickHandlerToAdd}
                         activityClickHandlerToSubtract={this.activityClickHandlerToSubtract}
                         index={index}
+                        onMouseEnter={this.onMouseEnter}
+                        onMouseLeave={this.onMouseLeave}
                         />)
                     
                     }
@@ -255,6 +264,8 @@ const mapStateToProps = (state) => {
         activitiesLoading: state.activitiesLoading,
         isLastPage: (!state.activitiesShown.hasNextPageLoaded) && (state.activitiesShown.nextPageToken === -1),
         isFirstPage: state.activitiesShown.pageNumber === 0,
+
+        focusedActivity: state.focusedActivity
     }
 }
 
@@ -263,6 +274,9 @@ const mapDispatchToProps = dispatch => {
         activitiesLoad: (data) => dispatch(actions.activitiesLoad(data)),
         activitiesAdd: (index) => dispatch(actions.activitiesAdd(index)),
         activitiesSubtract: (index) => dispatch(actions.activitiesSubtract(index)),
+
+        activitiesFocus: (index) => dispatch(actions.activitiesFocus(index)),
+        activitiesUnfocus: (index) => dispatch(actions.activitiesUnfocus(index)),
         clearAllActivities: () => dispatch(actions.clearAllActivities()),
     }
 }

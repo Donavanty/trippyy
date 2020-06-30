@@ -20,7 +20,7 @@ class Activity extends Component{
 			activityClass = "activityBottom"
 		}
 		return (
-		<div>
+		<div onMouseEnter={() => this.props.onMouseEnter(this.props.index)} onMouseLeave={() => this.props.onMouseLeave(this.props.index)}>
 			{this.props.value.added === true ?
 					<div id="added" className={activityClass} onClick={() => this.props.activityClickHandlerToSubtract(this.props.index)}>
 						{(this.props.displayIndex) + 1} : {this.props.value.name}

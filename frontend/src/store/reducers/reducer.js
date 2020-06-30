@@ -51,7 +51,9 @@ const initialState = {
 
 		"hasNextPageLoaded": false,
 		"pageLoadedUpTo": -1,
-	}
+	},
+
+	focusedActivity: {},
 }
 
 const authStart = (state, action) => {
@@ -290,6 +292,18 @@ const clearAllActivities = (state, action) => {
 	})
 }
 
+const activitiesFocus = (state, action) => {
+	var currentList = [...state.activitiesShown["currentList"]];
+	return updateObject(state, {
+		focusedActivity: currentList[action.index]
+	})
+}
+
+const activitiesUnfocus = (state, action) => {
+	return updateObject(state, {
+		focusedActivity: {},
+	})
+}
 
 //ITINERARY --------------------------------------------------------------------------
 const itineraryLoad = (state, action) => {
@@ -341,6 +355,8 @@ const reducer = (state=initialState, action) => {
 
 		case actionTypes.ACTIVITY_SUBTRACT: return activitiesSubtract(state, action);
 		case actionTypes.ACTIVITY_ADD: return activitiesAdd(state, action);
+		case actionTypes.ACTIVITY_FOCUS: return activitiesFocus(state, action);
+		case actionTypes.ACTIVITY_UNFOCUS: return activitiesUnfocus(state, action);
 		case actionTypes.ACTIVITIES_START: return activitiesStart(state, action);
 		case actionTypes.ACTIVITIES_LOAD: return activitiesLoad(state, action);
 		case actionTypes.ACTIVITY_CLEARALL: return clearAllActivities(state, action);

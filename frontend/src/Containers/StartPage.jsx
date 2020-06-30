@@ -34,7 +34,9 @@ class StartPage extends Component {
 	  return (
 	    <div id="startPage">
 	    	<NavBar from={this.props.location.pathname}/>
-	    	<InputForm history={this.props.history} />
+	    	<div className="bigBox">
+	    		<InputForm history={this.props.history} />
+	    	</div>
 	    	
 	    </div>
 	  );

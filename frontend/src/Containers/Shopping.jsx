@@ -46,12 +46,12 @@ class Shopping extends Component {
     render() {
 
         return (
-          <div className = "container-fluid align-items-center" id = "shoppingBox">
+          <div className = "container-fluid align-items-center" id = "bigBox">
           <img src={BG} alt="boo" id="shoppingBg"/>
           <div>
               <NavBar id="navbar-Shopping" from={this.props.location.pathname}/>
-              </div>
-              <div className = "startBox">
+          </div>
+              <div className = "bigBox">
                 <div className = "row">
                   <div className = "col-3" id="selectedActivitiesBox">
                     <h2> Welcome to {this.props.trip["country"]} </h2>

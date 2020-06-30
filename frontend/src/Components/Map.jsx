@@ -163,7 +163,7 @@ class Map extends Component{
                 <this.WrappedMap
                     googleMapURL={this.props.googleMapURL}
                     loadingElement={<div style={{ height: `100%` }} />}
-                    containerElement={<div style={{ height: `100vh`, width: `50vw` }} />}
+                    containerElement={<div style={{ height: `92vh`, width: `50vw` }} />}
                     mapElement={<div style={{ height: `100%` }} />}
                 >
                  

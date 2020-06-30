@@ -1,34 +1,32 @@
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  /* height:1150px; */
-  height:115vh; /* Using viewport height instead */
-}
 .inputForm-box {
   background: rgba(255, 255, 255, 0.65); 
   padding: 5vw;
   padding-left: 5vw;
   border-right: 10vw;
-  color: black;
   border-radius: 50px;
-}
 
-.inputForm {
-  padding-top: 90px;
-  min-height: 5vh;
-  color: white;
+  color: black;
   font-family: Montserrat;
-
 }
 
 .inputForm-form {
   margin-top: 5vh;
 }
 
+/* Pertaining to Country Input field*/
+.location-search-input {
+  height: 40px;
+  width: 290px;
+  text-align: center;
+  font-size: 2.5vmin;
+}
+
+/* Pertaining to Country Input Autocomplete field */
+.autocomplete-dropdown-container {
+  font-size: 2.5vmin;
+} 
+
 .inputForm-dates {
-  padding-top: 20px;
   height: 120px;
 }
 .inputForm-submit {
@@ -50,16 +48,3 @@ body {
   display: fixed;
   padding-left: 10vw;
 }
-
-/* Pertaining to Country Input field*/
-.location-search-input {
-  height: 40px;
-  width: 290px;
-  text-align: center;
-  font-size: 20px;
-}
-
-/* Pertaining to Country Input Autocomplete field */
-.autocomplete-dropdown-container {
-  font-size: 20px;
-} 

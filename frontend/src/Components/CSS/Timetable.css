@@ -2,11 +2,11 @@
 	content: "";
 	clear: both;
 	position: relative;
-  margin: 10vh auto;
+  margin: 8vh auto;
   text-align: center;
   padding-top: 10vh;
   overflow-y: scroll;
-  height: 100vh;
+  height: 92;
 }
 
 .empty {
@@ -14,25 +14,6 @@
   width: 100vw;
   height: 8vh;
   background-color: black;
-}
-
-.timetableActivity {
-  float: left;
-  height: 8vh;
-  background-color: peachpuff;
-  padding: 0.5vmin;
-
-  border:0.2vw;
-  border-color: lightblue;
-  border-style: solid;
-
-
-  border-radius: 8px;
-  text-align: left;
-}
-
-.dayDetails {
-  margin-right: 2vw;
 }
 
 .day {
@@ -45,7 +26,29 @@
   padding: 0.5vw;
 
   text-align: left;
-  display:flex;
+  display: flex;
+}
+
+.dayDetails {
+  margin-right: 2vw;
+  text-align: center;
+}
+
+.timetableActivity {
+  height: 8vh;
+  background-color: peachpuff;
+  padding: 0.5vmin;
+
+  border:0.2vw;
+  border-color: lightblue;
+  border-style: solid;
+  border-radius: 8px;
+
+  overflow-y: contain;
+  flex-shrink: 0;
+
+  
+  text-align: left;
 }
 
 .activityFont {
@@ -53,6 +56,7 @@
   font-size: 1.5vmin;
   font-family: sans-serif;
   margin: 0;
+  padding: 0;
 }
 
 .timeFont {

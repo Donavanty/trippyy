@@ -119,7 +119,7 @@ class Timetable extends Component {
 					          		draggable
 					          		className="timetableActivity"
 									onDragStart = {this.onDragStart}
-								    style ={{width: ((value["recommendedTime"]/60.0) * 6)+ "vw"}}
+								    style ={{width: ((value["recommendedTime"]/60.0) * 4)+ "vw"}}
 								>
 								    <p className="activityFont"
 								    data-index={index}

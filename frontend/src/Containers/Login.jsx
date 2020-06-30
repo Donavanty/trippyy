@@ -54,9 +54,9 @@ class Login extends Component {
 
     render() {
         return (
-          <div className = "container-fluid align-items-center" id="login">
+          <div className = "container-fluid align-items-center" id="loginPage">
               <NavBar from={this.props.location.pathname}/>
-              <div className = "jumbotron startBox" id="login-startbox">
+              <div className = "jumbotron bigBox">
                 <h1> Login</h1> 
                   <form onSubmit={this.handleSubmit}>
                     <div className = "element">

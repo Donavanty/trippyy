@@ -90,7 +90,7 @@ render() {
 	return (
 		<React.Fragment>
 		<NavBar from={this.props.location.pathname}/>
-		<div className = "jumbotron startBox">
+		<div className = "jumbotron bigBox">
 		<h1> My Trips </h1>
 
 		{ 

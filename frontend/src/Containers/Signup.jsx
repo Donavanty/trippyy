@@ -49,10 +49,10 @@ class Signup extends Component {
 
     render() {
         return (
-          <div className = "container-fluid align-items-center" id="signup">
+          <div className = "container-fluid align-items-center" id="signupPage">
               <NavBar from={this.props.location.pathname}/>
               
-              <div className = "jumbotron startBox" id="signup-startbox">
+              <div className = "jumbotron bigBox" id="signup-startbox">
                 <h1> Sign Up</h1>
                   <form onSubmit={this.handleSubmit}>
                     <div className = "element">

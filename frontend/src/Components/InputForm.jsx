@@ -43,11 +43,12 @@ class InputForm extends Component {
 	*/
 	updateCountry = (countryName, latLng) => {
 		this.setState({countryName, latLng});
-		this.scrollDownToCalendar();
 	}
 
-	scrollToTheTop = () => window.scrollTo(0, 0);
-	scrollDownToCalendar = () => window.scrollTo(0, 170);
+	scrollToTheTop = () => window.scrollTo(0,0);
+
+	
+	
 
 	/** Called upon pressing the submit button, creates a new trip, 
 	* and checks for basic input validation before submitting, 
@@ -86,7 +87,7 @@ class InputForm extends Component {
 
 	render() {
 		return (
-	      <div className = "container-fluid align-items-center inputForm">
+	      <div className = "container-fluid align-items-center">
 
 	    	<div className = "row">
 		    	<div className = "col-5 logo-container">
@@ -98,15 +99,15 @@ class InputForm extends Component {
 	    			 <h1>Welcome back, {this.props.user.username}!</h1> : (<h1>Get Started</h1>)
 	    		}
 			  	<form onSubmit = {this.newTrip} className="inputForm-form"> 
-	                <div className = "inputForm-country" id="input">
-	                	<h3> Enter Country or City: </h3>
-	                	<Autocomplete className="autocomplete" updateCountry={this.updateCountry} name = "country" onClick={this.scrollDownToCalendar()}
-						/>
-	                </div>
-
 	                <div className ="inputForm-dates" id="input" >
 	                	<h3> Enter Dates: </h3>
 	                	<Calendar updateDates={this.updateDates}/>
+	                </div>
+
+                	<div id="input">
+	                	<h3> Enter Country or City: </h3>
+	                	<Autocomplete className="autocomplete" updateCountry={this.updateCountry} name = "country" 
+						/>
 	                </div>
 
 	                

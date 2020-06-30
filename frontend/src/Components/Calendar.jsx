@@ -21,8 +21,8 @@ class Calendar extends Component {
     };
   }
 
-  scrollDown = () =>
-    window.scrollTo(0, 270);
+  // scrollDown = () =>
+  //   window.scrollTo(0, 270);
 
   render() {
     return (
@@ -31,8 +31,6 @@ class Calendar extends Component {
           endDateId="endDate"
           startDate={this.state.startDate}
           endDate={this.state.endDate}
-          onClose={this.scrollDown()} //SCROLLS WHEN CLICKED
-
           onDatesChange={({ startDate, endDate }) => 
             { 
               this.setState({ startDate, endDate });

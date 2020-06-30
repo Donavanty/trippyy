@@ -1,0 +1,8 @@
+#startPage {
+  background-image: url('../../assets/startBackground.jpg');
+  background-size: cover;
+  height: 110vh;
+
+  /*To make the background image look nice*/
+  padding-top: 8vh;
+}

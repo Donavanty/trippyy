@@ -168,6 +168,8 @@ export const newTripData = (tripCountry, tripLat, tripLng, startDate, endDate) =
 		'activitiesAdded': [],
 		'activitiesAddedIds': [],
 		'itinerary' : [[]],
+		'focusedDayDirections': [],
+		'focusedDay': [],
 	}
 	localStorage.setItem('trip', JSON.stringify(trip));
 	return {
@@ -441,6 +443,60 @@ export const itineraryUpdate = (toIndex, fromIndex) => {
 	}
 }
 
+export const itineraryFocusDay = (dayActivities) => {
+	return (dispatch) => {
+		dispatch(itineraryFocusDayStart());
+		dispatch(itineraryFocusDayData(dayActivities));
+	}
+}
+export const itineraryFocusDayStart = () => {
+	return {
+		type: actionTypes.ITINERARY_FOCUS_DAY_LOAD
+	}
+}
+
+export const itineraryFocusDayData = (dayActivities) => {
+	return async (dispatch) => {
+		if (dayActivities.length > 3) {
+			var directions = [];
+			for (var activity = 1; activity < (dayActivities.length - 2); activity++) {
+				const directionsService = new window.google.maps.DirectionsService();
+				const origin = dayActivities[activity].geometry.location;
+			    const destination = dayActivities[activity+1].geometry.location;
+			    let promise = new Promise( (resolve, reject) => { 
+
+				    directionsService.route(
+				    {
+				        origin: origin,
+				        destination: destination,
+				        travelMode: window.google.maps.TravelMode.TRANSIT,
+				    },
+				    (result, status) => {
+				        if (status === window.google.maps.DirectionsStatus.OK) {
+				            // console.log(result);			            
+				            resolve("done");			            
+				            directions.push(result);
+				        } else {
+				            console.error("error");
+				        }
+				    });
+				});
+				await promise;
+			}
+			dispatch({
+				type: actionTypes.ITINERARY_FOCUS_DAY,
+				dayActivities: dayActivities,
+				focusedDayDirections: directions,
+			})
+		} else {
+			dispatch ({
+				type: actionTypes.ITINERARY_FOCUS_DAY,
+				dayActivities: dayActivities,
+				focusedDayDirections: [],
+			})
+		}
+	}
+}
 
 
 

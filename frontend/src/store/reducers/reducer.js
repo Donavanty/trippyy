@@ -6,6 +6,7 @@ const initialState = {
 	loading: false,
 	activitiesLoading: false,
 	getItineraryLoading: false,
+	itineraryFocusDayLoading: false,
 
 	user: null,
 
@@ -18,6 +19,8 @@ const initialState = {
 		'activitiesAdded' : [],
 		'activitiesAddedIds' : [],
 		'itinerary' : [[]],
+		'focusedDay' : [],
+		'focusedDayDirections' : [],
 	},
 
 	map: {
@@ -221,7 +224,7 @@ const activitiesAdd = (state, action) => {
 	localStorage.setItem('trip', JSON.stringify(currentTrip));
 	
 	// ENABLE FOR ALGO TESTING ----------------------------------------
-	console.log(JSON.stringify(currentTrip.activitiesAdded));
+	// console.log(JSON.stringify(currentTrip.activitiesAdded));
 
 	return updateObject(state, {
 		trip: currentTrip,
@@ -350,6 +353,24 @@ const itineraryUpdate = (state, action) => {
 
 }
 
+const itineraryFocusDay = (state, action) => {
+	var newTrip = updateObject(state.trip, {
+		focusedDay: action.dayActivities,
+		focusedDayDirections: action.focusedDayDirections,
+	})
+
+	return updateObject(state, {
+		trip: newTrip,
+		itineraryFocusDayLoading: false,
+	})
+}
+
+const itineraryFocusDayLoad = (state, action) => {
+	return updateObject(state, {
+		itineraryFocusDayLoading: true,
+	})
+}
+
 const reducer = (state=initialState, action) => {
 	switch(action.type) {
 
@@ -370,6 +391,8 @@ const reducer = (state=initialState, action) => {
 		case actionTypes.ITINERARY_LOAD: return itineraryLoad(state, action);
 		case actionTypes.ITINERARY_START: return itineraryStart(state, action);
 		case actionTypes.ITINERARY_UPDATE: return itineraryUpdate(state, action);
+		case actionTypes.ITINERARY_FOCUS_DAY: return itineraryFocusDay(state, action);
+		case actionTypes.ITINERARY_FOCUS_DAY_LOAD: return itineraryFocusDayLoad(state, action);
 
 		default:
 			return state;

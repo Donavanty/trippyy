@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 
 import "./CSS/Results.css"
 import Timetable from '../Components/Timetable'
+import ResultsMap from '../Components/ResultsMap'
 import NavBar from '../Components/navBar'
 import BG from '../assets/shoppingBg.jpg'
 
@@ -28,10 +29,18 @@ class Results extends Component {
 	render() {
 		return (
             <Fragment>
-            <img src={BG} alt="boo" id="shoppingBg"/>
+                <img src={BG} alt="boo" id="shoppingBg"/>
                 <NavBar from={this.props.location.pathname}/>
-                <div>
-                    <Timetable/>
+                <div className="bigBox">
+                <div className="row">
+                    <div className="col-8 timetableBox">
+                        <Timetable/>
+                    </div>
+
+                    <div className="col-4 resultsMapBox">
+                        <ResultsMap/>
+                    </div>
+                </div>
                 </div>
             </Fragment>);
 	} 

@@ -46,7 +46,7 @@ class Shopping extends Component {
     render() {
 
         return (
-          <div className = "container-fluid align-items-center" id = "bigBox">
+          <div className = "container-fluid align-items-center">
           <img src={BG} alt="boo" id="shoppingBg"/>
           <div>
               <NavBar id="navbar-Shopping" from={this.props.location.pathname}/>

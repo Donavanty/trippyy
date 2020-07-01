@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 // -------------------------------------------------------------------------
 
 import "./CSS/Timetable.css"
+import { Spinner } from 'react-bootstrap';
 
 /**
  * Component, renders activities currently added into the trip in a timetable manner,
@@ -21,6 +22,10 @@ class Timetable extends Component {
 	state = {
 		fromIndex: -1,
 		fromDayIndex: -1,
+	}
+
+	focusDay = (dayActivities) => {
+		this.props.itineraryFocusDay(dayActivities);
 	}
 
 	/**
@@ -96,8 +101,15 @@ class Timetable extends Component {
 	}
 
 	render() {
-		if (!this.props.trip["itinerary"]) {
-			return <h1> loading </h1>
+		if (this.props.getItineraryLoading) {
+			return (
+				<div>
+					<h1> Getting your trip! </h1>
+					<Spinner animation="border" role="status">
+				  		<span className="sr-only">Loading...</span>
+					</Spinner>
+
+				</div>)
 		}
 	    return (
 		    <div id="timetable"
@@ -108,7 +120,14 @@ class Timetable extends Component {
 	          {this.props.trip["itinerary"].map( (dayValue, dayindex) => (
 	          	<React.Fragment>
 	          	<div className="day">
-	          		<div className="dayDetails"> Day {dayindex+1} </div>
+	          		<div className="dayDetails"> 
+	          			<p> Day {dayindex+1} </p>
+						<button onClick={() => this.focusDay(dayValue)}> View Day! </button>
+
+	          			
+	          		
+	          		</div>
+
 	          		{
 	          			dayValue.map((value, index) => {
 	          				if (index !== 0 && value !== "EMPTY") {
@@ -119,7 +138,7 @@ class Timetable extends Component {
 					          		draggable
 					          		className="timetableActivity"
 									onDragStart = {this.onDragStart}
-								    style ={{width: ((value["recommendedTime"]/60.0) * 4)+ "vw"}}
+								    style ={{width: ((value["recommendedTime"]/60.0) * 3)+ "vw"}}
 								>
 								    <p className="activityFont"
 								    data-index={index}
@@ -153,12 +172,16 @@ class Timetable extends Component {
 const mapStateToProps = (state) => {
     return {
         trip: state.trip,
+        getItineraryLoading: state.getItineraryLoading,
+        itineraryFocusDayLoading: state.itineraryFocusDayLoading,
+
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-    	itineraryUpdate: (toIndex, fromIndex) => dispatch(actions.itineraryUpdate(toIndex, fromIndex))
+    	itineraryUpdate: (toIndex, fromIndex) => dispatch(actions.itineraryUpdate(toIndex, fromIndex)),
+    	itineraryFocusDay: (dayActivities => dispatch(actions.itineraryFocusDay(dayActivities)))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Timetable);

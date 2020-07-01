@@ -12,8 +12,10 @@ import {
     GoogleMap,
     Marker,
     InfoWindow,
+    Polyline
     
 } from "react-google-maps";
+import { Spinner } from 'react-bootstrap';
 
 let ref
 
@@ -44,7 +46,7 @@ function getBoundsRadius(bounds){
  * @param {ReduxAction} activitiesShown: Contains information about the list of activities currently rendered
  * @returns Rendered Google Map with Markers of activities shown, and activities added.
  */
-class Map extends Component{
+class ResultsMap extends Component{
 
     state = {
         center: 0,
@@ -56,11 +58,8 @@ class Map extends Component{
 
         showInfoWindow: false,
         currentInfoWindow: 0,
-        directions: null,
     }
     componentDidMount() {
-        console.log("hey?")
-
         if (localStorage.trip !== undefined) {
             this.setState({
                 startCenter: JSON.parse(localStorage.trip),
@@ -70,7 +69,7 @@ class Map extends Component{
             })            
         }
     }
-
+    
     /**
      * Called upon moving the map.
      * Updates the new bounds of the map to redux-state map.
@@ -128,6 +127,19 @@ class Map extends Component{
         }
         this.uponBoundsChanged();
     }
+
+    mapIncludes = (value, focusedDay) => {
+        for (var activity in focusedDay) {
+            console.log("boo")
+            console.log(value)
+            console.log(focusedDay)
+            if (value["name"] === focusedDay[activity]["name"]) {
+                return true;
+            }
+        }
+
+        return false;
+    }
     //First load, thus need to use local storage.
     WrappedMap = withScriptjs(withGoogleMap(props =>
         <GoogleMap
@@ -145,6 +157,25 @@ class Map extends Component{
           zoom = {this.state.zoom}
           center = {this.state.center}
         >
+
+
+            {
+                this.props.trip.focusedDayDirections && this.props.trip.focusedDayDirections.map((value, index) => {
+                    return (
+                        <Polyline
+                            key={index}
+                            path={value.routes[0].overview_path}
+                            geodesic={true}
+                            options={{
+                              strokeColor: "#008B8B",
+                              strokeOpacity: 0.8,
+                              strokeWeight: 5,
+                              clickable: true
+                            }}
+                        />)
+                })
+
+            }   
             {props.children}
         </GoogleMap>
       ));
@@ -155,110 +186,123 @@ class Map extends Component{
     }
 
     render() {
+        if (this.props.itineraryFocusDayLoading) {
+            return (
+                <div className="loadingBox">
+                    <h1> Updating your routes! </h1>
+                    <Spinner animation="border" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </Spinner>
+
+                </div>)
+        }
         return (
             <Fragment>
                 <this.WrappedMap
                     googleMapURL={window.google}
                     loadingElement={<div style={{ height: `100%` }} />}
-                    containerElement={<div style={{ height: `92vh`, width: `50vw` }} />}
+                    containerElement={<div style={{ height: `92vh`, width: `33vw` }} />}
                     mapElement={<div style={{ height: `100%` }} />}
                 >
 
-                 
-                    { 
-                        this.props.activitiesShown.currentList.map((value,index) => 
-                            (!value.added) && ( 
-                                (!(value === this.props.focusedActivity)) 
-                                
-                                ?
 
+                    {
+                        this.props.trip.focusedDay && this.props.trip.focusedDay.map((value,index) => 
+                            (value["name"]) &&
+
+                                (!(value["name"] === this.props.focusedActivity["name"]) ?
                                     <Marker 
                                         key={index} 
                                         position={value.geometry.location} 
-                                        label={(this.props.activitiesShown.firstActivityCounter + index + 1).toString()}
-                                        onClick={(event) => this.markerClickHandler(event, index)}
-
+                                        label={(index).toString()}
+                                        onClick={(event) => this.markerClickHandler(event, index)} 
+                                        icon = {{
+                                            url:"http://maps.google.com/mapfiles/ms/icons/yellow.png",
+                                            scaledSize: new window.google.maps.Size(44, 44), 
+                                            labelOrigin: new window.google.maps.Point(22, 15), 
+                                        }}
                                     >
-
-                                        {this.state.showInfoWindow && (this.state.currentInfoWindow === index) && 
-                                            (<InfoWindow onCloseClick= {() => this.setState({showInfoWindow: false})}> 
-                                                <span>{value.name}</span> 
-                                            </InfoWindow> )
-                                        }
+                                    
+                                    {this.state.showInfoWindow && (this.state.currentInfoWindow === index) && 
+                                        (<InfoWindow onCloseClick= {() => this.setState({showInfoWindow: false})}> 
+                                            <span>{value.name}</span> 
+                                        </InfoWindow> )
+                                    }
 
                                     </Marker> 
-
                                 :
                                     <Marker 
                                         key={index} 
                                         position={value.geometry.location} 
+                                        label={(index).toString()}
                                         onClick={(event) => this.markerClickHandler(event, index)} 
-                                        label = {(this.props.activitiesShown.firstActivityCounter + index + 1).toString()}
                                         icon = {{
-                                            url:"http://maps.google.com/mapfiles/ms/icons/red.png",
+                                            url:"http://maps.google.com/mapfiles/ms/icons/yellow.png",
                                             scaledSize: new window.google.maps.Size(66, 66), 
                                             labelOrigin: new window.google.maps.Point(32, 15), 
                                         }}
                                     >
-
-                                        {this.state.showInfoWindow && (this.state.currentInfoWindow === index) && 
-                                            (<InfoWindow onCloseClick= {() => this.setState({showInfoWindow: false})}> 
-                                                <span>{value.name}</span> 
-                                            </InfoWindow> )
-                                        }
+                                    
+                                    {this.state.showInfoWindow && (this.state.currentInfoWindow === index) && 
+                                        (<InfoWindow onCloseClick= {() => this.setState({showInfoWindow: false})}> 
+                                            <span>{value.name}</span> 
+                                        </InfoWindow> )
+                                    }
 
                                     </Marker> 
-                                )
+                                    )
 
                         )
 
                     }
 
-                    {
-                        this.props.trip.activitiesAdded.map((value,index) => 
-                            (!(value["name"] === this.props.focusedActivity["name"]) ?
-                                <Marker 
-                                    key={index} 
-                                    position={value.geometry.location} 
-                                    label={(index + 1).toString()}
-                                    onClick={(event) => this.markerClickHandler(event, index)} 
-                                    icon = {{
-                                        url:"http://maps.google.com/mapfiles/ms/icons/blue.png",
-                                        scaledSize: new window.google.maps.Size(44, 44), 
-                                        labelOrigin: new window.google.maps.Point(22, 15), 
-                                    }}
-                                >
-                                
-                                {this.state.showInfoWindow && (this.state.currentInfoWindow === index) && 
-                                    (<InfoWindow onCloseClick= {() => this.setState({showInfoWindow: false})}> 
-                                        <span>{value.name}</span> 
-                                    </InfoWindow> )
-                                }
+                   {
+                        this.props.trip.activitiesAdded && this.props.trip.activitiesAdded.map((value,index) => 
+                            !(this.mapIncludes(value, this.props.trip.focusedDay)) &&
 
-                                </Marker> 
-                            :
-                                <Marker 
-                                    key={index} 
-                                    position={value.geometry.location} 
-                                    label={(index + 1).toString()}
-                                    onClick={(event) => this.markerClickHandler(event, index)} 
-                                    icon = {{
-                                        url:"http://maps.google.com/mapfiles/ms/icons/blue.png",
-                                        scaledSize: new window.google.maps.Size(66, 66), 
-                                        labelOrigin: new window.google.maps.Point(32, 15), 
-                                    }}
-                                >
-                                
-                                {this.state.showInfoWindow && (this.state.currentInfoWindow === index) && 
-                                    (<InfoWindow onCloseClick= {() => this.setState({showInfoWindow: false})}> 
-                                        <span>{value.name}</span> 
-                                    </InfoWindow> )
-                                }
+                                (!(value["name"] === this.props.focusedActivity["name"]) ?
+                                    <Marker 
+                                        key={index} 
+                                        position={value.geometry.location} 
+                                        label={(index).toString()}
+                                        onClick={(event) => this.markerClickHandler(event, index)} 
+                                        icon = {{
+                                            url:"http://maps.google.com/mapfiles/ms/icons/blue.png",
+                                            scaledSize: new window.google.maps.Size(44, 44), 
+                                            labelOrigin: new window.google.maps.Point(22, 15), 
+                                        }}
+                                    >
+                                    
+                                    {this.state.showInfoWindow && (this.state.currentInfoWindow === index) && 
+                                        (<InfoWindow onCloseClick= {() => this.setState({showInfoWindow: false})}> 
+                                            <span>{value.name}</span> 
+                                        </InfoWindow> )
+                                    }
 
-                                </Marker> 
-                                )
+                                    </Marker> 
+                                :
+                                    <Marker 
+                                        key={index} 
+                                        position={value.geometry.location} 
+                                        label={(index).toString()}
+                                        onClick={(event) => this.markerClickHandler(event, index)} 
+                                        icon = {{
+                                            url:"http://maps.google.com/mapfiles/ms/icons/blue.png",
+                                            scaledSize: new window.google.maps.Size(66, 66), 
+                                            labelOrigin: new window.google.maps.Point(32, 15), 
+                                        }}
+                                    >
+                                    
+                                    {this.state.showInfoWindow && (this.state.currentInfoWindow === index) && 
+                                        (<InfoWindow onCloseClick= {() => this.setState({showInfoWindow: false})}> 
+                                            <span>{value.name}</span> 
+                                        </InfoWindow> )
+                                    }
 
-                            )
+                                    </Marker> 
+                                    )
+
+                        )
 
                     }
 
@@ -276,6 +320,7 @@ const mapStateToProps = (state) => {
         map: state.map,
         activitiesShown: state.activitiesShown,
         focusedActivity: state.focusedActivity,
+        itineraryFocusDayLoading: state.itineraryFocusDayLoading,
     }
 }
 
@@ -284,4 +329,4 @@ const mapDispatchToProps = dispatch => {
         mapBoundsChange: (bounds) => dispatch(actions.mapBoundsChange(bounds)),
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Map);
+export default connect(mapStateToProps, mapDispatchToProps)(ResultsMap);

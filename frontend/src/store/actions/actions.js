@@ -469,7 +469,7 @@ export const itineraryFocusDayData = (dayActivities) => {
 				    {
 				        origin: origin,
 				        destination: destination,
-				        travelMode: window.google.maps.TravelMode.TRANSIT,
+				        travelMode: window.google.maps.TravelMode.DRIVING,
 				    },
 				    (result, status) => {
 				        if (status === window.google.maps.DirectionsStatus.OK) {

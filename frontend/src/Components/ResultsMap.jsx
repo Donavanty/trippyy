@@ -130,9 +130,6 @@ class ResultsMap extends Component{
 
     mapIncludes = (value, focusedDay) => {
         for (var activity in focusedDay) {
-            console.log("boo")
-            console.log(value)
-            console.log(focusedDay)
             if (value["name"] === focusedDay[activity]["name"]) {
                 return true;
             }

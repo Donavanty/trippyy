@@ -478,6 +478,7 @@ export const itineraryFocusDayData = (dayActivities) => {
 				            directions.push(result);
 				        } else {
 				            console.error("error");
+				            resolve("done");
 				        }
 				    });
 				});

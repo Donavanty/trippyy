@@ -1,27 +1,55 @@
+/*BUTTON CSS*/
 #notAdded {
-	background-color: lightblue;
 	color: black;
 	cursor: pointer;
+	text-align: left;
 }
 
 #added {
 	background-color: grey;
+	border-color: grey;
 	color: white;
 	cursor: pointer;
+	text-align: left;
 }
 
+/*RIGHT SIDE OF ACTIVITY CSS*/
 .activityTop {
-	border-radius: 10px;
-	margin-top: 20px;
-	padding: 20px;
-	width: 100%;
-	scroll-snap-align: start none;
+	width: 80%;
+	font-size: 2vmin;
 }
 
 .activityBottom {
+	width: 80%;
+	font-size: 2vmin;
+}
+
+/*MAIN BOX CSS*/
+.activityBox {
+	background-color: rgb(255,255,255,0.3);
+	margin-top: 2vmin;
+	padding: 2vmin;
 	border-radius: 10px;
-	margin-top: 20px;
-	padding: 20px;
+}
+
+/*IMAGE CSS*/
+.imgBox {
+	border-right: solid;
+	border-color: grey;
+	border-width: thin;
+}
+.activityImg {
+	height: 10vh;
 	width: 100%;
-	scroll-snap-align: end none;
+	border-radius: 5px;
+}
+
+.activityName {
+	font-size: 2.5vmin;
+	margin-bottom: 0;
+}
+
+.activityDes {
+	font-weight: bold;
+	font-size: 1.5vmin;
 }

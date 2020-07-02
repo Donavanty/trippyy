@@ -27,7 +27,7 @@ class SelectedActivityList extends Component{
     * Called upon clicking button to generate itinerary. Calls Redux-action (itineraryLoad) to generate.
     * @param {ReduxAction} itineraryLoad: Updates redux state to generate itinerary.
     */
-    getItinerary = () => {
+    getItinerary = (event) => {
         var startDate = new Date(this.props.trip.startDate);
         var endDate = new Date(this.props.trip.endDate);
         var lengthOfTrip = ((endDate - startDate) / (1000*60*60*24)) + 1
@@ -37,6 +37,7 @@ class SelectedActivityList extends Component{
         }
 
         if (this.props.trip.activitiesAdded.length === 0) {
+            event.preventDefault();
             alert("Please select some activities first!")
             return;
         }
@@ -53,7 +54,7 @@ class SelectedActivityList extends Component{
                 <Link to="/results" className="itiButton" onClick={this.getItinerary} value="general">Get Itinerary</Link>
             	<div id="selectedActivityList">
             		{
-            			this.props.trip["activitiesAdded"].map( (value, index) => <p key={index}>{value.name}</p>)
+            			this.props.trip["activitiesAdded"].map( (value, index) => <p key={index}>{index+1} : {value.name}</p>)
             		}
             	</div>
             </Fragment>)

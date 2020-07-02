@@ -24,15 +24,27 @@ class Activity extends Component{
 		this.componentDidMount = this.componentDidMount.bind(this);
 	}
 
+	beautifyText = (text) => {
+		var output = ""
+		for (var i in text) {
+			if (i < 1) {
+				output = output + text[i].toUpperCase()
+			} else if (text[i] === "_") {
+				output = output + " ";
+			} else {
+				output = output + text[i]
+			}
+		}
+		return output;
+	}
 	componentDidMount(state, props) {
 		if (this.props.value["photos"]) {
 			const data = {
 				key: API_KEY,
 				photoRef: this.props.value["photos"][0]["photo_reference"]
 			}
-			axios.post("http://127.0.0.1:8000/api/GooglePhoto/", data).then(
+			axios.post("http://trippyy-backend.herokuapp.com/api/GooglePhoto/", data).then(
 				res => { 
-					console.log(res.data)
 					this.setState({photo: res.data})
 			});
 		}
@@ -46,19 +58,26 @@ class Activity extends Component{
 			activityClass = "activityBottom"
 		}
 		return (
-		<div>
+			<div className ="activityBox">
+		<div className = "row" onMouseEnter={() => this.props.onMouseEnter(this.props.index)} onMouseLeave={() => this.props.onMouseLeave(this.props.index)}>
+			<div className = "col-4 imgBox">
+				{this.state.photo && <img className = "activityImg" src={this.state.photo} alt="activity img"/>}
+			</div>
 
-			<div onMouseEnter={() => this.props.onMouseEnter(this.props.index)} onMouseLeave={() => this.props.onMouseLeave(this.props.index)}>
+			<div className = "col-8">
+				<p className = "activityName"> {this.props.value.name} </p>
+				<p className = "activityDes"> {this.beautifyText(this.props.value.types[0])} </p>
 				{this.props.value.added === true ?
-						<div id="added" className={activityClass} onClick={() => this.props.activityClickHandlerToSubtract(this.props.index)}>
-							{(this.props.displayIndex) + 1} : {this.props.value.name}
-						</div>
+						<button id="added" className={activityClass} onClick={() => this.props.activityClickHandlerToSubtract(this.props.index)}>
+							Remove
+						</button>
 					:
-						<div id="notAdded" className={activityClass} onClick={() => this.props.activityClickHandlerToAdd(this.props.index)}>
-							{(this.props.displayIndex) + 1} : {this.props.value.name}
-						</div>
+						<button id="notAdded" className={activityClass} onClick={() => this.props.activityClickHandlerToAdd(this.props.index)}>
+							{(this.props.displayIndex) + 1} : Add to trip!
+						</button>
 				}
 			</div>
+		</div>
 		</div>)
 	}
 }

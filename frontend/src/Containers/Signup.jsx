@@ -19,6 +19,13 @@ import { Spinner } from 'react-bootstrap';
 */
 class Signup extends Component {
 
+    state = {
+      approvedUsername: false,
+      approvedEmail: false,
+      approvedPassword: false,
+      errorMessage: ["", "", "", ""],
+    }
+
     componentDidMount() {
       //Updates login status into redux.
       this.props.onTryAutoSignup();
@@ -47,6 +54,21 @@ class Signup extends Component {
           event.target.password1.value, event.target.password2.value);
       }
 
+    usernameOnChange = (event) => {
+      console.log(event.target.value)
+    }
+
+    emailOnChange = (event) => {
+      console.log(event.target.value)
+    }
+
+    passwordOnChange = (event) => {
+     console.log(event.target.value) 
+    }
+
+    password2OnChange = (event) => {
+      console.log(event.target.value)
+    }
     render() {
         return (
           <div className = "container-fluid align-items-center" id="signupPage">
@@ -56,19 +78,19 @@ class Signup extends Component {
                 <h1> Sign Up</h1>
                   <form onSubmit={this.handleSubmit}>
                     <div className = "element">
-                      <input type = "text" name = "username" placeholder = "Enter Username" />
+                      <input type = "text" name = "username" placeholder = "Enter Username" onChange={this.usernameOnChange}/>
                     </div>
                     
                     <div className = "element">
-                      <input type = "text" name = "email" placeholder = "Enter Email" />
+                      <input type = "text" name = "email" placeholder = "Enter Email" onChange={this.emailOnChange}/>
                     </div>
 
                     <div className = "element">
-                      <input type = "password" name = "password1" placeholder = "Enter Password" />
+                      <input type = "password" name = "password1" placeholder = "Enter Password" onChange={this.passwordOnChange}/>
                     </div>
 
                     <div className = "element">
-                      <input type = "password" name = "password2" placeholder = "Enter Password again" />
+                      <input type = "password" name = "password2" placeholder = "Enter Password again" onChange={this.password2OnChange}/>
                     </div>
                     {
                       this.props.loading ? 

@@ -48,7 +48,9 @@ class Shopping extends Component {
 
         return (
           <div className = "container-fluid align-items-center">
-          <LazyLoad src={BG} alt="boo" id="shoppingBg"/>
+          <LazyLoad>
+            <img src={BG} alt="boo" id="shoppingBg"/>
+          </LazyLoad>
           <div>
               <NavBar id="navbar-Shopping" from={this.props.location.pathname}/>
           </div>

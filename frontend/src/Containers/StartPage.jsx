@@ -14,7 +14,7 @@ import { Spinner } from 'react-bootstrap';
 import "./CSS/global.css"
 import "./CSS/Start.css"
 import SBG from '../assets/startBackground.jpg'
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import LazyLoad from 'react-lazy-load';
 /** Container, renders sign up page.
 * @memberof Container
 * @param {Component} Navbar, renders navigation bar.
@@ -48,11 +48,14 @@ class StartPage extends Component {
 		
 	  return (
 
-	    <div id="startPage" className="animate__animated animate__fadeIn">
-	    	<LazyLoadImage 
+	    <div id="startPage">
+	    	<LazyLoad>
+	    	<img 
 	    		src={SBG} 
 	    		ref={this.bgRef} 
-	    		id="startBg"/>
+	    		id="startBg"
+	    		alt="start-bg"/>
+	    	</LazyLoad>
 	    	<NavBar from={this.props.location.pathname}/>
 	    	<div className="bigBox">
 	    		<InputForm history={this.props.history} />

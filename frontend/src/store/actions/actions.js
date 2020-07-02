@@ -1,7 +1,7 @@
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
 import {updateObject} from '../utility';
-const DATABASE_URL = "https://trippyy-backend.herokuapp.com/"
+const DATABASE_URL = "http://trippyy-backend.herokuapp.com/"
 // const DATABASE_URL = "http://127.0.0.1:8000/"
 
 
@@ -430,6 +430,13 @@ export const itineraryLoadData = (data) => {
 				itinerary: iti,
 				getItineraryLoading: false,
 			});
+	    }).catch((error) => {
+	    	alert("Directions API capacity reached, try again in awhile :-(");
+	    	dispatch({
+	    		type: actionTypes.ITINERARY_LOAD,
+				itinerary: [[]],
+				getItineraryLoading: false,
+	    	})
 	    });
 	}
 }

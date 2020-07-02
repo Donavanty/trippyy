@@ -16,6 +16,10 @@ import {
     
 } from "react-google-maps";
 import { Spinner } from 'react-bootstrap';
+import PenguinAdded from '../assets/penguinAdded.png'
+import PenguinAddedStanding from '../assets/penguinAddedStanding.png'
+import PenguinRoute from '../assets/penguinRoute.png'
+import PenguinRouteStanding from '../assets/penguinRouteStanding.png'
 
 let ref
 
@@ -211,12 +215,16 @@ class ResultsMap extends Component{
                                     <Marker 
                                         key={index} 
                                         position={value.geometry.location} 
-                                        label={(index).toString()}
+                                        label = {{
+                                            text: (this.props.activitiesShown.firstActivityCounter + index + 1).toString(),
+                                            fontSize:"12px",
+                                            fontFamily:"Montserrat",
+                                            fontColor:"white"}}
                                         onClick={(event) => this.markerClickHandler(event, index)} 
                                         icon = {{
-                                            url:"http://maps.google.com/mapfiles/ms/icons/yellow.png",
-                                            scaledSize: new window.google.maps.Size(44, 44), 
-                                            labelOrigin: new window.google.maps.Point(22, 15), 
+                                            url: PenguinRoute,
+                                            scaledSize: new window.google.maps.Size(36, 44), 
+                                            labelOrigin: new window.google.maps.Point(16, 32), 
                                         }}
                                     >
                                     
@@ -231,12 +239,15 @@ class ResultsMap extends Component{
                                     <Marker 
                                         key={index} 
                                         position={value.geometry.location} 
-                                        label={(index).toString()}
+                                        label = {{
+                                            text: (index).toString(),
+                                            fontSize:"12px",
+                                            fontFamily:"Montserrat"}}
                                         onClick={(event) => this.markerClickHandler(event, index)} 
                                         icon = {{
-                                            url:"http://maps.google.com/mapfiles/ms/icons/yellow.png",
-                                            scaledSize: new window.google.maps.Size(66, 66), 
-                                            labelOrigin: new window.google.maps.Point(32, 15), 
+                                            url: PenguinRouteStanding,
+                                            scaledSize: new window.google.maps.Size(44, 44), 
+                                            labelOrigin: new window.google.maps.Point(22, 30), 
                                         }}
                                     >
                                     
@@ -264,9 +275,9 @@ class ResultsMap extends Component{
                                         label={(index).toString()}
                                         onClick={(event) => this.markerClickHandler(event, index)} 
                                         icon = {{
-                                            url:"http://maps.google.com/mapfiles/ms/icons/blue.png",
+                                            url: PenguinAdded,
                                             scaledSize: new window.google.maps.Size(44, 44), 
-                                            labelOrigin: new window.google.maps.Point(22, 15), 
+                                            labelOrigin: new window.google.maps.Point(22, 30), 
                                         }}
                                     >
                                     
@@ -284,9 +295,9 @@ class ResultsMap extends Component{
                                         label={(index).toString()}
                                         onClick={(event) => this.markerClickHandler(event, index)} 
                                         icon = {{
-                                            url:"http://maps.google.com/mapfiles/ms/icons/blue.png",
-                                            scaledSize: new window.google.maps.Size(66, 66), 
-                                            labelOrigin: new window.google.maps.Point(32, 15), 
+                                            url:PenguinAddedStanding,
+                                            scaledSize: new window.google.maps.Size(44, 60), 
+                                            labelOrigin: new window.google.maps.Point(21, 13), 
                                         }}
                                     >
                                     

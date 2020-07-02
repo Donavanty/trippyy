@@ -7,6 +7,13 @@
   text-align: left;
   font-family: 'Cabin', serif;
 }
+#startBg {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  left: 0;
+  top:0;
+}
 
 #loginPage {
   background-image: url('../../assets/startBackground.jpg');

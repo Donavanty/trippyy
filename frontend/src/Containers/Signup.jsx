@@ -10,6 +10,17 @@ import { connect } from 'react-redux';
 import NavBar from '../Components/navBar';
 import { Spinner } from 'react-bootstrap';
 
+
+function isASCII(str) {
+    return /^[x00-x7F]*$/.test(str);
+}
+
+function isValidEmail(email) 
+    {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
+
 /** Container, renders sign up page.
 * @memberof Container
 * @param {Component} Navbar, renders navigation bar.
@@ -21,9 +32,12 @@ class Signup extends Component {
 
     state = {
       approvedUsername: false,
+      errorUsername: "",
       approvedEmail: false,
+      errorEmail: "",
       approvedPassword: false,
-      errorMessage: ["", "", "", ""],
+      errorPassword: "",
+      
     }
 
     componentDidMount() {
@@ -50,24 +64,54 @@ class Signup extends Component {
     */
     handleSubmit = (event) => {
         event.preventDefault();
+
+        if (event.target.username.value.length < 3) {
+          alert("Username must be of length 4 and above.");
+          return;
+
+        } else if (!isASCII(event.target.username.value)) {
+          alert("Username must not contain any special characters");
+          return;
+
+        } else if (!(isValidEmail(event.target.email.value))) {
+          alert("Please enter a valid email.");
+          return;
+
+        } else if (!isASCII(event.target.password1.value)) {
+          alert("Passwords must not contain any special characters");
+          return;
+
+        } else if (!isASCII(event.target.password2.value)) {
+          alert("Passwords must not contain any special characters");
+          return;
+
+        } else if (event.target.password1.value !== event.target.password2.value) {
+          alert("Passwords are not identical.");
+          return;
+
+        } else if (event.target.password1.value.length < 7) {
+          alert("Passwords must be at least of length 8.")
+          return;
+        }
+
         this.props.onAuth(event.target.username.value, event.target.email.value,
           event.target.password1.value, event.target.password2.value);
       }
 
-    usernameOnChange = (event) => {
-      console.log(event.target.value)
+    usernameOnChange = (event) => { 
+      // TODO
     }
 
     emailOnChange = (event) => {
-      console.log(event.target.value)
+      // TODO
     }
 
     passwordOnChange = (event) => {
-     console.log(event.target.value) 
+      // TODO
     }
 
     password2OnChange = (event) => {
-      console.log(event.target.value)
+      // TODO
     }
     render() {
         return (

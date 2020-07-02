@@ -36,6 +36,7 @@ export const authSuccess = (token, username, userId) => {
 * @param {Object} error: error
 */
 export const authFail = (error) => {
+	alert("Username or password is incorrect.");
 	return {
 		error: error,
 		type: actionTypes.AUTH_FAIL

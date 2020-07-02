@@ -12,6 +12,7 @@ import Calendar from "./Calendar"
 import { Spinner, Button } from 'react-bootstrap';
 import Autocomplete from './Autocomplete'
 import Logo from '../assets/logo.PNG'
+import LazyLoad from 'react-lazy-load';
 
 
 /**
@@ -91,7 +92,9 @@ class InputForm extends Component {
 
 	    	<div className = "row">
 		    	<div className = "col-5 logo-container">
-					<img src={Logo} alt="trippyy-logo" className="trippyy-logo"/>
+		    		<LazyLoad>
+						<img src={Logo} alt="trippyy-logo" className="trippyy-logo"/>
+					</LazyLoad>
 				</div>
 	          <div className = "inputForm-box col-7">
 	          	{

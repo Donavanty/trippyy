@@ -48,13 +48,13 @@ class StartPage extends Component {
 		
 	  return (
 
-	    <div id="startPage">
+	    <div id="startPage" className="animate__animated animate__fadeIn">
 	    	<LazyLoad>
-	    	<img 
-	    		src={SBG} 
-	    		ref={this.bgRef} 
-	    		id="startBg"
-	    		alt="start-bg"/>
+		    	<img 
+		    		src={SBG} 
+		    		ref={this.bgRef} 
+		    		id="startBg"
+		    		alt="start-bg"/>
 	    	</LazyLoad>
 	    	<NavBar from={this.props.location.pathname}/>
 	    	<div className="bigBox">

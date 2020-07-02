@@ -53,7 +53,7 @@ it("Check that selected activity list renders ONE activity from dummy, and redux
   })
 
   // Check that the text content rendered is correct.
-  expect(container.querySelector("div[id='selectedActivityList']").textContent).toEqual("Singapore Flyer")
+  expect(container.querySelector("div[id='selectedActivityList']").textContent).toEqual("1 : Singapore Flyer")
 
   // Find get iti button, and click it, and check that ONE redux action was called.
   act(() => {

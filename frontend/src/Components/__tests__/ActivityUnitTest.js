@@ -2,7 +2,7 @@
 import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
-
+import { screen} from '@testing-library/react'
 // Component Imports
 import Activity from "../Activity"
 
@@ -28,6 +28,7 @@ it("Renders with index < 10, added is true, checks for className, id, and text c
 		const testValue = {
 			added: true,
 			name : "ActivityTest",
+			types : ["park"]
 		}
 		const testIndex = 9
 		render(
@@ -37,9 +38,8 @@ it("Renders with index < 10, added is true, checks for className, id, and text c
 				index={testIndex}
 			/> , container
 		)
-
 		expect(container.textContent).toContain("ActivityTest")
-		expect(container.querySelector("div[id='added']").className).toBe("activityTop")	
+		expect(container.querySelector("button[id='added']")).toEqual(expect.anything())
 	})
 });
 
@@ -50,6 +50,7 @@ it("Renders with index > 10, added is false, checks for className, id, and text 
 		const testValue = {
 			added: false,
 			name : "ActivityTest",
+			types : ["park"]
 		}
 		const testIndex = 20
 		render(
@@ -61,6 +62,6 @@ it("Renders with index > 10, added is false, checks for className, id, and text 
 		)
 
 		expect(container.textContent).toContain("ActivityTest")
-		expect(container.querySelector("div[id='notAdded']").className).toBe("activityBottom")	
+		expect(container.querySelector("button[id='notAdded']")).toEqual(expect.anything())
 	})
 });

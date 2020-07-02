@@ -1,0 +1,28 @@
+.loginBox {
+	background-color: var(--color2half);
+
+	/*Settings for stuff OUTSIDE THE BOX*/
+	width: 50vw;
+	margin: auto;
+	margin-top: 12vh;
+	padding: 5vmin;
+	border-radius: 10px;
+
+	/*Container settings for stuff INSIDE LOGIN BOX*/
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.loginForm {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.formElement {
+	margin: 1vmin;
+}

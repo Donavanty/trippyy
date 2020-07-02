@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 
+
+:root {
+  --color1: #588B8B;
+  --color1strong: #588B8BDC;
+  --color1half: #588B8B99;
+  --color2: #FFFFFF;
+  --color2strong: #FFFFFFDC;
+  --color2half: #FFFFFF99;
+  --color3: #FFD5C2;
+  --color3strong: #FFD5C2DC;
+  --color3half: #FFD5C299;
+  --color4: #F28F3B;
+  --color4strong: #F28F3BDC;
+  --color4half: #F28F3B99;
+  --color5: #C8553D;
+  --color5strong: #C8553DDC;
+  --color5half: #C8553D99;
+}
+
 .bigBox {
   margin-top: 8vh;
   min-height: 0vh;
@@ -7,6 +26,7 @@
   text-align: left;
   font-family: Montserrat;
   font-weight: 300;
+  position: relative;
 }
 #startBg {
   height: 100vh;
@@ -17,9 +37,9 @@
 }
 
 #loginPage {
-  background-image: url('../../assets/startBackground.jpg');
-  background-size: cover;
-  height: 100vh;
+  /*background-image: url('../../assets/startBackground.jpg');
+  background-size: cover;*/
+  height: 110vh;
   padding-top: 5vh;
   font-family: Montserrat;
 }

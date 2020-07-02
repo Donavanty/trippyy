@@ -35,6 +35,11 @@ class SelectedActivityList extends Component{
             lengthOfTrip: lengthOfTrip,
             activitiesAdded: this.props.trip.activitiesAdded
         }
+
+        if (this.props.trip.activitiesAdded.length === 0) {
+            alert("Please select some activities first!")
+            return;
+        }
         this.props.itineraryLoad(data);
     }
 

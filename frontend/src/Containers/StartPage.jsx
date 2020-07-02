@@ -13,8 +13,8 @@ import InputForm from '../Components/InputForm'
 import { Spinner } from 'react-bootstrap';
 import "./CSS/global.css"
 import "./CSS/Start.css"
-import SBG from '../assets/startBackground.jpg'
 import LazyLoad from 'react-lazy-load';
+import SBG from '../assets/startBackground.jpg'
 /** Container, renders sign up page.
 * @memberof Container
 * @param {Component} Navbar, renders navigation bar.

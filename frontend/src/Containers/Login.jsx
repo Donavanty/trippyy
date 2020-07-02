@@ -9,8 +9,10 @@ import { connect } from 'react-redux';
 
 import NavBar from '../Components/navBar';
 import "./CSS/global.css"
+import "./CSS/UserForm.css"
 import { Spinner } from 'react-bootstrap';
-
+import LazyLoad from 'react-lazy-load';
+import SBG from '../assets/startBackground.jpg'
 /** Container, renders login page.
 * @memberof Container
 * @param {Component} Navbar, renders navigation bar.
@@ -54,27 +56,37 @@ class Login extends Component {
 
     render() {
         return (
-          <div className = "container-fluid align-items-center" id="loginPage">
+          <div>
+              <LazyLoad>
+                <img 
+                  src={SBG} 
+                  id="startBg"
+                  alt="start-bg"/>
+              </LazyLoad>
+
               <NavBar from={this.props.location.pathname}/>
-              <div className = "jumbotron bigBox">
-                <h1> Login</h1> 
-                  <form onSubmit={this.handleSubmit}>
-                    <div className = "element">
-                      <input type = "text" name = "username" placeholder = "Enter Username" />
-                    </div>
-                    
-                    <div className = "element">
-                      <input type = "password" name = "password" placeholder = "Enter Password" />
-                    </div>
-                    {
-                      this.props.loading ? 
-                        <Spinner animation="border" role="status" className = "element">
-                          <span className="sr-only">Loading...</span>
-                        </Spinner>
-                      :
-                        <button className = "element" type="submit" value = "Submit"> Submit </button>
-                    }
-                  </form>
+
+              <div className = "bigBox">
+                <div className = "loginBox">
+                  <h1> Login </h1> 
+                    <form onSubmit={this.handleSubmit} className = "loginForm">
+                      <div className = "formElement">
+                        <input type = "text" name = "username" placeholder = "Enter Username" />
+                      </div>
+                      
+                      <div className = "formElement">
+                        <input type = "password" name = "password" placeholder = "Enter Password" />
+                      </div>
+                      {
+                        this.props.loading ? 
+                          <Spinner animation="border" role="status" className = "element">
+                            <span className="sr-only">Loading...</span>
+                          </Spinner>
+                        :
+                          <button className = "element" type="submit" value = "Submit"> Submit </button>
+                      }
+                    </form>
+                  </div>
               </div>
           </div>);
 

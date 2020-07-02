@@ -9,6 +9,9 @@ import { connect } from 'react-redux';
 
 import NavBar from '../Components/navBar';
 import { Spinner } from 'react-bootstrap';
+import "./CSS/UserForm.css"
+import LazyLoad from 'react-lazy-load';
+import SBG from '../assets/startBackground.jpg'
 
 
 function isASCII(str) {
@@ -115,36 +118,45 @@ class Signup extends Component {
     }
     render() {
         return (
-          <div className = "container-fluid align-items-center" id="signupPage">
+          <div>
+              <LazyLoad>
+                <img 
+                  src={SBG} 
+                  id="startBg"
+                  alt="start-bg"/>
+              </LazyLoad>
+
               <NavBar from={this.props.location.pathname}/>
               
-              <div className = "jumbotron bigBox" id="signup-startbox">
-                <h1> Sign Up</h1>
-                  <form onSubmit={this.handleSubmit}>
-                    <div className = "element">
+              <div className = "bigBox">
+                <div className = "loginBox">
+                  <h1> Sign Up</h1>
+                  <form onSubmit={this.handleSubmit} className ="loginForm">
+                    <div className = "formElement">
                       <input type = "text" name = "username" placeholder = "Enter Username" onChange={this.usernameOnChange}/>
                     </div>
                     
-                    <div className = "element">
+                    <div className = "formElement">
                       <input type = "text" name = "email" placeholder = "Enter Email" onChange={this.emailOnChange}/>
                     </div>
 
-                    <div className = "element">
+                    <div className = "formElement">
                       <input type = "password" name = "password1" placeholder = "Enter Password" onChange={this.passwordOnChange}/>
                     </div>
 
-                    <div className = "element">
+                    <div className = "formElement">
                       <input type = "password" name = "password2" placeholder = "Enter Password again" onChange={this.password2OnChange}/>
                     </div>
                     {
                       this.props.loading ? 
-                        <Spinner animation="border" role="status" className = "element">
+                        <Spinner animation="border" role="status" className = "formElement">
                           <span className="sr-only">Loading...</span>
                         </Spinner>
                       :
-                        <button className = "element" type="submit" value = "Submit"> Submit </button>
+                        <button className = "formElement" type="submit" value = "Submit"> Submit </button>
                     }
                   </form>
+                </div>
               </div>
           </div>);
 
@@ -154,9 +166,8 @@ class Signup extends Component {
 
 const mapStateToProps = (state) => {
     return {
+      isAuthenticated: state.user !== null,
       loading: state.loading,
-      isAuthenticated: state.user !== null
-
     }
 }
 

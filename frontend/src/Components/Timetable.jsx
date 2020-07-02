@@ -117,7 +117,7 @@ class Timetable extends Component {
 	      			onDrop={this.onDrop}>
 
 	      		<h2> Your timetable! </h2>
-	          {this.props.trip["itinerary"].map( (dayValue, dayindex) => (
+	          	{this.props.trip["itinerary"].map( (dayValue, dayindex) => (
 	          	<React.Fragment>
 	          	<div className="day">
 	          		<div className="dayDetails"> 

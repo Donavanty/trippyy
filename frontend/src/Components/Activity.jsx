@@ -13,7 +13,8 @@ import axios from "axios";
  */
 
 const API_KEY = "AIzaSyDyb0_iNF_gpoxydk5Vd8IpWj1Hy1Tp5Vc"
-
+const DATABASE_URL = "https://trippyy-backend.herokuapp.com/"
+// const DATABASE_URL = "http://127.0.0.1:8000/"
 class Activity extends Component{
 	state = {
 		photo : null,
@@ -43,7 +44,7 @@ class Activity extends Component{
 				key: API_KEY,
 				photoRef: this.props.value["photos"][0]["photo_reference"]
 			}
-			axios.post("http://trippyy-backend.herokuapp.com/api/GooglePhoto/", data).then(
+			axios.post(DATABASE_URL + "api/GooglePhoto/", data).then(
 				res => { 
 					this.setState({photo: res.data})
 			});

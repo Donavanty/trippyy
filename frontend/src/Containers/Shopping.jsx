@@ -47,13 +47,13 @@ class Shopping extends Component {
     render() {
 
         return (
-          <div className = "container-fluid align-items-center">
-          <LazyLoad>
-            <img src={BG} alt="boo" id="shoppingBg"/>
-          </LazyLoad>
-          <div>
-              <NavBar id="navbar-Shopping" from={this.props.location.pathname}/>
-          </div>
+          <div className = "shoppingBox">
+            <LazyLoad>
+              <img src={BG} alt="boo" className="shoppingBg"/>
+            </LazyLoad>
+              <div>
+                  <NavBar id="navbar-Shopping" from={this.props.location.pathname}/>
+              </div>
               <div className = "bigBox">
                 <div className = "row">
                   <div className = "col-3" id="selectedActivitiesBox">

@@ -52,6 +52,17 @@ class SelectedActivityList extends Component{
         return (
             <Fragment>
                 <Link to="/results" className="itiButton" onClick={this.getItinerary} value="general">Get Itinerary</Link>
+                <div className ="statsBox">
+                    <div className = "stats1">
+                        <p className="statsDes"> Recommended Activities Duration:</p> 
+                        <p className="statsNum"> CMG SOON </p>
+                    </div>
+
+                    <div className = "stats1">
+                        <p className= "statsDes"> Current Activities Duration:</p> 
+                        <p className="statsNum"> {this.props.trip["activitiesAddedLength"]} h </p>
+                    </div>
+                </div>
             	<div id="selectedActivityList">
             		{
             			this.props.trip["activitiesAdded"].map( (value, index) => <p key={index}>{index+1} : {value.name}</p>)

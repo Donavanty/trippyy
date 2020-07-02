@@ -2,6 +2,9 @@ import * as actionTypes from './actionTypes';
 import axios from 'axios';
 import {updateObject} from '../utility';
 const DATABASE_URL = "https://trippyy-backend.herokuapp.com/"
+// const DATABASE_URL = "http://127.0.0.1:8000/"
+
+
 
 /**
  *
@@ -168,6 +171,7 @@ export const newTripData = (tripCountry, tripLat, tripLng, startDate, endDate) =
 		'startDate' : startDate,
 		'endDate' : endDate,
 		'activitiesAdded': [],
+		'activitiesAddedLength' : 0,
 		'activitiesAddedIds': [],
 		'itinerary' : [[]],
 		'focusedDayDirections': [],
@@ -264,11 +268,11 @@ export const activitiesLoadData = (data) => {
 	
 	var url;
 	if (data.dataType === "TEXTSEARCH") {
-		url = "http://trippyy-backend.herokuapp.com/api/TextSearch/"
+		url = DATABASE_URL + "api/TextSearch/"
 	} else if (data.dataType === "NEXTKEYSEARCH") {
-		url = "http://trippyy-backend.herokuapp.com/api/NextKeySearch/"
+		url = DATABASE_URL + "api/NextKeySearch/"
 	} else if (data.dataType === "BOUNDEDTEXTSEARCH") {
-		url = "http:/trippyy-backend.herokuapp.com/api/BoundedTextSearch/"
+		url = DATABASE_URL + "api/BoundedTextSearch/"
 
 		// If input type was to go to previous page, simply change activities shown
 		// inside reducer.
@@ -409,7 +413,7 @@ export const itineraryLoad = (data) => {
  */
 export const itineraryLoadData = (data) => {
 	return (dispatch) => {
-	    axios.post("https:/trippyy-backend.herokuapp.com/api/algo/", data).then( (res) => {
+	    axios.post(DATABASE_URL + "api/algo/", data).then( (res) => {
 	        var iti = JSON.parse(res.data);
 	        for (var day in iti) {
 	        	for (var activity in iti[day]) {

@@ -14,6 +14,10 @@ import {
     InfoWindow,
     
 } from "react-google-maps";
+import Penguin from '../assets/penguinIcon.png'
+import PenguinStanding from '../assets/penguinStanding.png'
+import PenguinAdded from '../assets/penguinAdded.png'
+import PenguinAddedStanding from '../assets/penguinAddedStanding.png'
 
 let ref
 
@@ -175,8 +179,16 @@ class Map extends Component{
                                     <Marker 
                                         key={index} 
                                         position={value.geometry.location} 
-                                        label={(this.props.activitiesShown.firstActivityCounter + index + 1).toString()}
                                         onClick={(event) => this.markerClickHandler(event, index)}
+                                        icon = {{
+                                            url: Penguin,
+                                            scaledSize: new window.google.maps.Size(44, 44),
+                                            labelOrigin: new window.google.maps.Point(20, 28), 
+                                        }}
+                                        label = {{
+                                            text: (this.props.activitiesShown.firstActivityCounter + index + 1).toString(),
+                                            fontSize:"10px",
+                                            fontFamily:"Montserrat"}}
 
                                     >
 
@@ -193,11 +205,14 @@ class Map extends Component{
                                         key={index} 
                                         position={value.geometry.location} 
                                         onClick={(event) => this.markerClickHandler(event, index)} 
-                                        label = {(this.props.activitiesShown.firstActivityCounter + index + 1).toString()}
+                                        label = {{
+                                            text: (this.props.activitiesShown.firstActivityCounter + index + 1).toString(),
+                                            fontSize:"14px",
+                                            fontFamily:"Montserrat"}}
                                         icon = {{
-                                            url:"http://maps.google.com/mapfiles/ms/icons/red.png",
-                                            scaledSize: new window.google.maps.Size(66, 66), 
-                                            labelOrigin: new window.google.maps.Point(32, 15), 
+                                            url: PenguinStanding,
+                                            scaledSize: new window.google.maps.Size(44, 60), 
+                                            labelOrigin: new window.google.maps.Point(22, 15), 
                                         }}
                                     >
 
@@ -220,12 +235,15 @@ class Map extends Component{
                                 <Marker 
                                     key={index} 
                                     position={value.geometry.location} 
-                                    label={(index + 1).toString()}
+                                    label = {{
+                                        text: (index + 1).toString(),
+                                        fontSize:"12px",
+                                        fontFamily:"Montserrat"}}
                                     onClick={(event) => this.markerClickHandler(event, index)} 
                                     icon = {{
-                                        url:"http://maps.google.com/mapfiles/ms/icons/blue.png",
+                                        url: PenguinAdded,
                                         scaledSize: new window.google.maps.Size(44, 44), 
-                                        labelOrigin: new window.google.maps.Point(22, 15), 
+                                        labelOrigin: new window.google.maps.Point(22, 30), 
                                     }}
                                 >
                                 
@@ -240,12 +258,15 @@ class Map extends Component{
                                 <Marker 
                                     key={index} 
                                     position={value.geometry.location} 
-                                    label={(index + 1).toString()}
+                                    label = {{
+                                        text: (index + 1).toString(),
+                                        fontSize:"14px",
+                                        fontFamily:"Montserrat"}}
                                     onClick={(event) => this.markerClickHandler(event, index)} 
                                     icon = {{
-                                        url:"http://maps.google.com/mapfiles/ms/icons/blue.png",
-                                        scaledSize: new window.google.maps.Size(66, 66), 
-                                        labelOrigin: new window.google.maps.Point(32, 15), 
+                                        url:PenguinAddedStanding,
+                                        scaledSize: new window.google.maps.Size(44, 60), 
+                                        labelOrigin: new window.google.maps.Point(21, 13), 
                                     }}
                                 >
                                 

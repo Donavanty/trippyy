@@ -57,6 +57,8 @@ class InputForm extends Component {
 	* @param {ReduxAction} newTrip: Updates redux state with new trip information.
 	*/
 	newTrip = (event) => {
+		console.log(this.state.latLng)
+		console.log(this.state.countryName)
 		if (this.state.startDate == null || this.state.endDate == null) {
 			alert("Please choose dates first!");
 		} else if (this.state.countryName == null || this.state.latLng == null) {

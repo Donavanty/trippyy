@@ -2,7 +2,11 @@
     height: 36%;
 } */
 
-#shoppingBg {
+.shoppingBox {
+	position: fixed;
+}
+
+.shoppingBg {
 	height: 100vh;
 	width: 100vw;
 	position: fixed;
@@ -11,7 +15,7 @@
 }
 
 #activitiesBox {
-	height: 92vh;
+	height: 93vh;
   	border-left: 0px;
 	padding-top: 10px;
 	margin-right: 0;
@@ -19,8 +23,9 @@
 }
 
 #selectedActivitiesBox {
-  height: 92vh;
-  padding-top: 10px;
+  height: 93vh;
+  padding-top: 2vh;
+  padding-left: 2vw;
   background-color: rgb(200,200,200, 0.5)
 }
 

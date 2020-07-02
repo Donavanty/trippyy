@@ -29,18 +29,18 @@ class Results extends Component {
 	render() {
 		return (
             <Fragment>
-                <img src={BG} alt="boo" id="shoppingBg"/>
+                <img src={BG} alt="boo" className="shoppingBg"/>
                 <NavBar from={this.props.location.pathname}/>
                 <div className="bigBox">
-                <div className="row">
-                    <div className="col-8 timetableBox">
-                        <Timetable/>
-                    </div>
+                    <div className="row">
+                        <div className="col-8 timetableBox">
+                            <Timetable/>
+                        </div>
 
-                    <div className="col-4 resultsMapBox">
-                        <ResultsMap/>
+                        <div className="col-4 resultsMapBox">
+                            <ResultsMap/>
+                        </div>
                     </div>
-                </div>
                 </div>
             </Fragment>);
 	} 

@@ -17,10 +17,12 @@ const initialState = {
 		'startDate': -1,
 		'endDate' : -1,
 		'activitiesAdded' : [],
+		'activitiesAddedLength' : 0,
 		'activitiesAddedIds' : [],
 		'itinerary' : [[]],
 		'focusedDay' : [],
 		'focusedDayDirections' : [],
+
 	},
 
 	map: {
@@ -204,7 +206,8 @@ const activitiesAdd = (state, action) => {
 	var activityAdded = state.activitiesShown.currentList[action.index];
 	activityAdded = updateObject(activityAdded, {added: true});
 
-	// Replace the activity in ActivitiesShown with a new one that says added:true
+	var newTotalTime = currentTrip.activitiesAddedLength + (activityAdded["recommendedTime"] / 60)
+
 	var activitiesShownCurrentList = [...state.activitiesShown.currentList];
 	activitiesShownCurrentList[action.index] = activityAdded;
 
@@ -219,7 +222,8 @@ const activitiesAdd = (state, action) => {
 
 	// Merge all changes into currentTrip
 	currentTrip['activitiesAdded'].push(activityAdded);
-	currentTrip['activitiesAddedIds'].push(activityAdded.id)
+	currentTrip['activitiesAddedIds'].push(activityAdded.id);
+	currentTrip['activitiesAddedLength'] = newTotalTime;
 
 	// Update currentTrip
 	localStorage.setItem('trip', JSON.stringify(currentTrip));
@@ -241,6 +245,8 @@ const activitiesSubtract = (state, action) => {
 	// Update the activity such that {added: false}
 	var activitySelected = state.activitiesShown.currentList[action.index];
 	activitySelected = updateObject(activitySelected, {added: false});
+
+	var newTotalTime = currentTrip.activitiesAddedLength - (activitySelected["recommendedTime"] / 60)
 
 	// Replace the activity in ActivitiesShown with a new one that says added: false
 	var activitiesShownCurrentList = [...state.activitiesShown.currentList];
@@ -267,7 +273,7 @@ const activitiesSubtract = (state, action) => {
 		(id) => id !== activitySelected.id);
 	
 	currentTrip['activitiesAddedIds'] = filteredTripIds;
-
+	currentTrip['activitiesAddedLength'] = newTotalTime;
 	// Update currentTrip
 	localStorage.setItem('trip', JSON.stringify(currentTrip));
 

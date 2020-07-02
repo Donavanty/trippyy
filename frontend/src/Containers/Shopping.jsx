@@ -13,6 +13,7 @@ import ActivityList from '../Components/ActivityList'
 import SelectedActivityList from '../Components/SelectedActivityList'
 import "./CSS/Shopping.css"
 import BG from '../assets/shoppingBg.jpg'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 /** Container, renders shopping page
 * @memberof Container
@@ -47,7 +48,7 @@ class Shopping extends Component {
 
         return (
           <div className = "container-fluid align-items-center">
-          <img src={BG} alt="boo" id="shoppingBg"/>
+          <LazyLoadImage src={BG} alt="boo" id="shoppingBg"/>
           <div>
               <NavBar id="navbar-Shopping" from={this.props.location.pathname}/>
           </div>

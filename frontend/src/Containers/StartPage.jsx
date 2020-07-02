@@ -7,12 +7,14 @@ import * as actions from '../store/actions/actions';
 import { connect } from 'react-redux';
 // -------------------------------------------------------------------------
 
-import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.css"; 
 import NavBar from '../Components/navBar';
 import InputForm from '../Components/InputForm'
+import { Spinner } from 'react-bootstrap';
 import "./CSS/global.css"
 import "./CSS/Start.css"
-
+import SBG from '../assets/startBackground.jpg'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 /** Container, renders sign up page.
 * @memberof Container
 * @param {Component} Navbar, renders navigation bar.
@@ -23,19 +25,34 @@ import "./CSS/Start.css"
 */
 class StartPage extends Component {
 
+	state = {
+		bgLoading: true,
+	}
 
 	componentDidMount() {
 		//Updates login status into redux.
 		this.props.onTryAutoSignup();
 		this.props.checkTrip();
+		this.setState({bgLoading: false});
 	}
 
 	render() {
-		if (this.props.loading) {
-			return <h1> loading! </h1>
+		if (this.state.bgLoading) {
+			return (
+			<div className ="loadingBox">
+				<Spinner animation="border" role="status">
+				  <span className="sr-only">Loading...</span>
+				</Spinner>
+			</div>);
 		}
+		
 	  return (
+
 	    <div id="startPage" className="animate__animated animate__fadeIn">
+	    	<LazyLoadImage 
+	    		src={SBG} 
+	    		ref={this.bgRef} 
+	    		id="startBg"/>
 	    	<NavBar from={this.props.location.pathname}/>
 	    	<div className="bigBox">
 	    		<InputForm history={this.props.history} />

@@ -126,6 +126,7 @@ export const authSignup = (username, email, password1, password2) => {
 export const authCheckState = () => {
 	return dispatch => {
 		const user = JSON.parse(localStorage.getItem('user'));
+		dispatch(authStart());
 		if (user === undefined || user === null) {
 			dispatch(notLoggedIn());
 		} else {

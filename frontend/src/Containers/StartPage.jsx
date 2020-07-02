@@ -31,8 +31,11 @@ class StartPage extends Component {
 	}
 
 	render() {
+		if (this.props.loading) {
+			return <h1> loading! </h1>
+		}
 	  return (
-	    <div id="startPage">
+	    <div id="startPage" className="animate__animated animate__fadeIn">
 	    	<NavBar from={this.props.location.pathname}/>
 	    	<div className="bigBox">
 	    		<InputForm history={this.props.history} />
@@ -45,6 +48,7 @@ class StartPage extends Component {
 
 const mapStateToProps = (state) => {
 	return {
+		loading: state.loading
 	}
 }
 

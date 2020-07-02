@@ -5,4 +5,10 @@
 
   /*To make the background image look nice*/
   padding-top: 8vh;
+  /*opacity: 0;*/
+  transition: opacity 1s ease-in-out;
+}
+
+#startPage active {
+	opacity: 1;
 }

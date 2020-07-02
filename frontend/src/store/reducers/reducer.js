@@ -70,7 +70,7 @@ const authSuccess = (state, action) => {
 	const user = {
 		'id': action.userId,
 		'token': action.token,
-		'username': action.username
+		'username': action.username,
 	}
 	
 	return updateObject(state, {
@@ -90,6 +90,7 @@ const authFail = (state, action) => {
 const authLogout = (state, action) => {
 	return updateObject(state, {
 		user: null,
+		loading: false,
 	});
 }
 

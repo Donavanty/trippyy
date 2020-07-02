@@ -110,6 +110,7 @@ def optimize(data, days):
 				if (duration < pq[activity]):
 					pq[activity] = duration
 
+	# Per day processing starts here ---------------------------------
 	count = 1
 	for i in range(0, len(output)):
 		print ("DAY: " + str(count) + " ------------------------------------------------------ ")
@@ -118,8 +119,10 @@ def optimize(data, days):
 			print(output[i][j].data["name"])
 			output[i][j] = output[i][j].toJson()
 		count += 1
+
+
 	return json.dumps(output)
-	# return "{}"
+
 
 
 

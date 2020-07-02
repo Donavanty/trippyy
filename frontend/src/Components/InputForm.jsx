@@ -88,7 +88,7 @@ class InputForm extends Component {
 
 	render() {
 		return (
-	      <div className = "container-fluid align-items-center">
+	      <div>
 
 	    	<div className = "row">
 		    	<div className = "col-5 logo-container">
@@ -96,7 +96,8 @@ class InputForm extends Component {
 						<img src={Logo} alt="trippyy-logo" className="trippyy-logo"/>
 					</LazyLoad>
 				</div>
-	          <div className = "inputForm-box col-7">
+	          <div className = "col-7">
+	          <div className ="inputForm-box">
 	          	{
 	    		 (this.props.isAuthenticated) ?
 	    			 <h1>Welcome back, {this.props.user.username}!</h1> : (<h1>Get Started</h1>)
@@ -134,6 +135,7 @@ class InputForm extends Component {
 	                	}
 	                </div>
 	              </form>
+	              </div>
 	              </div>
 
 	              

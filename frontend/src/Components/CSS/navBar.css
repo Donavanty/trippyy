@@ -1,37 +1,18 @@
-html, body, #root {
-  font-family: 'Cabin', sans-serif;
-}
-
 #nav1 { 
   background-color: white;
   opacity: 0.8;
-  /* position: static; */
-}
-.navbar-nav {
-  width: 100vw;
-  text-align: center;
+  font-family: Montserrat;
+  font-weight: bold;
 }
 
-.navbar {
-  height: 8vh;
+.navbar-items {
+  margin-right: 5vw;
 }
 
-.table{
-  height: 4vh;
-}
-.navbar-nav ul {
-  padding: 0; /* remove the default left-side ul indentation */
-  width: 100%;
-}
-.navbar-nav ul li{
-  display: inline-block;
-  list-style-type: none;
-}
-
-.nav-link, .navbar-brand {
-  /* color: rgb(213,167,164); */
-  /* color: #2B879C */
+.nav-link {
   color: #5CCFE9;
+  display: inline-block;
+  margin-left: 1vw;
 }
 
 .nav-link:hover {
@@ -40,21 +21,11 @@ html, body, #root {
 }
 
 .nav-item {
-  padding-left: 2vw;
-  padding-right: 3vw;
-  font-size: 24px;
-  /* font-size: 2vw; */
+  display: inline-block;
 }
 
 /* trippyy logo word */
 .navbar-brand {
-  transform: scale(0.4, 0.4);
-  height: 20px;
-  width: 210px;
-}
-.nav-item-right{
-  position: fixed;
-  top: 1.1vh;
-  right: 1vw;
-  /* text-align: right; */
+  padding: 0;
+  height: 4vh;
 }

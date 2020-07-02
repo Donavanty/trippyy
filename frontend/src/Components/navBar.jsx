@@ -19,78 +19,57 @@ import LogoWord from '../assets/logoWord.png'
 class NavBar extends Component {
   render() {
     return (
-      <nav className="navbar fixed-top navbar-expand-lg" id="nav1">
-        <div className="navbar-nav" id="navbar-nav">
-          <div className="table">
-            <ul className="navbar-ul">
-              <li className="nav-item">
-                <Link to="/" className="nav-link">
-                  {" "}
-                  Home{" "}
+      <nav className="navbar fixed-top" id="nav1">
+        {(this.props.from === "/") ? <div/> : 
+          <a to="/"  href="/">
+              <img className="navbar-brand" src={LogoWord} alt="trippyy-word-logo" />
+          </a>
+        }
+        <div className="navbar-items"> 
+            <Link to="/" className="nav-item nav-link">
+              {" "}
+              Home{" "}
+            </Link>
+
+            <Link to="/mytrips" className="nav-item nav-link">
+              My Trips
+            </Link>
+
+          {this.props.isAuthenticated ? (
+            <React.Fragment>
+                <Link
+                  to="/"
+                  className="nav-item nav-link"
+                  onClick={this.props.logout}
+                >
+                  Logout
                 </Link>
-              </li>
 
-              <li className="nav-item">
-                <Link to="/mytrips" className="nav-link">
-                  {" "}
-                  My Trips<span className="sr-only">(current)</span>
+                <Link to="/mytrips" className="nav-item nav-link" id="accountLink">
+                  Account: {this.props.user.username}
                 </Link>
-              </li>
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+                <Link
+                  to={{
+                    pathname: "/login",
+                    state: { from: this.props.from },
+                  }}
+                  className="nav-item nav-link"
+                  id="loginLink"
+                >
+                  {" "}
+                  Login{" "}
+                </Link>
 
-              {this.props.isAuthenticated ? (
-                <React.Fragment>
-                  <li className="nav-item">
-                    <Link
-                      to="/"
-                      className="nav-link"
-                      onClick={this.props.logout}
-                    >
-                      Logout
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link to="/mytrips" className="nav-link" id="accountLink">
-                      Account: {this.props.user.username}
-                    </Link>
-                  </li>
-                </React.Fragment>
-              ) : (
-                <React.Fragment>
-                  <li className="nav-item">
-                    <Link
-                      to={{
-                        pathname: "/login",
-                        state: { from: this.props.from },
-                      }}
-                      className="nav-link"
-                      id="loginLink"
-                    >
-                      {" "}
-                      Login{" "}
-                    </Link>
-                  </li>
-
-                  <li className="nav-item">
-                    <Link to="/signup" className="nav-link" id="signupLink">
-                      {" "}
-                      Signup{" "}
-                    </Link>
-                  </li>
-                </React.Fragment>
-              )}
-            
-
-            <li className="nav-item-right" id="right">
-              <React.Fragment>
-					  <a to="/" className="navbar-brand" href="/">
-                <img src={LogoWord} alt="trippyy-word-logo" />
-                </a>
-              </React.Fragment>
-			  </li>
-            </ul>
+                <Link to="/signup" className="nav-item nav-link" id="signupLink">
+                  {" "}
+                  Signup{" "}
+                </Link>
+            </React.Fragment>
+          )}
           </div>
-        </div>
       </nav>
     );
   }

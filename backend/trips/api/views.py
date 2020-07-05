@@ -67,12 +67,12 @@ class AlgoOptimize(APIView):
 
         return Response(output, status=200)
 
-class GooglePhoto(APIView):
+class PlaceDetails(APIView):
     def post(self, request, *args, **kwargs):
         data = request.data
-        url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + data["photoRef"] + "&key=" + data["key"]
+        url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=" + data["placeId"] + "&key=" + data["key"]
         r = requests.get(url)
-        return Response(r.url, content_type='image/png', status=200)
+        return Response(r.text, status=200)
 
 
 # Custom View to Login such that UserID is returned.

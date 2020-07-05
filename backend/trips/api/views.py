@@ -39,7 +39,7 @@ class TextSearch(APIView):
         data = request.data
         url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + data["query"] + "&key=" + data["key"]
         r = requests.get(url)
-        output = addTimeAndSummary(r, data["key"])
+        output = addTimeAndSummary(r, data["key"], False)
         return Response(output, status=200)
 
 class NextKeySearch(APIView):
@@ -47,7 +47,7 @@ class NextKeySearch(APIView):
         data = request.data
         url = "https://maps.googleapis.com/maps/api/place/textsearch/json?pagetoken=" + data["next_page_token"] + "&key=" + data["key"]
         r = requests.get(url)
-        output = addTimeAndSummary(r, data["key"])
+        output = addTimeAndSummary(r, data["key"], False)
 
         return Response(output, status=200)
 
@@ -70,10 +70,30 @@ class AlgoOptimize(APIView):
 class PlaceDetails(APIView):
     def post(self, request, *args, **kwargs):
         data = request.data
-        url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=" + data["placeId"] + "&key=" + data["key"]
-        r = requests.get(url)
-        return Response(r.text, status=200)
+        status = 0
+        output = {}
 
+        if not (data["placeId"]):
+            status = 201
+            output = {"Error" : "Place ID is invalid."}
+        else:
+            url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=" + data["placeId"] + "&key=" + data["key"]
+            r = requests.get(url)
+            output = addTimeAndSummary(r, data["key"], True)
+            status = 200
+        return Response(output, status=status)
+
+
+class GooglePhoto(APIView):
+    def post(self, request, *args, **kwargs):
+        data = request.data
+        url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + data["photoRef"] + "&key=" + data["key"]
+        r = requests.get(url)
+
+        output = ""
+        if (r.url):
+            output = r.url
+        return Response(output, status=200)
 
 # Custom View to Login such that UserID is returned.
 from rest_framework.authtoken.views import ObtainAuthToken

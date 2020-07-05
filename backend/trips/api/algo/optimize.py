@@ -37,6 +37,7 @@ def optimize(data, days):
 
 		activities.append(Activity(place))
 
+
 	# API call ------------------------------------------------------------------------------
 	headers = {
 	    'Accept': 'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8',

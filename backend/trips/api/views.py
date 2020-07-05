@@ -38,10 +38,8 @@ class TextSearch(APIView):
     def post(self, request, *args, **kwargs):
         data = request.data
         url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + data["query"] + "&key=" + data["key"]
-        # url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=Singapore+points+of+interest&key=AIzaSyDyb0_iNF_gpoxydk5Vd8IpWj1Hy1Tp5Vc"
         r = requests.get(url)
-        output = addTimeAndSummary(r)
-
+        output = addTimeAndSummary(r, data["key"])
         return Response(output, status=200)
 
 class NextKeySearch(APIView):
@@ -49,7 +47,7 @@ class NextKeySearch(APIView):
         data = request.data
         url = "https://maps.googleapis.com/maps/api/place/textsearch/json?pagetoken=" + data["next_page_token"] + "&key=" + data["key"]
         r = requests.get(url)
-        output = addTimeAndSummary(r)
+        output = addTimeAndSummary(r, data["key"])
 
         return Response(output, status=200)
 

@@ -1,12 +1,27 @@
 import json
 import requests
 
-def addTimeAndSummary(r):
+def addTimeAndSummary(r, key):
 	data = json.loads(r.text)
 	for place in data["results"]:
+		# Adding category and recommended time ------------------------------------------
 		wrapper = recommendTime(place)
 		place["recommendedTime"] = wrapper[0]
 		place["category"] = wrapper[1]
+
+		# Adding image ------------------------------------------------------------
+		photo = place["photos"][0]
+		photoRef = ""
+		if (photo):
+			# Getting photo reference
+			photoRef = photo["photo_reference"]
+
+			# Retrieving image url through request
+			url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + photoRef + "&key=" + key
+			r = requests.get(url)
+
+			# Assigning display photo to url
+			place["displayPhoto"] = r.url
 
 		# Summary to be postponed ----------------------------------------------------------------
 		# summary = getSummary(place)

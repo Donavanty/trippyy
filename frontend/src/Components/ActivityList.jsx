@@ -62,8 +62,10 @@ class ActivityList extends Component{
                 category: "General",
             }
             
+            if (this.props.activitiesShown.currentList.length === 0) {
             // Retrieves Singapore places of interest.
             this.props.activitiesLoad(data);
+            }
         }
         
         // Use this if were to implement infinite scrolling instead.
@@ -171,7 +173,13 @@ class ActivityList extends Component{
             const subtractAllSelectedActivities = () => {
                 for (let j = 0; j < this.props.activitiesShown.currentList.length; j++) {
                     if (this.props.activitiesShown.currentList[j].added === true) {
-                        this.props.activitiesSubtract(j);
+                        this.props.activitiesSubtract(this.props.activitiesShown.currentList[j]);
+                    }
+                }
+
+                for (let j = 0; j < this.props.searchActivitiesShown; j++) {
+                    if (this.props.searchActivitiesShown[j].added === true) {
+                        this.props.activitiesSubtract(this.props.searchActivitiesShown[j]);
                     }
                 }
             }
@@ -197,10 +205,12 @@ class ActivityList extends Component{
         return (
             <div id="activityList" ref = "myscroll">
             { this.props.activitiesLoading ?
-
-                <Spinner animation="border" role="status">
-                    <span className="sr-only">Loading...</span>
-                </Spinner> 
+                <div className="loadingBox">
+                    <p> Getting your activities, hang tight! </p>
+                    <Spinner animation="border" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </Spinner>
+                </div> 
 
                 : 
                 <Fragment>

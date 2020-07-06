@@ -28,11 +28,8 @@ class SelectedActivityList extends Component{
     * @param {ReduxAction} itineraryLoad: Updates redux state to generate itinerary.
     */
     getItinerary = (event) => {
-        var startDate = new Date(this.props.trip.startDate);
-        var endDate = new Date(this.props.trip.endDate);
-        var lengthOfTrip = ((endDate - startDate) / (1000*60*60*24)) + 1
         const data = {
-            lengthOfTrip: lengthOfTrip,
+            lengthOfTrip: this.props.trip.lengthOfTrip,
             activitiesAdded: this.props.trip.activitiesAdded
         }
 
@@ -55,7 +52,7 @@ class SelectedActivityList extends Component{
                 <div className ="statsBox">
                     <div className = "stats1">
                         <p className="statsDes"> Recommended Activities Duration:</p> 
-                        <p className="statsNum"> CMG SOON </p>
+                        <p className="statsNum"> {this.props.trip["lengthOfTrip"] * 10} h </p>
                     </div>
 
                     <div className = "stats1">

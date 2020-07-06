@@ -10,7 +10,9 @@ import { connect } from 'react-redux';
 import NavBar from '../Components/navBar';
 import Map from '../Components/Map'
 import ActivityList from '../Components/ActivityList'
+import ActivitySearch from '../Components/ActivitySearch'
 import SelectedActivityList from '../Components/SelectedActivityList'
+import ActivitySearchAutocomplete from '../Components/ActivitySearchAutocomplete'
 import "./CSS/Shopping.css"
 import BG from '../assets/shoppingBg.jpg'
 import LazyLoad from 'react-lazy-load';
@@ -43,6 +45,13 @@ class Shopping extends Component {
         window.scrollTo(0, 0); //Scroll right back to the top after InputForm.
     }
 
+    changeBrowsing = (browse) => {
+      this.props.changeBrowsing(browse);
+    }
+
+    selectAddress = (address, placeId) => {
+        this.props.addSuggestions(placeId);
+    }
     
     render() {
 
@@ -62,7 +71,21 @@ class Shopping extends Component {
                   </div>
                   <div className = "col-3" id="activitiesBox">
                     <h2> Activities: </h2>
-                    <ActivityList/>
+
+                    <div className = "browseSearchRow">
+                      <div className ="">
+                      <button className="browseButton" onClick={() => this.changeBrowsing("BROWSE")}> Browse </button>
+                      </div>
+                      <div className ="" onClick = {() => this.changeBrowsing("SEARCH")}>
+                        <ActivitySearchAutocomplete selectAddress={this.selectAddress}/>
+                      </div>
+                    </div>
+
+                    {this.props.browsingToggle ?
+                      <ActivityList/>
+                      :
+                      <ActivitySearch/>
+                    }
                   </div>
 
                   <div className ="col-6 mapBox">
@@ -84,7 +107,8 @@ const mapStateToProps = (state) => {
       isAuthenticated: state.user !== null,
       trip: state.trip,
       loading: state.loading,
-      error: state.error
+      error: state.error,
+      browsingToggle: state.browsingToggle
     }
 }
 
@@ -92,6 +116,8 @@ const mapDispatchToProps = dispatch => {
     return {
         onTryAutoSignup: () => dispatch(actions.authCheckState()),
         checkTrip: () => dispatch(actions.checkTrip()),
+        changeBrowsing: (browse) => dispatch(actions.changeBrowsing(browse)),
+        addSuggestions : (suggestions) => dispatch(actions.addSuggestions(suggestions)),
     }
 }
 

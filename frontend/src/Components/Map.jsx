@@ -14,30 +14,14 @@ import {
     InfoWindow,
     
 } from "react-google-maps";
+import * as utilities from '../Utilities.js'
+
 import Penguin from '../assets/penguinIcon.png'
 import PenguinStanding from '../assets/penguinStanding.png'
 import PenguinAdded from '../assets/penguinAdded.png'
 import PenguinAddedStanding from '../assets/penguinAddedStanding.png'
 
 let ref
-
-
-// Given bounds, gets radius.
-function getBoundsRadius(bounds){
-    // r = radius of the earth in km
-    var r = 6378.8
-    // degrees to radians (divide by 57.2958)
-    var ne_lat = bounds.getNorthEast().lat() / 57.2958
-    var ne_lng = bounds.getNorthEast().lng() / 57.2958
-    var c_lat = bounds.getCenter().lat() / 57.2958
-    var c_lng = bounds.getCenter().lng() / 57.2958
-    // distance = circle radius from center to Northeast corner of bounds
-    var r_km = r * Math.acos(
-    Math.sin(c_lat) * Math.sin(ne_lat) + 
-    Math.cos(c_lat) * Math.cos(ne_lat) * Math.cos(ne_lng - c_lng)
-    )
-    return r_km *1000 // radius in meters
-}
 
 /**
  * Component, renders Google Map.
@@ -51,6 +35,8 @@ function getBoundsRadius(bounds){
 class Map extends Component{
 
     state = {
+        firstLoad: false,
+
         center: 0,
         startCenter: 0,
         zoom: 0,
@@ -61,16 +47,16 @@ class Map extends Component{
         showInfoWindow: false,
         currentInfoWindow: 0,
         directions: null,
+
     }
     componentDidMount() {
-        console.log("hey?")
 
         if (localStorage.trip !== undefined) {
             this.setState({
                 startCenter: JSON.parse(localStorage.trip),
                 center: JSON.parse(localStorage.trip),
                 startZoom: 12,
-                zoom: 12
+                zoom: 12,
             })            
         }
     }
@@ -82,6 +68,7 @@ class Map extends Component{
      */
     uponBoundsChanged = () => {
         const newBounds = ref.getBounds()
+
        
         if (this.state.test === null) {
             this.setState({test: newBounds})
@@ -99,7 +86,7 @@ class Map extends Component{
 
             "center": ref.getCenter(),
 
-            "radius": getBoundsRadius(newBounds),
+            "radius": utilities.getBoundsRadius(newBounds),
         }
 
         //Updates new bounds to Redux
@@ -126,11 +113,21 @@ class Map extends Component{
      * Called upon first load of map.
      * Updates local state of bounds, and subsequently the redux-state by calling uponBoundsChanged
      */
-    mapLoaded = () => {        
+    mapLoaded = () => {
+        if (!this.state.firstLoad) {
+            ref.fitBounds(this.props.trip.geometry.viewport);
+            const newzoom = ref.getZoom() + 1
+            this.setState({
+                startZoom: newzoom,
+                zoom: newzoom,
+                firstLoad: true,
+            })
+            this.uponBoundsChanged();
+        }
+
         if (this.state.startBounds === null) {
             this.setState({startBounds: ref.getBounds()})
         }
-        this.uponBoundsChanged();
     }
     //First load, thus need to use local storage.
     WrappedMap = withScriptjs(withGoogleMap(props =>
@@ -159,6 +156,7 @@ class Map extends Component{
     }
 
     render() {
+
         return (
             <Fragment>
                 <this.WrappedMap
@@ -168,9 +166,9 @@ class Map extends Component{
                     mapElement={<div style={{ height: `100%` }} />}
                 >
 
-                 
+
                     { 
-                        this.props.activitiesShown.currentList.map((value,index) => 
+                        this.props.browsingToggle && this.props.activitiesShown.currentList.map((value,index) => 
                             (!value.added) && ( 
                                 (!(value === this.props.focusedActivity)) 
                                 
@@ -227,6 +225,59 @@ class Map extends Component{
 
                         )
 
+                    }
+                    {
+                        !this.props.browsingToggle && this.props.searchActivitiesShown.map( (value,index) => (
+                            (!value.added) && ((!(value === this.props.focusedActivity))
+                            
+                            ?
+                            
+                                <Marker
+                                    position={value.geometry.location}
+                                    label = {{
+                                            text: (index+1).toString(),
+                                            fontSize:"12px",
+                                            fontFamily:"Montserrat"}}
+                                    onClick={(event) => this.markerClickHandler(event, 0)}
+                                    icon = {{
+                                        url: Penguin,
+                                        scaledSize: new window.google.maps.Size(44, 44),
+                                        labelOrigin: new window.google.maps.Point(20, 28), 
+                                    }}
+                                >
+
+                                    {this.state.showInfoWindow && (this.state.currentInfoWindow === 0) && 
+                                        (<InfoWindow onCloseClick= {() => this.setState({showInfoWindow: false})}> 
+                                            <span>{value.name}</span> 
+                                        </InfoWindow> )
+                                    }
+                                </Marker>
+                            :
+                                    <Marker 
+                                        key={index} 
+                                        position={value.geometry.location} 
+                                        onClick={(event) => this.markerClickHandler(event, index)} 
+                                        label = {{
+                                            text: (index + 1).toString(),
+                                            fontSize:"14px",
+                                            fontFamily:"Montserrat"}}
+                                        icon = {{
+                                            url: PenguinStanding,
+                                            scaledSize: new window.google.maps.Size(44, 60), 
+                                            labelOrigin: new window.google.maps.Point(22, 15), 
+                                        }}
+                                    >
+
+                                        {this.state.showInfoWindow && (this.state.currentInfoWindow === index) && 
+                                            (<InfoWindow onCloseClick= {() => this.setState({showInfoWindow: false})}> 
+                                                <span>{value.name}</span> 
+                                            </InfoWindow> )
+                                        }
+
+                                    </Marker> 
+
+                            ))
+                        )
                     }
 
                     {
@@ -297,6 +348,8 @@ const mapStateToProps = (state) => {
         map: state.map,
         activitiesShown: state.activitiesShown,
         focusedActivity: state.focusedActivity,
+        browsingToggle: state.browsingToggle,
+        searchActivitiesShown: state.searchActivitiesShown,
     }
 }
 

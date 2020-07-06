@@ -1,0 +1,33 @@
+#activitySearchBox {
+	height: 75vh;
+	overflow-y: auto;
+}
+
+
+.historyRow {
+	display: flex;
+	justify-content: center;
+	padding-top: 2vmin;
+	padding-bottom: 2vmin;
+	
+}
+
+.historyText {
+	font-size: 4vmin;
+	color: grey;
+	margin-right: 2vmin;
+	
+}
+
+.historyButton {
+	background-color: grey;
+	border-color: grey;
+	color: white;
+	font-size: 2vmin;
+
+	padding: 0.5vmin;
+	height: 70%;
+	flex-grow: 0;
+
+
+}

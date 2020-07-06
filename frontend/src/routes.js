@@ -7,6 +7,8 @@ import MyTrips from './Containers/MyTrips';
 import Shopping from './Containers/Shopping';
 import Results from './Containers/Results';
 
+import ActivitySearch from './Components/ActivitySearch'
+
 const BaseRoute = () => (
 	<Switch> 
 		<Route exact path='/' component = {StartPage} />
@@ -15,6 +17,7 @@ const BaseRoute = () => (
 		<Route exact path ='/mytrips' component = {MyTrips} />
 		<Route exact path ='/shopping' component = {Shopping} />
 		<Route exact path ='/results' component = {Results} />
+		<Route exact path ='/hehetesting' component = {ActivitySearch}/>
 
 	</Switch> );
 

@@ -25,6 +25,7 @@ beforeEach(() => {
   // Setting mock store
   store = mockStore({
       activitiesShown: activitiesShown,
+      searchActivitiesShown: [],
       trip: trip,
       focusedActivity: {}
   });

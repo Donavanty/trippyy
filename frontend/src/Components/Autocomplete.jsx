@@ -35,8 +35,10 @@ class Autocomplete extends Component {
   handleSelect = address => {
     this.setState({ address });
     geocodeByAddress(address)
-    .then(results => getLatLng(results[0]))
-    .then(latLng => this.props.updateCountry(address, latLng))
+    .then(results => {
+      getLatLng(results[0]).then(
+        (latLng) => this.props.updateCountry(address, results[0]["geometry"], latLng))
+    })
     .catch(error => console.log(error));
   };
 
@@ -64,6 +66,7 @@ class Autocomplete extends Component {
         <div className="autocomplete-dropdown-container">
         {loading}
         {suggestions.map(suggestion => {
+          
           const className = suggestion.active
           ? 'suggestion-item--active'
           : 'suggestion-item';

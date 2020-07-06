@@ -1,8 +1,10 @@
 import * as actionTypes from './actionTypes';
+import * as utilities from '../../Utilities.js'
 import axios from 'axios';
 import {updateObject} from '../utility';
 const DATABASE_URL = "http://trippyy-backend.herokuapp.com/"
 // const DATABASE_URL = "http://127.0.0.1:8000/"
+const API_KEY = "AIzaSyDyb0_iNF_gpoxydk5Vd8IpWj1Hy1Tp5Vc"
 
 
 
@@ -153,7 +155,13 @@ export const authCheckState = () => {
 * @param {String} startDate: start date of trip
 * @param {String} endDate: end date of trip
 */
-export const newTripData = (tripCountry, tripLat, tripLng, startDate, endDate) => {
+export const newTripData = (tripCountry, tripGeometry, tripLatlng, startDate, endDate) => {
+	const tripLat = tripLatlng["lat"];
+	const tripLng = tripLatlng["lng"];
+	const radius = utilities.getBoundsRadius(tripGeometry["bounds"])
+    var mathStartDate = new Date(startDate);
+    var mathEndDate = new Date(endDate);
+    var lengthOfTrip = ((mathEndDate - mathStartDate) / (1000*60*60*24)) + 1
 	const data = {
 				destination: tripCountry,
 				tripName: "Trip to " + tripCountry + " from " + startDate + " to " + endDate,
@@ -166,10 +174,13 @@ export const newTripData = (tripCountry, tripLat, tripLng, startDate, endDate) =
 
 	const trip = {
 		'country' : tripCountry,
+		'geometry' : tripGeometry,
 		'lat' : tripLat,
 		'lng' : tripLng,
+		'radius' : radius,
 		'startDate' : startDate,
 		'endDate' : endDate,
+		'lengthOfTrip': lengthOfTrip,
 		'activitiesAdded': [],
 		'activitiesAddedLength' : 0,
 		'activitiesAddedIds': [],
@@ -194,10 +205,10 @@ export const newTripData = (tripCountry, tripLat, tripLng, startDate, endDate) =
 * @param {String} startDate: start date of trip
 * @param {String} endDate: end date of trip
 */
-export const newTrip = (tripCountry, tripLat, tripLng, startDate, endDate) => {
+export const newTrip = (tripCountry, tripGeometry, tripLatlng, startDate, endDate) => {
 	return dispatch => {
 		dispatch(authStart());
-		dispatch(newTripData(tripCountry, tripLat, tripLng, startDate, endDate));
+		dispatch(newTripData(tripCountry, tripGeometry, tripLatlng, startDate, endDate));
 	}
 }
 
@@ -286,7 +297,6 @@ export const activitiesLoadData = (data) => {
 		// If input type was to go to next page, simply change activities shown
 		// inside reducer.
 	} else if (data.dataType === "GONEXT") {
-		axios.get("www.wikipedia.com").then((res) => {console.log("e")});
 		dispatch({
 			type: actionTypes.ACTIVITIES_LOAD,
 			dataType: data.dataType,
@@ -456,18 +466,33 @@ export const itineraryUpdate = (toIndex, fromIndex) => {
 	}
 }
 
+/**
+ * Updates and calculates, displays route of day.
+ * @memberof ReduxAction
+ * @param {array} dayActivities: array of activities in given day.
+ */
 export const itineraryFocusDay = (dayActivities) => {
 	return (dispatch) => {
 		dispatch(itineraryFocusDayStart());
 		dispatch(itineraryFocusDayData(dayActivities));
 	}
 }
+
+/**
+ * Changes itineraryFocusDayLoading loading to true.
+ * @memberof ReduxAction
+ */
 export const itineraryFocusDayStart = () => {
 	return {
 		type: actionTypes.ITINERARY_FOCUS_DAY_LOAD
 	}
 }
 
+/**
+ * Updates and calculates, displays route of day.
+ * @memberof ReduxAction
+ * @param {array} dayActivities: array of activities in given day.
+ */
 export const itineraryFocusDayData = (dayActivities) => {
 	return async (dispatch) => {
 		if (dayActivities.length > 3) {
@@ -509,6 +534,64 @@ export const itineraryFocusDayData = (dayActivities) => {
 				focusedDayDirections: [],
 			})
 		}
+	}
+}
+
+// ACTIVITY SEARCH ACTIONS ------------------------------------------------------
+
+export const addSuggestions = (suggestion) => {
+	return (dispatch) => {
+		dispatch(addSuggestionsStart());
+		dispatch(addSuggestionsData(suggestion))
+	}
+}
+
+export const addSuggestionsStart = () => {
+	return({
+		type: actionTypes.SUGGESTIONS_START,
+		suggestionsLoading: false,
+	})
+}
+
+export const addSuggestionsData = (suggestion) => {
+	return (dispatch) => {
+		const url = DATABASE_URL + "api/PlaceDetails/";
+		const data = {
+			"placeId" : suggestion,
+			"key" : API_KEY
+		}
+		axios.post(url, data).then((results) => {
+			var suggestion = results["data"]["result"]
+      		if (JSON.parse(localStorage.trip)["activitiesAddedIds"].includes(suggestion.id)) {
+				const newPlace = updateObject(suggestion, {added: true});
+				suggestion = newPlace;
+			}
+			dispatch({
+				type: actionTypes.SUGGESTIONS_ADD,
+				suggestion: suggestion,
+			})
+		})
+	}
+}
+// TOGGLE SEARCH MODES
+
+export const changeBrowsing = (browse) => {
+	if (browse === "BROWSE") {
+		return ({
+			type: actionTypes.CHANGE_BROWSING,
+			browsingToggle: true,
+		})
+	} else {
+		return ({
+			type: actionTypes.CHANGE_BROWSING,
+			browsingToggle: false,
+		})
+	}
+}
+
+export const suggestionsClear = () => {
+	return {
+		type: actionTypes.SUGGESTIONS_CLEAR,
 	}
 }
 

@@ -26,7 +26,9 @@ beforeEach(() => {
 
   // Setting mock store
   store = mockStore({
-      activitiesShown: activitiesShown
+      activitiesShown: activitiesShown,
+      searchActivitiesShown: [],
+      browsingToggle: true,
   });
 
   store.dispatch = jest.fn();
@@ -73,6 +75,6 @@ it("Upon rendering, display 20 items and when click next page, call 2 redux acti
 	});
 
 	// Expects 2 redux actions, one to start loading, and one to load data.
-	expect(store.dispatch).toHaveBeenCalledTimes(2);
+	expect(store.dispatch).toHaveBeenCalledTimes(1);
 });
 

@@ -7,6 +7,9 @@ const initialState = {
 	activitiesLoading: false,
 	getItineraryLoading: false,
 	itineraryFocusDayLoading: false,
+	suggestionsLoading: false,
+
+	browsingToggle: true,
 
 	user: null,
 
@@ -16,6 +19,7 @@ const initialState = {
 		'lng' : -1,
 		'startDate': -1,
 		'endDate' : -1,
+		'lengthOfTrip': 0,
 		'activitiesAdded' : [],
 		'activitiesAddedLength' : 0,
 		'activitiesAddedIds' : [],
@@ -57,6 +61,8 @@ const initialState = {
 		"hasNextPageLoaded": false,
 		"pageLoadedUpTo": -1,
 	},
+
+	searchActivitiesShown: [],
 
 	focusedActivity: {},
 }
@@ -201,24 +207,38 @@ const activitiesAdd = (state, action) => {
 	// Retrieve trip for cache, can be done using state too, but both works.
 	var currentTrip = JSON.parse(localStorage.trip);
 
-	// Retrieve activity that was added by referencing the index (id) 
-	// Update the activity such that {added: true}
-	var activityAdded = state.activitiesShown.currentList[action.index];
+	// Update activity added
+	var activityAdded = action.index;
 	activityAdded = updateObject(activityAdded, {added: true});
 
-	var newTotalTime = currentTrip.activitiesAddedLength + (activityAdded["recommendedTime"] / 60)
-
+	// Update (activities shown) current list
 	var activitiesShownCurrentList = [...state.activitiesShown.currentList];
-	activitiesShownCurrentList[action.index] = activityAdded;
+	for (let activity in activitiesShownCurrentList) {
+		if (activitiesShownCurrentList[activity].name === activityAdded.name) {
+			activitiesShownCurrentList[activity] = activityAdded;
+		}
+	}
 
+	// Update (activities shown) full list
 	var activitiesShownFullList = [...state.activitiesShown.fullList];
-	activitiesShownFullList[state.activitiesShown.pageNumber][action.index] = activityAdded;
+	activitiesShownFullList[state.activitiesShown.pageNumber] = activitiesShownCurrentList;
 
+	// Update activities shown
 	var activitiesShown = updateObject(state.activitiesShown, {
-		currentList: activitiesShownCurrentList,
-		fullList: activitiesShownFullList,
+			currentList: activitiesShownCurrentList,
+			fullList: activitiesShownFullList,
 	})
 
+	// Update search activities shown
+	var searchActivitiesShown = [...state.searchActivitiesShown];
+	for (let activity in searchActivitiesShown) {
+		if (searchActivitiesShown[activity].name === activityAdded.name) {
+			searchActivitiesShown[activity] = activityAdded;
+		}
+	}
+
+	// Update total time
+	var newTotalTime = currentTrip.activitiesAddedLength + (activityAdded["recommendedTime"] / 60)
 
 	// Merge all changes into currentTrip
 	currentTrip['activitiesAdded'].push(activityAdded);
@@ -234,6 +254,7 @@ const activitiesAdd = (state, action) => {
 	return updateObject(state, {
 		trip: currentTrip,
 		activitiesShown: activitiesShown,
+		searchActivitiesShown: searchActivitiesShown,
 	})
 }
 
@@ -243,22 +264,39 @@ const activitiesSubtract = (state, action) => {
 
 	// Retrieve activity that was selected/clicked on by referencing the index (id) 
 	// Update the activity such that {added: false}
-	var activitySelected = state.activitiesShown.currentList[action.index];
+	var activitySelected = action.index;
 	activitySelected = updateObject(activitySelected, {added: false});
 
+	// Update (activities shown) current list
+	var activitiesShownCurrentList = [...state.activitiesShown.currentList];
+	for (var activity in activitiesShownCurrentList) {
+		if (activitiesShownCurrentList[activity].name === activitySelected.name) {
+			activitiesShownCurrentList[activity] = activitySelected;
+		}
+	}
+
+	// Update (activities shown) full list
+	var activitiesShownFullList = [...state.activitiesShown.fullList];
+	activitiesShownFullList[state.activitiesShown.pageNumber] = activitiesShownCurrentList;
+
+	// Update activities shown
+	var activitiesShown = updateObject(state.activitiesShown, {
+			currentList: activitiesShownCurrentList,
+			fullList: activitiesShownFullList,
+	})
+
+	// Update search activities shown
+	var searchActivitiesShown = [...state.searchActivitiesShown];
+	for (let activity in searchActivitiesShown) {
+		if (searchActivitiesShown[activity].name === activitySelected.name) {
+			searchActivitiesShown[activity] = activitySelected;
+		}
+	}
+
+	// Update new total time
 	var newTotalTime = currentTrip.activitiesAddedLength - (activitySelected["recommendedTime"] / 60)
 
-	// Replace the activity in ActivitiesShown with a new one that says added: false
-	var activitiesShownCurrentList = [...state.activitiesShown.currentList];
-	activitiesShownCurrentList[action.index] = activitySelected;
-
-	var activitiesShownFullList = [...state.activitiesShown.fullList];
-	activitiesShownFullList[state.activitiesShown.pageNumber][action.index] = activitySelected;
-
-	var activitiesShown = updateObject(state.activitiesShown, {
-		currentList: activitiesShownCurrentList,
-		fullList: activitiesShownFullList,
-	})
+	
 
 	// Merge all changes into currentTrip
 	// currentTrip['activitiesAdded'].pop(activitySelected); //WRONG
@@ -274,12 +312,14 @@ const activitiesSubtract = (state, action) => {
 	
 	currentTrip['activitiesAddedIds'] = filteredTripIds;
 	currentTrip['activitiesAddedLength'] = newTotalTime;
+
 	// Update currentTrip
 	localStorage.setItem('trip', JSON.stringify(currentTrip));
 
 	return updateObject(state, {
 		trip: currentTrip,
 		activitiesShown: activitiesShown,
+		searchActivitiesShown: searchActivitiesShown,
 	})
 }
 
@@ -293,6 +333,7 @@ const clearAllActivities = (state, action) => {
 	//the {added: false} is done via the traditional 'activitiesSubtract' reducer.
 	currentTrip['activitiesAdded'] = [];
 	currentTrip['activitiesAddedIds'] = [];
+	currentTrip['activitiesAddedLength'] = 0;
 
 	// Update currentTrip
 	localStorage.setItem('trip', JSON.stringify(currentTrip));
@@ -303,9 +344,14 @@ const clearAllActivities = (state, action) => {
 }
 
 const activitiesFocus = (state, action) => {
-	var currentList = [...state.activitiesShown["currentList"]];
+	var list;
+	if (state.browsingToggle) {
+		list = [...state.activitiesShown["currentList"]];
+	} else {
+		list = [...state.searchActivitiesShown];
+	}
 	return updateObject(state, {
-		focusedActivity: currentList[action.index]
+		focusedActivity: list[action.index]
 	})
 }
 
@@ -378,6 +424,35 @@ const itineraryFocusDayLoad = (state, action) => {
 	})
 }
 
+const suggestionsStart = (state, action) => {
+	return updateObject(state, {
+		suggestionsLoading: true,
+	})
+}
+const suggestionsAdd = (state, action) => {
+	var newSearchActivitiesShown = [...state.searchActivitiesShown];
+	newSearchActivitiesShown = newSearchActivitiesShown.filter( (activity) => activity.name !== action.suggestion.name)
+	newSearchActivitiesShown = [ action.suggestion , ...newSearchActivitiesShown]
+	
+	return updateObject(state, {
+		searchActivitiesShown: newSearchActivitiesShown,
+		suggestionsLoading: false,
+	})
+}
+
+const suggestionsClear = (state, action) => {
+	var newSearchActivitiesShown = [...state.searchActivitiesShown]
+	newSearchActivitiesShown = [newSearchActivitiesShown[0]];
+
+	return updateObject(state, {
+		searchActivitiesShown: newSearchActivitiesShown
+	})
+}
+const changeBrowsing = (state, action) => {
+	return updateObject(state, {
+		browsingToggle: action.browsingToggle
+	})
+}
 const reducer = (state=initialState, action) => {
 	switch(action.type) {
 
@@ -400,6 +475,11 @@ const reducer = (state=initialState, action) => {
 		case actionTypes.ITINERARY_UPDATE: return itineraryUpdate(state, action);
 		case actionTypes.ITINERARY_FOCUS_DAY: return itineraryFocusDay(state, action);
 		case actionTypes.ITINERARY_FOCUS_DAY_LOAD: return itineraryFocusDayLoad(state, action);
+
+		case actionTypes.SUGGESTIONS_ADD: return suggestionsAdd(state,action);
+		case actionTypes.SUGGESTIONS_START: return suggestionsStart(state,action);
+		case actionTypes.SUGGESTIONS_CLEAR: return suggestionsClear(state,action);
+		case actionTypes.CHANGE_BROWSING: return changeBrowsing(state, action);
 
 		default:
 			return state;

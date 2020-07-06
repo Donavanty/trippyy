@@ -29,6 +29,12 @@
   background-color: rgb(200,200,200, 0.5)
 }
 
+.browseSearchRow {
+	display: flex;
+	padding-bottom: 2vmin;
+	border-bottom: solid;
+	border-color: grey;
+}
 .mapBox {
 	padding: 0;
 }

@@ -26,6 +26,7 @@ class InputForm extends Component {
 	state = {
 		newTripCreated: false,
 		goToShoppingPage: false,
+		latLng: [],
 	}
 
 	/** 
@@ -42,8 +43,12 @@ class InputForm extends Component {
 	* @param {String} countryName: name of country.
 	* @param {Object} latLng: coordinates of country.
 	*/
-	updateCountry = (countryName, latLng) => {
-		this.setState({countryName, latLng});
+	updateCountry = (countryName, geometry, latLng) => {
+		this.setState({
+			"countryName" : countryName, 
+			"geometry" : geometry,
+			"latLng" : latLng, 
+		})
 	}
 
 	scrollToTheTop = () => window.scrollTo(0,0);
@@ -57,16 +62,14 @@ class InputForm extends Component {
 	* @param {ReduxAction} newTrip: Updates redux state with new trip information.
 	*/
 	newTrip = (event) => {
-		console.log(this.state.latLng)
-		console.log(this.state.countryName)
 		if (this.state.startDate == null || this.state.endDate == null) {
 			alert("Please choose dates first!");
-		} else if (this.state.countryName == null || this.state.latLng == null) {
+		} else if (this.state.countryName == null || this.state.geometry == null || this.state.latLng == null) {
 			alert("Please select a country from the list!");
 		} else {
 			event.preventDefault();
 			this.scrollToTheTop(); //Scroll back to the top
-			this.props.newTrip(this.state.countryName, this.state.latLng["lat"], this.state.latLng["lng"], this.state.startDate, this.state.endDate);
+			this.props.newTrip(this.state.countryName, this.state.geometry, this.state.latLng, this.state.startDate, this.state.endDate);
 			this.setState({newTripCreated: true});
 			
 		}

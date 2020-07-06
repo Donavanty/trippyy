@@ -1,0 +1,31 @@
+/*For autocomplete box*/
+.location-search-input {
+	width: 15vw;
+	height: 5vh;
+	margin-left: 2vmin;
+	padding-left: 2vmin;
+	font-size: 2vmin;
+}
+
+.autocomplete-dropdown-container {
+	position: fixed;
+
+	width: 15vw;
+	margin-left: 2vmin;
+	z-index: 1;
+	font-size: 2vmin;
+}
+
+.suggestion-item--active {
+	background-color: var(--color3);
+	padding-top: 0.5vmin;
+	padding-bottom: 0.5vmin;
+	cursor: pointer;
+
+}
+
+.suggestion-item {
+	background-color: white;
+	padding-top: 0.5vmin;
+	padding-bottom: 0.5vmin;
+}

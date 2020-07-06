@@ -10,13 +10,10 @@ def addTimeAndSummary(r, key, isSingleActivity):
 		wrapper = recommendTime(place)
 		place["recommendedTime"] = wrapper[0]
 		place["category"] = wrapper[1]
-
-		# Adding image ------------------------------------------------------------
-		photo = ""
-		if (place["photos"]):
+		
+		try:
+			# Adding image ------------------------------------------------------------
 			photo = place["photos"][0]
-		photoRef = ""
-		if (photo):
 			# Getting photo reference
 			photoRef = photo["photo_reference"]
 
@@ -26,7 +23,12 @@ def addTimeAndSummary(r, key, isSingleActivity):
 
 			# Assigning display photo to url
 			place["displayPhoto"] = r.url
-		return data
+
+			return data
+
+		except KeyError:
+			# If there is no image
+			return data
 	else:
 		for place in data["results"]:
 			# Adding category and recommended time ------------------------------------------
@@ -34,10 +36,10 @@ def addTimeAndSummary(r, key, isSingleActivity):
 			place["recommendedTime"] = wrapper[0]
 			place["category"] = wrapper[1]
 
-			# Adding image ------------------------------------------------------------
-			photo = place["photos"][0]
-			photoRef = ""
-			if (photo):
+			try:
+				# Adding image ------------------------------------------------------------
+				photo = place["photos"][0]
+			
 				# Getting photo reference
 				photoRef = photo["photo_reference"]
 
@@ -47,6 +49,10 @@ def addTimeAndSummary(r, key, isSingleActivity):
 
 				# Assigning display photo to url
 				place["displayPhoto"] = r.url
+
+			except KeyError:
+				# If there is no image
+				pass
 
 			# Summary to be postponed ----------------------------------------------------------------
 			# summary = getSummary(place)

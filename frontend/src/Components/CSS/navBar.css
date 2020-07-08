@@ -1,8 +1,10 @@
 #nav1 { 
-  background-color: white;
-  opacity: 0.8;
+  background-color: var(--color5);
+  opacity: 1;
   font-family: Montserrat;
   font-weight: bold;
+  font-size: 2vmin;
+  box-shadow: 0 0.4vmin 0.8vmin rgba(0,0,0,0.2);  
 }
 
 .navbar-items {
@@ -10,7 +12,8 @@
 }
 
 .nav-link {
-  color: #5CCFE9;
+  /*color: #5CCFE9;*/
+  color: var(--color1);
   display: inline-block;
   margin-left: 1vw;
 }

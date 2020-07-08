@@ -14,8 +14,6 @@ import ActivitySearch from '../Components/ActivitySearch'
 import SelectedActivityList from '../Components/SelectedActivityList'
 import ActivitySearchAutocomplete from '../Components/ActivitySearchAutocomplete'
 import "./CSS/Shopping.css"
-import BG from '../assets/shoppingBg.jpg'
-import LazyLoad from 'react-lazy-load';
 
 /** Container, renders shopping page
 * @memberof Container
@@ -52,25 +50,25 @@ class Shopping extends Component {
     selectAddress = (address, placeId) => {
         this.props.addSuggestions(placeId);
     }
-    
+            // <LazyLoad>
+            //   <img src={BG} alt="boo" className="shoppingBg"/>
+            // </LazyLoad> 
     render() {
 
         return (
           <div className = "shoppingBox">
-            <LazyLoad>
-              <img src={BG} alt="boo" className="shoppingBg"/>
-            </LazyLoad>
+
               <div>
                   <NavBar id="navbar-Shopping" from={this.props.location.pathname}/>
               </div>
               <div className = "bigBox">
                 <div className = "row">
                   <div className = "col-3" id="selectedActivitiesBox">
-                    <h2> Welcome to {this.props.trip["country"]} </h2>
+                    <h3> Welcome to {this.props.trip["country"]} </h3>
                     <SelectedActivityList/>
                   </div>
                   <div className = "col-3" id="activitiesBox">
-                    <h2> Activities: </h2>
+                    <h3> Activities: </h3>
 
                     <div className = "browseSearchRow">
                       <div className ="">

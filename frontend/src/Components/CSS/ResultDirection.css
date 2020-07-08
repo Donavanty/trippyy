@@ -1,0 +1,66 @@
+/*BOXES*/
+.directionBox {
+	display: flex;
+}
+
+.detailedDirectionsBox {
+	display: flex;
+	flex-direction: column;
+	background-color: rgb(200,200,200);
+	border-radius: 50px;
+	padding: 3vmin;
+}
+
+.instructionBox {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+/*IMAGES*/
+.busIcon {
+	margin-left: 3vw;
+	height: 3vw;
+	width: 3vw;
+	
+	padding: 0.7vmin;
+	background-color: rgb(200,200,200);
+	box-shadow: 0 0.4vmin 0.8vmin rgba(0,0,0,0.2);
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.markerIcon {
+	height: 4vmin;
+	width: 4vmin;
+	opacity: 0.5;
+	flex-grow: 0;
+}
+
+.dotIcon {
+	margin-right: 0.55vmin;
+	height: 1.5vmin;
+	width: 1.5vmin;
+}
+
+/*FONTS*/
+.travelTime {
+	font-weight: bold;
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: 1vw;
+}
+
+.stepTime {
+	position: absolute;
+}
+
+/*ANIMATIONS*/
+.animate__lightSpeedInLeft {
+	animation-duration: 0.5s;
+}
+
+.animate__lightSpeedOutRight {
+	animate-duration: 0.3s;
+}

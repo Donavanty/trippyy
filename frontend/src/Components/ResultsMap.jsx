@@ -12,7 +12,7 @@ import {
     GoogleMap,
     Marker,
     InfoWindow,
-    Polyline
+    Polyline,
     
 } from "react-google-maps";
 import { Spinner } from 'react-bootstrap';
@@ -141,6 +141,13 @@ class ResultsMap extends Component{
 
         return false;
     }
+
+                            // directions={value} 
+                            // key={index}
+                            // options={{
+                            //     preserveViewport: true,
+                            //     suppressMarkers: true,
+                            // }}
     //First load, thus need to use local storage.
     WrappedMap = withScriptjs(withGoogleMap(props =>
         <GoogleMap
@@ -161,22 +168,22 @@ class ResultsMap extends Component{
 
 
             {
-                this.props.trip.focusedDayDirections && this.props.trip.focusedDayDirections.map((value, index) => {
+                this.props.trip.itiDirections && (this.props.trip.focusedDay !== -1) && this.props.trip.itiDirections[this.props.trip.focusedDay].map((value, index) => {
                     return (
                         <Polyline
-                            key={index}
-                            path={value.routes[0].overview_path}
-                            geodesic={true}
-                            options={{
-                              strokeColor: "#008B8B",
-                              strokeOpacity: 0.8,
-                              strokeWeight: 5,
-                              clickable: true
-                            }}
+                        key={index}
+                        path={value.routes[0].overview_path}
+                        geodesic={true}
+                        options={{
+                        strokeColor: "#008B8B",
+                        strokeOpacity: 0.8,
+                        strokeWeight: 5,
+                        clickable: false
+                        }}
                         />)
                 })
 
-            }   
+            }
             {props.children}
         </GoogleMap>
       ));
@@ -202,13 +209,27 @@ class ResultsMap extends Component{
                 <this.WrappedMap
                     googleMapURL={window.google}
                     loadingElement={<div style={{ height: `100%` }} />}
-                    containerElement={<div style={{ height: `92vh`, width: `33vw` }} />}
+                    containerElement={<div style={{ height: `92.5vh`, width: `33vw` }} />}
                     mapElement={<div style={{ height: `100%` }} />}
                 >
 
+                    {
+                        this.props.map.directions && 
+                            <Polyline
+                                path={this.props.map.directions.routes[0].overview_path}
+                                geodesic={true}
+                                options={{
+                                strokeColor: "#008B8B",
+                                strokeOpacity: 0.8,
+                                strokeWeight: 5,
+                                clickable: false
+                            }}
+                            />
+                    }
+
 
                     {
-                        this.props.trip.focusedDay && this.props.trip.focusedDay.map((value,index) => 
+                        (this.props.trip.focusedDay !== -1) && this.props.trip.itinerary[this.props.trip.focusedDay].map((value,index) => 
                             (value["name"]) &&
 
                                 (!(value["name"] === this.props.focusedActivity["name"]) ?
@@ -266,7 +287,7 @@ class ResultsMap extends Component{
 
                    {
                         this.props.trip.activitiesAdded && this.props.trip.activitiesAdded.map((value,index) => 
-                            !(this.mapIncludes(value, this.props.trip.focusedDay)) &&
+                            !(this.mapIncludes(value, this.props.trip.itinerary[this.props.trip.focusedDay])) &&
 
                                 (!(value["name"] === this.props.focusedActivity["name"]) ?
                                     <Marker 

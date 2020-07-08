@@ -7,6 +7,7 @@ const initialState = {
 	activitiesLoading: false,
 	getItineraryLoading: false,
 	itineraryFocusDayLoading: false,
+	itineraryLoadDirectionsLoading: false,
 	suggestionsLoading: false,
 
 	browsingToggle: true,
@@ -24,8 +25,9 @@ const initialState = {
 		'activitiesAddedLength' : 0,
 		'activitiesAddedIds' : [],
 		'itinerary' : [[]],
-		'focusedDay' : [],
-		'focusedDayDirections' : [],
+		'itiDirections': [[]],
+		'focusedDay' : -1,
+		
 
 	},
 
@@ -45,6 +47,8 @@ const initialState = {
             "center": -1,
 
             "radius": -1,
+
+            "directions" : null,
 		}
 	},
 
@@ -103,15 +107,40 @@ const authLogout = (state, action) => {
 }
 
 const newTrip = (state, action) => {
+	const activitiesShown = {
+		"currentList": [],
+		"fullList": [], 
+
+		"currentCategory": "", 
+		"firstActivityCounter": -1, 
+		"pageNumber": -1,
+		
+		"nextPageToken": -1,
+
+		"hasNextPageLoaded": false,
+		"pageLoadedUpTo": -1,
+	}
+
 	return updateObject(state, {
 		trip: action.trip,
-		loading: false
+		loading: false,
+		activitiesShown: activitiesShown,
 	})
 }
 
 const updateBounds = (state, action) => {
 	const newMap = updateObject(state.map, {
 		bounds: action.bounds
+	})
+
+	return updateObject(state, {
+		map: newMap
+	})
+}
+
+const mapAddDirections = (state, action) => {
+	const newMap = updateObject(state.map, {
+		directions: action.directions
 	})
 
 	return updateObject(state, {
@@ -204,6 +233,8 @@ const activitiesStart = (state, action) => {
 }
 
 const activitiesAdd = (state, action) => {
+	var allowed = true;
+
 	// Retrieve trip for cache, can be done using state too, but both works.
 	var currentTrip = JSON.parse(localStorage.trip);
 
@@ -239,6 +270,10 @@ const activitiesAdd = (state, action) => {
 
 	// Update total time
 	var newTotalTime = currentTrip.activitiesAddedLength + (activityAdded["recommendedTime"] / 60)
+	if (newTotalTime > (state.trip.lengthOfTrip*12.0)) {
+		alert("You have reached the maximum time for activities!");
+		allowed = false;
+	}
 
 	// Merge all changes into currentTrip
 	currentTrip['activitiesAdded'].push(activityAdded);
@@ -250,12 +285,15 @@ const activitiesAdd = (state, action) => {
 	
 	// ENABLE FOR ALGO TESTING ----------------------------------------
 	// console.log(JSON.stringify(currentTrip.activitiesAdded));
-
-	return updateObject(state, {
-		trip: currentTrip,
-		activitiesShown: activitiesShown,
-		searchActivitiesShown: searchActivitiesShown,
-	})
+	if (allowed) {
+		return updateObject(state, {
+			trip: currentTrip,
+			activitiesShown: activitiesShown,
+			searchActivitiesShown: searchActivitiesShown,
+		})
+	} else {
+		return state;
+	}
 }
 
 const activitiesSubtract = (state, action) => {
@@ -364,8 +402,11 @@ const activitiesUnfocus = (state, action) => {
 //ITINERARY --------------------------------------------------------------------------
 const itineraryLoad = (state, action) => {
 	const trip = updateObject(state.trip, {
-		itinerary: action.itinerary
+		itinerary: action.itinerary,
+		itiDirections: action.itiDirections,
 	})
+
+	localStorage.setItem("trip", JSON.stringify(trip));
 
 	return updateObject(state, {
 		trip: trip,
@@ -389,9 +430,11 @@ const itineraryUpdate = (state, action) => {
 
 	// Delete FROM activity
 	fromDay.splice(action.fromIndex[1], 1);
+	fromDay[0] = fromDay[0] - fromActivity.recommendedTime;
 
 	// Add TO activity
 	toDay.splice(action.toIndex[1], 0, fromActivity);
+	toDay[0] = toDay[0] + fromActivity.recommendedTime;
 
 	// Update currentIti
 	currentIti[action.fromIndex[0]] = fromDay;
@@ -406,10 +449,25 @@ const itineraryUpdate = (state, action) => {
 
 }
 
+const itineraryLoadDirectionsStart = (state,action) => {
+	return updateObject(state, {
+		itineraryLoadDirectionsLoading: true,
+	})
+}
+
+const itineraryLoadDirections = (state, action) => {
+	const trip = updateObject(state.trip, {
+		itiDirections: action.itiDirections
+	})
+	return updateObject(state, {
+		trip: trip,
+		itineraryLoadDirectionsLoading: false,
+	})
+}
+
 const itineraryFocusDay = (state, action) => {
 	var newTrip = updateObject(state.trip, {
-		focusedDay: action.dayActivities,
-		focusedDayDirections: action.focusedDayDirections,
+		focusedDay: action.focusedDay,
 	})
 
 	return updateObject(state, {
@@ -464,6 +522,7 @@ const reducer = (state=initialState, action) => {
 		case actionTypes.ACTIVITIES_LOAD: return activitiesLoad(state, action);
 		case actionTypes.ACTIVITY_CLEARALL: return clearAllActivities(state, action);
 		case actionTypes.MAP_BOUNDS_CHANGED: return updateBounds(state, action);
+		case actionTypes.MAP_ADD_DIRECTIONS: return mapAddDirections(state, action);
 		case actionTypes.NEW_TRIP: return newTrip(state, action);
 		case actionTypes.AUTH_START: return authStart(state, action);
 		case actionTypes.AUTH_SUCCESS: return authSuccess(state, action);
@@ -475,6 +534,8 @@ const reducer = (state=initialState, action) => {
 		case actionTypes.ITINERARY_UPDATE: return itineraryUpdate(state, action);
 		case actionTypes.ITINERARY_FOCUS_DAY: return itineraryFocusDay(state, action);
 		case actionTypes.ITINERARY_FOCUS_DAY_LOAD: return itineraryFocusDayLoad(state, action);
+		case actionTypes.ITINERARY_LOAD_DIRECTIONS_START: return itineraryLoadDirectionsStart(state,action);
+		case actionTypes.ITINERARY_LOAD_DIRECTIONS: return itineraryLoadDirections(state, action);
 
 		case actionTypes.SUGGESTIONS_ADD: return suggestionsAdd(state,action);
 		case actionTypes.SUGGESTIONS_START: return suggestionsStart(state,action);

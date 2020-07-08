@@ -9,6 +9,8 @@ import { connect } from 'react-redux';
 
 import "./CSS/Timetable.css"
 import { Spinner } from 'react-bootstrap';
+import NextPage from '../assets/nextpage.png'
+import Plane from '../assets/plane.png'
 
 /**
  * Component, renders activities currently added into the trip in a timetable manner,
@@ -22,10 +24,14 @@ class Timetable extends Component {
 	state = {
 		fromIndex: -1,
 		fromDayIndex: -1,
+		day: ["0900", "1000", "1100", "1200", "1300", "1400", "1500", "1600",
+			"1700", "1800", "1900", "2000", "2100", "2200", "2300", "0000", "0100", "0200"], 
+		numDays: ["Mon", "Tues", "Wed", "Thu", "Fri"],
+		dayStart: 0,
 	}
 
-	focusDay = (dayActivities) => {
-		this.props.itineraryFocusDay(dayActivities);
+	focusDay = (index) => {
+		this.props.itineraryFocusDay(index);
 	}
 
 	/**
@@ -53,6 +59,13 @@ class Timetable extends Component {
 		if (toIndex === fromIndex && toDayIndex === fromDayIndex) {
 			return;
 		}
+		if (this.props.trip["itinerary"][toDayIndex] && this.props.trip["itinerary"][fromDayIndex]){
+			if ((this.props.trip["itinerary"][toDayIndex][0] + 
+				this.props.trip["itinerary"][fromDayIndex][fromIndex].recommendedTime) > 840) {
+			return;
+			}
+		}
+
 
 		// Checks and makes sure that the EMPTY box is always at the end.
 		if (this.props.trip["itinerary"][toDayIndex] !== undefined) {
@@ -97,72 +110,143 @@ class Timetable extends Component {
 	* @param {event} Contains information about mouse location etc.
 	*/
 	onDrop = (event) => {
+		this.props.itineraryLoadDirections(this.props.trip.itinerary);
 		event.preventDefault();
 	}
 
+	goPrevPage = () => {
+		this.setState({dayStart: this.state.dayStart - 5})
+	}
+
+	goNextPage = () => {
+		this.setState({dayStart: this.state.dayStart + 5})
+	}
+
 	render() {
-		if (this.props.getItineraryLoading) {
-			return (
-				<div>
-					<h1> Getting your trip! </h1>
-					<Spinner animation="border" role="status">
-				  		<span className="sr-only">Loading...</span>
-					</Spinner>
-
-				</div>)
-		}
 	    return (
-		    <div id="timetable"
+	    	<div className="timetableContainerBox">
+	    	<h4> {this.props.trip.lengthOfTrip} days in {this.props.trip.country} </h4>
+		    <div 	id="timetableBox"
 		    		onDragOver={(event)=>this.onDragOver(event)}
-	      			onDrop={this.onDrop}>
+	      			onDrop={this.onDrop}
+	      			>
+	      		<div className="gridContainer">
+	      			{ (this.state.dayStart > 0) &&
+	      				<div className="changePageBox changePageBox-left">  
+							<img className="changePageIcon" onClick={this.goPrevPage} alt="icon" src={NextPage}/> 
+	      				</div>
+	      			}
+		      		<div className="timeDay">
+		      			{
+		          			this.state.day.map((value,index) => {
+		          				return <div className="timeBlock"> {value} </div>
+		          			})
+		          		}
 
-	      		<h2> Your timetable! </h2>
-	          	{this.props.trip["itinerary"].map( (dayValue, dayindex) => (
-	          	<React.Fragment>
-	          	<div className="day">
-	          		<div className="dayDetails"> 
-	          			<p> Day {dayindex+1} </p>
-						<button onClick={() => this.focusDay(dayValue)}> View Day! </button>
+		      		</div>
+		      		{
+			      		this.state.numDays.map((value,index) => {
+			      			return(
+			      			<div className="insideTimeDay">
+				          		<div className="dayBackground"> 
+				          		</div>
+				      			{
+				          			 true && this.state.day.map((value,index) => {
 
-	          			
-	          		
-	          		</div>
+				          				if (index%2 ===0) {
+				          					return <div className="insideTimeBlock-even"/> 
+				          				} else {
+				          					return <div className="insideTimeBlock-odd"/>
+				          				}
+				          			})
+				          		}
+			      			</div>)
+			      		})
+		      		}
 
-	          		{
-	          			dayValue.map((value, index) => {
-	          				if (index !== 0 && value !== "EMPTY") {
-					          	return <div
-					          		key={index}
-					          		data-index={index}
-					          		data-dayindex={dayindex}
-					          		draggable
-					          		className="timetableActivity"
-									onDragStart = {this.onDragStart}
-								    style ={{width: ((value["recommendedTime"]/60.0) * 3)+ "vw"}}
-								>
-								    <p className="activityFont"
-								    data-index={index}
-					          		data-dayindex={dayindex}> {(value)["name"]}
-					          		</p>
-								    <p className="timeFont"
-								    data-index={index}
-					          		data-dayindex={dayindex}> {(value)["recommendedTime"]/60} hours </p>
-								</div>
-					  		} else if (value === "EMPTY") {
-					  			return <div 
-					          		key={index}
-					          		data-index={index}
-					          		data-dayindex={dayindex}
-					          		className="empty"
-									onDragStart = {this.onDragStart}
-									/>
-					  		}
-					  		return null;
-						})
-			    	}
-	          	</div>
-	          	</React.Fragment>)
-	          )}
+		      		{	((this.state.dayStart+5) < this.props.trip["itinerary"].length) && 
+		      			<div className="changePageBox"> 
+		      				<img className="changePageIcon changePageIcon-right" alt="icon" onClick={this.goNextPage} src={NextPage}/> 
+		      			</div>
+		      		}
+	      		</div>
+
+	      		{this.props.itineraryLoadDirectionsLoading && 
+					<div className="loadingBox">
+						<Spinner animation="border" role="status">
+					  		<span className="sr-only">Loading...</span>
+						</Spinner>
+					</div>
+	      		}
+
+	      		{!this.props.itineraryLoadDirectionsLoading && <div className ="daysContainer">
+		          	{this.props.trip["itinerary"].map( (dayValue, dayindex) => {
+		          	if (dayindex < this.state.dayStart || dayindex >= this.state.dayStart+5) {
+		          		return null;
+		          	}
+		          	return <div className="day">
+		          		<div onClick={() => this.focusDay(dayindex)} className="dayDetails"> 
+		          			<p> Day {dayindex+1} </p>
+		          		</div>
+
+		          		{
+		          			true && dayValue.map((value, index) => {
+		          				if (index !== 0 && value !== "EMPTY") {
+						          	return (
+						          		<React.Fragment>
+							          		<div
+								          		key={index}
+								          		data-index={index}
+								          		data-dayindex={dayindex}
+								          		draggable
+								          		className="timetableActivity"
+												onDragStart = {this.onDragStart}
+											    style ={{height: ((value["recommendedTime"]/60.0) * 5)+ "vh"}}
+											>
+												<div className="timetableActivityDetails">
+												    <p className="activityFont"
+												    data-index={index}
+									          		data-dayindex={dayindex}> {(value)["name"]}
+									          		</p>
+												    <p className="timeFont"
+												    data-index={index}
+									          		data-dayindex={dayindex}> {(value)["recommendedTime"]/60} hours </p>
+									          	</div>
+											</div>
+
+										
+											{ this.props.trip.itiDirections[dayindex][index-1] && 
+												<div
+													style ={{height: ((this.props.trip.itiDirections[dayindex][index-1].routes[0].legs[0].duration.value/3600.0) * 5)+ "vh"}}
+													className="timetableActivity"
+												>
+													<div className="timetableTravelDetails">
+														{(((this.props.trip.itiDirections[dayindex][index-1].routes[0].legs[0].duration.value/60)) > 60) && 
+															<img src={Plane} alt="icon" className="planeIcon"/>}
+														{(((this.props.trip.itiDirections[dayindex][index-1].routes[0].legs[0].duration.value/60)) > 15) && 
+															this.props.trip.itiDirections[dayindex][index-1].routes[0].legs[0].duration.text
+														}
+													</div>
+												</div>
+											}
+
+										</React.Fragment>)
+						  		} else if (value === "EMPTY") {
+						  			return <div 
+						          		key={index}
+						          		data-index={index}
+						          		data-dayindex={dayindex}
+						          		className="empty"
+										onDragStart = {this.onDragStart}
+										/>
+						  		}
+						  		return null;
+							})
+				    	}
+		          	</div>}
+		          )}
+	        </div>}
+	        </div>
 	        </div>
 	    );
   	}
@@ -174,6 +258,7 @@ const mapStateToProps = (state) => {
         trip: state.trip,
         getItineraryLoading: state.getItineraryLoading,
         itineraryFocusDayLoading: state.itineraryFocusDayLoading,
+        itineraryLoadDirectionsLoading: state.itineraryLoadDirectionsLoading,
 
     }
 }
@@ -181,7 +266,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
     return {
     	itineraryUpdate: (toIndex, fromIndex) => dispatch(actions.itineraryUpdate(toIndex, fromIndex)),
-    	itineraryFocusDay: (dayActivities => dispatch(actions.itineraryFocusDay(dayActivities)))
+    	itineraryFocusDay: (dayActivities => dispatch(actions.itineraryFocusDay(dayActivities))),
+    	itineraryLoadDirections: (itinerary => dispatch(actions.itineraryLoadDirections(itinerary))),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Timetable);

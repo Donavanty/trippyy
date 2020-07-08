@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import "./CSS/Autocomplete.css"
 
 import PlacesAutocomplete, {
   geocodeByAddress,

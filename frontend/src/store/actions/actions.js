@@ -1,6 +1,10 @@
 import * as actionTypes from './actionTypes';
 import * as utilities from '../../Utilities.js'
 import axios from 'axios';
+// UNSPLASH
+import Unsplash, { toJson } from "unsplash-js";
+
+
 import {updateObject} from '../utility';
 const DATABASE_URL = "http://trippyy-backend.herokuapp.com/"
 // const DATABASE_URL = "http://127.0.0.1:8000/"
@@ -156,43 +160,56 @@ export const authCheckState = () => {
 * @param {String} endDate: end date of trip
 */
 export const newTripData = (tripCountry, tripGeometry, tripLatlng, startDate, endDate) => {
-	const tripLat = tripLatlng["lat"];
-	const tripLng = tripLatlng["lng"];
-	const radius = utilities.getBoundsRadius(tripGeometry["bounds"])
-    var mathStartDate = new Date(startDate);
-    var mathEndDate = new Date(endDate);
-    var lengthOfTrip = ((mathEndDate - mathStartDate) / (1000*60*60*24)) + 1
-	const data = {
-				destination: tripCountry,
-				tripName: "Trip to " + tripCountry + " from " + startDate + " to " + endDate,
-				startDate: startDate,
-				endDate: endDate
-			}
-	axios.post(DATABASE_URL + 'api/trips/', data, {
-			headers: {Authorization: "Token " + localStorage.token},
-		}).then(res => console.log(res));
+	return (dispatch) => {
+		const tripLat = tripLatlng["lat"];
+		const tripLng = tripLatlng["lng"];
+		const radius = utilities.getBoundsRadius(tripGeometry["bounds"])
+	    var mathStartDate = new Date(startDate);
+	    var mathEndDate = new Date(endDate);
+	    var lengthOfTrip = ((mathEndDate - mathStartDate) / (1000*60*60*24)) + 1
+		const data = {
+					destination: tripCountry,
+					tripName: "Trip to " + tripCountry + " from " + startDate + " to " + endDate,
+					startDate: startDate,
+					endDate: endDate
+				}
+		axios.post(DATABASE_URL + 'api/trips/', data, {
+				headers: {Authorization: "Token " + localStorage.token},
+			}).then(res => console.log(res));
 
-	const trip = {
-		'country' : tripCountry,
-		'geometry' : tripGeometry,
-		'lat' : tripLat,
-		'lng' : tripLng,
-		'radius' : radius,
-		'startDate' : startDate,
-		'endDate' : endDate,
-		'lengthOfTrip': lengthOfTrip,
-		'activitiesAdded': [],
-		'activitiesAddedLength' : 0,
-		'activitiesAddedIds': [],
-		'itinerary' : [[]],
-		'focusedDayDirections': [],
-		'focusedDay': [],
+		const unsplash = new Unsplash({ 
+			accessKey: "2ompLxlB0zcFIfYLJVH7pQV_Lf1JO4YmoSPMW1fjEwc",
+			secret:"GkYGqiQ2mDBOSJYV_Cm1OwGlzb7VG5NwihKSHhlOG7o" });
+
+		unsplash.search.photos((JSON.parse(localStorage.trip)["country"]), 1, 1, {
+			orientation: "landscape",
+			color:"white"}).then(toJson)
+	  		.then(json => {
+	  			const trip = {
+					'country' : tripCountry,
+					'geometry' : tripGeometry,
+					'lat' : tripLat,
+					'lng' : tripLng,
+					'radius' : radius,
+					'startDate' : startDate,
+					'endDate' : endDate,
+					'lengthOfTrip': lengthOfTrip,
+					'activitiesAdded': [],
+					'activitiesAddedLength' : 0,
+					'activitiesAddedIds': [],
+					'itinerary' : [[]],
+					'itiDirections': [[]],
+					'focusedDay': -1,
+	    			'photo': json.results[0].urls.raw
+	    		}
+	    		localStorage.setItem('trip', JSON.stringify(trip));
+				dispatch({
+					type: actionTypes.NEW_TRIP,
+					trip: trip,
+				})
+	  		});
 	}
-	localStorage.setItem('trip', JSON.stringify(trip));
-	return {
-		type: actionTypes.NEW_TRIP,
-		trip: trip
-	}
+
 
 }
 
@@ -245,6 +262,12 @@ export const mapBoundsChange = (bounds) => {
 	}
 }
 
+export const mapAddDirections = (directions) => {
+	return {
+		type: actionTypes.MAP_ADD_DIRECTIONS,
+		directions: directions
+	}
+}
 /**
  * Sends an action to reducer to change activities loading to true.
  * @memberof ReduxAction
@@ -422,9 +445,10 @@ export const itineraryLoad = (data) => {
  * @param {Object} data: contains a list of activities selected to generate itinerary
  */
 export const itineraryLoadData = (data) => {
-	return (dispatch) => {
-	    axios.post(DATABASE_URL + "api/algo/", data).then( (res) => {
+	return async (dispatch) => {
+	    axios.post(DATABASE_URL + "api/algo/", data).then( async (res) => {
 	        var iti = JSON.parse(res.data);
+	        var itiDirections = [];
 	        for (var day in iti) {
 	        	for (var activity in iti[day]) {
 	        		if (activity !== 0) {
@@ -432,12 +456,56 @@ export const itineraryLoadData = (data) => {
 	        		}
 	        	}
 	        	iti[day].push("EMPTY")
-	        }
+	        
 
-	        console.log(iti)
+		        if (iti[day].length > 3) {
+					let directions = [];
+					for (let activity = 1; activity < (iti[day].length - 2); activity++) {
+						const directionsService = new window.google.maps.DirectionsService();
+						const origin = iti[day][activity].geometry.location;
+					    const destination = iti[day][activity+1].geometry.location;
+					    let promise = new Promise( (resolve, reject) => { 
+
+						    setTimeout(() => directionsService.route(
+						    {
+						        origin: origin,
+						        destination: destination,
+						        travelMode: window.google.maps.TravelMode.TRANSIT,
+						    },
+						    (result, status) => {
+						        if (status === window.google.maps.DirectionsStatus.OK) {
+						            resolve("done");	
+						            directions.push(result);
+						        } else {
+								    setTimeout( directionsService.route(
+								    {
+								        origin: origin,
+								        destination: destination,
+								        travelMode: window.google.maps.TravelMode.DRIVING,
+								    },
+								    (result, status) => {
+								        if (status === window.google.maps.DirectionsStatus.OK) {
+								            resolve("done");	
+								            directions.push(result);
+								        } else {
+								            console.error("error");
+								            resolve("done");
+								        }
+								    }), 100);
+						        }
+						    }), 100);
+						});
+						await promise;
+					}
+					itiDirections.push(directions);
+				} else {
+					itiDirections.push([]);
+				}
+			}
 	        dispatch({
 				type: actionTypes.ITINERARY_LOAD,
 				itinerary: iti,
+				itiDirections: itiDirections,
 				getItineraryLoading: false,
 			});
 	    }).catch((error) => {
@@ -445,11 +513,72 @@ export const itineraryLoadData = (data) => {
 	    	dispatch({
 	    		type: actionTypes.ITINERARY_LOAD,
 				itinerary: [[]],
+				itiDirections: [[]],
 				getItineraryLoading: false,
 	    	})
 	    });
 	}
 }
+
+export const itineraryLoadDirections = (iti) => {
+	console.log("CALLED")
+	return async (dispatch) => {
+		dispatch({type: actionTypes.ITINERARY_LOAD_DIRECTIONS_START});
+
+		var itiDirections = [];
+		for (var day in iti) {
+	        if (iti[day].length > 3) {
+				let directions = [];
+				for (let activity = 1; activity < (iti[day].length - 2); activity++) {
+					const directionsService = new window.google.maps.DirectionsService();
+					const origin = iti[day][activity].geometry.location;
+				    const destination = iti[day][activity+1].geometry.location;
+				    let promise = new Promise( (resolve, reject) => { 
+
+					    setTimeout(() => directionsService.route(
+					    {
+					        origin: origin,
+					        destination: destination,
+					        travelMode: window.google.maps.TravelMode.TRANSIT,
+					    },
+					    (result, status) => {
+					        if (status === window.google.maps.DirectionsStatus.OK) {
+					            resolve("done");	
+					            directions.push(result);
+					        } else {
+							    setTimeout( directionsService.route(
+							    {
+							        origin: origin,
+							        destination: destination,
+							        travelMode: window.google.maps.TravelMode.DRIVING,
+							    },
+							    (result, status) => {
+							        if (status === window.google.maps.DirectionsStatus.OK) {
+							            resolve("done");	
+							            directions.push(result);
+							        } else {
+							            console.error("error");
+							            resolve("done");
+							        }
+							    }), 100);
+					        }
+					    }), 100);
+					});
+					await promise;
+				}
+				itiDirections.push(directions);
+			} else {
+				itiDirections.push([]);
+			}
+		}
+
+		dispatch({
+			itiDirections: itiDirections,
+			type: actionTypes.ITINERARY_LOAD_DIRECTIONS,
+		})
+	}
+}
+
 
 /**
  * Updates activities of itinerary, deletes the activity at fromIndex, and adds the activity
@@ -493,47 +622,10 @@ export const itineraryFocusDayStart = () => {
  * @memberof ReduxAction
  * @param {array} dayActivities: array of activities in given day.
  */
-export const itineraryFocusDayData = (dayActivities) => {
-	return async (dispatch) => {
-		if (dayActivities.length > 3) {
-			var directions = [];
-			for (var activity = 1; activity < (dayActivities.length - 2); activity++) {
-				const directionsService = new window.google.maps.DirectionsService();
-				const origin = dayActivities[activity].geometry.location;
-			    const destination = dayActivities[activity+1].geometry.location;
-			    let promise = new Promise( (resolve, reject) => { 
-
-				    directionsService.route(
-				    {
-				        origin: origin,
-				        destination: destination,
-				        travelMode: window.google.maps.TravelMode.DRIVING,
-				    },
-				    (result, status) => {
-				        if (status === window.google.maps.DirectionsStatus.OK) {
-				            // console.log(result);			            
-				            resolve("done");			            
-				            directions.push(result);
-				        } else {
-				            console.error("error");
-				            resolve("done");
-				        }
-				    });
-				});
-				await promise;
-			}
-			dispatch({
-				type: actionTypes.ITINERARY_FOCUS_DAY,
-				dayActivities: dayActivities,
-				focusedDayDirections: directions,
-			})
-		} else {
-			dispatch ({
-				type: actionTypes.ITINERARY_FOCUS_DAY,
-				dayActivities: dayActivities,
-				focusedDayDirections: [],
-			})
-		}
+export const itineraryFocusDayData = (index) => {
+	return {
+		focusedDay: index,
+		type: actionTypes.ITINERARY_FOCUS_DAY
 	}
 }
 

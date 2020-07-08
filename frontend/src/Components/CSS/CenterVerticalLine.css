@@ -1,0 +1,16 @@
+.centerVerticalLine {
+	height: 5vmin;
+	border-right: solid;
+	border-right-style: solid;
+	border-color: white;
+	width: 10vw;
+	margin-top: 0;
+}
+
+.stepDuration {
+	background-color: lightblue;
+	padding-left: 0vmin;
+	margin-top: 1vmin;
+	border-radius: 2vmin;
+	
+}

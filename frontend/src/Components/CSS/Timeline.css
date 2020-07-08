@@ -1,0 +1,38 @@
+.timeline-day {
+	width: 45vw;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+
+	/*justify-content: flex-start;*/
+	align-items: flex-start;
+}
+
+.timeline-day-box {
+	background-color: rgb(60,60,60);
+	color: white;
+
+	font-size: 2vmin;
+	font-weight: bold;
+	border-radius: 5vmin;
+
+	/*width: 8vw;*/
+	
+	padding: 1vmin;
+	padding-left: 6.5vmin;
+	padding-right: 6.5vmin;
+}
+
+.timelineBox {
+	padding: 5vmin;
+}
+
+.timelineHeaderBox {
+	/*background-color: rgb(50,50,50);*/
+	/*color: white;*/
+	height: 10vh;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

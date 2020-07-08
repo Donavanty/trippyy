@@ -55,15 +55,15 @@ class ActivitySearchAutoComplete extends Component {
 		        <input
 		        {...getInputProps({
 		          placeholder: 'Search',
-		          className: 'location-search-input',
+		          className: 'location-search-input-search',
 		        })}
 		        />
-		        <div className="autocomplete-dropdown-container">
+		        <div className="autocomplete-dropdown-container-search">
 			        {loading}
 			        {suggestions.map(suggestion => {
 				          const className = suggestion.active
-				          ? 'suggestion-item--active'
-				          : 'suggestion-item';
+				          ? 'suggestion-item--active-search'
+				          : 'suggestion-item-search';
 				                // inline style for demonstration purpose
 
 

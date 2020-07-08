@@ -1,0 +1,8 @@
+.verticalLine {
+	height: 5vmin;
+	border-left: solid;
+	border-left-style: solid;
+	border-color: rgb(220,220,220);
+	margin-left: 4.5vw;
+	margin-top: 0;
+}

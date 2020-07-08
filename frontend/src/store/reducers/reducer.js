@@ -4,6 +4,7 @@ import {updateObject} from '../utility';
 const initialState = {
 	error: null,
 	loading: false,
+	newTripLoading: false,
 	activitiesLoading: false,
 	getItineraryLoading: false,
 	itineraryFocusDayLoading: false,
@@ -105,7 +106,11 @@ const authLogout = (state, action) => {
 		loading: false,
 	});
 }
-
+const newTripStart = (state, action) => {
+	return updateObject(state, {
+		newTripLoading: true,
+	})
+}
 const newTrip = (state, action) => {
 	const activitiesShown = {
 		"currentList": [],
@@ -123,7 +128,7 @@ const newTrip = (state, action) => {
 
 	return updateObject(state, {
 		trip: action.trip,
-		loading: false,
+		newTripLoading: false,
 		activitiesShown: activitiesShown,
 	})
 }
@@ -524,6 +529,7 @@ const reducer = (state=initialState, action) => {
 		case actionTypes.MAP_BOUNDS_CHANGED: return updateBounds(state, action);
 		case actionTypes.MAP_ADD_DIRECTIONS: return mapAddDirections(state, action);
 		case actionTypes.NEW_TRIP: return newTrip(state, action);
+		case actionTypes.NEW_TRIP_START: return newTripStart(state, action);
 		case actionTypes.AUTH_START: return authStart(state, action);
 		case actionTypes.AUTH_SUCCESS: return authSuccess(state, action);
 		case actionTypes.AUTH_FAIL: return authFail(state, action);

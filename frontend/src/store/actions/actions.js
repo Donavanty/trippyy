@@ -181,7 +181,7 @@ export const newTripData = (tripCountry, tripGeometry, tripLatlng, startDate, en
 			accessKey: "2ompLxlB0zcFIfYLJVH7pQV_Lf1JO4YmoSPMW1fjEwc",
 			secret:"GkYGqiQ2mDBOSJYV_Cm1OwGlzb7VG5NwihKSHhlOG7o" });
 
-		unsplash.search.photos((JSON.parse(localStorage.trip)["country"]), 1, 1, {
+		unsplash.search.photos(tripCountry, 1, 1, {
 			orientation: "landscape",
 			color:"white"}).then(toJson)
 	  		.then(json => {
@@ -202,6 +202,7 @@ export const newTripData = (tripCountry, tripGeometry, tripLatlng, startDate, en
 					'focusedDay': -1,
 	    			'photo': json.results[0].urls.raw
 	    		}
+	    		console.log(trip)
 	    		localStorage.setItem('trip', JSON.stringify(trip));
 				dispatch({
 					type: actionTypes.NEW_TRIP,
@@ -224,10 +225,15 @@ export const newTripData = (tripCountry, tripGeometry, tripLatlng, startDate, en
 */
 export const newTrip = (tripCountry, tripGeometry, tripLatlng, startDate, endDate) => {
 	return dispatch => {
-		dispatch(authStart());
+		dispatch(newTripStart());
 		dispatch(newTripData(tripCountry, tripGeometry, tripLatlng, startDate, endDate));
 	}
 }
+
+export const newTripStart = () => {
+	return {type: actionTypes.NEW_TRIP_START}
+}
+
 
 /**
 * Gets trip details from local storage, and update it to redux state.

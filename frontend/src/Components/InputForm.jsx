@@ -85,7 +85,7 @@ class InputForm extends Component {
 
 	//Happens upon receiving updated information.
     componentDidUpdate(prevProps, prevState, snapshot) {
-    	if (this.props.loading===false && this.state.newTripCreated===true) {
+    	if (this.props.newTripLoading === false && this.state.newTripCreated===true) {
     		this.props.history.push("/shopping");
     	}
 	}
@@ -155,7 +155,8 @@ const mapStateToProps = (state) => {
     return {
         isAuthenticated: state.user !== null,
         user: state.user,
-        loading: state.loading
+        loading: state.loading,
+        newTripLoading: state.newTripLoading,
     }
 }
 

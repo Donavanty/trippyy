@@ -44,7 +44,7 @@ class TextSearch(APIView):
 
 class NextKeySearch(APIView):
     def post(self, request, *args, **kwargs):
-        data = request.data
+        data = request.dataaaaaa
         url = "https://maps.googleapis.com/maps/api/place/textsearch/json?pagetoken=" + data["next_page_token"] + "&key=" + data["key"]
         r = requests.get(url)
         output = addTimeAndSummary(r, data["key"], False)
@@ -54,9 +54,9 @@ class NextKeySearch(APIView):
 class BoundedTextSearch(APIView):
     def post(self, request, *args, **kwargs):
         data = request.data
-        url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + data["query"] + "&location=" + data["lat"] + "," + data["lng"] + "&radius=" + data["radius"] + "&key=" + data["key"]
+        url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + data["query"] + "&location=" + str(data["lat"]) + "," + str(data["lng"]) + "&radius=" + str(data["radius"]) + "&key=" + data["key"]
         r = requests.get(url)
-        output = addTimeAndSummary(r)
+        output = addTimeAndSummary(r, data["key"], False)
 
         return Response(output, status=200)
 

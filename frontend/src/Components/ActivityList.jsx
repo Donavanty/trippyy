@@ -55,11 +55,15 @@ class ActivityList extends Component{
         // for api/NextKeySearch/ - key: API_KEY, next_page_token: next page token
 
         if (localStorage.trip !== undefined) {
+            const trip = JSON.parse(localStorage.trip)
             const data = {
-                dataType: "TEXTSEARCH",
+                dataType: "BOUNDEDTEXTSEARCH",
                 key: API_KEY,
-                query: this.convertSpaceToPlus(JSON.parse(localStorage.trip)["country"] + " points of interest"),
+                query: this.convertSpaceToPlus(trip["country"] + " points of interest"),
                 category: "General",
+                lat: trip["lat"],
+                lng: trip["lng"],
+                radius: trip["radius"],
             }
             
             if (this.props.activitiesShown.currentList.length === 0) {
@@ -136,28 +140,33 @@ class ActivityList extends Component{
     * @param {ReduxAction} activitiesLoad: to load activities from Google API
     */
     changeCategory = (event) => {
+        const trip = JSON.parse(localStorage.trip);
         if (event.target.value === "General") {
             const data = {
-                dataType: "TEXTSEARCH",
+                dataType: "BOUNDEDTEXTSEARCH",
                 key: API_KEY,
-                query: this.convertSpaceToPlus(JSON.parse(localStorage.trip)["country"] + " points of interest"),
-                category: event.target.value,
+                query: this.convertSpaceToPlus(trip["country"] + " points of interest"),
+                category: "General",
+                lat: trip["lat"],
+                lng: trip["lng"],
+                radius: trip["radius"],
             }
             // Retrieves Singapore places of interest.
             this.props.activitiesLoad(data);
-            console.log("Previous Category: " + this.props.activitiesShown.currentCategory);
         
         } else {
             const data = {
-                dataType: "TEXTSEARCH",
+                dataType: "BOUNDEDTEXTSEARCH",
                 key: API_KEY,
-                query: this.convertSpaceToPlus(JSON.parse(localStorage.trip)["country"] + " " + event.target.value + " attractions"),
+                query: this.convertSpaceToPlus(trip["country"] + " " + event.target.value + " attractions"),
                 category: event.target.value,
+                lat: trip["lat"],
+                lng: trip["lng"],
+                radius: trip["radius"],
             }
-            console.log(data.query);
+
             // Retrieves Singapore places of interest.
             this.props.activitiesLoad(data);
-            console.log("Previous Category: " + this.props.activitiesShown.currentCategory);
         }
     }
 

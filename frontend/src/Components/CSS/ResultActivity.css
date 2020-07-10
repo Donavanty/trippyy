@@ -8,7 +8,22 @@
 }
 
 .timeBox {
-	padding: 4vmin;
+	padding-top: 3vmin;
+	padding-bottom: 3vmin;
+	display: flex;
+	flex-direction: column;
+}
+
+.startTime {
+	margin-left: 1.5vw;
+	height: 90%;
+
+	font-size: 1.8vmin;
+}
+
+.endTime {
+	margin-left: 1.5vw;
+	font-size: 1.8vmin;
 }
 
 .descBox {

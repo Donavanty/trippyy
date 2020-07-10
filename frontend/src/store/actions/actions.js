@@ -6,8 +6,8 @@ import Unsplash, { toJson } from "unsplash-js";
 
 
 import {updateObject} from '../utility';
-const DATABASE_URL = "http://trippyy-backend.herokuapp.com/"
-// const DATABASE_URL = "http://127.0.0.1:8000/"
+// const DATABASE_URL = "http://trippyy-backend.herokuapp.com/"
+const DATABASE_URL = "http://127.0.0.1:8000/"
 const API_KEY = "AIzaSyDyb0_iNF_gpoxydk5Vd8IpWj1Hy1Tp5Vc"
 
 
@@ -333,6 +333,7 @@ export const activitiesLoadData = (data) => {
 		})
 		return;
 	}
+	console.log(data);
 	
 	axios.post(url, data)
           .then( (res) => {
@@ -454,68 +455,18 @@ export const itineraryLoadData = (data) => {
 	return async (dispatch) => {
 	    axios.post(DATABASE_URL + "api/algo/", data).then( async (res) => {
 	        var iti = JSON.parse(res.data);
-	        var itiDirections = [];
 	        for (var day in iti) {
 	        	for (var activity in iti[day]) {
-	        		if (activity !== 0) {
+	        		if (parseInt(activity) !== 0) {
 	        			iti[day][activity] = JSON.parse(iti[day][activity])
 	        		}
 	        	}
 	        	iti[day].push("EMPTY")
-	        
-
-		        if (iti[day].length > 3) {
-					let directions = [];
-					for (let activity = 1; activity < (iti[day].length - 2); activity++) {
-						const directionsService = new window.google.maps.DirectionsService();
-						const origin = iti[day][activity].geometry.location;
-					    const destination = iti[day][activity+1].geometry.location;
-					    let promise = new Promise( (resolve, reject) => { 
-
-						    setTimeout(() => directionsService.route(
-						    {
-						        origin: origin,
-						        destination: destination,
-						        travelMode: window.google.maps.TravelMode.TRANSIT,
-						    },
-						    (result, status) => {
-						        if (status === window.google.maps.DirectionsStatus.OK) {
-						            resolve("done");	
-						            directions.push(result);
-						        } else {
-								    setTimeout( directionsService.route(
-								    {
-								        origin: origin,
-								        destination: destination,
-								        travelMode: window.google.maps.TravelMode.DRIVING,
-								    },
-								    (result, status) => {
-								        if (status === window.google.maps.DirectionsStatus.OK) {
-								            resolve("done");	
-								            directions.push(result);
-								        } else {
-								            console.error("error");
-								            resolve("done");
-								        }
-								    }), 100);
-						        }
-						    }), 100);
-						});
-						await promise;
-					}
-					itiDirections.push(directions);
-				} else {
-					itiDirections.push([]);
-				}
 			}
-	        dispatch({
-				type: actionTypes.ITINERARY_LOAD,
-				itinerary: iti,
-				itiDirections: itiDirections,
-				getItineraryLoading: false,
-			});
+			dispatch(itineraryLoadDirections(iti));
 	    }).catch((error) => {
 	    	alert("Directions API capacity reached, try again in awhile :-(");
+	    	console.log(error)
 	    	dispatch({
 	    		type: actionTypes.ITINERARY_LOAD,
 				itinerary: [[]],
@@ -527,30 +478,78 @@ export const itineraryLoadData = (data) => {
 }
 
 export const itineraryLoadDirections = (iti) => {
-	console.log("CALLED")
 	return async (dispatch) => {
 		dispatch({type: actionTypes.ITINERARY_LOAD_DIRECTIONS_START});
+    	let startDate = new Date(JSON.parse(localStorage.trip)["startDate"]);
+        let itiDirections = [];
+        for (let day in iti) {
+        	// Resets total time.
+        	iti[day][0] = 0;
 
-		var itiDirections = [];
-		for (var day in iti) {
+		    let date = new Date()
+			date.setDate(startDate.getDate() + parseInt(day))
+			date.setMinutes(0)
+			date.setHours(9)
+
+        	for (let activity in iti[day]) {
+        		if (parseInt(activity) !== 0 && parseInt(activity) !== (iti[day].length - 1)) {
+        			// Add time based on without directions first. --------------------
+
+        			// Adding start time
+        			iti[day][activity]["startTime"] = date;						
+
+					// Adding activity time
+					const activityLength = iti[day][activity]["recommendedTime"] * 1000 * 60
+					date = new Date(date.getTime() + activityLength)
+
+					// Updating total time
+					iti[day][0] = iti[day][0] + iti[day][activity]["recommendedTime"];
+
+					// Adding end time
+					iti[day][activity]["endTime"] = date;
+        		}
+        	}
+        	// GETTING DIRECTIONS
 	        if (iti[day].length > 3) {
 				let directions = [];
 				for (let activity = 1; activity < (iti[day].length - 2); activity++) {
+					// Redeclare date.
+					let date = new Date();
+					
 					const directionsService = new window.google.maps.DirectionsService();
 					const origin = iti[day][activity].geometry.location;
 				    const destination = iti[day][activity+1].geometry.location;
-				    let promise = new Promise( (resolve, reject) => { 
-
-					    setTimeout(() => directionsService.route(
+				    let promise = new Promise( (resolve, reject) => {
+				    	const transitOptions = {
+				    		departureTime: iti[day][activity]["endTime"]
+				    	}
+					    setTimeout(() => {
+					    return directionsService.route(
 					    {
 					        origin: origin,
 					        destination: destination,
 					        travelMode: window.google.maps.TravelMode.TRANSIT,
+					        transitOptions: transitOptions,
 					    },
 					    (result, status) => {
 					        if (status === window.google.maps.DirectionsStatus.OK) {
-					            resolve("done");	
+
+					        	// Adding direction time
+					        	const travelLength = result.routes[0].legs[0].duration.value * 1000
+								date = new Date(iti[day][activity]["endTime"].getTime() + travelLength)
+								iti[day][activity+1]["startTime"] = date;
+
+								// Updating total time
+								iti[day][0] = iti[day][0] + travelLength/(1000.0 * 60.0)
+
+								// Adding activity time
+								const activityLength = iti[day][activity+1]["recommendedTime"] * 1000 * 60
+								date = new Date(date.getTime() + activityLength)
+								iti[day][activity+1]["endTime"] = date;
+
 					            directions.push(result);
+
+					            resolve("done");
 					        } else {
 							    setTimeout( directionsService.route(
 							    {
@@ -560,31 +559,45 @@ export const itineraryLoadDirections = (iti) => {
 							    },
 							    (result, status) => {
 							        if (status === window.google.maps.DirectionsStatus.OK) {
-							            resolve("done");	
+							        	// Adding direction time
+							        	const travelLength = result.routes[0].legs[0].duration.value * 1000
+										date = new Date(iti[day][activity]["endTime"].getTime() + travelLength)
+										iti[day][activity+1]["startTime"] = date;
+
+										// Updating total time.
+										iti[day][0] = iti[day][0] + travelLength/60.0
+
+										// Adding activity time
+										const activityLength = iti[day][activity+1]["recommendedTime"] * 1000 * 60
+										date = new Date(date.getTime() + activityLength)
+										iti[day][activity+1]["endTime"] = date;
+
 							            directions.push(result);
+
+							            resolve("done");
 							        } else {
 							            console.error("error");
 							            resolve("done");
 							        }
-							    }), 100);
+							    }), 500);
 					        }
-					    }), 100);
+					    })}, 500);
 					});
 					await promise;
 				}
+
 				itiDirections.push(directions);
 			} else {
 				itiDirections.push([]);
 			}
 		}
-
 		dispatch({
 			itiDirections: itiDirections,
-			type: actionTypes.ITINERARY_LOAD_DIRECTIONS,
+			type: actionTypes.ITINERARY_LOAD,
+			itinerary: iti,
 		})
 	}
 }
-
 
 /**
  * Updates activities of itinerary, deletes the activity at fromIndex, and adds the activity

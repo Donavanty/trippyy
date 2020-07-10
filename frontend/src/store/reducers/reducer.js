@@ -238,8 +238,6 @@ const activitiesStart = (state, action) => {
 }
 
 const activitiesAdd = (state, action) => {
-	var allowed = true;
-
 	// Retrieve trip for cache, can be done using state too, but both works.
 	var currentTrip = JSON.parse(localStorage.trip);
 
@@ -277,7 +275,7 @@ const activitiesAdd = (state, action) => {
 	var newTotalTime = currentTrip.activitiesAddedLength + (activityAdded["recommendedTime"] / 60)
 	if (newTotalTime > (state.trip.lengthOfTrip*12.0)) {
 		alert("You have reached the maximum time for activities!");
-		allowed = false;
+		return state;
 	}
 
 	// Merge all changes into currentTrip
@@ -290,15 +288,11 @@ const activitiesAdd = (state, action) => {
 	
 	// ENABLE FOR ALGO TESTING ----------------------------------------
 	// console.log(JSON.stringify(currentTrip.activitiesAdded));
-	if (allowed) {
-		return updateObject(state, {
-			trip: currentTrip,
-			activitiesShown: activitiesShown,
-			searchActivitiesShown: searchActivitiesShown,
-		})
-	} else {
-		return state;
-	}
+	return updateObject(state, {
+		trip: currentTrip,
+		activitiesShown: activitiesShown,
+		searchActivitiesShown: searchActivitiesShown,
+	})
 }
 
 const activitiesSubtract = (state, action) => {
@@ -416,6 +410,7 @@ const itineraryLoad = (state, action) => {
 	return updateObject(state, {
 		trip: trip,
 		getItineraryLoading: false,
+		itineraryLoadDirectionsLoading: false,
 
 	})
 
@@ -462,7 +457,8 @@ const itineraryLoadDirectionsStart = (state,action) => {
 
 const itineraryLoadDirections = (state, action) => {
 	const trip = updateObject(state.trip, {
-		itiDirections: action.itiDirections
+		itiDirections: action.itiDirections,
+		itinerary: action.itinerary
 	})
 	return updateObject(state, {
 		trip: trip,

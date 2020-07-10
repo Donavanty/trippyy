@@ -208,9 +208,12 @@ class Timetable extends Component {
 												    data-index={index}
 									          		data-dayindex={dayindex}> {(value)["name"]}
 									          		</p>
+
+
 												    <p className="timeFont"
 												    data-index={index}
-									          		data-dayindex={dayindex}> {(value)["recommendedTime"]/60} hours </p>
+									          		data-dayindex={dayindex}> {(value)["recommendedTime"]/60} hours 
+									          		</p>
 									          	</div>
 											</div>
 

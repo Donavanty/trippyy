@@ -1,38 +1,116 @@
 .inputForm-box {
-  background: rgba(255, 255, 255, 0.65); 
-  padding: 5vw;
-  padding-left: 5vw;
-  border-right: 10vw;
-  border-radius: 50px;
-  margin-right: 5vw;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  color: black;
+}
+/* SMALL ICONS -----------------*/
+.icon {
+  width: 3vw;
+  border: grey 1px solid;
+  border-right: none;
+  background-color: rgb(150, 150, 150);
+  display: flex;
+  justify-content: center;
 }
 
+.iconImg {
+  width: 2vw;
+  object-fit: contain;
+}
+/*SMALL ICONS ---------------*/
+
+
+/*FORM BIG BOX*/
+.inputForm-container {
+  display: flex;
+  box-shadow: 0 0.2vmin 0.4vmin rgba(0,0,0,0.2);
+}
+
+/*FORM SMALL BOX*/
 .inputForm-form {
-  margin-top: 5vh;
+  /*CENTERING STUFF*/
+  background-color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /*adding padding to left only!*/
+  padding-left: 5vw;
+
+  z-index: 2;
+  flex-shrink: 0;
+
 }
 
+.inputForm-fields {
+  display: flex;
+  padding-bottom: 2vh;
+  padding-top: 2vh;
+}
+
+.welcomeText {
+  margin-bottom: 1vh ;
+  font-family: "Cabin";
+}
 
 .inputForm-dates {
-  height: 120px;
+  border-bottom: 1px grey solid;
 }
+
 .inputForm-submit {
-  padding-top: 20px;
+  margin-top: 2vh;
 }
 
-.DateInput_input {
-  text-align: center;
+.inputForm-button {
+  background-color: orange;
+  border-color: orange;
+  width: 10vw;
+  color: white;
+  font-weight: bold;
+  border-radius: 3vmin;
+
 }
 
+
+/*LOGO STUFF*/
 .trippyy-logo{
   height: auto;
-  width: 30vw;
-  float: left;
-  margin: auto;
+  width: 25vw;
+  margin-left: 20vw;
 }
 
 .logo-container {
-  display: fixed;
-  padding-left: 10vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*LOGO STUFF --------------*/
+
+/*PHOTO STARTS*/
+.photoBox {
+  background-color: transparent;
+  padding: 0;
+  display: flex;
+}
+
+.randomPhoto {
+  position: absolute;
+  height: 50vh;
+  width: 30vw;
+  object-fit: cover;
+  z-index: 0;
+  
+}
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 10vw solid white;
+    border-right: 10vw solid transparent;
+    border-bottom: 50vh solid transparent;
+    z-index: 1;
 }

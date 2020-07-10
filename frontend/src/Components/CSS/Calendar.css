@@ -1,0 +1,44 @@
+#calendar {
+	border: grey;
+	border-style: solid;
+	border-width: 1px;
+	height: 5vh;
+	width: 20vw;
+}
+
+
+/*Inside start/end date --------------------*/
+#startDate {
+	font-size: 2.2vmin;
+	font-weight: bold;
+	height: 4vh;
+	width: 8vw;
+	text-align: center;
+}
+
+#endDate {
+	height: 4vh;
+	font-size: 2.2vmin;
+	font-weight: bold;
+	width: 8vw;
+	text-align: center;
+}
+
+/*Box for startdate / end date --------------------*/
+.DateInput {
+	padding-top: 0.5vh;
+	height: 4vh;
+	width: 8vw;
+}
+
+.DateRangePickerInput_arrow {
+	padding-top: 0.5vh;
+}
+
+/*Entire row*/
+.DateRangePickerInput {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}

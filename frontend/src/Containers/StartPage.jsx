@@ -15,6 +15,7 @@ import "./CSS/global.css"
 import "./CSS/Start.css"
 import LazyLoad from 'react-lazy-load';
 import SBG from '../assets/startBackground.jpg'
+import ShoppingBg from "../assets/shoppingBg.jpg"
 /** Container, renders sign up page.
 * @memberof Container
 * @param {Component} Navbar, renders navigation bar.
@@ -33,7 +34,17 @@ class StartPage extends Component {
 		//Updates login status into redux.
 		this.props.onTryAutoSignup();
 		this.props.checkTrip();
-		this.setState({bgLoading: false});
+		this.setState({bgLoading: true});
+
+		const img = new Image();
+        img.src = SBG;
+        const img2 = new Image();
+        img2.src = ShoppingBg;
+
+         img.onload = () => {
+		    // when it finishes loading, update the component state
+		    this.setState({ bgLoading: false });
+  		}
 	}
 
 	render() {

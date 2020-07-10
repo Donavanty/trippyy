@@ -9,11 +9,13 @@ import { connect } from 'react-redux';
 
 import "./CSS/InputForm.css"
 import Calendar from "./Calendar"
-import { Spinner, Button } from 'react-bootstrap';
+import { Spinner } from 'react-bootstrap';
 import Autocomplete from './Autocomplete'
 import Logo from '../assets/logo.PNG'
 import LazyLoad from 'react-lazy-load';
-
+import CalendarIcon from "../assets/calendar.png"
+import PlaneIcon from "../assets/plane.png"
+import ShoppingBg from "../assets/shoppingBg.jpg"
 
 /**
  * Component, renders input form for user to input City and dates of trip.
@@ -96,50 +98,63 @@ class InputForm extends Component {
 	      <div>
 
 	    	<div className = "row">
-		    	<div className = "col-5 logo-container">
+		    	<div className = "col-4 logo-container">
 		    		<LazyLoad>
 						<img src={Logo} alt="trippyy-logo" className="trippyy-logo"/>
 					</LazyLoad>
 				</div>
-	          <div className = "col-7">
+
+	          <div className = "col-8">
 	          <div className ="inputForm-box">
-	          	{
-	    		 (this.props.isAuthenticated) ?
-	    			 <h1>Welcome back, {this.props.user.username}!</h1> : (<h1>Get Started</h1>)
-	    		}
-			  	<form onSubmit = {this.newTrip} className="inputForm-form"> 
-	                <div className ="inputForm-dates" id="input" >
-	                	<h3> Enter Dates: </h3>
-	                	<Calendar updateDates={this.updateDates}/>
-	                </div>
+	          	<div className="inputForm-container">
+				  	<form onSubmit = {this.newTrip} className="inputForm-form col-6">
+				  	<div className="welcomeText">
+					  	{
+			    		 (this.props.isAuthenticated) ?
+			    			 <h3>Welcome back, {this.props.user.username}!</h3> : (<h3>Get Started</h3>)
+			    		} 
+		    		</div>
+		                <div className ="inputForm-fields inputForm-dates" id="input" >
+		                	<div className="icon">
+		                	<img src={CalendarIcon} className="iconImg" alt="icon"/>
+		                	</div>
+		                	<Calendar updateDates={this.updateDates}/>
+		                </div>
 
-                	<div id="input">
-	                	<h3> Enter Country or City: </h3>
-	                	<Autocomplete className="autocomplete" updateCountry={this.updateCountry} name = "country" 
-						/>
-	                </div>
+	                	<div id="input" className="inputForm-fields">
+	                		<div className="icon">
+	                		<img src={PlaneIcon} className="iconImg" alt="plane"/>
+	                		</div>
+		                	<Autocomplete className="autocomplete" updateCountry={this.updateCountry} name = "country" 
+							/>
+		                </div>
 
-	                
-					<style type="text/css">
-								{`
-								.btn-trippyy {
-								background-color: #5CCFE9;
-								color: black;
-								}
-								`}
-								</style>
-	                <div className = "inputForm-submit" id="input">
-	                	{ !this.props.loading ? 
-							
-	                		<Button variant="trippyy" onClick = {(event) => {this.newTrip(event); this.scrollToTheTop();}} > Submit </Button> 
-	                		:
-							<Spinner animation="border" role="status">
-							  <span className="sr-only">Loading...</span>
-							</Spinner>
+		                
+						<style type="text/css">
+									{`
+									.btn-trippyy {
+									background-color: #5CCFE9;
+									color: black;
+									}
+									`}
+									</style>
+		                <div className = "inputForm-submit" id="input">
+		                	{ !this.props.loading ? 
+								
+		                		<button className="inputForm-button" variant="trippyy" onClick = {(event) => {this.newTrip(event); this.scrollToTheTop();}} > Submit </button> 
+		                		:
+								<Spinner animation="border" role="status">
+								  <span className="sr-only">Loading...</span>
+								</Spinner>
 
-	                	}
-	                </div>
-	              </form>
+		                	}
+		                </div>
+		              </form>
+			              <div className="photoBox col-6">
+				              <div className="triangle"/> 
+				              <img src={ShoppingBg} className="randomPhoto" alt="eek"/>
+			              </div>
+		              </div>
 	              </div>
 	              </div>
 

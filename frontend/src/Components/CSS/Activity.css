@@ -27,10 +27,11 @@
 /*MAIN BOX CSS*/
 .activityBox {
 	/*background-color: rgb(255,255,255,0.5);*/
-	background-color: var(--color3);
+	background-color: orange;
+	color: white;
 	margin-top: 2vmin;
 	padding: 2vmin;
-	border-radius: 10px;
+	/*border-radius: 10px;*/
 	box-shadow: 0 0.2vmin 0.4vmin rgba(0,0,0,0.2)
 }
 

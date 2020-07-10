@@ -20,14 +20,14 @@
 	padding-top: 10px;
 	margin-right: 0;
 	/*background-color: rgb(255,255,255, 0.5);*/
-	background-color: var(--color4);
+	background-color: var(--color5);
 }
 
 #selectedActivitiesBox {
   height: 93vh;
   padding-top: 2vh;
   padding-left: 2vw;
-  background-color: var(--color2);
+  background-color: rgb(200,200,200);
   /*color: var(--color5);*/
   /*background-color: grey;*/
 }

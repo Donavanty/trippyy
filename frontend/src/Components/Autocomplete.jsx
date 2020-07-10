@@ -60,7 +60,7 @@ class Autocomplete extends Component {
         <div>
         <input
         {...getInputProps({
-          placeholder: 'Search Country or City',
+          placeholder: 'Enter city destination (Cities)',
           className: 'location-search-input',
         })}
         />

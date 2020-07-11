@@ -30,12 +30,6 @@ class Activity extends Component{
 	}
 		
 	render() {
-		var activityClass;
-		if (this.props.index < 10) {
-			activityClass = "activityTop"
-		} else {
-			activityClass = "activityBottom"
-		}
 		return (
 			<div className ="activityBox">
 		<div className = "row" onMouseEnter={() => this.props.onMouseEnter(this.props.index)} onMouseLeave={() => this.props.onMouseLeave(this.props.index)}>
@@ -48,11 +42,11 @@ class Activity extends Component{
 				<p className = "activityDes"> {this.props.value.formatted_address} </p>
 				<p className = "activityDes"> {this.beautifyText(this.props.value.types[0])} </p>
 				{this.props.value.added === true ?
-						<button id="added" className={activityClass} onClick={() => this.props.activityClickHandlerToSubtract(this.props.value)}>
+						<button id="added" className="addActivityButton" onClick={() => this.props.activityClickHandlerToSubtract(this.props.value)}>
 							Remove
 						</button>
 					:
-						<button id="notAdded" className={activityClass} onClick={() => this.props.activityClickHandlerToAdd(this.props.value)}>
+						<button id="notAdded" className="addActivityButton" onClick={() => this.props.activityClickHandlerToAdd(this.props.value)}>
 							{(this.props.displayIndex) + 1} : Add to trip!
 						</button>
 				}

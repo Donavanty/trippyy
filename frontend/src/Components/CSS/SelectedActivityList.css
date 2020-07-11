@@ -1,6 +1,6 @@
 #selectedActivityList {
 	overflow: auto;
-	height: 40vh;
+	height: 62vh;
 	overscroll-behavior: contain;
 	/*position: fixed;*/
 	margin-top: 30px;
@@ -8,38 +8,89 @@
 }
 
 .itiButton {
-  background-color: #4CAF50; /* Green */
+  background-color: orange; /* Green */
   border: none;
-  border-radius: 10px;
+  border-radius: 5vmin;
   color: white;
-  padding: 15px 32px;
+
+  /*Paddings*/
+  padding-left: 3vmin;
+  padding-right: 3vmin;
+  padding-top: 3vmin;
+  padding-bottom: 3vmin;
+
+  width: 100%;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 2vmin;
+  font-weight: bold;
+}
+
+.itiButton:hover {
+  color: white;
 }
 
 .statsBox {
   margin-top: 2vh;
 }
+.statsHeader {
+  text-align: center;
+  border-bottom: 1px grey solid;
+}
 
-.statsDes {
-  width: 10vw;
-  text-align: left;
-  font-size: 2vmin;
+.statsTextBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.statsText {
+  padding-top: 1vh;
+  font-size: 1.8vmin;
+}
+
+.statsNumber {
+  padding-top: 1vh;
+  padding-left: 0.5vw;
+  color: #ff8c00;
+  font-size: 1.8vmin;
+  font-family: "Cabin";
+  font-weight: lighter;
+}
+
+.recommended {
+  color: black;
+  font-family: "Cabin";
+  font-weight: lighter;
+}
+
+.yourActivitiesBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 1vh;
+  border-bottom: 1px grey solid;
+}
+
+.yourActivitiesText {
+  margin-left: 4vw;
+  text-align: center;
+}
+
+.selectedActivitiesBox {
   margin-top: 1vh;
 }
 
-.statsNum {
-  margin: auto;
-  text-align: center;
-  font-size: 3vmin;
+.clearAll {
+  margin-left: 1vw;
+  background-color: white;
+  color: grey;
+  border-color: white;
+  border: 1px grey solid;
+  border-radius: 0;
+
+  font-size: 1.8vmin;
   font-weight: bold;
-
-}
-
-.stats1 {
-  display: flex;
-  border-bottom: solid;
-  border-color: grey;
 }

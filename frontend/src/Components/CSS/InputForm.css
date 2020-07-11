@@ -66,8 +66,8 @@
 }
 
 .inputForm-button {
-  background-color: orange;
-  border-color: orange;
+  background-color: var(--color1);
+  border-color: var(--color1);
   width: 10vw;
   color: white;
   font-weight: bold;

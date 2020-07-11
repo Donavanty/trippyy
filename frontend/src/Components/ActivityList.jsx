@@ -7,7 +7,7 @@ import * as actions from '../store/actions/actions';
 import { connect } from 'react-redux';
 // -------------------------------------------------------------------------
 
-import { Spinner , Button} from 'react-bootstrap';
+import { Spinner , Button, Dropdown} from 'react-bootstrap';
 import "./CSS/ActivityList.css";
 import Activity from './Activity'
 
@@ -27,10 +27,8 @@ const API_KEY = "AIzaSyDyb0_iNF_gpoxydk5Vd8IpWj1Hy1Tp5Vc"
  */
 class ActivityList extends Component{
     state = {
-        activities: [],
+        category : "General",
         localLoading: false,
-        items: 20,
-        isScrolling: null,
     }
 
     convertSpaceToPlus(text) {
@@ -139,9 +137,10 @@ class ActivityList extends Component{
     * "TEXTSEARCH" parameter to retrieve activities from Google API with new category.
     * @param {ReduxAction} activitiesLoad: to load activities from Google API
     */
-    changeCategory = (event) => {
+    changeCategory = (category) => {
         const trip = JSON.parse(localStorage.trip);
-        if (event.target.value === "General") {
+        this.setState({category: category})
+        if (category === "General") {
             const data = {
                 dataType: "BOUNDEDTEXTSEARCH",
                 key: API_KEY,
@@ -158,8 +157,8 @@ class ActivityList extends Component{
             const data = {
                 dataType: "BOUNDEDTEXTSEARCH",
                 key: API_KEY,
-                query: this.convertSpaceToPlus(trip["country"] + " " + event.target.value + " attractions"),
-                category: event.target.value,
+                query: this.convertSpaceToPlus(trip["country"] + " " + category + " attractions"),
+                category: category,
                 lat: trip["lat"],
                 lng: trip["lng"],
                 radius: trip["radius"],
@@ -170,35 +169,7 @@ class ActivityList extends Component{
         }
     }
 
-    /**
-    * Called upon pressing the Clear All button to clear all activities selected.
-    * Calls the redux-action (activitiesSubtract) on particular selected activities, and redux-action (clearAllActivities).
-    * @param {ReduxAction} activitiesSubtract: to subtract activities from the currentList array state, resulting in all activities in the ActivityList Component being unselected.
-    * @param {ReduxAction} clearAllActivities: to clear all activities from the activitiesAdded array state, resulting in SelectedActivityList showing nothing.
-    */
-    clearAll = () => {
-        if (this.props.trip.activitiesAdded.length !== 0) {
-      
-            const subtractAllSelectedActivities = () => {
-                for (let j = 0; j < this.props.activitiesShown.currentList.length; j++) {
-                    if (this.props.activitiesShown.currentList[j].added === true) {
-                        this.props.activitiesSubtract(this.props.activitiesShown.currentList[j]);
-                    }
-                }
 
-                for (let j = 0; j < this.props.searchActivitiesShown; j++) {
-                    if (this.props.searchActivitiesShown[j].added === true) {
-                        this.props.activitiesSubtract(this.props.searchActivitiesShown[j]);
-                    }
-                }
-            }
-
-            //Subtract current categories' activities
-            subtractAllSelectedActivities();
-            this.props.clearAllActivities();
-        }
-      
-    }
 
     onMouseEnter = (index) => {
         this.props.activitiesFocus(index);
@@ -223,30 +194,35 @@ class ActivityList extends Component{
 
                 : 
                 <Fragment>
-                <div>
-                    <Button className="customButton" onClick={this.clearAll} value="Reset"
-                        variant="warning">Clear All</Button>
+
+                    <div className="dropdownBox">
+                        <p className="filterText"> Filter: </p>
+                        <Dropdown>
+                          <Dropdown.Toggle className="filterButton">
+                                {this.state.category}
+                          </Dropdown.Toggle>
+
+                          <Dropdown.Menu>
+                              <Dropdown.Item className="customButton" onClick={() => this.changeCategory("General")} value="General"
+                                variant={"General" === this.props.activitiesShown.currentCategory ? "secondary" : "info"}>General</Dropdown.Item>
+                              <Dropdown.Item className="customButton" onClick={() => this.changeCategory("Food")} value="Food"
+                                variant={"Food" === this.props.activitiesShown.currentCategory ? "secondary" : "info"}>Food</Dropdown.Item>
+                              <Dropdown.Item className="customButton" onClick={() => this.changeCategory("Outdoors")} value="Outdoors"
+                                variant={"Outdoors" === this.props.activitiesShown.currentCategory ? "secondary" : "info"}>Outdoors</Dropdown.Item>
+                              <Dropdown.Item className="customButton" onClick={() => this.changeCategory("Art & Culture")} value="Art & Culture"
+                                variant={"Art & Culture" === this.props.activitiesShown.currentCategory ? "secondary" : "info"}>Art & Culture</Dropdown.Item>
+                              <Dropdown.Item className="customButton" onClick={() => this.changeCategory("Beaches")} value="Beaches"
+                                variant={"Beaches" === this.props.activitiesShown.currentCategory ? "secondary" : "info"}>Beaches</Dropdown.Item>
+                              <Dropdown.Item className="customButton" onClick={() => this.changeCategory("Museums")} value="Museums"
+                                variant={"Museums" === this.props.activitiesShown.currentCategory ? "secondary" : "info"}>Museums</Dropdown.Item>
+                              <Dropdown.Item className="customButton" onClick={() => this.changeCategory("Amusement Parks")} value="Amusement Parks"
+                                variant={"Amusement Parks" === this.props.activitiesShown.currentCategory ? "secondary" : "info"}>Amusement Parks</Dropdown.Item>
+                              <Dropdown.Item className="customButton" onClick={() => this.changeCategory("Local Favourites")} value="Local Favourites"
+                                variant={"Local Favourites" === this.props.activitiesShown.currentCategory ? "secondary" : "info"}>Local Favourites</Dropdown.Item>
+
+                          </Dropdown.Menu>
+                        </Dropdown>
                     </div>
-                      <Button className="customButton" onClick={this.changeCategory} value="General"
-                        variant={"General" === this.props.activitiesShown.currentCategory ? "secondary" : "info"}>General</Button>
-                      <Button className="customButton" onClick={this.changeCategory} value="Food"
-                        variant={"Food" === this.props.activitiesShown.currentCategory ? "secondary" : "info"}>Food</Button>
-                      <Button className="customButton" onClick={this.changeCategory} value="Outdoors"
-                        variant={"Outdoors" === this.props.activitiesShown.currentCategory ? "secondary" : "info"}>Outdoors</Button>
-                      <Button className="customButton" onClick={this.changeCategory} value="Art & Culture"
-                        variant={"Art & Culture" === this.props.activitiesShown.currentCategory ? "secondary" : "info"}>Art & Culture</Button>
-                      <Button className="customButton" onClick={this.changeCategory} value="Beaches"
-                        variant={"Beaches" === this.props.activitiesShown.currentCategory ? "secondary" : "info"}>Beaches</Button>
-                      <Button className="customButton" onClick={this.changeCategory} value="Museums"
-                        variant={"Museums" === this.props.activitiesShown.currentCategory ? "secondary" : "info"}>Museums</Button>
-                      <Button className="customButton" onClick={this.changeCategory} value="Amusement Parks"
-                        variant={"Amusement Parks" === this.props.activitiesShown.currentCategory ? "secondary" : "info"}>Amusement Parks</Button>
-                      <Button className="customButton" onClick={this.changeCategory} value="Local Favourites"
-                        variant={"Local Favourites" === this.props.activitiesShown.currentCategory ? "secondary" : "info"}>Local Favourites</Button>
-                    {
-                        (!this.props.isFirstPage) &&
-                            <Button id="prevPageButton" variant="primary" className="customButton" onClick ={this.loadPrev}> Scroll to Prev Page </Button>
-                    }
 
                     {this.props.activitiesShown.currentList.map((value,index) => 
                         <Activity
@@ -262,12 +238,19 @@ class ActivityList extends Component{
                     
                     }
 
-                    {
-                        this.props.isLastPage ?
-                            <div> No more! Try changing category or moving the map </div>
-                        :
-                            <Button variant="primary" className="customButton" id="nextPageButton" onClick ={this.loadNext}> Scroll to Next Page </Button>
-                    }
+                    <div className="pageButtonsBox">
+                        {
+                            (!this.props.isFirstPage) &&
+                                <Button id="prevPageButton" variant="primary" className="customButton" onClick ={this.loadPrev}> Prev </Button>
+                        }
+
+                        {
+                            this.props.isLastPage ?
+                                <div> No more! Try changing category or moving the map </div>
+                            :
+                                <Button variant="primary" className="customButton" id="nextPageButton" onClick ={this.loadNext}> Next </Button>
+                        }
+                    </div>
                 </Fragment>
             }
             </div>
@@ -296,7 +279,6 @@ const mapDispatchToProps = dispatch => {
 
         activitiesFocus: (index) => dispatch(actions.activitiesFocus(index)),
         activitiesUnfocus: (index) => dispatch(actions.activitiesUnfocus(index)),
-        clearAllActivities: () => dispatch(actions.clearAllActivities()),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ActivityList);

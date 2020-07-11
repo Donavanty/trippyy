@@ -55,7 +55,7 @@ class ActivitySearchAutoComplete extends Component {
 		        <input
 		        {...getInputProps({
 		          placeholder: 'Search',
-		          className: 'location-search-input-search',
+		          className: 'location-search-input-search'+ this.props.bgColor.toString() ,
 		        })}
 		        />
 		        <div className="autocomplete-dropdown-container-search">

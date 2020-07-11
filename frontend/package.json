@@ -20,6 +20,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
+    "react-bootstrap-range-slider": "^1.0.0",
     "react-date-range": "^1.0.3",
     "react-dates": "^21.8.0",
     "react-dom": "^16.13.1",

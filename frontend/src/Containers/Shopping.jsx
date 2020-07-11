@@ -25,6 +25,9 @@ import "./CSS/Shopping.css"
 * @param {ReduxAction} authCheckState, updates redux state of user with local storage
 */
 class Shopping extends Component {
+    state={
+      bgColor: " browseGrey"
+    }
 
     componentDidMount() {
       if (localStorage.getItem('trip') === null || localStorage.getItem('trip') === undefined) {
@@ -63,19 +66,16 @@ class Shopping extends Component {
               </div>
               <div className = "bigBox">
                 <div className = "row">
-                  <div className = "col-3" id="selectedActivitiesBox">
-                    <h3> Welcome to {this.props.trip["country"]} </h3>
+                  <div className = "col-2" id="selectedActivitiesBox">
                     <SelectedActivityList/>
                   </div>
-                  <div className = "col-3" id="activitiesBox">
-                    <h3> Activities: </h3>
-
+                  <div className = "col-4" id="activitiesBox">
                     <div className = "browseSearchRow">
-                      <div className ="">
-                      <button className="browseButton" onClick={() => this.changeBrowsing("BROWSE")}> Browse </button>
+                      <div className ={"browseBox" + (this.props.browsingToggle ? " searchGrey" : "")} onClick={() => this.changeBrowsing("BROWSE")}>
+                        Browse 
                       </div>
-                      <div className ="" onClick = {() => this.changeBrowsing("SEARCH")}>
-                        <ActivitySearchAutocomplete selectAddress={this.selectAddress}/>
+                      <div className ="searchBox" onClick = {() => this.changeBrowsing("SEARCH")}>
+                        <ActivitySearchAutocomplete selectAddress={this.selectAddress} bgColor={!this.props.browsingToggle ? " browseGrey" : ""}/>
                       </div>
                     </div>
 

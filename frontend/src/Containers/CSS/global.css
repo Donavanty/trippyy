@@ -52,6 +52,29 @@ button {
     border: 5px solid #5CCFE9;
 }
 
+.trippyyButton {
+  background-color: orange;
+  color: white;
+  border-radius: 5vmin;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  border-color: orange;
+}
+
+.trippyyButtonSquare {
+  border: none;
+  border-radius: 0;
+  background-color: rgb(200,200,200);
+  color: black;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  box-shadow: 0 0.2vmin 0.4vmin rgba(0,0,0,0.2)
+}
+
+.miniText {
+  font-size: 1.5vmin;
+  font-weight: bold;
+}
 h1 {
   font-size: 8vmin;
   font-weight: 400;

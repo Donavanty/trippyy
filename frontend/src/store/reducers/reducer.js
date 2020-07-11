@@ -133,6 +133,13 @@ const newTrip = (state, action) => {
 	})
 }
 
+const checkTrip = (state, action) => {
+	return updateObject(state, {
+		trip: action.trip,
+		newTripLoading: false,
+	})
+}
+
 const updateBounds = (state, action) => {
 	const newMap = updateObject(state.map, {
 		bounds: action.bounds
@@ -301,7 +308,7 @@ const activitiesSubtract = (state, action) => {
 
 	// Retrieve activity that was selected/clicked on by referencing the index (id) 
 	// Update the activity such that {added: false}
-	var activitySelected = action.index;
+	var activitySelected = action.activity;
 	activitySelected = updateObject(activitySelected, {added: false});
 
 	// Update (activities shown) current list
@@ -333,14 +340,10 @@ const activitiesSubtract = (state, action) => {
 	// Update new total time
 	var newTotalTime = currentTrip.activitiesAddedLength - (activitySelected["recommendedTime"] / 60)
 
-	
-
 	// Merge all changes into currentTrip
-	// currentTrip['activitiesAdded'].pop(activitySelected); //WRONG
-	// currentTrip['activitiesAddedIds'].pop(activitySelected.id); //WRONG
-
 	var filteredTrip = currentTrip['activitiesAdded'].filter(
 		(activity) => activity.name !== activitySelected.name);
+	console.log(activitySelected.name)
 
 	currentTrip['activitiesAdded'] = filteredTrip;
 
@@ -352,6 +355,65 @@ const activitiesSubtract = (state, action) => {
 
 	// Update currentTrip
 	localStorage.setItem('trip', JSON.stringify(currentTrip));
+
+	return updateObject(state, {
+		trip: currentTrip,
+		activitiesShown: activitiesShown,
+		searchActivitiesShown: searchActivitiesShown,
+	})
+}
+
+const activitiesEdit = (state, action) => {
+	// Retrieve trip for cache, can be done using state too, but both works.
+	var currentTrip = JSON.parse(localStorage.trip);
+	var activitySelected = action.activity;
+	// Update new total time
+	var newTotalTime = currentTrip.activitiesAddedLength - (activitySelected["recommendedTime"] / 60)
+
+	// Retrieve activity that was selected/clicked on by referencing the index (id) 
+	// Update the activity such that {added: false}
+	activitySelected = updateObject(activitySelected, {recommendedTime: action.newTime});
+
+	newTotalTime = newTotalTime + (activitySelected["recommendedTime"] / 60.0);
+
+	// Update (activities shown) current list
+	var activitiesShownCurrentList = [...state.activitiesShown.currentList];
+	for (var activity in activitiesShownCurrentList) {
+		if (activitiesShownCurrentList[activity].name === activitySelected.name) {
+			activitiesShownCurrentList[activity] = activitySelected;
+		}
+	}
+
+	// Update (activities shown) full list
+	var activitiesShownFullList = [...state.activitiesShown.fullList];
+	activitiesShownFullList[state.activitiesShown.pageNumber] = activitiesShownCurrentList;
+
+	// Update activities shown
+	var activitiesShown = updateObject(state.activitiesShown, {
+			currentList: activitiesShownCurrentList,
+			fullList: activitiesShownFullList,
+	})
+
+	// Update search activities shown
+	var searchActivitiesShown = [...state.searchActivitiesShown];
+	for (let activity in searchActivitiesShown) {
+		if (searchActivitiesShown[activity].name === activitySelected.name) {
+			searchActivitiesShown[activity] = activitySelected;
+		}
+	}
+
+	// Merge all changes into currentTrip
+	for (let activity in currentTrip['activitiesAdded']) {
+		if (currentTrip['activitiesAdded'][activity].name === activitySelected.name) {
+			currentTrip['activitiesAdded'][activity] = activitySelected;
+		}
+	}
+	currentTrip['activitiesAddedLength'] = newTotalTime;
+
+	// Update currentTrip
+	localStorage.setItem('trip', JSON.stringify(currentTrip));
+
+	console.log(currentTrip)
 
 	return updateObject(state, {
 		trip: currentTrip,
@@ -515,6 +577,7 @@ const changeBrowsing = (state, action) => {
 const reducer = (state=initialState, action) => {
 	switch(action.type) {
 
+		case actionTypes.ACTIVITY_EDIT: return activitiesEdit(state,action);
 		case actionTypes.ACTIVITY_SUBTRACT: return activitiesSubtract(state, action);
 		case actionTypes.ACTIVITY_ADD: return activitiesAdd(state, action);
 		case actionTypes.ACTIVITY_FOCUS: return activitiesFocus(state, action);
@@ -525,6 +588,7 @@ const reducer = (state=initialState, action) => {
 		case actionTypes.MAP_BOUNDS_CHANGED: return updateBounds(state, action);
 		case actionTypes.MAP_ADD_DIRECTIONS: return mapAddDirections(state, action);
 		case actionTypes.NEW_TRIP: return newTrip(state, action);
+		case actionTypes.CHECK_TRIP: return checkTrip(state,action);
 		case actionTypes.NEW_TRIP_START: return newTripStart(state, action);
 		case actionTypes.AUTH_START: return authStart(state, action);
 		case actionTypes.AUTH_SUCCESS: return authSuccess(state, action);

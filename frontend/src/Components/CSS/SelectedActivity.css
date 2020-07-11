@@ -1,0 +1,154 @@
+#selectedActivityBox {
+	background-color: white;
+	padding: 0.5vmin;
+	padding-left: 2vw;
+	border-radius: 20vmin;
+	border: solid 1px;
+	cursor: pointer;
+
+	box-shadow: 0 0.2vmin 0.4vmin rgba(0,0,0,0.2);
+
+	display:flex;
+	justify-content: center;
+	flex-direction: column;
+
+	margin-bottom: 1vh;
+}
+
+#selectedActivityBox:hover {
+	background-color: rgb(233,233,233);
+}
+
+/*LARGE BOXES*/
+
+.popupBox {
+	padding: 0;
+	border: 0;
+	height: 50vh;
+	width: 50vw;
+	display: flex;
+	flex-direction: row;
+}
+
+.infoBox {
+	padding: 5vmin;
+}
+
+.selectedActivityDesBox {
+	margin-top: 2.5vh;
+	margin-bottom: 1.5vh;
+}
+
+.deleteButton {
+	margin-left: 18vw;
+	float: right;
+	position: absolute;
+	height: 4vh;
+	z-index: 2;
+}
+
+.nameText {
+	font-size: 1.7vmin;
+}
+
+/*POPUP: IMAGE BOX STUFFFF*/
+
+.photoBox {
+  padding: 0;
+  display: flex;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 10vw solid white;
+    border-right: 10vw solid transparent;
+    border-bottom: 50vh solid transparent;
+    z-index: 1;
+}
+
+.activityPhoto {
+	position: absolute;
+	height: 50vh;
+	width: 100%;
+	object-fit: cover;
+}
+/*POPUP: TIME BOX-----------------------------*/
+
+.recommendedTimeBigBox {
+	display: flex;
+	flex-direction: column;
+	width: 20vw;
+}
+
+.recommendedTimeSmallBox {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.inputText {
+	width: 5vw;
+	height: 5vh;
+	padding: 2vmin;
+	margin-left: 1vw;
+}
+/*SLIDER STUFF ------------------------------------------------------*/
+
+.sliderBox{
+	margin-top: 5vh;
+	position: absolute;
+	opacity: 0.7;
+}
+
+.sliderBox:hover {
+	opacity: 1;
+}
+.sliderValue {
+	background-color: orange;
+	border-radius: 20px;
+	margin-top: 2vh;
+	width: 2.5vw;
+	text-align: center;
+}
+.slider {
+	margin-top: 3vh;
+	-webkit-appearance: none;  /* Override default CSS styles */
+	background: #d3d3d3; /* Grey background */
+	width: 20vw;
+	height: 1vh;
+	-webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  	transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 5vmin; /* Set a specific slider handle width */
+  height: 5vmin; /* Slider handle height */
+  border-radius: 25px;
+  background: orange; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.close {
+	position: absolute;
+	z-index: 1;
+	margin-left: 48vw;
+	font-size: 5vmin;
+}
+
+/*BUTTONS BOX*/
+.popupButtonsBox {
+	margin-top: 12vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+.quitButton {
+	background-color: white;
+	border: 1px black solid;
+	color: black;
+}
+

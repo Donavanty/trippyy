@@ -19,25 +19,55 @@
   	border-left: 0px;
 	padding-top: 10px;
 	margin-right: 0;
-	/*background-color: rgb(255,255,255, 0.5);*/
-	background-color: var(--color5);
 }
 
 #selectedActivitiesBox {
   height: 93vh;
   padding-top: 2vh;
   padding-left: 2vw;
-  background-color: rgb(200,200,200);
-  /*color: var(--color5);*/
-  /*background-color: grey;*/
+  background-color: white;
 }
 
 .browseSearchRow {
 	display: flex;
-	padding-bottom: 2vmin;
-	border-bottom: solid;
-	border-color: grey;
+	flex-direction: row;
+	width: 100%;
+
+	border-bottom: 1px grey solid;
+	margin-bottom: 2vh;
+}
+
+.browseBox {
+	border-left: 1px grey solid;
+	border-top: 1px grey solid;
+	
+	width: 33%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2vmin;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.browseBox:hover {
+	text-decoration: underline;
+}
+
+.searchBox {
+	padding: 0;
+	width: 66%;
 }
 .mapBox {
 	padding: 0;
+}
+
+.searchGrey {
+	background-color: var(--color1);
+	color: white;
+}
+
+.browseGrey {
+	background-color: rgb(200,200,200, 0.5);
 }

@@ -242,7 +242,7 @@ export const newTripStart = () => {
 export const checkTrip = () => {
 	if (localStorage.trip !== null && localStorage.trip !== undefined) {
 		return {
-			type: actionTypes.NEW_TRIP,
+			type: actionTypes.CHECK_TRIP,
 			trip: JSON.parse(localStorage.trip)
 		}
 	} else {
@@ -395,13 +395,20 @@ export const activitiesAdd = (index) => {
 	}
 }
 
-export const activitiesSubtract = (index) => {
+export const activitiesSubtract = (activity) => {
 	return {
 		type: actionTypes.ACTIVITY_SUBTRACT,
-		index: index
+		activity: activity
 	}
 }
 
+export const activitiesEdit = (activity, newTime) => {
+	return {
+		type: actionTypes.ACTIVITY_EDIT,
+		activity: activity,
+		newTime: newTime,
+	}
+}
 export const clearAllActivities = () => {
 	return {
 		type: actionTypes.ACTIVITY_CLEARALL,

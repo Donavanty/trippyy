@@ -36,6 +36,6 @@ it("Checks that a calendar renders.", () => {
 		)
 	})
 
-	const calendar = container.querySelector("div[class='DateRangePickerInput DateRangePickerInput_1 DateRangePickerInput__withBorder DateRangePickerInput__withBorder_2']");
+	const calendar = container.querySelector("div[class='DateRangePicker DateRangePicker_1']");
 	expect(calendar).toEqual(expect.anything());
 });

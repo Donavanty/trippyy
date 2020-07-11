@@ -44,7 +44,7 @@ class TextSearch(APIView):
 
 class NextKeySearch(APIView):
     def post(self, request, *args, **kwargs):
-        data = request.dataaaaaa
+        data = request.data
         url = "https://maps.googleapis.com/maps/api/place/textsearch/json?pagetoken=" + data["next_page_token"] + "&key=" + data["key"]
         r = requests.get(url)
         output = addTimeAndSummary(r, data["key"], False)

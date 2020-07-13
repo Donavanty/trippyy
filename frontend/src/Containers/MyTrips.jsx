@@ -11,8 +11,8 @@ import axios from "axios";
 import NavBar from '../Components/navBar';
 import { Spinner } from 'react-bootstrap';
 
-// const DATABASE_URL = "https://trippyy-backend.herokuapp.com/";
-const DATABASE_URL = "http://127.0.0.1:8000/"
+const DATABASE_URL = "https://trippyy-backend.herokuapp.com/";
+// const DATABASE_URL = "http://127.0.0.1:8000/"
 
 /** Container, renders my trips page.
 * @memberof Container

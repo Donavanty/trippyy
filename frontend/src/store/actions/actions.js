@@ -199,7 +199,7 @@ export const newTripData = (tripCountry, tripGeometry, tripLatlng, startDate, en
 						}
 				const user = localStorage.user
 				if (user) {
-					const token = JSON.parse(user["token"])
+					const token = JSON.parse(user)["token"]
 					axios.post(DATABASE_URL + 'api/trips/', data, {
 							headers: {Authorization: "Token " + token},
 					}).then(res => {

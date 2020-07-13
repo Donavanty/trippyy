@@ -21,7 +21,7 @@ x
 
         try:
             if isinstance(value, str):
-                return json.loads(value)
+                return value
         except ValueError:
             pass
         return value

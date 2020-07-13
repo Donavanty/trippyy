@@ -4,6 +4,7 @@ import React, { Component } from "react";
 
 //Imports needed for redux
 import * as actions from '../store/actions/actions';
+import * as utilities from '../Utilities'
 import { connect } from 'react-redux';
 // -------------------------------------------------------------------------
 
@@ -12,16 +13,6 @@ import ResultActivity from './ResultActivity'
 import ResultDirection from './ResultDirection'
 import VerticalLine from './VerticalLine'
 
-
-function getFormattedDate(input) {
-    var pattern = /(.*?)-(.*?)-(.*?)$/;
-    var result = input.replace(pattern,function(match,p1,p2,p3){
-        var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-        return p3 + " " + months[(p2-1)];
-    });
-
-    return (result);
-}
 
 /**
  * Component, renders a list of activities.
@@ -44,7 +35,7 @@ class Timeline extends Component{
         return (
             <div>
                 <div className="timelineHeaderBox">
-                    <h3> Your trip from {getFormattedDate(this.props.trip.startDate.toString())} to {getFormattedDate(this.props.trip.endDate.toString())} </h3>
+                    <h3> Your trip from {utilities.getFormattedDate(this.props.trip.startDate.toString())} to {utilities.getFormattedDate(this.props.trip.endDate.toString())} </h3>
                 </div>
                 <div className="timelineBox">
                     {this.props.trip.itinerary.map((dayValue, dayIndex) => {

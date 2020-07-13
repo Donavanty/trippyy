@@ -13,6 +13,7 @@ const initialState = {
 	itineraryFocusDayLoading: false,
 	itineraryLoadDirectionsLoading: false,
 	suggestionsLoading: false,
+	retrieveLoading: false,
 
 	browsingToggle: true,
 
@@ -522,6 +523,19 @@ const itineraryLoad = (state, action) => {
 		finished: true,
 	})
 
+		// IF LOGGED IN
+	const data = {
+		info: JSON.stringify(trip)
+	}
+	const user = localStorage.user
+	if (user) {
+		const token = JSON.parse(user)["token"]
+		axios.patch(DATABASE_URL + ('api/trips/' + trip["id"] + '/'  ), data, {
+				headers: {Authorization: "Token " + token},
+			}).then(res => console.log(res));
+	}
+	// ----------------------------------------------------------------------------
+
 	localStorage.setItem("trip", JSON.stringify(trip));
 
 	return updateObject(state, {
@@ -635,6 +649,20 @@ const changeBrowsing = (state, action) => {
 		browsingToggle: action.browsingToggle
 	})
 }
+
+const retrieveStart = (state, action) => {
+	return updateObject(state, {
+		retrieveLoading: true,
+	})
+}
+
+const retrieveTrip = (state, action) => {
+	localStorage.setItem('trip', JSON.stringify(action.trip))
+	return updateObject(state, {
+		trip: action.trip,
+		retrieveLoading: false,
+	})
+}
 const reducer = (state=initialState, action) => {
 	switch(action.type) {
 
@@ -668,6 +696,9 @@ const reducer = (state=initialState, action) => {
 		case actionTypes.SUGGESTIONS_START: return suggestionsStart(state,action);
 		case actionTypes.SUGGESTIONS_CLEAR: return suggestionsClear(state,action);
 		case actionTypes.CHANGE_BROWSING: return changeBrowsing(state, action);
+
+		case actionTypes.RETRIEVE_START: return retrieveStart(state,action);
+		case actionTypes.RETRIEVE_TRIP: return retrieveTrip(state,action);
 
 		default:
 			return state;

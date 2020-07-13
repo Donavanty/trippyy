@@ -7,19 +7,20 @@
   box-shadow: 0 0.4vmin 0.8vmin rgba(0,0,0,0.2);  
 }
 
+
 .navbar-items {
-  margin-right: 5vw;
+  margin-right: 3vw;
 }
 
 .nav-link {
-  /*color: #5CCFE9;*/
   color: var(--color1);
   display: inline-block;
   margin-left: 1vw;
+
 }
 
 .nav-link:hover {
-  background-color: rgba(255,255,255,0.9);
+  background-color: rgb(200,200,200, 0.5);
   color: black;
 }
 
@@ -28,4 +29,71 @@
 .navbar-brand {
   padding: 0;
   height: 4vh;
+}
+
+.accountScreen {
+  position: absolute;
+  top: 7.2vh;
+  width: 100vw;
+
+  display: flex;
+
+}
+
+.accountFiller {
+  position: relative;
+  width: 82.3vw; 
+  z-index: 1020;
+}
+
+.accountLink {
+  cursor: pointer;
+}
+
+.accountBox {
+  width: 17.7vw;
+  height: 100vh;
+  padding-top: 2vh;
+  position: relative;
+  z-index: 1020;
+  background-color: white;
+
+  display: flex;
+  flex-direction: column;
+  box-shadow: -10px 0px 5px -5px rgba(0,0,0,.3);
+  opacity: 1;
+}
+
+.option {
+  padding: 2vmin;
+  text-align: center;
+  display: flex;
+  flex-direction:row;
+}
+
+.option:hover {
+  text-decoration: none;
+  color: black;
+  background-color: rgb(233,233,233);
+}
+
+.optionText {
+  font-size: 2vmin;
+  font-weight: lighter;
+  font-family: "Montserrat";
+  color: black;
+
+}
+
+.navIcon {
+  height: 1.5vw;
+  width: 2vw;
+  object-fit: contain;
+  margin-right: 1vw;
+
+  opacity: 0.6;
+}
+
+.logoutIcon {
+  padding-left: 0.2vw;
 }

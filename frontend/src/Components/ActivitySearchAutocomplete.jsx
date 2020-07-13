@@ -14,8 +14,11 @@ import PlacesAutocomplete, {
 class ActivitySearchAutoComplete extends Component {
 
   componentDidMount() {
-  	
+  	 if (localStorage.trip) {
+      this.setState({bounds: JSON.parse(localStorage.trip)["geometry"]["bounds"]})
+     }
   }
+
   constructor(props) {
     super(props);
     this.state = { address: '' };
@@ -42,9 +45,6 @@ class ActivitySearchAutoComplete extends Component {
     this.setState({address: ""})
   };
 
-  searchOptions = {
-    bounds: JSON.parse(localStorage.trip)["geometry"]["bounds"]
-  }
 
   addSuggestions = (suggestions) => {
   	this.props.addSuggestions(suggestions);
@@ -90,7 +90,7 @@ class ActivitySearchAutoComplete extends Component {
       value={this.state.address}
       onChange={this.handleChange}
       onSelect={this.handleSelect}
-      searchOptions={this.searchOptions}
+      searchOptions={this.state}
       highlightFirstSuggestion={true}
       >
       	{this.loadItems}

@@ -90,7 +90,34 @@ export const authLogin = (username, password) => {
 		}).then(res => {
 			const token = res.data.token;
 			const userId = res.data.id;
-			dispatch(authSuccess(token, username, userId));
+
+			if (localStorage.trip) {
+				let trip = JSON.parse(localStorage.trip)
+				let data = {
+					destination: trip["country"],
+					tripName: "Trip to " + trip["country"] + " from " + trip["startDate"] + " to " + trip["endDate"],
+					startDate: trip["startDate"],
+					endDate: trip["endDate"],
+					info: JSON.stringify(trip),
+				}
+
+				axios.post(DATABASE_URL + 'api/trips/', data, {
+						headers: {Authorization: "Token " + token},
+				}).then(res => {
+					console.log(res);
+					// -------------------------
+					trip = updateObject(trip, {'id': res.data["id"]})
+					dispatch({
+						type: actionTypes.NEW_TRIP,
+						trip: trip,
+					})
+					dispatch(authSuccess(token, username, userId));
+				});
+			} else {
+				dispatch(authSuccess(token, username, userId));
+			}
+
+			
 		})
 		.catch(err => {
 			dispatch(authFail(err))
@@ -723,7 +750,13 @@ export const suggestionsClear = () => {
 	}
 }
 
-
+export const retrieveTrip = (trip) => {
+	return (dispatch) => {
+		dispatch({type: actionTypes.RETRIEVE_START});
+		dispatch({type: actionTypes.RETRIEVE_TRIP,
+			trip: trip})
+	}
+}
 
 
 

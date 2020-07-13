@@ -1,0 +1,64 @@
+.trip {
+	
+	/*background-color: red;*/
+}
+
+.heading-text {
+	margin-left: 5vw;
+	margin-top: 15vh;
+}
+.trips-box {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	margin-left: 3vw;
+	margin-top: 5vh;
+}
+
+.trip-container {
+	display: flex;
+	flex-direction: column;
+	
+	justify-content: center;
+	align-items: center;
+	text-align:	center;
+
+	box-shadow: 0 0.2vmin 0.4vmin rgba(0,0,0,0.2);
+
+	width: 20vw;
+	height: 15vw;
+	margin-left: 2vw;
+	margin-bottom: 2vw;
+	padding: 2vw;
+	cursor: pointer;
+}
+
+.trip-photo {
+	position: absolute;
+	object-fit: cover;
+	height: 15vw;
+	width: 20vw;
+	z-index: 0;
+}
+
+.trip-container:hover .trip-photo{
+	filter: brightness(66%);
+}
+
+.trip-text {
+	text-shadow: 0 0.4vmin 0.8vmin black;
+	color: white;
+	font-size: 2.5vmin;
+	font-weight: lighter;
+	font-family: "Cabin";
+	padding: 0;
+	z-index: 1;
+}
+
+.trip-date {
+	color: white;
+	font-size: 2vmin;
+	text-shadow: 0 0.3vmin 0.6vmin black;
+	z-index: 1;
+}

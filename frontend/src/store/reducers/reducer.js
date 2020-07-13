@@ -1,5 +1,7 @@
 import * as actionTypes from '../actions/actionTypes';
 import {updateObject} from '../utility';
+import axios from 'axios';
+const DATABASE_URL = "http://127.0.0.1:8000/";
 
 const initialState = {
 	error: null,
@@ -28,6 +30,7 @@ const initialState = {
 		'itinerary' : [[]],
 		'itiDirections': [[]],
 		'focusedDay' : -1,
+		'finished' : false,
 		
 
 	},
@@ -86,6 +89,8 @@ const authSuccess = (state, action) => {
 		'username': action.username,
 	}
 	
+	localStorage.setItem('user', JSON.stringify(user));
+
 	return updateObject(state, {
 		user: user,
 		error: null,
@@ -125,6 +130,8 @@ const newTrip = (state, action) => {
 		"hasNextPageLoaded": false,
 		"pageLoadedUpTo": -1,
 	}
+
+	localStorage.setItem('trip', JSON.stringify(action.trip));
 
 	return updateObject(state, {
 		trip: action.trip,
@@ -290,9 +297,25 @@ const activitiesAdd = (state, action) => {
 	currentTrip['activitiesAddedIds'].push(activityAdded.id);
 	currentTrip['activitiesAddedLength'] = newTotalTime;
 
+	// UPDATING ADDITION OF ACTIVITY TO DATABASE!!!!!!!
+	const data = {
+				info: JSON.stringify(currentTrip),
+	}
+
+	// IF LOGGED IN
+	const user = localStorage.user
+	if (user) {
+		const token = JSON.parse(user)["token"]
+		axios.patch(DATABASE_URL + ('api/trips/' + currentTrip["id"] + '/'  ), data, {
+				headers: {Authorization: "Token " + token},
+			}).then(res => console.log(res));
+	}
+	// ----------------------------------------------------------------------------
+
 	// Update currentTrip
 	localStorage.setItem('trip', JSON.stringify(currentTrip));
 	
+
 	// ENABLE FOR ALGO TESTING ----------------------------------------
 	// console.log(JSON.stringify(currentTrip.activitiesAdded));
 	return updateObject(state, {
@@ -352,6 +375,21 @@ const activitiesSubtract = (state, action) => {
 	
 	currentTrip['activitiesAddedIds'] = filteredTripIds;
 	currentTrip['activitiesAddedLength'] = newTotalTime;
+
+
+	// UPDATING ADDITION OF ACTIVITY TO DATABASE!!!!!!!
+	const data = {
+				info: JSON.stringify(currentTrip),
+	}
+
+	// IF LOGGED IN
+	const user = localStorage.user
+	if (user) {
+		const token = JSON.parse(user)["token"]
+		axios.patch(DATABASE_URL + ('api/trips/' + currentTrip["id"] + '/'  ), data, {
+				headers: {Authorization: "Token " + token},
+			}).then(res => console.log(res));
+	}
 
 	// Update currentTrip
 	localStorage.setItem('trip', JSON.stringify(currentTrip));
@@ -434,6 +472,21 @@ const clearAllActivities = (state, action) => {
 	currentTrip['activitiesAddedIds'] = [];
 	currentTrip['activitiesAddedLength'] = 0;
 
+	// UPDATING ADDITION OF ACTIVITY TO DATABASE!!!!!!!
+	const data = {
+				info: JSON.stringify(currentTrip),
+	}
+
+	// IF LOGGED IN
+	const user = localStorage.user
+	if (user) {
+		const token = JSON.parse(user)["token"]
+		axios.patch(DATABASE_URL + ('api/trips/' + currentTrip["id"] + '/'  ), data, {
+				headers: {Authorization: "Token " + token},
+			}).then(res => console.log(res));
+	}
+	
+
 	// Update currentTrip
 	localStorage.setItem('trip', JSON.stringify(currentTrip));
 
@@ -465,6 +518,7 @@ const itineraryLoad = (state, action) => {
 	const trip = updateObject(state.trip, {
 		itinerary: action.itinerary,
 		itiDirections: action.itiDirections,
+		finished: true,
 	})
 
 	localStorage.setItem("trip", JSON.stringify(trip));
@@ -505,6 +559,9 @@ const itineraryUpdate = (state, action) => {
 	const trip = updateObject(state.trip, {
 		itinerary: currentIti,
 	})
+
+	localStorage.setItem("trip", JSON.stringify(trip));
+
 	return updateObject(state, {
 		trip: trip,
 	})
@@ -522,6 +579,9 @@ const itineraryLoadDirections = (state, action) => {
 		itiDirections: action.itiDirections,
 		itinerary: action.itinerary
 	})
+
+	localStorage.setItem("trip", JSON.stringify(trip));
+
 	return updateObject(state, {
 		trip: trip,
 		itineraryLoadDirectionsLoading: false,

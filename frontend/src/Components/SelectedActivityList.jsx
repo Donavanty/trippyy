@@ -56,16 +56,8 @@ class SelectedActivityList extends Component{
         if (this.props.trip.activitiesAdded.length !== 0) {
       
             const subtractAllSelectedActivities = () => {
-                for (let j = 0; j < this.props.activitiesShown.currentList.length; j++) {
-                    if (this.props.activitiesShown.currentList[j].added === true) {
-                        this.props.activitiesSubtract(this.props.activitiesShown.currentList[j]);
-                    }
-                }
-
-                for (let j = 0; j < this.props.searchActivitiesShown; j++) {
-                    if (this.props.searchActivitiesShown[j].added === true) {
-                        this.props.activitiesSubtract(this.props.searchActivitiesShown[j]);
-                    }
+                for (let activity in this.props.trip.activitiesAdded) {
+                    this.props.activitiesSubtract(this.props.trip.activitiesAdded[activity]);
                 }
             }
 
@@ -118,6 +110,7 @@ const mapStateToProps = (state) => {
     return {
         trip: state.trip,
         activitiesShown: state.activitiesShown,
+        searchActivitiesShown: state.searchActivitiesShown,
     }
 }
 

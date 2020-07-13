@@ -1,13 +1,13 @@
 import * as actionTypes from './actionTypes';
 import * as utilities from '../../Utilities.js'
 import axios from 'axios';
-// UNSPLASH
+// UNSPLASH hehe
 import Unsplash, { toJson } from "unsplash-js";
 
 
 import {updateObject} from '../utility';
-const DATABASE_URL = "http://trippyy-backend.herokuapp.com/"
-// const DATABASE_URL = "http://127.0.0.1:8000/"
+// const DATABASE_URL = "http://trippyy-backend.herokuapp.com/"
+const DATABASE_URL = "http://127.0.0.1:8000/"
 const API_KEY = "AIzaSyDyb0_iNF_gpoxydk5Vd8IpWj1Hy1Tp5Vc"
 
 
@@ -90,12 +90,6 @@ export const authLogin = (username, password) => {
 		}).then(res => {
 			const token = res.data.token;
 			const userId = res.data.id;
-			const user = {
-				'id': userId,
-				'token': token,
-				'username': username
-			}
-			localStorage.setItem('user', JSON.stringify(user));
 			dispatch(authSuccess(token, username, userId));
 		})
 		.catch(err => {
@@ -167,15 +161,6 @@ export const newTripData = (tripCountry, tripGeometry, tripLatlng, startDate, en
 	    var mathStartDate = new Date(startDate);
 	    var mathEndDate = new Date(endDate);
 	    var lengthOfTrip = ((mathEndDate - mathStartDate) / (1000*60*60*24)) + 1
-		const data = {
-					destination: tripCountry,
-					tripName: "Trip to " + tripCountry + " from " + startDate + " to " + endDate,
-					startDate: startDate,
-					endDate: endDate
-				}
-		axios.post(DATABASE_URL + 'api/trips/', data, {
-				headers: {Authorization: "Token " + localStorage.token},
-			}).then(res => console.log(res));
 
 		const unsplash = new Unsplash({ 
 			accessKey: "2ompLxlB0zcFIfYLJVH7pQV_Lf1JO4YmoSPMW1fjEwc",
@@ -185,7 +170,7 @@ export const newTripData = (tripCountry, tripGeometry, tripLatlng, startDate, en
 			orientation: "landscape",
 			color:"white"}).then(toJson)
 	  		.then(json => {
-	  			const trip = {
+	  			let trip = {
 					'country' : tripCountry,
 					'geometry' : tripGeometry,
 					'lat' : tripLat,
@@ -200,14 +185,38 @@ export const newTripData = (tripCountry, tripGeometry, tripLatlng, startDate, en
 					'itinerary' : [[]],
 					'itiDirections': [[]],
 					'focusedDay': -1,
+					'finished': false,
 	    			'photo': json.results[0].urls.raw
 	    		}
-	    		console.log(trip)
-	    		localStorage.setItem('trip', JSON.stringify(trip));
-				dispatch({
-					type: actionTypes.NEW_TRIP,
-					trip: trip,
-				})
+
+	    		// UPDATING TO DATABASE!!!!!!!
+				const data = {
+							destination: tripCountry,
+							tripName: "Trip to " + tripCountry + " from " + startDate + " to " + endDate,
+							startDate: startDate,
+							endDate: endDate,
+							info: JSON.stringify(trip),
+						}
+				const user = localStorage.user
+				if (user) {
+					const token = JSON.parse(user["token"])
+					axios.post(DATABASE_URL + 'api/trips/', data, {
+							headers: {Authorization: "Token " + token},
+					}).then(res => {
+						console.log(res);
+						// -------------------------
+						trip = updateObject(trip, {'id': res.data["id"]})
+						dispatch({
+							type: actionTypes.NEW_TRIP,
+							trip: trip,
+						})
+					});
+				} else {
+					dispatch({
+						type: actionTypes.NEW_TRIP,
+						trip: trip,
+					})
+				}
 	  		});
 	}
 

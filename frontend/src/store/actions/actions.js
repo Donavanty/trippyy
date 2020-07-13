@@ -136,7 +136,8 @@ export const authCheckState = () => {
 		} else {
 			const token = user['token'];
 			const username = user['username'];
-			dispatch(authSuccess(token, username));
+			const userId = user['id'];
+			dispatch(authSuccess(token, username, userId));
 		}
 	}	
 }

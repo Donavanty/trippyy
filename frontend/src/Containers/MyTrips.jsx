@@ -33,6 +33,7 @@ class MyTrips extends Component {
 	loadTrips = () => {
 		try {
 			const user = JSON.parse(localStorage.user);
+			console.log(user)
 			axios.get(DATABASE_URL + "api/users/" + user['id'], {
 				headers: {Authorization: "Token " + user['token']}
 			}).then(res => {

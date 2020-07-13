@@ -6,7 +6,7 @@ urlpatterns = [
 	path('users/', UserList.as_view()),
 	path('users/<int:pk>/', UserDetail.as_view()),
 	path('trips/', TripList.as_view()),
-	path('trips/<int:pk>', TripDetail.as_view()),
+	path('trips/<int:pk>/', TripDetail.as_view(), name='dispatchhistoryitem'),
 	path('authenticate/', CustomObtainAuthToken.as_view()),
 	path('TextSearch/', TextSearch.as_view()),
 	path('NextKeySearch/', NextKeySearch.as_view()),

@@ -4,6 +4,8 @@ import React, { Component } from "react";
 import "./CSS/SelectedActivity.css";
 import Popup from "reactjs-popup";
 
+import xCrossIcon from '../assets/xCrossIcon.png';
+
 
 /**
  * Component, renders a single activity.
@@ -17,6 +19,11 @@ class SelectedActivity extends Component{
 		open: false,
 		sliderValue: (this.props.value.recommendedTime/60),
 		sliderOpen: false,
+	}
+
+	componentDidMount() {
+		const img = new Image();
+		img.src = xCrossIcon;
 	}
 
 	beautifyText = (text) => {
@@ -76,9 +83,8 @@ class SelectedActivity extends Component{
 		        onClose={this.closeModal}
 	        >
 	            <div className="popupBox row">
-	                <button className="close" onClick={this.closeModal}>
-	                	X
-	                </button>
+	                <img src={xCrossIcon} alt="xCrossIcon" className="close" onClick={this.closeModal} id="xCrossIcon"/>
+	               
 	                <div className="infoBox col-6">
 	                	<button 
 	                		className="trippyyButtonSquare deleteButton"

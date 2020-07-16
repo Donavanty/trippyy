@@ -40,7 +40,8 @@
 }
 
 .deleteButton {
-	margin-left: 18vw;
+	margin-left: 20vw;
+	margin-top: 1vh;
 	float: right;
 	position: absolute;
 	height: 4vh;
@@ -134,13 +135,16 @@
 .close {
 	position: absolute;
 	z-index: 1;
-	margin-left: 48vw;
-	font-size: 5vmin;
+	margin-left: 47.5vw;
+	margin-top: 0.5vh;
+	/* font-size: 5vmin; */
+	height: 8%;
 }
 
 /*BUTTONS BOX*/
 .popupButtonsBox {
-	margin-top: 12vh;
+	/*Save and Quit buttons*/
+	margin-top: 5vh;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;

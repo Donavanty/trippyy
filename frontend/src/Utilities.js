@@ -31,3 +31,13 @@ export const formatDate = (date) => {
     return strTime;
 
 }
+
+export const getFormattedDate = (input) => {
+    var pattern = /(.*?)-(.*?)-(.*?)$/;
+    var result = input.replace(pattern,function(match,p1,p2,p3){
+        var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        return p3 + " " + months[(p2-1)];
+    });
+
+    return (result);
+}

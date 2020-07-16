@@ -9,10 +9,12 @@ class UserIsOwner(permissions.BasePermission):
     #obj = Current User Object, request.auth = Token, user = user derived from token
     def has_object_permission(self, request, view, obj):
     	try:
-    		user = Token.objects.get(key=request.auth).user
-    		return obj == user
+            print("hellohellohellohellohellohellohellohello")
+            user = Token.objects.get(key=request.auth).user
+            return obj == user
     	except Token.DoesNotExist:
-    		return False
+            print("hellohellohellohellohellohellohellohello")
+            return False
         
 
 class TripIsOwner(permissions.BasePermission):
@@ -23,7 +25,13 @@ class TripIsOwner(permissions.BasePermission):
     #obj = Current User Object, request.auth = Token, user = user derived from token
     def has_object_permission(self, request, view, obj):
     	try:
-    		user = Token.objects.get(key=request.auth).user
-    		return obj.owner == user
+            user = Token.objects.get(key=request.auth).user
+            print("MR BOO")
+            return obj.owner == user
     	except Token.DoesNotExist:
     		return False
+
+class TestingPermission(permissions.BasePermission):
+    def has_object_permission(self, request, view):
+        print("BOOOOYAH")
+        return False

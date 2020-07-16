@@ -9,21 +9,45 @@ from rest_framework.renderers import JSONRenderer
 from django.contrib.auth.models import User
 from .serializers import UserSerializer, TripSerializer
 from rest_framework import permissions
-from .permissions import UserIsOwner, TripIsOwner
+from .permissions import UserIsOwner, TripIsOwner, TestingPermission
 from .utilities import recommendTime, addTimeAndSummary
 from .algo.optimize import optimize
 
 class TripList(ListCreateAPIView):
     queryset = Trip.objects.all()
     serializer_class = TripSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
     def perform_create(self, serializer):
-    	serializer.save(owner=self.request.user)
+        serializer.save(owner=self.request.user)
+
+    #     # response_data = TripSerializer(serializer).data
+    #     # print(response_data)
+
+    # def post(self, request, *args, **kwargs):
+    #     response = super(TripList, self).post(request, *args, **kwargs)
+    #     print(response.data)
+    #     # THIS IS A QUICK FIX TO GET PK, NEED TO SEE HOW TO DO PROPERLY.
+    #     if (response.status_code == 201):
+    #         return Response(Trip.objects.all().count(), status=201)
+    #     else:
+    #         return response
+
 
 class TripDetail(RetrieveUpdateDestroyAPIView):
     queryset = Trip.objects.all()
     serializer_class = TripSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,TripIsOwner]
+
+    def patch(self, request, pk):
+        obj = Trip.objects.get(pk=pk)
+        print(obj)
+        serializer = TripSerializer(obj, data=request.data, partial=True) # set partial=True to update a data partially
+        if serializer.is_valid():
+            serializer.save()
+            return Response(data=serializer.data, status=200)
+        return Response("wrong para", status= 500)
+
 
 class UserList(ListAPIView):
     queryset = User.objects.all()
@@ -35,6 +59,7 @@ class UserDetail(RetrieveAPIView):
     serializer_class = UserSerializer
 
 class TextSearch(APIView):
+
     def post(self, request, *args, **kwargs):
         data = request.data
         url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + data["query"] + "&key=" + data["key"]

@@ -141,7 +141,7 @@ class InputForm extends Component {
 		                <div className = "inputForm-submit" id="input">
 		                	{ !this.props.loading ? 
 								
-		                		<button className="inputForm-button" variant="trippyy" onClick = {(event) => {this.newTrip(event); this.scrollToTheTop();}} > Submit </button> 
+		                		<button className="inputForm-button" variant="trippyy" onClick = {(event) => {this.newTrip(event);}} > Submit </button> 
 		                		:
 								<Spinner animation="border" role="status">
 								  <span className="sr-only">Loading...</span>

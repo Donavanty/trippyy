@@ -6,7 +6,7 @@ class TripSerializer(serializers.ModelSerializer):
 	owner = serializers.ReadOnlyField(source='owner.username')
 	class Meta:
 		model = Trip
-		fields = ("owner", "tripName", "destination", "startDate", "endDate")
+		fields = ("id", "owner", "tripName", "destination", "startDate", "endDate", "info")
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -15,4 +15,5 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['id', 'username', 'trips']
+
 		

@@ -1,7 +1,7 @@
 import * as actionTypes from './actionTypes';
 import * as utilities from '../../Utilities.js'
 import axios from 'axios';
-// UNSPLASH
+// UNSPLASH hehe
 import Unsplash, { toJson } from "unsplash-js";
 
 
@@ -90,13 +90,34 @@ export const authLogin = (username, password) => {
 		}).then(res => {
 			const token = res.data.token;
 			const userId = res.data.id;
-			const user = {
-				'id': userId,
-				'token': token,
-				'username': username
+
+			if (localStorage.trip) {
+				let trip = JSON.parse(localStorage.trip)
+				let data = {
+					destination: trip["country"],
+					tripName: "Trip to " + trip["country"] + " from " + trip["startDate"] + " to " + trip["endDate"],
+					startDate: trip["startDate"],
+					endDate: trip["endDate"],
+					info: JSON.stringify(trip),
+				}
+
+				axios.post(DATABASE_URL + 'api/trips/', data, {
+						headers: {Authorization: "Token " + token},
+				}).then(res => {
+					console.log(res);
+					// -------------------------
+					trip = updateObject(trip, {'id': res.data["id"]})
+					dispatch({
+						type: actionTypes.NEW_TRIP,
+						trip: trip,
+					})
+					dispatch(authSuccess(token, username, userId));
+				});
+			} else {
+				dispatch(authSuccess(token, username, userId));
 			}
-			localStorage.setItem('user', JSON.stringify(user));
-			dispatch(authSuccess(token, username, userId));
+
+			
 		})
 		.catch(err => {
 			dispatch(authFail(err))
@@ -142,7 +163,8 @@ export const authCheckState = () => {
 		} else {
 			const token = user['token'];
 			const username = user['username'];
-			dispatch(authSuccess(token, username));
+			const userId = user['id'];
+			dispatch(authSuccess(token, username, userId));
 		}
 	}	
 }
@@ -167,15 +189,6 @@ export const newTripData = (tripCountry, tripGeometry, tripLatlng, startDate, en
 	    var mathStartDate = new Date(startDate);
 	    var mathEndDate = new Date(endDate);
 	    var lengthOfTrip = ((mathEndDate - mathStartDate) / (1000*60*60*24)) + 1
-		const data = {
-					destination: tripCountry,
-					tripName: "Trip to " + tripCountry + " from " + startDate + " to " + endDate,
-					startDate: startDate,
-					endDate: endDate
-				}
-		axios.post(DATABASE_URL + 'api/trips/', data, {
-				headers: {Authorization: "Token " + localStorage.token},
-			}).then(res => console.log(res));
 
 		const unsplash = new Unsplash({ 
 			accessKey: "2ompLxlB0zcFIfYLJVH7pQV_Lf1JO4YmoSPMW1fjEwc",
@@ -185,7 +198,7 @@ export const newTripData = (tripCountry, tripGeometry, tripLatlng, startDate, en
 			orientation: "landscape",
 			color:"white"}).then(toJson)
 	  		.then(json => {
-	  			const trip = {
+	  			let trip = {
 					'country' : tripCountry,
 					'geometry' : tripGeometry,
 					'lat' : tripLat,
@@ -200,14 +213,38 @@ export const newTripData = (tripCountry, tripGeometry, tripLatlng, startDate, en
 					'itinerary' : [[]],
 					'itiDirections': [[]],
 					'focusedDay': -1,
+					'finished': false,
 	    			'photo': json.results[0].urls.raw
 	    		}
-	    		console.log(trip)
-	    		localStorage.setItem('trip', JSON.stringify(trip));
-				dispatch({
-					type: actionTypes.NEW_TRIP,
-					trip: trip,
-				})
+
+	    		// UPDATING TO DATABASE!!!!!!!
+				const data = {
+							destination: tripCountry,
+							tripName: "Trip to " + tripCountry + " from " + startDate + " to " + endDate,
+							startDate: startDate,
+							endDate: endDate,
+							info: JSON.stringify(trip),
+						}
+				const user = localStorage.user
+				if (user) {
+					const token = JSON.parse(user)["token"]
+					axios.post(DATABASE_URL + 'api/trips/', data, {
+							headers: {Authorization: "Token " + token},
+					}).then(res => {
+						console.log(res);
+						// -------------------------
+						trip = updateObject(trip, {'id': res.data["id"]})
+						dispatch({
+							type: actionTypes.NEW_TRIP,
+							trip: trip,
+						})
+					});
+				} else {
+					dispatch({
+						type: actionTypes.NEW_TRIP,
+						trip: trip,
+					})
+				}
 	  		});
 	}
 
@@ -713,7 +750,13 @@ export const suggestionsClear = () => {
 	}
 }
 
-
+export const retrieveTrip = (trip) => {
+	return (dispatch) => {
+		dispatch({type: actionTypes.RETRIEVE_START});
+		dispatch({type: actionTypes.RETRIEVE_TRIP,
+			trip: trip})
+	}
+}
 
 
 

@@ -28,6 +28,10 @@ class Activity extends Component{
 		}
 		return output;
 	}
+
+	componentDidMount() {
+
+	}
 		
 	render() {
 		return (

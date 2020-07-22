@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@datepicker-react/styled": "^2.5.0",
+    "@react-pdf/renderer": "^1.6.10",
+    "@react-pdf/styled-components": "^1.4.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@types/googlemaps": "^3.39.7",
     "@types/markerclustererplus": "^2.1.33",
@@ -37,7 +39,7 @@
     "reactjs-popup": "^1.5.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^5.1.0",
+    "styled-components": "^5.1.1",
     "typescript": "^3.9.5",
     "unsplash-js": "^6.0.0",
     "yargs-parser": "^18.1.3"

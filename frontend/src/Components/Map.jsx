@@ -57,8 +57,10 @@ class Map extends Component{
                 center: JSON.parse(localStorage.trip),
                 startZoom: 12,
                 zoom: 12,
-            })            
+            })      
         }
+
+
     }
 
     /**
@@ -149,6 +151,8 @@ class Map extends Component{
             {props.children}
         </GoogleMap>
       ));
+
+
 
     markerClickHandler = (event, index) => {
         this.setState({showInfoWindow: true})

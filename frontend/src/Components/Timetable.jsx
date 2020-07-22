@@ -8,9 +8,13 @@ import { connect } from 'react-redux';
 // -------------------------------------------------------------------------
 
 import "./CSS/Timetable.css"
-import { Spinner } from 'react-bootstrap';
+import { Spinner, DropdownButton } from 'react-bootstrap';
 import NextPage from '../assets/nextpage.png'
 import Plane from '../assets/plane.png'
+
+// Rendering
+import { PDFDownloadLink} from '@react-pdf/renderer'
+import PDFRender from './PDFRender'
 
 /**
  * Component, renders activities currently added into the trip in a timetable manner,
@@ -28,9 +32,11 @@ class Timetable extends Component {
 			"1700", "1800", "1900", "2000", "2100", "2200", "2300", "0000", "0100", "0200"], 
 		numDays: ["Mon", "Tues", "Wed", "Thu", "Fri"],
 		dayStart: 0,
+		show: false,
 	}
 
 	focusDay = (index) => {
+		this.setState({show: true})
 		this.props.itineraryFocusDay(index);
 	}
 
@@ -125,7 +131,22 @@ class Timetable extends Component {
 	render() {
 	    return (
 	    	<div className="timetableContainerBox">
+
 	    	<h4> {this.props.trip.lengthOfTrip} days in {this.props.trip.country} </h4>
+
+	    	<DropdownButton id="dropdown-basic-button" title="Export"
+	    		onClick= {() => this.setState({show: true})}>
+			  
+			  	{this.state.show && 
+	    		<PDFDownloadLink 
+	    			document={<PDFRender trip={this.props.trip}/>} 
+	    			fileName="somename.pdf"
+	    		>
+		      		{({ blob, url, loading, error }) => (loading ? 'Loading document...' : 'As PDF')}
+		    	</PDFDownloadLink>}
+			  
+			</DropdownButton>
+
 		    <div 	id="timetableBox"
 		    		onDragOver={(event)=>this.onDragOver(event)}
 	      			onDrop={this.onDrop}
@@ -206,13 +227,19 @@ class Timetable extends Component {
 												<div className="timetableActivityDetails">
 												    <p className="activityFont"
 												    data-index={index}
-									          		data-dayindex={dayindex}> {(value)["name"]}
+									          		data-dayindex={dayindex}> 
+
+									          			{(value)["name"]}
+									          		
 									          		</p>
 
 
 												    <p className="timeFont"
 												    data-index={index}
-									          		data-dayindex={dayindex}> {(value)["recommendedTime"]/60} hours 
+									          		data-dayindex={dayindex}> 
+
+									          			{(value)["recommendedTime"]/60} hours 
+									          		
 									          		</p>
 									          	</div>
 											</div>

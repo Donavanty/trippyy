@@ -78,7 +78,7 @@
 }
 
 .optionText {
-  font-size: 2vmin;
+  font-size: 1.7vmin;
   font-weight: lighter;
   font-family: "Montserrat";
   color: black;
@@ -86,9 +86,9 @@
 }
 
 .navIcon {
-  height: 1.5vw;
+  height: 2.5vh;
   width: 2vw;
-  object-fit: contain;
+  object-fit: contain;  
   margin-right: 1vw;
 
   opacity: 0.6;

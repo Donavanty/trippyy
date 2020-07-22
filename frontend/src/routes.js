@@ -7,7 +7,7 @@ import MyTrips from './Containers/MyTrips';
 import Shopping from './Containers/Shopping';
 import Results from './Containers/Results';
 
-import ActivitySearch from './Components/ActivitySearch'
+import PDFRender from './Components/PDFRender'
 
 const BaseRoute = () => (
 	<Switch> 
@@ -17,7 +17,7 @@ const BaseRoute = () => (
 		<Route exact path ='/mytrips' component = {MyTrips} />
 		<Route exact path ='/shopping' component = {Shopping} />
 		<Route exact path ='/results' component = {Results} />
-		<Route exact path ='/hehetesting' component = {ActivitySearch}/>
+		<Route exact path ='/hehetesting' component = {PDFRender}/>
 
 	</Switch> );
 

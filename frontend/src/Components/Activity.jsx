@@ -30,7 +30,9 @@ class Activity extends Component{
 	}
 
 	componentDidMount() {
-
+		const img = new Image();
+		img.src = this.props.value.displayPhoto;
+		img.onload = () => console.log("Loaded!")
 	}
 		
 	render() {

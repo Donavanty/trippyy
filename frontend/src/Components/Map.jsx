@@ -55,11 +55,20 @@ class Map extends Component{
             this.setState({
                 startCenter: JSON.parse(localStorage.trip),
                 center: JSON.parse(localStorage.trip),
-                startZoom: 12,
-                zoom: 12,
+                startZoom: 10,
+                zoom: 10,
             })      
         }
+    }
 
+    // If bounds in props was changed, update bounds accordingly.
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.map.bounds.newBounds !== this.props.map.bounds.newBounds) {
+            if (this.props.map.bounds.newBounds && ref) {
+                console.log(this.props.map.bounds.newBounds )
+                ref.fitBounds(this.props.map.bounds.newBounds);
+            }
+        }
 
     }
 
@@ -76,15 +85,7 @@ class Map extends Component{
             this.setState({test: newBounds})
         }
         const bounds = {
-            "upper": {
-                "lat": newBounds["Za"]["j"],
-                "lng": newBounds["Ua"]["j"],
-            },
-
-            "lower": {
-                "lat": newBounds["Za"]["i"],
-                "lng": newBounds["Ua"]["i"],
-            },
+            "newBounds" : this.props.map.bounds.newBounds,
 
             "center": ref.getCenter(),
 
@@ -93,7 +94,6 @@ class Map extends Component{
 
         //Updates new bounds to Redux
         this.props.mapBoundsChange(bounds);
-
         //Updates zoom and center to local state.
         this.setState({zoom: ref.getZoom()});
         this.setState({center: ref.getCenter()});
@@ -117,13 +117,16 @@ class Map extends Component{
      */
     mapLoaded = () => {
         if (!this.state.firstLoad) {
-            ref.fitBounds(this.props.trip.geometry.viewport);
-            const newzoom = ref.getZoom() + 1
+            // ref.fitBounds(new window.google.maps.LatLngBounds(sw,ne))
+            ref.fitBounds(this.props.map.bounds.newBounds);
+            const newzoom = ref.getZoom() 
+
             this.setState({
                 startZoom: newzoom,
                 zoom: newzoom,
                 firstLoad: true,
             })
+
             this.uponBoundsChanged();
         }
 
@@ -159,8 +162,14 @@ class Map extends Component{
         this.setState({currentInfoWindow: index})
     }
 
-    render() {
+    render() {        
+        if (this.props.activitiesLoading && !this.state.firstLoad) {
+            return (
+                <div className="loadingBox">
 
+
+                </div>)
+        }
         return (
             <Fragment>
                 <this.WrappedMap
@@ -351,6 +360,7 @@ const mapStateToProps = (state) => {
         trip: state.trip,
         map: state.map,
         activitiesShown: state.activitiesShown,
+        activitiesLoading: state.activitiesLoading,
         focusedActivity: state.focusedActivity,
         browsingToggle: state.browsingToggle,
         searchActivitiesShown: state.searchActivitiesShown,

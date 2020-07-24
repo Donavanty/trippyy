@@ -304,7 +304,12 @@ export const mapBoundsChange = (bounds) => {
 		bounds: bounds
 	}
 }
-
+export const mapBoundsUpdate = (newBounds) => {
+	return {
+		type: actionTypes.MAP_UPDATE_BOUNDS,
+		newBounds: newBounds,
+	}
+}
 export const mapAddDirections = (directions) => {
 	return {
 		type: actionTypes.MAP_ADD_DIRECTIONS,
@@ -397,9 +402,10 @@ export const activitiesLoadData = (data) => {
           		}
           	}
 
-          	
+
+
           	// * Dispatch results IF LOADING NEW PAGE DATA
-          	
+
             dispatch({
             	type: actionTypes.ACTIVITIES_LOAD,
 				dataType: data.dataType,

@@ -86,15 +86,7 @@ class ResultsMap extends Component{
             this.setState({test: newBounds})
         }
         const bounds = {
-            "upper": {
-                "lat": newBounds["Za"]["j"],
-                "lng": newBounds["Ua"]["j"],
-            },
-
-            "lower": {
-                "lat": newBounds["Za"]["i"],
-                "lng": newBounds["Ua"]["i"],
-            },
+            "newBounds": {},
 
             "center": ref.getCenter(),
 

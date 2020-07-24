@@ -1,5 +1,6 @@
 import * as actionTypes from '../actions/actionTypes';
 import {updateObject} from '../utility';
+import * as utilities from '../../Utilities.js'
 import axios from 'axios';
 // const DATABASE_URL = "http://127.0.0.1:8000/";
 const DATABASE_URL = "http://trippyy-backend.herokuapp.com/"
@@ -39,15 +40,7 @@ const initialState = {
 
 	map: {
 		'bounds': {
-			"upper": {
-				"lat": -1,
-				"lng": -1,
-
-			}, 
-
-			"lower": {
-				"lat": -1,
-				"lng": -1,
+			"newBounds": {
 			},
 
             "center": -1,
@@ -149,9 +142,20 @@ const checkTrip = (state, action) => {
 	})
 }
 
-const updateBounds = (state, action) => {
+const boundsChanged = (state, action) => {
 	const newMap = updateObject(state.map, {
 		bounds: action.bounds
+	})
+
+	return updateObject(state, {
+		map: newMap
+	})
+}
+
+const mapUpdateBounds = (state,action) => {
+	const updatedBounds = updateObject(state.map.bounds, {newBounds: action.newBounds})
+	const newMap = updateObject(state.map, {
+		bounds: updatedBounds
 	})
 
 	return updateObject(state, {
@@ -182,9 +186,19 @@ const activitiesLoad = (state, action) => {
 			firstActivityCounter: state.activitiesShown.firstActivityCounter + 20,
 			nextPageToken: action.nextPageToken,
 		}
+
+		// Updating MAP
+      	let bounds = utilities.getBoundsFromActivities(activitiesShown.currentList);
+      	const updatedBounds = updateObject(state.map.bounds, {newBounds: bounds})
+		const newMap = updateObject(state.map, {
+			bounds: updatedBounds
+		})
+	    // Updating MAP---------------
+
 		return updateObject(state, {
 			activitiesShown: activitiesShown,
 			activitiesLoading: false,
+			map: newMap,
 		})
 
 
@@ -199,9 +213,20 @@ const activitiesLoad = (state, action) => {
 			firstActivityCounter: state.activitiesShown.firstActivityCounter - 20,
 			hasNextPageLoaded: true,
 		})
+
+		// Updating MAP
+      	let bounds = utilities.getBoundsFromActivities(activitiesShown.currentList);
+      	const updatedBounds = updateObject(state.map.bounds, {newBounds: bounds})
+		const newMap = updateObject(state.map, {
+			bounds: updatedBounds
+		})
+	    // Updating MAP---------------
+
+
 		return updateObject(state, {
 			activitiesShown: activitiesShown,
 			activitiesLoading: false,
+			map: newMap,
 		})
 
 
@@ -222,9 +247,20 @@ const activitiesLoad = (state, action) => {
 			firstActivityCounter: state.activitiesShown.firstActivityCounter + 20,
 			hasNextPageLoaded: hasNextPageLoaded,
 		})
+
+
+		// Updating MAP
+      	let bounds = utilities.getBoundsFromActivities(activitiesShown.currentList);
+      	const updatedBounds = updateObject(state.map.bounds, {newBounds: bounds})
+		const newMap = updateObject(state.map, {
+			bounds: updatedBounds
+		})
+	    // Updating MAP---------------
+
 		return updateObject(state, {
 			activitiesShown: activitiesShown,
 			activitiesLoading: false,
+			map: newMap,
 		})
 	}
 
@@ -240,9 +276,19 @@ const activitiesLoad = (state, action) => {
 			firstActivityCounter: 0,
 			nextPageToken: action.nextPageToken,
 		}
+
+		// Updating MAP
+      	let bounds = utilities.getBoundsFromActivities(activitiesShown.currentList);
+      	const updatedBounds = updateObject(state.map.bounds, {newBounds: bounds})
+		const newMap = updateObject(state.map, {
+			bounds: updatedBounds
+		})
+	    // Updating MAP---------------
+
 		return updateObject(state, {
 			activitiesShown: activitiesShown,
 			activitiesLoading: false,
+			map: newMap,
 		})
 	}
 }
@@ -630,9 +676,18 @@ const suggestionsAdd = (state, action) => {
 	newSearchActivitiesShown = newSearchActivitiesShown.filter( (activity) => activity.name !== action.suggestion.name)
 	newSearchActivitiesShown = [ action.suggestion , ...newSearchActivitiesShown]
 	
+	// Updating MAP
+  	let bounds = utilities.getBoundsFromActivities(newSearchActivitiesShown);
+  	const updatedBounds = updateObject(state.map.bounds, {newBounds: bounds})
+	const newMap = updateObject(state.map, {
+		bounds: updatedBounds
+	})
+    // Updating MAP---------------
+
 	return updateObject(state, {
 		searchActivitiesShown: newSearchActivitiesShown,
 		suggestionsLoading: false,
+		map: newMap,
 	})
 }
 
@@ -645,8 +700,29 @@ const suggestionsClear = (state, action) => {
 	})
 }
 const changeBrowsing = (state, action) => {
+	let newMap;
+	// Changing from search to browsing.
+	if (!state.browsingToggle) {
+		// Updating MAP
+      	let bounds = utilities.getBoundsFromActivities(state.activitiesShown.currentList);
+      	const updatedBounds = updateObject(state.map.bounds, {newBounds: bounds})
+		newMap = updateObject(state.map, {
+			bounds: updatedBounds
+		})
+	} else if (state.searchActivitiesShown.length > 0) {
+      	let bounds = utilities.getBoundsFromActivities(state.searchActivitiesShown);
+      	const updatedBounds = updateObject(state.map.bounds, {newBounds: bounds})
+		newMap = updateObject(state.map, {
+			bounds: updatedBounds
+		})
+	    // Updating MAP---------------
+	} else {
+		newMap = state.map;
+	}
+
 	return updateObject(state, {
-		browsingToggle: action.browsingToggle
+		browsingToggle: action.browsingToggle,
+		map: newMap,
 	})
 }
 
@@ -674,7 +750,8 @@ const reducer = (state=initialState, action) => {
 		case actionTypes.ACTIVITIES_START: return activitiesStart(state, action);
 		case actionTypes.ACTIVITIES_LOAD: return activitiesLoad(state, action);
 		case actionTypes.ACTIVITY_CLEARALL: return clearAllActivities(state, action);
-		case actionTypes.MAP_BOUNDS_CHANGED: return updateBounds(state, action);
+		case actionTypes.MAP_BOUNDS_CHANGED: return boundsChanged(state, action);
+		case actionTypes.MAP_UPDATE_BOUNDS: return mapUpdateBounds(state,action);
 		case actionTypes.MAP_ADD_DIRECTIONS: return mapAddDirections(state, action);
 		case actionTypes.NEW_TRIP: return newTrip(state, action);
 		case actionTypes.CHECK_TRIP: return checkTrip(state,action);

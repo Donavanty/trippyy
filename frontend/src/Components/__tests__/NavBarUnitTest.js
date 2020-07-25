@@ -52,7 +52,7 @@ it("Checks when logged in, nav bar shows account logged in, and no login/signup 
       </Provider>, container
     );
   })
-  expect(container.querySelector("a[id='accountLink']").textContent).toEqual("Account: admin")
+  expect(container.querySelector("div[id='accountLink']").textContent).toEqual("Account: admin")
   expect(container.querySelector("a[id='loginLink']")).not.toEqual(expect.anything())
   expect(container.querySelector("a[id='signupLink']")).not.toEqual(expect.anything())
 });

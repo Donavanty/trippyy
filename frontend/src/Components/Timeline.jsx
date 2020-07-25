@@ -49,7 +49,7 @@ class Timeline extends Component{
                                     if ((index !== 0) && (index !== dayValue.length-1)) {
                                         return (
                                             <div className="timeline-combo">
-                                                <ResultActivity value={value}/>
+                                                <ResultActivity value={value} index={index} dayIndex={dayIndex}/>
                                                 {( (index !== (dayValue.length-2)) || 
                                                     (dayIndex !== (this.props.trip.itinerary.length-1)) ) && <VerticalLine/>}
                                                 { this.props.trip.itiDirections[dayIndex][index-1] && 

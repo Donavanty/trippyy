@@ -63,13 +63,15 @@ class Map extends Component{
 
     // If bounds in props was changed, update bounds accordingly.
     componentDidUpdate(prevProps, prevState) {
-        if (prevProps.map.bounds.newBounds !== this.props.map.bounds.newBounds) {
-            if (this.props.map.bounds.newBounds && ref) {
-                console.log(this.props.map.bounds.newBounds )
+        if (prevProps.map && this.props.map && ref) {
+            if (prevProps.map.bounds.newBounds !== this.props.map.bounds.newBounds) {
                 ref.fitBounds(this.props.map.bounds.newBounds);
             }
         }
+    }
 
+    componentWillUnmount() {
+        this.setState({firstLoad: false})
     }
 
     /**
@@ -78,25 +80,21 @@ class Map extends Component{
      * @param {mapBoundsChange} Redux-action: to update redux state object (Map) when changing Google Map bounds with new bounds
      */
     uponBoundsChanged = () => {
-        const newBounds = ref.getBounds()
+        if (ref.getBounds()) {
+            const newBounds = ref.getBounds()
+            const bounds = {
+                "newBounds" : this.props.map.bounds.newBounds,
 
-       
-        if (this.state.test === null) {
-            this.setState({test: newBounds})
+                "center": ref.getCenter(),
+
+                "radius": utilities.getBoundsRadius(newBounds),
+            }
+            //Updates new bounds to Redux
+            this.props.mapBoundsChange(bounds);
+            //Updates zoom and center to local state.
+            this.setState({zoom: ref.getZoom()});
+            this.setState({center: ref.getCenter()});
         }
-        const bounds = {
-            "newBounds" : this.props.map.bounds.newBounds,
-
-            "center": ref.getCenter(),
-
-            "radius": utilities.getBoundsRadius(newBounds),
-        }
-
-        //Updates new bounds to Redux
-        this.props.mapBoundsChange(bounds);
-        //Updates zoom and center to local state.
-        this.setState({zoom: ref.getZoom()});
-        this.setState({center: ref.getCenter()});
 
     }
 
@@ -116,9 +114,10 @@ class Map extends Component{
      * Updates local state of bounds, and subsequently the redux-state by calling uponBoundsChanged
      */
     mapLoaded = () => {
-        if (!this.state.firstLoad) {
-            // ref.fitBounds(new window.google.maps.LatLngBounds(sw,ne))
-            ref.fitBounds(this.props.map.bounds.newBounds);
+        if (!this.state.firstLoad && this.props.map.bounds.newBounds) {
+            if (this.props.map.bounds.newBounds.length > 0) {
+                ref.fitBounds(this.props.map.bounds.newBounds);
+            }
             const newzoom = ref.getZoom() 
 
             this.setState({
@@ -300,7 +299,7 @@ class Map extends Component{
                                     key={index} 
                                     position={value.geometry.location} 
                                     label = {{
-                                        text: (index + 1).toString(),
+                                        text: "A" + (index + 1).toString(),
                                         fontSize:"12px",
                                         fontFamily:"Montserrat"}}
                                     onClick={(event) => this.markerClickHandler(event, index)} 
@@ -323,7 +322,7 @@ class Map extends Component{
                                     key={index} 
                                     position={value.geometry.location} 
                                     label = {{
-                                        text: (index + 1).toString(),
+                                        text: "A" + (index + 1).toString(),
                                         fontSize:"14px",
                                         fontFamily:"Montserrat"}}
                                     onClick={(event) => this.markerClickHandler(event, index)} 

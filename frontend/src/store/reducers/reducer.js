@@ -40,8 +40,19 @@ const initialState = {
 
 	map: {
 		'bounds': {
-			"newBounds": {
-			},
+			"newBounds": null,
+
+            "center": -1,
+
+            "radius": -1,
+
+            "directions" : null,
+		}
+	},
+
+	resultMap: {
+		'bounds': {
+			"newBounds": null,
 
             "center": -1,
 
@@ -164,12 +175,19 @@ const mapUpdateBounds = (state,action) => {
 }
 
 const mapAddDirections = (state, action) => {
-	const newMap = updateObject(state.map, {
-		directions: action.directions
-	})
+	let newMap;
 
+	if (state.resultMap.directions === action.directions) {
+		newMap = updateObject(state.resultMap, {
+			directions: null,
+		})
+	} else {
+		newMap = updateObject(state.resultMap, {
+			directions: action.directions
+		})
+	}
 	return updateObject(state, {
-		map: newMap
+		resultMap: newMap
 	})
 }
 
@@ -654,8 +672,22 @@ const itineraryFocusDay = (state, action) => {
 		focusedDay: action.focusedDay,
 	})
 
+	let newMap;
+	if (action.focusedDay !== -1) {
+		// Updating MAP
+	  	let bounds = utilities.getBoundsFromActivities(state.trip.itinerary[action.focusedDay]);
+	  	const updatedBounds = updateObject(state.resultMap.bounds, {newBounds: bounds})
+		newMap = updateObject(state.resultMap, {
+			bounds: updatedBounds
+		})
+	    // Updating MAP---------------
+	} else {
+		newMap = state.resultMap
+	}
+
 	return updateObject(state, {
 		trip: newTrip,
+		resultMap: newMap,
 		itineraryFocusDayLoading: false,
 	})
 }

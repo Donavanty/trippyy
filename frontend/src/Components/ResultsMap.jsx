@@ -73,6 +73,17 @@ class ResultsMap extends Component{
             })            
         }
     }
+
+    // If bounds in props was changed, update bounds accordingly.
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.resultMap && this.props.resultMap && ref) {
+            if (prevProps.resultMap.bounds.newBounds !== this.props.resultMap.bounds.newBounds) {
+                ref.fitBounds(this.props.resultMap.bounds.newBounds);
+            } else if (this.props.resultMap.directions && (prevProps.resultMap.directions !== this.props.resultMap.directions)) {
+                ref.fitBounds(this.props.resultMap.directions.routes[0].bounds)
+            }
+        }
+    }
     
     /**
      * Called upon moving the map.
@@ -134,12 +145,6 @@ class ResultsMap extends Component{
         return false;
     }
 
-                            // directions={value} 
-                            // key={index}
-                            // options={{
-                            //     preserveViewport: true,
-                            //     suppressMarkers: true,
-                            // }}
     //First load, thus need to use local storage.
     WrappedMap = withScriptjs(withGoogleMap(props =>
         <GoogleMap
@@ -206,9 +211,9 @@ class ResultsMap extends Component{
                 >
 
                     {
-                        this.props.map.directions && 
+                        this.props.resultMap.directions && 
                             <Polyline
-                                path={this.props.map.directions.routes[0].overview_path}
+                                path={this.props.resultMap.directions.routes[0].overview_path}
                                 geodesic={true}
                                 options={{
                                 strokeColor: "#008B8B",
@@ -229,7 +234,7 @@ class ResultsMap extends Component{
                                         key={index} 
                                         position={value.geometry.location} 
                                         label = {{
-                                            text: (this.props.activitiesShown.firstActivityCounter + index + 1).toString(),
+                                            text: String.fromCharCode(this.props.trip.focusedDay + 'a'.charCodeAt(0)) + (index).toString(),
                                             fontSize:"12px",
                                             fontFamily:"Montserrat",
                                             fontColor:"white"}}
@@ -253,7 +258,7 @@ class ResultsMap extends Component{
                                         key={index} 
                                         position={value.geometry.location} 
                                         label = {{
-                                            text: (index).toString(),
+                                            text: String.fromCharCode(this.props.trip.focusedDay + 'a'.charCodeAt(0)) + (index).toString(),
                                             fontSize:"12px",
                                             fontFamily:"Montserrat"}}
                                         onClick={(event) => this.markerClickHandler(event, index)} 
@@ -278,19 +283,25 @@ class ResultsMap extends Component{
                     }
 
                    {
-                        this.props.trip.activitiesAdded && this.props.trip.activitiesAdded.map((value,index) => 
-                            !(this.mapIncludes(value, this.props.trip.itinerary[this.props.trip.focusedDay])) &&
+                        this.props.trip.itinerary.map((dayValue,dayIndex) => 
+                            (dayIndex !== this.props.trip.focusedDay) && dayValue.map((value, index) =>
+                                value.name && (
 
-                                (!(value["name"] === this.props.focusedActivity["name"]) ?
+                                !(value["name"] === this.props.focusedActivity["name"]) ?
                                     <Marker 
                                         key={index} 
                                         position={value.geometry.location} 
-                                        label={(index).toString()}
+                                        label={{
+                                            text: String.fromCharCode(dayIndex + 'a'.charCodeAt(0)) + (index).toString(),
+                                            fontSize:"12px",
+                                            fontFamily:"Montserrat",
+                                            fontColor:"white"
+                                        }}
                                         onClick={(event) => this.markerClickHandler(event, index)} 
                                         icon = {{
                                             url: PenguinAdded,
                                             scaledSize: new window.google.maps.Size(44, 44), 
-                                            labelOrigin: new window.google.maps.Point(22, 30), 
+                                            labelOrigin: new window.google.maps.Point(22, 32), 
                                         }}
                                     >
                                     
@@ -305,7 +316,12 @@ class ResultsMap extends Component{
                                     <Marker 
                                         key={index} 
                                         position={value.geometry.location} 
-                                        label={(index).toString()}
+                                        label={{
+                                            text: String.fromCharCode(dayIndex + 'a'.charCodeAt(0)) + (index).toString(),
+                                            fontSize:"12px",
+                                            fontFamily:"Montserrat",
+                                            fontColor:"white"
+                                        }}
                                         onClick={(event) => this.markerClickHandler(event, index)} 
                                         icon = {{
                                             url:PenguinAddedStanding,
@@ -321,7 +337,7 @@ class ResultsMap extends Component{
                                     }
 
                                     </Marker> 
-                                    )
+                                    ))
 
                         )
 
@@ -342,6 +358,7 @@ const mapStateToProps = (state) => {
         activitiesShown: state.activitiesShown,
         focusedActivity: state.focusedActivity,
         itineraryFocusDayLoading: state.itineraryFocusDayLoading,
+        resultMap: state.resultMap,
     }
 }
 

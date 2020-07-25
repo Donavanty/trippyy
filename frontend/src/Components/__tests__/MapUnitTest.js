@@ -92,7 +92,7 @@ it("Checks that a map is rendered without errors", () => {
 	act(() => {
 		render(
 			<Provider store={store}>
-        <Map/>
+        <Map map={{bounds: {}}}/>
 			</Provider>, container
 		);
 		expect(container).toEqual(expect.anything())

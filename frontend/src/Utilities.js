@@ -45,25 +45,26 @@ export const getFormattedDate = (input) => {
 export const getBoundsFromActivities = (activities) => {
     // LAT: (y-axis) the larger the number, the lower the point.
     // LNG: (x-axis) the larger, the right-er
-    console.log("HELLOo")
     let sw = {'lat': -999999999, 'lng': 999999999}; //Lat should be largest, lng shld be smallest
     let ne = {'lat': 999999999, 'lng': -999999999}; //Lat should be smallest, lng largest.
     for (let activity in activities) {
-        let currLocation = activities[activity].geometry.viewport;
+        if (activities[activity].name) {
+            let currLocation = activities[activity].geometry.viewport;
 
-        if (currLocation["southwest"]["lat"] > sw["lat"]) {
-            sw["lat"] = currLocation["southwest"]["lat"]
-        }
+            if (currLocation["southwest"]["lat"] > sw["lat"]) {
+                sw["lat"] = currLocation["southwest"]["lat"]
+            }
 
-        if (currLocation["southwest"]["lng"] < sw["lng"]) {
-            sw["lng"] = currLocation["southwest"]["lng"]
-        }
+            if (currLocation["southwest"]["lng"] < sw["lng"]) {
+                sw["lng"] = currLocation["southwest"]["lng"]
+            }
 
-        if (currLocation["northeast"]["lat"] < ne["lat"]) {
-            ne["lat"] = currLocation["northeast"]["lat"];
-        }
-        if (currLocation["northeast"]["lng"] > ne["lng"]) {
-            ne["lng"] = currLocation["northeast"]["lng"];
+            if (currLocation["northeast"]["lat"] < ne["lat"]) {
+                ne["lat"] = currLocation["northeast"]["lat"];
+            }
+            if (currLocation["northeast"]["lng"] > ne["lng"]) {
+                ne["lng"] = currLocation["northeast"]["lng"];
+            }
         }
     }
 

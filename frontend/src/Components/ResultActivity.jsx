@@ -29,7 +29,7 @@ class ResultActivity extends Component{
 				</div>
 
 				<div className="col-6 descBox">
-					<h4 className="resultsName"> {this.props.value.name} </h4>
+					<h4 className="resultsName"> {this.props.value.name} ({String.fromCharCode(this.props.dayIndex + 'a'.charCodeAt(0)) + this.props.index}) </h4>
 					<p className="resultsAddress"> {this.props.value.formatted_address} </p>
 				</div>
 			</div>

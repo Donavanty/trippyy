@@ -36,7 +36,10 @@ class Timetable extends Component {
 	}
 
 	focusDay = (index) => {
-		this.setState({show: true})
+		if (this.props.trip.focusedDay === index) {
+			this.props.itineraryFocusDay(-1);
+			return;
+		}
 		this.props.itineraryFocusDay(index);
 	}
 
@@ -132,8 +135,10 @@ class Timetable extends Component {
 	    return (
 	    	<div className="timetableContainerBox">
 
+	    	{/** Header **/}
 	    	<h4> {this.props.trip.lengthOfTrip} days in {this.props.trip.country} </h4>
 
+	    	{/** Export Button **/}
 	    	<DropdownButton id="dropdown-basic-button" title="Export"
 	    		onClick= {() => this.setState({show: true})}>
 			  
@@ -147,10 +152,12 @@ class Timetable extends Component {
 			  
 			</DropdownButton>
 
+			{/** Timetable! **/}
 		    <div 	id="timetableBox"
 		    		onDragOver={(event)=>this.onDragOver(event)}
 	      			onDrop={this.onDrop}
 	      			>
+	      		{/** Timetable Grid **/}
 	      		<div className="gridContainer">
 	      			{ (this.state.dayStart > 0) &&
 	      				<div className="changePageBox changePageBox-left">  
@@ -192,6 +199,7 @@ class Timetable extends Component {
 		      		}
 	      		</div>
 
+	      		{/** Loading box rendering! **/}
 	      		{this.props.itineraryLoadDirectionsLoading && 
 					<div className="loadingBox">
 						<Spinner animation="border" role="status">
@@ -200,6 +208,7 @@ class Timetable extends Component {
 					</div>
 	      		}
 
+	      		{/** Loading activities **/}
 	      		{!this.props.itineraryLoadDirectionsLoading && <div className ="daysContainer">
 		          	{this.props.trip["itinerary"].map( (dayValue, dayindex) => {
 		          	if (dayindex < this.state.dayStart || dayindex >= this.state.dayStart+5) {
@@ -229,7 +238,7 @@ class Timetable extends Component {
 												    data-index={index}
 									          		data-dayindex={dayindex}> 
 
-									          			{(value)["name"]}
+									          			 {(value)["name"]} ({String.fromCharCode(dayindex + 'a'.charCodeAt(0)) + index})
 									          		
 									          		</p>
 

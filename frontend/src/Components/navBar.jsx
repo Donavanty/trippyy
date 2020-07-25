@@ -46,7 +46,7 @@ class NavBar extends Component {
             {this.props.isAuthenticated ? (
               <React.Fragment>
 
-                <div className="accountLink nav-link" onClick={() => this.setState({accountBoxOpen: !this.state.accountBoxOpen})}>
+                <div className="accountLink nav-link" id="accountLink" onClick={() => this.setState({accountBoxOpen: !this.state.accountBoxOpen})}>
                   Account: {this.props.user.username}
                 </div>
               </React.Fragment>

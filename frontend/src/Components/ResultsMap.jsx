@@ -264,8 +264,8 @@ class ResultsMap extends Component{
                                         onClick={(event) => this.markerClickHandler(event, index)} 
                                         icon = {{
                                             url: PenguinRouteStanding,
-                                            scaledSize: new window.google.maps.Size(44, 44), 
-                                            labelOrigin: new window.google.maps.Point(22, 30), 
+                                            scaledSize: new window.google.maps.Size(44, 60), 
+                                            labelOrigin: new window.google.maps.Point(22, 16), 
                                         }}
                                     >
                                     

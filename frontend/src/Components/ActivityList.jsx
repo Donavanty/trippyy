@@ -170,12 +170,12 @@ class ActivityList extends Component{
 
 
 
-    onMouseEnter = (index) => {
-        this.props.activitiesFocus(index);
+    onMouseEnter = (value) => {
+        this.props.activitiesFocus(value);
     }
 
-    onMouseLeave = (index)  => {
-        this.props.activitiesUnfocus(index);
+    onMouseLeave = (value)  => {
+        this.props.activitiesUnfocus(value);
     }
 
     //Category Buttons: Buttons change to grey ("secondary") when they are clicked, 
@@ -231,8 +231,8 @@ class ActivityList extends Component{
                         activityClickHandlerToAdd={this.activityClickHandlerToAdd}
                         activityClickHandlerToSubtract={this.activityClickHandlerToSubtract}
                         index={index}
-                        onMouseEnter={this.onMouseEnter}
-                        onMouseLeave={this.onMouseLeave}
+                        onMouseEnter={() => this.onMouseEnter(value)}
+                        onMouseLeave={() => this.onMouseLeave(value)}
                         />)
                     
                     }

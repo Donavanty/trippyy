@@ -227,9 +227,9 @@ class ResultsMap extends Component{
 
                     {
                         (this.props.trip.focusedDay !== -1) && this.props.trip.itinerary[this.props.trip.focusedDay].map((value,index) => 
-                            (value["name"]) &&
+                            (value) && (value["name"]) && (
 
-                                (!(value["name"] === this.props.focusedActivity["name"]) ?
+                                (value["name"] !== this.props.focusedActivity["name"]) ?
                                     <Marker 
                                         key={index} 
                                         position={value.geometry.location} 
@@ -269,7 +269,7 @@ class ResultsMap extends Component{
                                         }}
                                     >
                                     
-                                    {this.state.showInfoWindow && (this.state.currentInfoWindow === index) && 
+                                    {false && this.state.showInfoWindow && (this.state.currentInfoWindow === index) && 
                                         (<InfoWindow onCloseClick= {() => this.setState({showInfoWindow: false})}> 
                                             <span>{value.name}</span> 
                                         </InfoWindow> )
@@ -285,9 +285,9 @@ class ResultsMap extends Component{
                    {
                         this.props.trip.itinerary.map((dayValue,dayIndex) => 
                             (dayIndex !== this.props.trip.focusedDay) && dayValue.map((value, index) =>
-                                value.name && (
+                                value && value.name && (
 
-                                !(value["name"] === this.props.focusedActivity["name"]) ?
+                                (value["name"] !== this.props.focusedActivity["name"]) ?
                                     <Marker 
                                         key={index} 
                                         position={value.geometry.location} 

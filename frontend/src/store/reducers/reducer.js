@@ -562,14 +562,8 @@ const clearAllActivities = (state, action) => {
 }
 
 const activitiesFocus = (state, action) => {
-	var list;
-	if (state.browsingToggle) {
-		list = [...state.activitiesShown["currentList"]];
-	} else {
-		list = [...state.searchActivitiesShown];
-	}
 	return updateObject(state, {
-		focusedActivity: list[action.index]
+		focusedActivity: action.value,
 	})
 }
 

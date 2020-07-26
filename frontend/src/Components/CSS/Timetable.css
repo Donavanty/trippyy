@@ -145,7 +145,7 @@
 
   /*DESIGN*/
   background-color: lightblue;
-  cursor: pointer;
+  cursor: move;
   text-align: left;
 }
 .timetableActivity {

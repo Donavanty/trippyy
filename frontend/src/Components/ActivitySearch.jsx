@@ -37,6 +37,15 @@ class ActivitySearch extends Component{
     selectAddress = (address, placeId) => {
         this.props.addSuggestions(placeId);
     }
+
+    onMouseEnter = (value) => {
+        this.props.activitiesFocus(value);
+    }
+
+    onMouseLeave = (value)  => {
+        this.props.activitiesUnfocus(value);
+    }
+
     //Category Buttons: Buttons change to grey ("secondary") when they are clicked, 
     //and remain turquoise ("info") when they are not.
     render() {
@@ -50,15 +59,15 @@ class ActivitySearch extends Component{
                         
                 }
 
-                {
+                {   
                     this.props.searchActivitiesShown[0] && <Activity 
                             value={this.props.searchActivitiesShown[0]} 
                             index={0}
                             displayIndex={0} 
                             activityClickHandlerToAdd={this.props.activitiesAdd}
                             activityClickHandlerToSubtract={this.props.activitiesSubtract}
-                            onMouseEnter={this.props.activitiesFocus}
-                            onMouseLeave={this.props.activitiesUnfocus}
+                            onMouseEnter={() => this.onMouseEnter(this.props.searchActivitiesShown[0])}
+                            onMouseLeave={() => this.onMouseLeave(this.props.searchActivitiesShown[0])}
                         />
                 }
 
@@ -73,15 +82,17 @@ class ActivitySearch extends Component{
                 {
                     this.props.searchActivitiesShown.map((value, index) => {
                         if (index !== 0) {
-                            return (<Activity 
-                                value={value} 
-                                index={index}
-                                displayIndex={index} 
-                                activityClickHandlerToAdd={this.props.activitiesAdd}
-                                activityClickHandlerToSubtract={this.props.activitiesSubtract}
-                                onMouseEnter={this.props.activitiesFocus}
-                                onMouseLeave={this.props.activitiesUnfocus}
-                            />)
+                            return (
+                                <Activity 
+                                    value={value} 
+                                    index={index}
+                                    displayIndex={index} 
+                                    activityClickHandlerToAdd={this.props.activitiesAdd}
+                                    activityClickHandlerToSubtract={this.props.activitiesSubtract}
+                                    onMouseEnter={() => this.onMouseEnter(value)}
+                                    onMouseLeave={() => this.onMouseLeave(value)}
+                                />
+                            )
                         } else {
                             return null;
                         }

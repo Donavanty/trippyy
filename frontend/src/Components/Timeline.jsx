@@ -30,7 +30,13 @@ class Timeline extends Component{
 
     componentDidMount() {
     }
-        
+    onMouseEnter = (value) => {
+        this.props.activitiesFocus(value);
+    }
+
+    onMouseLeave = (value)  => {
+        this.props.activitiesUnfocus(value);
+    }
     render() {
         return (
             <div>
@@ -48,8 +54,18 @@ class Timeline extends Component{
                                 {dayValue.map((value,index) => {
                                     if ((index !== 0) && (index !== dayValue.length-1)) {
                                         return (
-                                            <div className="timeline-combo">
-                                                <ResultActivity value={value} index={index} dayIndex={dayIndex}/>
+                                            <div 
+                                                className="timeline-combo"
+                                                onMouseEnter={() => this.onMouseEnter(value)}
+                                                onMouseLeave={() => this.onMouseLeave(value)}
+                                            >
+                                                <ResultActivity 
+                                                    value={value} 
+                                                    index={index} 
+                                                    dayIndex={dayIndex}
+                                                    onMouseEnter={() => this.onMouseEnter(value)}
+                                                    onMouseLeave={() => this.onMouseLeave(value)}
+                                                />
                                                 {( (index !== (dayValue.length-2)) || 
                                                     (dayIndex !== (this.props.trip.itinerary.length-1)) ) && <VerticalLine/>}
                                                 { this.props.trip.itiDirections[dayIndex][index-1] && 
@@ -89,7 +105,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        mapAddDirections: (directions) => dispatch(actions.mapAddDirections(directions))
+        mapAddDirections: (directions) => dispatch(actions.mapAddDirections(directions)),
+        activitiesFocus: (index) => dispatch(actions.activitiesFocus(index)),
+        activitiesUnfocus: (index) => dispatch(actions.activitiesUnfocus(index)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Timeline);

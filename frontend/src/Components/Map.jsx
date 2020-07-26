@@ -231,9 +231,9 @@ class Map extends Component{
                     }
                     {
                         !this.props.browsingToggle && this.props.searchActivitiesShown.map( (value,index) => (
-                            (!value.added) && ((!(value === this.props.focusedActivity))
-                            
-                            ?
+                            (!value.added) && (
+
+                            (value.name !== this.props.focusedActivity.name) ?
                             
                                 <Marker
                                     position={value.geometry.location}

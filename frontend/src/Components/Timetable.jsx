@@ -35,6 +35,14 @@ class Timetable extends Component {
 		show: false,
 	}
 
+    onMouseEnter = (value) => {
+        this.props.activitiesFocus(value);
+    }
+
+    onMouseLeave = (value)  => {
+        this.props.activitiesUnfocus(value);
+    }
+
 	focusDay = (index) => {
 		if (this.props.trip.focusedDay === index) {
 			this.props.itineraryFocusDay(-1);
@@ -237,6 +245,8 @@ class Timetable extends Component {
 								          		className="timetableActivity"
 												onDragStart = {this.onDragStart}
 											    style ={{height: ((value["recommendedTime"]/60.0) * 5)+ "vh"}}
+						                        onMouseEnter={() => this.onMouseEnter(value)}
+						                        onMouseLeave={() => this.onMouseLeave(value)}
 											>
 												<div className="timetableActivityDetails">
 												    <p className="activityFont"
@@ -312,6 +322,9 @@ const mapDispatchToProps = dispatch => {
     	itineraryUpdate: (toIndex, fromIndex) => dispatch(actions.itineraryUpdate(toIndex, fromIndex)),
     	itineraryFocusDay: (dayActivities => dispatch(actions.itineraryFocusDay(dayActivities))),
     	itineraryLoadDirections: (itinerary => dispatch(actions.itineraryLoadDirections(itinerary))),
+
+    	        activitiesFocus: (index) => dispatch(actions.activitiesFocus(index)),
+        activitiesUnfocus: (index) => dispatch(actions.activitiesUnfocus(index)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Timetable);

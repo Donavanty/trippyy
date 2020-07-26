@@ -458,10 +458,10 @@ export const clearAllActivities = () => {
 	}
 }
 
-export const activitiesFocus = (index) => {
+export const activitiesFocus = (value) => {
 	return {
 		type: actionTypes.ACTIVITY_FOCUS,
-		index: index
+		value: value
 	}
 }
 

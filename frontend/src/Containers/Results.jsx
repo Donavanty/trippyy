@@ -59,6 +59,8 @@ class Results extends Component {
                     <NavBar from={this.props.location.pathname}/>
                     <div className="loadingBox">
                         <h1> Getting your trip! </h1>
+                        <p> Due to temporary, limitations from Google's API directions, this would take a little longer. </p>
+                        <p> Thanks for understanding! </p>
                         <Spinner animation="border" role="status">
                             <span className="sr-only">Loading...</span>
                         </Spinner>

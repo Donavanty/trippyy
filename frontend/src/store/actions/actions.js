@@ -580,6 +580,7 @@ export const itineraryLoadDirections = (iti) => {
 					        destination: destination,
 					        travelMode: window.google.maps.TravelMode.TRANSIT,
 					        transitOptions: transitOptions,
+					        provideRouteAlternatives: true,
 					    },
 					    (result, status) => {
 					        if (status === window.google.maps.DirectionsStatus.OK) {
@@ -592,6 +593,7 @@ export const itineraryLoadDirections = (iti) => {
 								// Updating total time
 								iti[day][0] = iti[day][0] + travelLength/(1000.0 * 60.0)
 
+
 								// Adding activity time
 								const activityLength = iti[day][activity+1]["recommendedTime"] * 1000 * 60
 								date = new Date(date.getTime() + activityLength)
@@ -601,7 +603,7 @@ export const itineraryLoadDirections = (iti) => {
 
 					            resolve("done");
 					        } else {
-							    setTimeout( directionsService.route(
+							    setTimeout( () => directionsService.route(
 							    {
 							        origin: origin,
 							        destination: destination,
@@ -629,7 +631,7 @@ export const itineraryLoadDirections = (iti) => {
 							            directions.push(null);
 							            resolve("done");
 							        }
-							    }), 500);
+							    }), 800);
 					        }
 					    })}, 500);
 					});

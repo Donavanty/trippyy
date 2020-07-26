@@ -66,6 +66,7 @@ class Timetable extends Component {
 
 		// If it is at the same position, do not run.
 		if (toIndex === fromIndex && toDayIndex === fromDayIndex) {
+			console.log("INDEX CALLED")
 			return;
 		}
 
@@ -73,6 +74,7 @@ class Timetable extends Component {
 		if (this.props.trip["itinerary"][toDayIndex] && this.props.trip["itinerary"][fromDayIndex]){
 			if ((this.props.trip["itinerary"][toDayIndex][0] + 
 				this.props.trip["itinerary"][fromDayIndex][fromIndex].recommendedTime) > 1080) {
+			console.log(this.props.trip["itinerary"][toDayIndex][0])
 			return;
 			}
 		}
@@ -84,6 +86,7 @@ class Timetable extends Component {
 				this.props.trip["itinerary"][toDayIndex][toIndex] === "EMPTY" && 
 				(fromIndex < toIndex) &&
 				(toDayIndex === fromDayIndex)) {
+				console.log("EMPTY CALLED")
 				return;
 			}
 		}
@@ -91,12 +94,12 @@ class Timetable extends Component {
 
 
 		// Determine rectangle on screen
-		const hoverBoundingRect = event.target.getBoundingClientRect()
+		// const hoverBoundingRect = event.target.getBoundingClientRect()
 		// const hoverMiddleX =
 		//   hoverBoundingRect.right - ((hoverBoundingRect.right - hoverBoundingRect.left) / 2)
 
 		// Get Middle (the number 49 is half the width of a small box)
-		const hoverMiddleX = hoverBoundingRect.right
+		// const hoverMiddleX = hoverBoundingRect.right
 
 		// console.log(hoverBoundingRect.right-hoverBoundingRect.left)
 		// if ((hoverBoundingRect.right - hoverBoundingRect.left) > 100) {
@@ -104,15 +107,15 @@ class Timetable extends Component {
 		// }
 
 		// Determine mouse position
-		const currentMouseX = event.clientX
-		if (currentMouseX < hoverMiddleX) {
+		// const currentMouseX = event.clientX
+		// if (currentMouseX < hoverMiddleX) {
 			// Update the itinerary in redux.
 			if (toIndex !== undefined && toDayIndex !== undefined) {
 				this.props.itineraryUpdate([toDayIndex, toIndex], [fromDayIndex, fromIndex]);
 				this.setState({fromIndex: toIndex});
 				this.setState({fromDayIndex: toDayIndex});
 			}
-		}
+		// }
 	}
 
 

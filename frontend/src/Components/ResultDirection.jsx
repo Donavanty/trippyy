@@ -31,6 +31,9 @@ class ResultDirection extends Component{
 
 
 	render() {
+		if (!(this.props.direction && this.props.direction.routes)) {
+			return null;		
+		}
 		return(
 			<React.Fragment>
 			<div className="directionBox">

@@ -256,7 +256,7 @@ class Timetable extends Component {
 											</div>
 
 										
-											{ this.props.trip.itiDirections[dayindex][index-1] && 
+											{ this.props.trip.itiDirections[dayindex][index-1] && this.props.trip.itiDirections[dayindex][index-1].routes &&
 												<div
 													style ={{height: ((this.props.trip.itiDirections[dayindex][index-1].routes[0].legs[0].duration.value/3600.0) * 5)+ "vh"}}
 													className="timetableActivity"

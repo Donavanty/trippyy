@@ -150,14 +150,13 @@ class ActivityList extends Component{
                 lng: trip["lng"],
                 radius: trip["radius"],
             }
-            // Retrieves Singapore places of interest.
             this.props.activitiesLoad(data);
         
         } else {
             const data = {
                 dataType: "BOUNDEDTEXTSEARCH",
                 key: API_KEY,
-                query: this.convertSpaceToPlus(trip["country"] + " " + category + " attractions"),
+                query: this.convertSpaceToPlus(category + " attractions"),
                 category: category,
                 lat: trip["lat"],
                 lng: trip["lng"],

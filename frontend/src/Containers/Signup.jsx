@@ -15,7 +15,7 @@ import SBG from '../assets/startBackground.jpg'
 
 
 function isASCII(str) {
-    return /^[x00-x7F]*$/.test(str);
+    return /^[a-zA-Z0-9]*$/.test(str);
 }
 
 function isValidEmail(email) 

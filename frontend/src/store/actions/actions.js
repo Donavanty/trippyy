@@ -626,7 +626,6 @@ export const itineraryLoadDirections = (iti) => {
 
 							            resolve("done");
 							        } else {
-							            alert("error");
 							            directions.push(null);
 							            resolve("done");
 							        }

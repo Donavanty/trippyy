@@ -96,7 +96,6 @@ class InputForm extends Component {
 	render() {
 		return (
 	      <div>
-
 	    	<div className = "row">
 		    	<div className = "col-4 logo-container">
 		    		<LazyLoad>

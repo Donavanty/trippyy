@@ -68,9 +68,11 @@ class Timetable extends Component {
 		if (toIndex === fromIndex && toDayIndex === fromDayIndex) {
 			return;
 		}
+
+		// Checking total time
 		if (this.props.trip["itinerary"][toDayIndex] && this.props.trip["itinerary"][fromDayIndex]){
 			if ((this.props.trip["itinerary"][toDayIndex][0] + 
-				this.props.trip["itinerary"][fromDayIndex][fromIndex].recommendedTime) > 840) {
+				this.props.trip["itinerary"][fromDayIndex][fromIndex].recommendedTime) > 1080) {
 			return;
 			}
 		}

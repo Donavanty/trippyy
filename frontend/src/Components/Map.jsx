@@ -114,10 +114,8 @@ class Map extends Component{
      * Updates local state of bounds, and subsequently the redux-state by calling uponBoundsChanged
      */
     mapLoaded = () => {
-        if (!this.state.firstLoad && this.props.map.bounds.newBounds) {
-            if (this.props.map.bounds.newBounds.length > 0) {
-                ref.fitBounds(this.props.map.bounds.newBounds);
-            }
+        if (!this.state.firstLoad) {
+
             const newzoom = ref.getZoom() 
 
             this.setState({
@@ -128,7 +126,7 @@ class Map extends Component{
 
             this.uponBoundsChanged();
         }
-
+        
         if (this.state.startBounds === null) {
             this.setState({startBounds: ref.getBounds()})
         }
@@ -162,13 +160,6 @@ class Map extends Component{
     }
 
     render() {        
-        if (this.props.activitiesLoading && !this.state.firstLoad) {
-            return (
-                <div className="loadingBox">
-
-
-                </div>)
-        }
         return (
             <Fragment>
                 <this.WrappedMap

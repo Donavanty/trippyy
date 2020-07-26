@@ -219,7 +219,7 @@ class PDFRender extends Component {
     <Document>
       {this.props.trip.itinerary.map((dayValue, dayIndex) => {
         return(
-      <Page size="A4" style={styles.page}>
+      <Page size="A4" wrap style={styles.page}>
         <HeadingBlock>
           <TrippyLogo src={Logo}/>
           <HeadingTextBox>

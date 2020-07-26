@@ -617,7 +617,7 @@ export const itineraryLoadDirections = (iti) => {
 										iti[day][activity+1]["startTime"] = date;
 
 										// Updating total time.
-										iti[day][0] = iti[day][0] + travelLength/60.0
+										iti[day][0] = iti[day][0] + travelLength/(1000.0 * 60.0)
 
 										// Adding activity time
 										const activityLength = iti[day][activity+1]["recommendedTime"] * 1000 * 60

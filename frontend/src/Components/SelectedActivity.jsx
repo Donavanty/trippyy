@@ -136,7 +136,7 @@ class SelectedActivity extends Component{
 					</div>
 
 					<div className="photoBox col-6">
-				        <div className="triangle"/> 
+				        <div className="selectedActivityTriangle"/> 
 				        <img src={this.props.value.displayPhoto} className="activityPhoto" alt="eek"/>
 					</div>
 	            </div>	

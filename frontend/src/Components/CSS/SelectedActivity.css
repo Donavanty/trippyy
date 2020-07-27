@@ -63,7 +63,7 @@
   display: flex;
 }
 
-.triangle {
+.selectedActivityTriangle {
     width: 0;
     height: 0;
     border-left: 10vw solid white;

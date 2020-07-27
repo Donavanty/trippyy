@@ -94,8 +94,8 @@ class SelectedActivity extends Component{
 	                	</button>	
 						<h4> {this.props.value.name} </h4> 
 						<div className="selectedActivityDesBox">
-			                <p> {this.props.value.formatted_address} </p>
-			                <p> {this.beautifyText(this.props.value.types[0])} </p>
+							<p> {this.beautifyText(this.props.value.types[0])} </p>
+			                <p className="desText"> {this.props.value.formatted_address} </p>
 			            </div>
 
 		                <div className="recommendedTimeBigBox">
@@ -126,12 +126,13 @@ class SelectedActivity extends Component{
 			                		</div>
 		                		</div>
 		                	}
+
+						    <div className="popupButtonsBox">
+						    	<button className="trippyyButton" onClick={() => this.onSave(this.props.value)}> Save </button>
+						    	<button className="trippyyButton quitButton" onClick={this.closeModal}> Quit </button>	
+						    </div>
 					    </div>
 
-					    <div className="popupButtonsBox">
-					    	<button className="trippyyButton" onClick={() => this.onSave(this.props.value)}> Save </button>
-					    	<button className="trippyyButton quitButton" onClick={this.closeModal}> Quit </button>	
-					    </div>
 					</div>
 
 					<div className="photoBox col-6">

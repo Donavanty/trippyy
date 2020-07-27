@@ -2,6 +2,7 @@
   opacity: 0;
   height: 50vh;
   background-color: none;
+
 }
 
 
@@ -9,7 +10,7 @@
   background-color: white;
   padding-bottom: 10vmin;
   height: 100vh;
-  width: 60vw;
+  width: 60vw;  
   margin: auto;
   margin-top: 4vmin;
 

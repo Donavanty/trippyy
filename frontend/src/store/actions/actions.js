@@ -431,17 +431,106 @@ export const activitiesLoadData = (data) => {
 * @memberof ReduxAction
 * @param {number} index: index of activity added.
 */
-export const activitiesAdd = (index) => {
-	return {
-		type: actionTypes.ACTIVITY_ADD,
-		index: index
+export const activitiesAdd = (value) => {
+	return (dispatch) => {
+		let currentTrip = JSON.parse(localStorage.trip);
+		// Update activity added
+		let activityAdded = value;
+		activityAdded = updateObject(activityAdded, {added: true});
+
+		// Update total time
+		var newTotalTime = currentTrip.activitiesAddedLength + (activityAdded["recommendedTime"] / 60)
+
+		if (newTotalTime > (currentTrip.lengthOfTrip*12.0)) {
+			alert("You have reached the maximum time for activities!");
+			return;
+		}
+
+		// Merge all changes into currentTrip
+		currentTrip['activitiesAdded'].push(activityAdded);
+		currentTrip['activitiesAddedIds'].push(activityAdded.id);
+		currentTrip['activitiesAddedLength'] = newTotalTime;
+
+		// Update currentTrip
+		localStorage.setItem('trip', JSON.stringify(currentTrip));
+
+		// IF LOGGED IN
+		// UPDATING ADDITION OF ACTIVITY TO DATABASE!!!!!!!
+		const data = {
+					info: JSON.stringify(currentTrip),
+		}
+
+		const user = localStorage.user
+		if (user) {
+			dispatch(updateSaving(true));
+			const token = JSON.parse(user)["token"]
+			axios.patch(DATABASE_URL + ('api/trips/' + currentTrip["id"] + '/'  ), data, {
+					headers: {Authorization: "Token " + token},
+				}).then(res => {
+					dispatch(updateSaving(false));
+				});
+		} 
+
+		dispatch({
+			type: actionTypes.ACTIVITY_ADD,
+			value: activityAdded,
+		})
 	}
 }
 
 export const activitiesSubtract = (activity) => {
-	return {
-		type: actionTypes.ACTIVITY_SUBTRACT,
-		activity: activity
+	return (dispatch) => {
+// TRIP CHANGES
+
+		// Retrieve trip for cache, can be done using state too, but both works.
+		var currentTrip = JSON.parse(localStorage.trip);
+
+		// Retrieve activity that was selected/clicked on by referencing the index (id) 
+		// Update the activity such that {added: false}
+		var activitySelected = activity;
+		activitySelected = updateObject(activitySelected, {added: false});
+
+		// Update new total time
+		var newTotalTime = currentTrip.activitiesAddedLength - (activitySelected["recommendedTime"] / 60)
+
+		// Merge all changes into currentTrip
+		var filteredTrip = currentTrip['activitiesAdded'].filter(
+			(activity) => activity.name !== activitySelected.name);
+		console.log(activitySelected.name)
+
+		currentTrip['activitiesAdded'] = filteredTrip;
+
+		var filteredTripIds = currentTrip['activitiesAddedIds'].filter(
+			(id) => id !== activitySelected.id);
+		
+		currentTrip['activitiesAddedIds'] = filteredTripIds;
+		currentTrip['activitiesAddedLength'] = newTotalTime;
+
+		// Update currentTrip
+		localStorage.setItem('trip', JSON.stringify(currentTrip));
+
+// ----------------
+
+		// IF LOGGED IN
+		const user = localStorage.user
+		if (user) {
+			dispatch(updateSaving(true));
+			// UPDATING ADDITION OF ACTIVITY TO DATABASE!!!!!!!
+			const data = {
+						info: JSON.stringify(currentTrip),
+			}
+
+			const token = JSON.parse(user)["token"]
+			axios.patch(DATABASE_URL + ('api/trips/' + currentTrip["id"] + '/'  ), data, {
+					headers: {Authorization: "Token " + token},
+				}).then(res => dispatch(updateSaving(false)));
+		}
+
+		dispatch({
+			type: actionTypes.ACTIVITY_SUBTRACT,
+			activity: activitySelected,
+			newTrip: currentTrip,
+		})
 	}
 }
 
@@ -766,5 +855,9 @@ export const retrieveTrip = (trip) => {
 	}
 }
 
-
-
+export const updateSaving = (saving) => {
+	return ({
+		type: actionTypes.UPDATE_SAVING,
+		saving: saving,
+	})
+}

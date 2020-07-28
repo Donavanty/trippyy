@@ -65,11 +65,11 @@ class Shopping extends Component {
                   <NavBar id="navbar-Shopping" from={this.props.location.pathname}/>
               </div>
               <div className = "bigBox">
-                <div className = "row">
-                  <div className = "col-2" id="selectedActivitiesBox">
+                <div className = "shoppingContainer">
+                  <div className = "" id="selectedActivitiesBox">
                     <SelectedActivityList/>
                   </div>
-                  <div className = "col-4" id="activitiesBox">
+                  <div className = "" id="activitiesBox">
                     <div className = "browseSearchRow">
                       <div className ={"browseBox" + (this.props.browsingToggle ? " searchGrey" : "")} onClick={() => this.changeBrowsing("BROWSE")}>
                         Browse 
@@ -86,7 +86,7 @@ class Shopping extends Component {
                     }
                   </div>
 
-                  <div className ="col-6 mapBox">
+                  <div className =" mapBox">
                     <Map/>
                   </div>
                 </div>

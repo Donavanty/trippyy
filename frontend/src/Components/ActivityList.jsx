@@ -38,8 +38,8 @@ class ActivityList extends Component{
         return text
     } 
 
-    activityClickHandlerToAdd = (index) => {
-            this.props.activitiesAdd(index);
+    activityClickHandlerToAdd = (value) => {
+            this.props.activitiesAdd(value);
     }
 
     activityClickHandlerToSubtract = (index) => {

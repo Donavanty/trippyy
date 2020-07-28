@@ -52,8 +52,15 @@
 	font-size: 1.7vmin;
 }
 
-.desText {
+.popupNameText {
+	padding-top: 2vh;
+	border-top: 1px solid grey;
+}
+.popupDesText {
+	margin-top: 1vh;
 	font-size: 1.2vmin;
+	padding-bottom: 2vh;
+	border-bottom: 1px solid grey;
 }
 
 /*POPUP: IMAGE BOX STUFFFF*/

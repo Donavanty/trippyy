@@ -94,8 +94,8 @@ class SelectedActivity extends Component{
 	                	</button>	
 						<h4> {this.props.value.name} </h4> 
 						<div className="selectedActivityDesBox">
-							<p> {this.beautifyText(this.props.value.types[0])} </p>
-			                <p className="desText"> {this.props.value.formatted_address} </p>
+							<p className="popupNameText"> {this.beautifyText(this.props.value.types[0])} </p>
+			                <p className="popupDesText"> {this.props.value.formatted_address} </p>
 			            </div>
 
 		                <div className="recommendedTimeBigBox">

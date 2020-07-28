@@ -33,9 +33,15 @@ class NavBar extends Component {
       <div>
         <nav className="navbar fixed-top" id="nav1">
           {(this.props.from === "/") ? <div/> : 
-            <a to="/"  href="/">
-                <img className="navbar-brand" src={LogoWord} alt="trippyy-word-logo" />
-            </a>
+            <div className="navbar-items-left">
+              <a to="/"  href="/">
+                  <img className="navbar-brand" src={LogoWord} alt="trippyy-word-logo" />
+              </a>
+              { this.props.isAuthenticated &&
+                (this.props.saving ? <p className="saveText"> Saving ... </p> : <p className="saveText"> Saved to account!</p>)
+              }
+            </div>
+
           }
           <div className="navbar-items"> 
               <Link to="/" className="nav-item nav-link">
@@ -123,6 +129,7 @@ const mapStateToProps = (state) => {
     // Basic stats needed for NAV ------------
     isAuthenticated: state.user !== null,
     user: state.user,
+    saving: state.saving,
     // Basic stats needed for NAV ------------
   };
 };

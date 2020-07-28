@@ -92,8 +92,8 @@ class Map extends Component{
             //Updates new bounds to Redux
             this.props.mapBoundsChange(bounds);
             //Updates zoom and center to local state.
-            this.setState({zoom: ref.getZoom()});
-            this.setState({center: ref.getCenter()});
+            // this.setState({zoom: ref.getZoom()});
+            // this.setState({center: ref.getCenter()});
         }
 
     }

@@ -3,9 +3,14 @@
 } */
 
 .shoppingBox {
+	width: 100vw;
 	/*position: fixed;*/
 }
 
+.shoppingContainer {
+	display: flex;
+	flex-direction: row;
+}
 .shoppingBg {
 	height: 100vh;
 	width: 100vw;
@@ -16,6 +21,7 @@
 
 #activitiesBox {
 	height: 93vh;
+	width: 33vw;
   	border-left: 0px;
 	padding-top: 10px;
 	margin-right: 0;
@@ -23,8 +29,10 @@
 
 #selectedActivitiesBox {
   height: 93vh;
+  width: 17vw;
   padding-top: 2vh;
-  padding-left: 2vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
   background-color: white;
 }
 
@@ -61,6 +69,7 @@
 	width: 66%;
 }
 .mapBox {
+	width: 50vw;
 	padding: 0;
 }
 

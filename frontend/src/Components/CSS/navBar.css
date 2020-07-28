@@ -12,6 +12,17 @@
   margin-right: 3vw;
 }
 
+.navbar-items-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.saveText {
+  margin-left: 6vw;
+  font-size: 2vmin;
+}
+
 .nav-link {
   color: var(--color1);
   display: inline-block;

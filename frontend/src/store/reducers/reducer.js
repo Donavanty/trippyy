@@ -7,6 +7,7 @@ const DATABASE_URL = "http://trippyy-backend.herokuapp.com/"
 
 const initialState = {
 	error: null,
+	saving: false,
 	loading: false,
 	newTripLoading: false,
 	activitiesLoading: false,
@@ -320,10 +321,7 @@ const activitiesStart = (state, action) => {
 const activitiesAdd = (state, action) => {
 	// Retrieve trip for cache, can be done using state too, but both works.
 	var currentTrip = JSON.parse(localStorage.trip);
-
-	// Update activity added
-	var activityAdded = action.index;
-	activityAdded = updateObject(activityAdded, {added: true});
+	let activityAdded = action.value
 
 	// Update (activities shown) current list
 	var activitiesShownCurrentList = [...state.activitiesShown.currentList];
@@ -351,54 +349,22 @@ const activitiesAdd = (state, action) => {
 		}
 	}
 
-	// Update total time
-	var newTotalTime = currentTrip.activitiesAddedLength + (activityAdded["recommendedTime"] / 60)
-	if (newTotalTime > (state.trip.lengthOfTrip*12.0)) {
-		alert("You have reached the maximum time for activities!");
-		return state;
-	}
 
-	// Merge all changes into currentTrip
-	currentTrip['activitiesAdded'].push(activityAdded);
-	currentTrip['activitiesAddedIds'].push(activityAdded.id);
-	currentTrip['activitiesAddedLength'] = newTotalTime;
-
-	// UPDATING ADDITION OF ACTIVITY TO DATABASE!!!!!!!
-	const data = {
-				info: JSON.stringify(currentTrip),
-	}
-
-	// IF LOGGED IN
-	const user = localStorage.user
-	if (user) {
-		const token = JSON.parse(user)["token"]
-		axios.patch(DATABASE_URL + ('api/trips/' + currentTrip["id"] + '/'  ), data, {
-				headers: {Authorization: "Token " + token},
-			}).then(res => console.log(res));
-	}
-	// ----------------------------------------------------------------------------
-
-	// Update currentTrip
-	localStorage.setItem('trip', JSON.stringify(currentTrip));
-	
-
-	// ENABLE FOR ALGO TESTING ----------------------------------------
-	// console.log(JSON.stringify(currentTrip.activitiesAdded));
 	return updateObject(state, {
 		trip: currentTrip,
 		activitiesShown: activitiesShown,
 		searchActivitiesShown: searchActivitiesShown,
 	})
+	
+	// ----------------------------------------------------------------------------
+
+	// ENABLE FOR ALGO TESTING ----------------------------------------
+	// console.log(JSON.stringify(currentTrip.activitiesAdded));
 }
 
 const activitiesSubtract = (state, action) => {
-	// Retrieve trip for cache, can be done using state too, but both works.
-	var currentTrip = JSON.parse(localStorage.trip);
-
-	// Retrieve activity that was selected/clicked on by referencing the index (id) 
-	// Update the activity such that {added: false}
+	// Retrieve activity that was selected	
 	var activitySelected = action.activity;
-	activitySelected = updateObject(activitySelected, {added: false});
 
 	// Update (activities shown) current list
 	var activitiesShownCurrentList = [...state.activitiesShown.currentList];
@@ -426,42 +392,8 @@ const activitiesSubtract = (state, action) => {
 		}
 	}
 
-	// Update new total time
-	var newTotalTime = currentTrip.activitiesAddedLength - (activitySelected["recommendedTime"] / 60)
-
-	// Merge all changes into currentTrip
-	var filteredTrip = currentTrip['activitiesAdded'].filter(
-		(activity) => activity.name !== activitySelected.name);
-	console.log(activitySelected.name)
-
-	currentTrip['activitiesAdded'] = filteredTrip;
-
-	var filteredTripIds = currentTrip['activitiesAddedIds'].filter(
-		(id) => id !== activitySelected.id);
-	
-	currentTrip['activitiesAddedIds'] = filteredTripIds;
-	currentTrip['activitiesAddedLength'] = newTotalTime;
-
-
-	// UPDATING ADDITION OF ACTIVITY TO DATABASE!!!!!!!
-	const data = {
-				info: JSON.stringify(currentTrip),
-	}
-
-	// IF LOGGED IN
-	const user = localStorage.user
-	if (user) {
-		const token = JSON.parse(user)["token"]
-		axios.patch(DATABASE_URL + ('api/trips/' + currentTrip["id"] + '/'  ), data, {
-				headers: {Authorization: "Token " + token},
-			}).then(res => console.log(res));
-	}
-
-	// Update currentTrip
-	localStorage.setItem('trip', JSON.stringify(currentTrip));
-
 	return updateObject(state, {
-		trip: currentTrip,
+		trip: action.newTrip,
 		activitiesShown: activitiesShown,
 		searchActivitiesShown: searchActivitiesShown,
 	})
@@ -765,6 +697,13 @@ const retrieveTrip = (state, action) => {
 		retrieveLoading: false,
 	})
 }
+
+const updateSaving = (state, action) => {
+	return updateObject(state, {
+		saving: action.saving,
+	})
+}
+
 const reducer = (state=initialState, action) => {
 	switch(action.type) {
 
@@ -802,6 +741,8 @@ const reducer = (state=initialState, action) => {
 
 		case actionTypes.RETRIEVE_START: return retrieveStart(state,action);
 		case actionTypes.RETRIEVE_TRIP: return retrieveTrip(state,action);
+
+		case actionTypes.UPDATE_SAVING: return updateSaving(state, action);
 
 		default:
 			return state;

@@ -50,7 +50,6 @@ class Activity extends Component{
 
 	    axios.post(DATABASE_URL + "api/PlaceAdditionalDetails/", data).then( 
 	    	(res) => {
-	    		console.log(res.data)
 	    		this.setState({details: res.data})
 			}
 	    )
@@ -60,12 +59,14 @@ class Activity extends Component{
 		this.setState({open: false})
 	}
 
-	activityClick = (type) => {
-		if (type === "BOX") {
+	activityClick = (event) => {
+		console.log(event.target.id)
+
+		if (!event.target.id) {
 			this.setState({open: !this.state.open});
-		} else if (type === "ADD") {
+		} else if (event.target.id === "notAdded") {
 			this.props.activityClickHandlerToAdd(this.props.value)
-		} else if (type === "SUBTRACT") {
+		} else if (event.target.id === "added") {
 			this.props.activityClickHandlerToSubtract(this.props.value)
 		} else {
 			return;
@@ -73,7 +74,7 @@ class Activity extends Component{
 	}
 	render() {
 		return (
-			<div className ="" onClick ={() => this.activityClick("BOX")}>
+			<div className ="" onClick ={this.activityClick}>
 				<div className = "activityBox row" onMouseEnter={() => this.props.onMouseEnter(this.props.index)} onMouseLeave={() => this.props.onMouseLeave(this.props.index)}>
 					<div className = "col-4 imgBox">
 						{<img className = "activityImg" src={this.props.value.displayPhoto} alt="activity img"/>}
@@ -84,11 +85,11 @@ class Activity extends Component{
 						<p className = "activityDes"> {this.props.value.formatted_address} </p>
 						<p className = "activityDes"> {this.beautifyText(this.props.value.types[0])} </p>
 						{this.props.value.added === true ?
-								<button id="added" className="addActivityButton" onClick={() => this.activityClick("SUBTRACT")}>
+								<button id="added" className="addActivityButton">
 									Remove
 								</button>
 							:
-								<button id="notAdded" className="addActivityButton" onClick={() => this.activityClick("ADD")}>
+								<button id="notAdded" className="addActivityButton">
 									{(this.props.displayIndex) + 1} : Add to trip!
 								</button>
 						}

@@ -1,6 +1,6 @@
 /*BUTTON CSS*/
 #notAdded {
-	background-color: rgb(30,30,30, 0.8);
+	background-color: rgb(0,200,140);;
 	color: white;
 }
 
@@ -33,13 +33,17 @@
 
 /*MAIN BOX CSS*/
 .activityBox {
-	/*background-color: rgb(255,255,255,0.5);*/
+	cursor: pointer;
 	background-color: white;
 	color: black;
 	margin-top: 2vmin;
 	padding: 2vmin;
-	/*border-radius: 10px;*/
+	width: 100%;
 	box-shadow: 0 0.2vmin 0.4vmin rgba(0,0,0,0.2)
+}
+
+.activityBox:hover {
+	background-color: rgb(240, 240, 240);
 }
 
 /*IMAGE CSS*/
@@ -48,6 +52,7 @@
 	border-color: grey;
 	border-width: thin;
 }
+
 .activityImg {
 	height: 10vh;
 	width: 100%;
@@ -62,5 +67,90 @@
 .activityDes {
 	font-weight: bold;
 	padding-top: 1.5vmin;
+	font-size: 1.5vmin;
+}
+
+/*POPUP CSS*/
+
+.activityPopup {
+	/*width: 50vw;*/
+	height: 80vh;
+}
+
+.activityInfoBox {
+	padding: 50px;
+	padding-top: 25px;
+	height: 80vh;
+	overflow: scroll;
+}
+
+.activityPopupIntroBox {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.activityPopupOpeningHoursBox {
+	margin-top: 3vh;
+}
+
+.activityPopupDesBox {
+
+}
+
+.googleReviewsBox {
+	margin-top: 5vh;
+}
+
+.singleReview {
+	padding-top: 2.5vh;
+	padding-bottom: 2.5vh;
+	border-bottom: 0.1px solid grey;
+}
+
+.reviewAuthorBox {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.reviewAuthorDesBox {
+	display: flex;
+	flex-direction: row;
+}
+
+/*POPUP IMG/ TEXT*/
+
+.activityPopupImage {
+	height: 100%;
+	max-height: 20vh;
+	width: 12vw;
+	object-fit: contain;
+}
+
+.reviewAuthorPic {
+	margin-right: 1vw;
+	height: 5vh;
+	object-fit: contain;
+}
+.openingHoursText {
+	font-weight: lighter;
+}
+
+.reviewGreyText {
+	font-size: 2vmin;
+	color: grey;
+}
+
+.activityPopupNameText {
+	margin-top: 2vh;
+	font-size: 2vmin;
+}
+.activityPopupLinkText {
+	font-size: 2vmin;
+}
+.activityPopupDesText {
 	font-size: 1.5vmin;
 }

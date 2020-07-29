@@ -10,7 +10,7 @@
 .itiButton {
   background-color: orange; /* Green */
   border: none;
-  border-radius: 5vmin;
+  /*border-radius: 5vmin;*/
   color: white;
 
   /*Paddings*/

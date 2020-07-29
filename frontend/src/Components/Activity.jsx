@@ -6,8 +6,9 @@ import Popup from "reactjs-popup";
 import xCrossIcon from '../assets/xCrossIcon.png';
 import axios from 'axios';
 
-// const DATABASE_URL = "http://trippyy-backend.herokuapp.com/"
-const DATABASE_URL = "http://127.0.0.1:8000/"
+const DATABASE_URL = "http://trippyy-backend.herokuapp.com/"
+// const DATABASE_URL = "http://127.0.0.1:8000/"
+const API_KEY = "AIzaSyDyb0_iNF_gpoxydk5Vd8IpWj1Hy1Tp5Vc"
 /**
  * Component, renders a single activity.
  * @memberof Component
@@ -18,6 +19,7 @@ const DATABASE_URL = "http://127.0.0.1:8000/"
 class Activity extends Component{
 	state = {
 		open: false,
+		details: null,
 	}
 
 	beautifyText = (text) => {
@@ -39,27 +41,40 @@ class Activity extends Component{
 		img.src = this.props.value.displayPhoto;
 		img.onload = () => console.log("Loaded!")
 
+		const data = {
+			"name": this.props.value.name,
+			"key": API_KEY,
+			"id" : this.props.value.place_id
 
-	    axios.post(DATABASE_URL + "api/PlaceAdditionalDetails/", {"name": this.props.value.name}).then( 
+		}
+
+	    axios.post(DATABASE_URL + "api/PlaceAdditionalDetails/", data).then( 
 	    	(res) => {
 	    		console.log(res.data)
+	    		this.setState({details: res.data})
 			}
 	    )
-
-		// let name = this.props.value.name;
-		// name = name.replace(" ", "%20")
-		// axios.get().then(
-		// 	(res) => {
-		// 		console.log(res);
-		// 	})
-
-
 	}
 		
+	closeModal = () => {
+		this.setState({open: false})
+	}
+
+	activityClick = (type) => {
+		if (type === "BOX") {
+			this.setState({open: !this.state.open});
+		} else if (type === "ADD") {
+			this.props.activityClickHandlerToAdd(this.props.value)
+		} else if (type === "SUBTRACT") {
+			this.props.activityClickHandlerToSubtract(this.props.value)
+		} else {
+			return;
+		}
+	}
 	render() {
 		return (
-			<div className ="activityBox" onClick ={() => this.setState({open: false})}>
-				<div className = "row" onMouseEnter={() => this.props.onMouseEnter(this.props.index)} onMouseLeave={() => this.props.onMouseLeave(this.props.index)}>
+			<div className ="" onClick ={() => this.activityClick("BOX")}>
+				<div className = "activityBox row" onMouseEnter={() => this.props.onMouseEnter(this.props.index)} onMouseLeave={() => this.props.onMouseLeave(this.props.index)}>
 					<div className = "col-4 imgBox">
 						{<img className = "activityImg" src={this.props.value.displayPhoto} alt="activity img"/>}
 					</div>
@@ -69,11 +84,11 @@ class Activity extends Component{
 						<p className = "activityDes"> {this.props.value.formatted_address} </p>
 						<p className = "activityDes"> {this.beautifyText(this.props.value.types[0])} </p>
 						{this.props.value.added === true ?
-								<button id="added" className="addActivityButton" onClick={() => this.props.activityClickHandlerToSubtract(this.props.value)}>
+								<button id="added" className="addActivityButton" onClick={() => this.activityClick("SUBTRACT")}>
 									Remove
 								</button>
 							:
-								<button id="notAdded" className="addActivityButton" onClick={() => this.props.activityClickHandlerToAdd(this.props.value)}>
+								<button id="notAdded" className="addActivityButton" onClick={() => this.activityClick("ADD")}>
 									{(this.props.displayIndex) + 1} : Add to trip!
 								</button>
 						}
@@ -85,21 +100,68 @@ class Activity extends Component{
 			        closeOnDocumentClick
 			        onClose={this.closeModal}
 		        >
-		            <div className="popupBox row">
+		            <div className="activityPopup row">
 		                <img src={xCrossIcon} alt="xCrossIcon" className="close" onClick={this.closeModal} id="xCrossIcon"/>
 		               
-		                <div className="infoBox col-6">
-							<h4> {this.props.value.name} </h4> 
-							<div className="selectedActivityDesBox">
-								<p className="popupNameText"> {this.beautifyText(this.props.value.types[0])} </p>
-				                <p className="popupDesText"> {this.props.value.formatted_address} </p>
-				            </div>
+		                <div className="activityInfoBox">
+		                	<div className="activityPopupIntroBox">
+		                		<div className="activityPopupDesBox">
+									<h3> {this.props.value.name} </h3>
+									<p className="activityPopupNameText"> {this.props.value.formatted_address} </p>
+									{
+										this.state.details && this.state.details.website &&
+											<a className="activityPopupLinkText" href={this.state.details.website} rel="noopener noreferrer" target="_blank"> {this.state.details.website} </a>
+									}
+								</div>
+								<img alt="activity-pic" src={this.props.value.displayPhoto} className="activityPopupImage"/>
+							</div>
 
-						</div>
+							<div className="activityPopupOpeningHoursBox">
+								{ this.state.details && this.state.details.opening_hours &&
+									<div>
+										<h3> Opening Hours </h3>
+										{
+											this.state.details.opening_hours.weekday_text.map((value, index) => {
+												return <p className="openingHoursText"> {value} </p>
+											})
+										}
+									</div>
+								}
+							</div>
+							{
+								this.state.details && 
+								<div>
+						            <div className="googleReviewsBox">
+							            <h3> Google Reviews {this.state.details.rating} / 5 </h3>
+							            <p className="reviewGreyText"> {this.state.details.user_ratings_total} reviews </p>
+							            {
+							            	this.state.details.reviews &&
+							            		this.state.details.reviews.map((value,index) => {
+							            			return (
+								            			<div className="singleReview">
+								            				<div className ="reviewAuthorBox">
+									            				<div className="reviewAuthorDesBox">	
+										            				<img alt="author pic" className="reviewAuthorPic" src={value.profile_photo_url} href={value.author_url}/>
+										            				<div className="reviewAuthorInfoBox">
+										            					<a href={value.author_url} className=""> <p> {value.author_name} </p> </a>
+										            					<p className=""> {value.rating} / 5 </p>
+										            				</div>
+										            			</div>
+									            				<p className="reviewGreyText"> {value.relative_time_description} </p>
+									            			</div>
 
-						<div className="photoBox col-6">
-					        <div className="selectedActivityTriangle"/> 
-					        <img src={this.props.value.displayPhoto} className="activityPhoto" alt="eek"/>
+									            			<div className="reviewDexBox">
+									            				<p> {value.text} </p>
+									            			</div>
+								            			</div>)
+							            		})
+							            }
+							            <a className="activityPopupLinkText" href={this.state.details.url} rel="noopener noreferrer" target="_blank"> See more </a>
+							        </div>
+						        </div>
+
+							}
+
 						</div>
 		            </div>	
 		        </Popup>

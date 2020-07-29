@@ -137,7 +137,7 @@ class SelectedActivity extends Component{
 
 					<div className="photoBox col-6">
 				        <div className="selectedActivityTriangle"/> 
-				        <img src={this.props.value.displayPhoto} className="activityPhoto" alt="eek"/>
+				        <img src={this.props.value.displayPhoto} className="selectedActivityPhoto" alt="eek"/>
 					</div>
 	            </div>	
 	        </Popup>

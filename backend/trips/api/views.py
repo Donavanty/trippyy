@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 from .serializers import UserSerializer, TripSerializer
 from rest_framework import permissions
 from .permissions import UserIsOwner, TripIsOwner, TestingPermission
-from .utilities import recommendTime, addTimeAndSummary
+from .utilities import recommendTime, addTimeAndSummary, extract_values
 from .algo.optimize import optimize
 
 class TripList(ListCreateAPIView):
@@ -108,6 +108,33 @@ class PlaceDetails(APIView):
             status = 200
         return Response(output, status=status)
 
+class PlaceAdditionalDetails(APIView):
+    def post(self, request, *args, **kwargs):
+        data = request.data
+        status = 0
+        output = {}
+
+        if not (data["name"]):
+            status = 201
+            output = {"Error" : "Place ID is invalid."}
+        else:
+            # Retrieving description from Wiki, if present
+            name = data["name"]
+            formattedName = name.replace(" ", "%20")
+            summary = requests.get('http://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&titles=' + formattedName + '&exsentences=3&exlimit=1&explaintext=1&exsectionformat=wiki')
+            if len(extract_values(summary.json(), 'extract')) != 0:
+                summary = {(extract_values(summary.json(), 'extract'))[0]}
+            else:
+                summary = "No summary found"
+
+            # Retrieving additional details/reviews from Google.
+            id = data["id"]
+            additionalDetails = requests.get("https://maps.googleapis.com/maps/api/place/details/json?place_id=" + data["id"] + "&key=" + data["key"])
+            
+            output = json.loads(additionalDetails.text)["result"]
+            output["summary"] = summary
+
+        return Response(output, status=200)
 
 class GooglePhoto(APIView):
     def post(self, request, *args, **kwargs):

@@ -30,82 +30,87 @@ class NavBar extends Component {
   }
   render() {
     return (
-      <div>
-        <nav className="navbar fixed-top" id="nav1">
-          {(this.props.from === "/") ? <div/> : 
-            <div className="navbar-items-left">
-              <a to="/"  href="/">
-                  <img className="navbar-brand" src={LogoWord} alt="trippyy-word-logo" />
-              </a>
-              { this.props.isAuthenticated &&
-                (this.props.saving ? <p className="saveText"> Saving ... </p> : <p className="saveText"> Saved to account!</p>)
-              }
-            </div>
+      <div className="navbarContainer">
+        <div className="announcementBox">
+          Hi, our free trial for Google Maps API ran out and we are in the process of renewing it by 1Aug. Please be patient with us and try again tomorrow!
+        </div>
+        <div>
+          <nav className="navbar fixed-top" id="nav1">
+            {(this.props.from === "/") ? <div/> : 
+              <div className="navbar-items-left">
+                <a to="/"  href="/">
+                    <img className="navbar-brand" src={LogoWord} alt="trippyy-word-logo" />
+                </a>
+                { this.props.isAuthenticated &&
+                  (this.props.saving ? <p className="saveText"> Saving ... </p> : <p className="saveText"> Saved to account!</p>)
+                }
+              </div>
 
-          }
-          <div className="navbar-items"> 
-              <Link to="/" className="nav-item nav-link">
-                {" "}
-                Home{" "}
-              </Link>
+            }
+            <div className="navbar-items"> 
+                <Link to="/" className="nav-item nav-link">
+                  {" "}
+                  Home{" "}
+                </Link>
 
-            {this.props.isAuthenticated ? (
-              <React.Fragment>
+              {this.props.isAuthenticated ? (
+                <React.Fragment>
 
-                <div className="accountLink nav-link" id="accountLink" onClick={() => this.setState({accountBoxOpen: !this.state.accountBoxOpen})}>
-                  Account: {this.props.user.username}
-                </div>
-              </React.Fragment>
-            ) : (
-              <React.Fragment>
+                  <div className="accountLink nav-link" id="accountLink" onClick={() => this.setState({accountBoxOpen: !this.state.accountBoxOpen})}>
+                    Account: {this.props.user.username}
+                  </div>
+                </React.Fragment>
+              ) : (
+                <React.Fragment>
+                    <Link
+                      to={{
+                        pathname: "/login",
+                        state: { from: this.props.from },
+                      }}
+                      className="nav-item nav-link"
+                      id="loginLink"
+                    >
+                      {" "}
+                      Login{" "}
+                    </Link>
+
+                    <Link to="/signup" className="nav-item nav-link" id="signupLink">
+                      {" "}
+                      Signup{" "}
+                    </Link>
+                </React.Fragment>
+              )}
+              </div>
+          </nav>
+
+          {this.state.accountBoxOpen &&
+            <div className="accountScreen">
+              <div className="accountFiller" onClick={() => this.setState({accountBoxOpen: false})}>
+              </div>
+              <div className="accountBox">
+                  <Link to="/mytrips" className="option" >
+                    <img src={Folder} alt="folder" className="navIcon"/>
+                    <p className="optionText"> My Trips </p>
+                  </Link>
+
+                  <Link className="option" to="/"> 
+                    <img src={User} alt="user" className="navIcon"/>
+                    <p className="optionText"> My Account </p>
+                  </Link>
+
                   <Link
-                    to={{
-                      pathname: "/login",
-                      state: { from: this.props.from },
-                    }}
-                    className="nav-item nav-link"
-                    id="loginLink"
+                    to="/"
+                    onClick={this.logout}
+                    className="option" 
                   >
-                    {" "}
-                    Login{" "}
+                    <img src={Logout} alt="logout" className="navIcon logoutIcon"/>
+                    <p className="optionText"> Logout </p>
                   </Link>
-
-                  <Link to="/signup" className="nav-item nav-link" id="signupLink">
-                    {" "}
-                    Signup{" "}
-                  </Link>
-              </React.Fragment>
-            )}
+              </div>
             </div>
-        </nav>
+          }
 
-        {this.state.accountBoxOpen &&
-          <div className="accountScreen">
-            <div className="accountFiller" onClick={() => this.setState({accountBoxOpen: false})}>
-            </div>
-            <div className="accountBox">
-                <Link to="/mytrips" className="option" >
-                  <img src={Folder} alt="folder" className="navIcon"/>
-                  <p className="optionText"> My Trips </p>
-                </Link>
-
-                <Link className="option" to="/"> 
-                  <img src={User} alt="user" className="navIcon"/>
-                  <p className="optionText"> My Account </p>
-                </Link>
-
-                <Link
-                  to="/"
-                  onClick={this.logout}
-                  className="option" 
-                >
-                  <img src={Logout} alt="logout" className="navIcon logoutIcon"/>
-                  <p className="optionText"> Logout </p>
-                </Link>
-            </div>
           </div>
-        }
-
         </div>
       
     );

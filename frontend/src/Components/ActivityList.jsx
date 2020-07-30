@@ -11,7 +11,7 @@ import { Spinner , Button, Dropdown} from 'react-bootstrap';
 import "./CSS/ActivityList.css";
 import Activity from './Activity'
 
-const API_KEY = "AIzaSyDyb0_iNF_gpoxydk5Vd8IpWj1Hy1Tp5Vc"
+const API_KEY = "AIzaSyCmj17Cn1_746WuIFu3DKyt_zAqm4eHvuI"
 
 
 

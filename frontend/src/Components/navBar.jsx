@@ -31,9 +31,9 @@ class NavBar extends Component {
   render() {
     return (
       <div className="navbarContainer">
-        <div className="announcementBox">
+        { /** <div className="announcementBox">
           Hi, our free trial for Google Maps API ran out and we are in the process of renewing it by 1Aug. Please be patient with us and try again tomorrow!
-        </div>
+        </div> **/}
         <div>
           <nav className="navbar fixed-top" id="nav1">
             {(this.props.from === "/") ? <div/> : 

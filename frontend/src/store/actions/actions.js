@@ -6,8 +6,8 @@ import Unsplash, { toJson } from "unsplash-js";
 
 
 import {updateObject} from '../utility';
-// const DATABASE_URL = "http://trippyy-backend.herokuapp.com/"
-const DATABASE_URL = "http://127.0.0.1:8000/"
+const DATABASE_URL = "http://trippyy-backend.herokuapp.com/"
+// const DATABASE_URL = "http://127.0.0.1:8000/"
 const API_KEY = "AIzaSyCmj17Cn1_746WuIFu3DKyt_zAqm4eHvuI"
 
 

@@ -2,8 +2,8 @@ import * as actionTypes from '../actions/actionTypes';
 import {updateObject} from '../utility';
 import * as utilities from '../../Utilities.js'
 import axios from 'axios';
-const DATABASE_URL = "http://127.0.0.1:8000/";
-// const DATABASE_URL = "http://trippyy-backend.herokuapp.com/"
+// const DATABASE_URL = "http://127.0.0.1:8000/";
+const DATABASE_URL = "http://trippyy-backend.herokuapp.com/"
 
 const initialState = {
 	error: null,

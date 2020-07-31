@@ -71,7 +71,7 @@ class Login extends Component {
                   <h1> Login </h1> 
                     <form onSubmit={this.handleSubmit} className = "loginForm">
                       <div className = "formElement">
-                        <input type = "text" name = "username" placeholder = "Enter Username" />
+                        <input type = "text" name = "username" placeholder = "Enter Username/Email" />
                       </div>
                       
                       <div className = "formElement">

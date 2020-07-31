@@ -45,7 +45,7 @@ export const authSuccess = (token, username, userId) => {
 * @param {Object} error: error
 */
 export const authFail = (error) => {
-	alert("Username or password is incorrect.");
+	alert(error);
 	return {
 		error: error,
 		type: actionTypes.AUTH_FAIL
@@ -90,6 +90,7 @@ export const authLogin = (username, password) => {
 		}).then(res => {
 			const token = res.data.token;
 			const userId = res.data.id;
+			const username = res.data.username;
 
 			if (localStorage.trip) {
 				let trip = JSON.parse(localStorage.trip)
@@ -120,7 +121,7 @@ export const authLogin = (username, password) => {
 			
 		})
 		.catch(err => {
-			dispatch(authFail(err))
+			dispatch(authFail("Incorrect password or username"))
 		})
 	}
 }
@@ -136,13 +137,20 @@ export const authLogin = (username, password) => {
 export const authSignup = (username, email, password1, password2) => {
 	return dispatch => {
 		dispatch(authStart());
-		axios.post(DATABASE_URL + 'rest-auth/registration/', {
+		// axios.post(DATABASE_URL + 'rest-auth/registration/', {
+		axios.post(DATABASE_URL + 'api/register/', {
 			username: username,
 			email: email,
 			password1: password1,
 			password2: password2
 		}).then(res => {
-			dispatch(authLogin(username, password1));
+			console.log(res)
+			if (res.status === 201) {
+				dispatch(authLogin(username, password1));
+			} else {
+				console.log(res.data);
+				dispatch(authFail(res.data["error"]))
+			}
 		})
 		.catch(err => {
 			dispatch(authFail(err))

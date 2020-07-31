@@ -158,7 +158,7 @@ class Timetable extends Component {
 			  	{this.state.show && 
 	    		<PDFDownloadLink 
 	    			document={<PDFRender trip={this.props.trip}/>} 
-	    			fileName="somename.pdf"
+	    			fileName={this.props.trip.country + " Itinerary.pdf"}
 	    		>
 		      		{({ blob, url, loading, error }) => (loading ? 'Loading document...' : 'As PDF')}
 		    	</PDFDownloadLink>}

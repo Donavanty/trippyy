@@ -41,7 +41,7 @@ class NavBar extends Component {
                 <a to="/"  href="/">
                     <img className="navbar-brand" src={LogoWord} alt="trippyy-word-logo" />
                 </a>
-                { this.props.isAuthenticated &&
+                { (this.props.from !== "/mytrips") && this.props.isAuthenticated &&
                   (this.props.saving ? <p className="saveText"> Saving ... </p> : <p className="saveText"> Saved to account!</p>)
                 }
               </div>

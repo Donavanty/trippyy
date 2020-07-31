@@ -32,6 +32,14 @@ class Results extends Component {
         this.props.checkTrip();
         this.props.onTryAutoSignup();
 
+        if (localStorage.getItem('trip') === null || localStorage.getItem('trip') === undefined) {
+        this.props.history.push('/');
+        
+        return;
+      } 
+      //Updates login status and trip status into redux.
+      this.props.onTryAutoSignup();
+      this.props.checkTrip();
         // Load image earlier.
         const img = new Image();
         img.src = JSON.parse(localStorage.trip)["photo"]

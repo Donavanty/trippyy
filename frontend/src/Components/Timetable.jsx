@@ -10,8 +10,8 @@ import { connect } from 'react-redux';
 import "./CSS/Timetable.css"
 import { Spinner, DropdownButton } from 'react-bootstrap';
 import NextPage from '../assets/nextpage.png'
-import Plane from '../assets/plane.png'
 import MapIcon from '../assets/map.png'
+import Bus from '../assets/vehicle.png'
 
 // Rendering
 import { PDFDownloadLink} from '@react-pdf/renderer'
@@ -34,6 +34,7 @@ class Timetable extends Component {
 		numDays: ["Mon", "Tues", "Wed", "Thu", "Fri"],
 		dayStart: 0,
 		show: false,
+		expandedDirection: false,
 	}
 
     onMouseEnter = (value) => {
@@ -274,18 +275,22 @@ class Timetable extends Component {
 
 										
 											{ this.props.trip.itiDirections[dayindex][index-1] && this.props.trip.itiDirections[dayindex][index-1].routes &&
-												<div
-													style ={{height: ((this.props.trip.itiDirections[dayindex][index-1].routes[0].legs[0].duration.value/3600.0) * 5)+ "vh"}}
-													className="timetableActivity"
-												>
-													<div className="timetableTravelDetails">
-														{(((this.props.trip.itiDirections[dayindex][index-1].routes[0].legs[0].duration.value/60)) > 60) && 
-															<img src={Plane} alt="icon" className="planeIcon"/>}
-														{(((this.props.trip.itiDirections[dayindex][index-1].routes[0].legs[0].duration.value/60)) > 15) && 
-															this.props.trip.itiDirections[dayindex][index-1].routes[0].legs[0].duration.text
-														}
-													</div>
-												</div>
+												<React.Fragment>
+													{
+														<div
+															style ={{height: ((this.props.trip.itiDirections[dayindex][index-1].routes[0].legs[0].duration.value/3600.0) * 5)+ "vh"}}
+															className=""
+														>
+															<div className="timetableTravelDetails">
+																<img src={Bus} alt="icon" className="planeIcon"/>
+																{this.props.trip.itiDirections[dayindex][index-1].routes[0].legs[0].duration.text}
+																{/**(((this.props.trip.itiDirections[dayindex][index-1].routes[0].legs[0].duration.value/60)) > 15) && 
+																	this.props.trip.itiDirections[dayindex][index-1].routes[0].legs[0].duration.text
+																**/}
+															</div>
+														</div>
+													}
+												</React.Fragment>
 											}
 
 										</React.Fragment>)

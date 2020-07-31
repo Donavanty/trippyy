@@ -13,8 +13,8 @@ import axios from "axios";
 import NavBar from '../Components/navBar';
 import { Spinner } from 'react-bootstrap';
 
-const DATABASE_URL = "https://trippyy-backend.herokuapp.com/";
-// const DATABASE_URL = "http://127.0.0.1:8000/"
+// const DATABASE_URL = "https://trippyy-backend.herokuapp.com/";
+const DATABASE_URL = "http://127.0.0.1:8000/"
 
 /** Container, renders my trips page.
 * @memberof Container
@@ -93,16 +93,33 @@ class MyTrips extends Component {
 		// Need to add checks 
 	}
 
-	retrieveDraftTrip = (trip) => {
+	retrieveDraftTrip = (event, trip) => {
+		if (event.target.tagName === "BUTTON") {
+			return;
+		}
 		this.props.retrieveTrip(trip);
 		this.props.history.push("/shopping");
 	}
 
-	retrieveCompleteTrip = (trip) => {
+	retrieveCompleteTrip = (event, trip) => {
+		if (event.target.tagName === "BUTTON") {
+			return;
+		}
 		this.props.retrieveTrip(trip);
 		this.props.history.push("/results");
 	}
 
+	deleteTrip = (trip) => {
+		const user = JSON.parse(localStorage.user);
+		axios.delete(DATABASE_URL + "api/trips/" + trip["id"], 
+			{
+				headers: {Authorization: "Token " + user['token']}
+			}).then( (res) => {
+				this.setState({tripIDs: [], trips: []})
+				this.setState({local_loading: true})
+				this.loadTrips();
+			})
+	}
 render() {
 	if (this.state.local_loading) {
 		return (<div className="loadingBox">
@@ -127,10 +144,10 @@ render() {
 							(
 								this.state.trips.map( (value,index) => {
 									const trip = JSON.parse(value.info);
-									console.log(trip)
 									if (trip["finished"] ) {
 										return (
-											<div key={index} className="trip-container" onClick={() => this.retrieveCompleteTrip(trip)}>
+											<div key={index} className="trip-container" onClick={(event) => this.retrieveCompleteTrip(event, trip)}>
+											<button className="myTripsDeleteButton" onClick={() => this.deleteTrip(trip)}> Delete </button>
 												<img src={trip.photo} className="trip-photo" alt="trip"/>
 												<p className="trip-text"> {trip.country} </p>
 												<p className="trip-date"> {utilities.getFormattedDate(trip.startDate)} - {utilities.getFormattedDate(trip.endDate)} </p>
@@ -138,7 +155,8 @@ render() {
 
 									} else {
 										return (
-											<div key={index} className="trip-container" onClick={() => this.retrieveDraftTrip(trip)}>
+											<div key={index} className="trip-container" onClick={(event) => this.retrieveDraftTrip(event , trip)}>
+												<button className="myTripsDeleteButton" onClick={() => this.deleteTrip(trip)}> Delete </button>
 												<img src={trip.photo} className="trip-photo" alt="trip"/>
 													<p className="trip-text"> [DRAFT] {trip.country} </p>
 													<p className="trip-date"> {utilities.getFormattedDate(trip.startDate)} - {utilities.getFormattedDate(trip.endDate)} </p>

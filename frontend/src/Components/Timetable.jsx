@@ -11,6 +11,7 @@ import "./CSS/Timetable.css"
 import { Spinner, DropdownButton } from 'react-bootstrap';
 import NextPage from '../assets/nextpage.png'
 import Plane from '../assets/plane.png'
+import MapIcon from '../assets/map.png'
 
 // Rendering
 import { PDFDownloadLink} from '@react-pdf/renderer'
@@ -228,8 +229,11 @@ class Timetable extends Component {
 		          		return null;
 		          	}
 		          	return <div className="day">
-		          		<div onClick={() => this.focusDay(dayindex)} className="dayDetails"> 
-		          			<p> Day {dayindex+1} </p>
+		          		<div className="dayDetails"> 
+		          			<div onClick={() => this.focusDay(dayindex)} className="dayDetailsButton">
+			          			<p> Day {dayindex+1} </p>
+			          			<img src={MapIcon} alt="map-icon" className="mapIcon"/>
+			          		</div>
 		          		</div>
 
 		          		{

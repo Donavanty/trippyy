@@ -2,8 +2,8 @@ import * as actionTypes from '../actions/actionTypes';
 import {updateObject} from '../utility';
 import * as utilities from '../../Utilities.js'
 import axios from 'axios';
-// const DATABASE_URL = "http://127.0.0.1:8000/";
-const DATABASE_URL = "http://trippyy-backend.herokuapp.com/"
+const DATABASE_URL = "http://127.0.0.1:8000/";
+// const DATABASE_URL = "http://trippyy-backend.herokuapp.com/"
 
 const initialState = {
 	error: null,
@@ -139,7 +139,7 @@ const newTrip = (state, action) => {
 	}
 
 	localStorage.setItem('trip', JSON.stringify(action.trip));
-
+	console.log(action.trip)
 	return updateObject(state, {
 		trip: action.trip,
 		newTripLoading: false,
@@ -513,13 +513,15 @@ const itineraryLoad = (state, action) => {
 		finished: true,
 	})
 
-		// IF LOGGED IN
+	// IF LOGGED IN
 	const data = {
 		info: JSON.stringify(trip)
 	}
 	const user = localStorage.user
 	if (user) {
+		console.log("UPDATES")
 		const token = JSON.parse(user)["token"]
+		console.log(token)
 		axios.patch(DATABASE_URL + ('api/trips/' + trip["id"] + '/'  ), data, {
 				headers: {Authorization: "Token " + token},
 			}).then(res => console.log(res));

@@ -66,8 +66,10 @@ class InputForm extends Component {
 	newTrip = (event) => {
 		if (this.state.startDate == null || this.state.endDate == null) {
 			alert("Please choose dates first!");
+			event.preventDefault();
 		} else if (this.state.countryName == null || this.state.geometry == null || this.state.latLng == null) {
 			alert("Please select a country from the list!");
+			event.preventDefault();
 		} else {
 			event.preventDefault();
 			this.scrollToTheTop(); //Scroll back to the top
@@ -76,14 +78,6 @@ class InputForm extends Component {
 			
 		}
 	}
-
-	//If new trip created is true, and loading is complete, then go to shopping page.
-	// static getDerivedStateFromProps(nextProps, prevState){
-	//   if (nextProps.loading===false && prevState.newTripCreated===true){
-	//      return { goToShoppingPage: true };
-	//   }
-	//   else return null;
-	// }
 
 	//Happens upon receiving updated information.
     componentDidUpdate(prevProps, prevState, snapshot) {

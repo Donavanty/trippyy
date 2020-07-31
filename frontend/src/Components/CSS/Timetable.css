@@ -110,7 +110,6 @@
   /*DESIGN*/
   background-color: var(--color1);
   color: white;
-  cursor: pointer;
   border-right: solid 1px;
 
 
@@ -118,6 +117,7 @@
   display:flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
   
   /*FONTS*/
   font-size: 2vmin;
@@ -126,7 +126,21 @@
   z-index: 1;
 }
 
-.dayDetails:hover {
+.dayDetailsButton {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+cursor: pointer;
+  border: 1px solid white;
+  border-radius: 30px;
+  padding-left: 1vw;
+  padding-right: 0.5vw;
+
+}
+
+
+.dayDetailsButton:hover {
   background-color: grey;
 }
 
@@ -247,6 +261,18 @@
   font-family: sans-serif;
 }
 
+/*ICONS ----------------------*/
+.mapIcon {
+  margin-left: 5px;
+  margin-bottom: 3px;
+  height: 3vh;
+  width: 2vw;
+  object-fit: contain;
+  padding: 3px;
+  color: white;
+  filter: invert(1);
+
+}
 
 /*button*/
 .viewDayButton {

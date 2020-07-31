@@ -62,3 +62,22 @@
 	text-shadow: 0 0.3vmin 0.6vmin black;
 	z-index: 1;
 }
+
+.myTripsDeleteButton {
+	position: absolute;
+	margin-top: 10vh;
+	margin-left: 6vw;
+
+	background-color: grey;
+	border-color: grey;
+	border-radius: 5vmin;
+	color: white;
+	font-size: 2vmin;
+	z-index: 5;
+}
+
+
+.myTripsDeleteButton:hover {
+	background-color: black;
+	border-color: black;
+}

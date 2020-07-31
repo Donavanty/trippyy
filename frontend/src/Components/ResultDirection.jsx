@@ -3,7 +3,7 @@ import React, { Component } from "react";
 // -------------------------------------------------------------------------
 import "./CSS/ResultDirection.css";
 import Bus from '../assets/bus.png'
-import Plane from '../assets/plane.png'
+import Vehicle from '../assets/vehicle.png'
 import Dot from '../assets/dot.png'
 import VerticalLine from './VerticalLine'
 import CenterVerticalLine from'./CenterVerticalLine'
@@ -49,7 +49,7 @@ class ResultDirection extends Component{
 							this.props.direction.routes[0].legs[0].steps.map((value, index) => {
 								return (
 									<div className="instructionBox">
-										<img alt="marker" className="markerIcon" src={Plane}/>
+										<img alt="marker" className="markerIcon" src={Vehicle}/>
 										<Markup content={value.instructions}/>
 										<img alt="dot" className="dotIcon" src={Dot}/> 
 										<CenterVerticalLine value={value}/>

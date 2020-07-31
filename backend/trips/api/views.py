@@ -29,7 +29,6 @@ class TripDetail(RetrieveUpdateDestroyAPIView):
 
     def patch(self, request, pk):
         obj = Trip.objects.get(pk=pk)
-        print(obj)
         serializer = TripSerializer(obj, data=request.data, partial=True) # set partial=True to update a data partially
         if serializer.is_valid():
             serializer.save()

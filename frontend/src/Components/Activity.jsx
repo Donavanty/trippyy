@@ -37,10 +37,6 @@ class Activity extends Component{
 	}
 
 	componentDidMount() {
-		const img = new Image();
-		img.src = this.props.value.displayPhoto;
-		img.onload = () => console.log("Loaded!")
-
 		const data = {
 			"name": this.props.value.name,
 			"key": API_KEY,

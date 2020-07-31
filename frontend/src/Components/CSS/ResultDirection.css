@@ -31,9 +31,14 @@
 	cursor: pointer;
 }
 
+.busIcon:hover {
+	background-color: rgb(150,150,150);
+}
+
 .markerIcon {
 	height: 4vmin;
 	width: 4vmin;
+	margin-right: 0.5vmin;
 	opacity: 0.5;
 	flex-grow: 0;
 }

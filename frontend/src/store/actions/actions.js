@@ -6,8 +6,8 @@ import Unsplash, { toJson } from "unsplash-js";
 
 
 import {updateObject} from '../utility';
-const DATABASE_URL = "http://trippyy-backend.herokuapp.com/"
-// const DATABASE_URL = "http://127.0.0.1:8000/"
+// const DATABASE_URL = "http://trippyy-backend.herokuapp.com/"
+const DATABASE_URL = "http://127.0.0.1:8000/"
 const API_KEY = "AIzaSyCmj17Cn1_746WuIFu3DKyt_zAqm4eHvuI"
 
 
@@ -240,12 +240,21 @@ export const newTripData = (tripCountry, tripGeometry, tripLatlng, startDate, en
 							headers: {Authorization: "Token " + token},
 					}).then(res => {
 						console.log(res);
-						// -------------------------
+						// Adding id of trip
 						trip = updateObject(trip, {'id': res.data["id"]})
-						dispatch({
-							type: actionTypes.NEW_TRIP,
-							trip: trip,
-						})
+
+						// Updating trip in database with ID.
+						const data = {
+							info: JSON.stringify(trip),
+						}
+						axios.patch(DATABASE_URL + ('api/trips/' + trip["id"] + '/'  ), data, {
+								headers: {Authorization: "Token " + token},
+							}).then(res => {
+								dispatch({
+									type: actionTypes.NEW_TRIP,
+									trip: trip,
+								})
+							});
 					});
 				} else {
 					dispatch({

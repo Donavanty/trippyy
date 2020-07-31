@@ -160,11 +160,22 @@ REST_FRAMEWORK = {
     )
 }
 
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 CORS_ORIGIN_ALLOW_ALL = True
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
-ACCOUNT_AUTHENTICATION_METHOD = 'username'
-ACCOUNT_EMAIL_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_EMAIL_REQUIRED = True
 AUTH_PASSWORD_VALIDATORS = []
 ACCOUNT_SIGNUP_PASSWORD_VERIFICATION = False
 

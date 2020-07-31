@@ -1,6 +1,7 @@
 from django.db import models
 from trips.customModel import JSONField
 
+
 class Trip(models.Model):
 	owner = models.ForeignKey('auth.User', related_name='trips', on_delete=models.CASCADE)
 	tripName = models.CharField(max_length=120)

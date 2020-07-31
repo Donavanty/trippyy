@@ -21,18 +21,6 @@ class TripList(ListCreateAPIView):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
-    #     # response_data = TripSerializer(serializer).data
-    #     # print(response_data)
-
-    # def post(self, request, *args, **kwargs):
-    #     response = super(TripList, self).post(request, *args, **kwargs)
-    #     print(response.data)
-    #     # THIS IS A QUICK FIX TO GET PK, NEED TO SEE HOW TO DO PROPERLY.
-    #     if (response.status_code == 201):
-    #         return Response(Trip.objects.all().count(), status=201)
-    #     else:
-    #         return response
-
 
 class TripDetail(RetrieveUpdateDestroyAPIView):
     queryset = Trip.objects.all()
@@ -151,9 +139,29 @@ class GooglePhoto(APIView):
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
+from rest_auth.registration.views import RegisterView
 
 class CustomObtainAuthToken(ObtainAuthToken):
     def post(self, request, *args, **kwargs):
         response = super(CustomObtainAuthToken, self).post(request, *args, **kwargs)
         token = Token.objects.get(key=response.data['token'])
-        return Response({'token': token.key, 'id': token.user_id})
+        user = User.objects.get(id=token.user_id)
+        return Response({'token': token.key, 'id': token.user_id, 'username': user.username})
+
+
+class CustomRegisterView(RegisterView):
+    def create(self, request, *args, **kwargs):
+        # Check for existing username
+        existingUsername = User.objects.filter(username=request.data["username"])
+        if (len(existingUsername) != 0):
+            return Response({"error": "Error: Username already exists"}, status=226)
+
+        # Check for existing email
+        existingEmail = User.objects.filter(email=request.data["email"])
+        if (len(existingEmail) != 0):
+            return Response({"error": "Error: Username already exists"}, status=226)
+
+        response = super().create(request, *args, **kwargs)
+        return response
+
+

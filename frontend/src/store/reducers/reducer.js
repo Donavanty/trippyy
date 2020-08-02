@@ -519,7 +519,6 @@ const itineraryLoad = (state, action) => {
 	}
 	const user = localStorage.user
 	if (user) {
-		console.log("UPDATES")
 		const token = JSON.parse(user)["token"]
 		console.log(token)
 		axios.patch(DATABASE_URL + ('api/trips/' + trip["id"] + '/'  ), data, {
@@ -534,6 +533,7 @@ const itineraryLoad = (state, action) => {
 		trip: trip,
 		getItineraryLoading: false,
 		itineraryLoadDirectionsLoading: false,
+		saving: false,
 
 	})
 
@@ -589,9 +589,24 @@ const itineraryLoadDirections = (state, action) => {
 
 	localStorage.setItem("trip", JSON.stringify(trip));
 
+	// IF LOGGED IN
+	const data = {
+		info: JSON.stringify(trip)
+	}
+	const user = localStorage.user
+	if (user) {
+		const token = JSON.parse(user)["token"]
+		console.log(token)
+		axios.patch(DATABASE_URL + ('api/trips/' + trip["id"] + '/'  ), data, {
+				headers: {Authorization: "Token " + token},
+			}).then(res => console.log(res));
+	}
+	// ----------------------------------------------------------------------------
+
 	return updateObject(state, {
 		trip: trip,
 		itineraryLoadDirectionsLoading: false,
+		saving: false,
 	})
 }
 

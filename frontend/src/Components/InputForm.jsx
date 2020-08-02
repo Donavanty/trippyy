@@ -132,7 +132,7 @@ class InputForm extends Component {
 									`}
 									</style>
 		                <div className = "inputForm-submit" id="input">
-		                	{ !this.props.loading ? 
+		                	{ !this.props.newTripLoading ? 
 								
 		                		<button className="inputForm-button" variant="trippyy" onClick = {(event) => {this.newTrip(event);}} > Submit </button> 
 		                		:

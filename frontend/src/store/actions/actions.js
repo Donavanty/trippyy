@@ -609,6 +609,7 @@ export const itineraryLoad = (data) => {
  */
 export const itineraryLoadData = (data) => {
 	return async (dispatch) => {
+		dispatch(updateSaving(true))
 	    axios.post(DATABASE_URL + "api/algo/", data).then( async (res) => {
 	        var iti = JSON.parse(res.data);
 	        for (var day in iti) {
@@ -635,6 +636,7 @@ export const itineraryLoadData = (data) => {
 
 export const itineraryLoadDirections = (iti) => {
 	return async (dispatch) => {
+		dispatch(updateSaving(true));
 		dispatch({type: actionTypes.ITINERARY_LOAD_DIRECTIONS_START});
     	let startDate = new Date(JSON.parse(localStorage.trip)["startDate"]);
         let itiDirections = [];

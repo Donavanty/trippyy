@@ -3,9 +3,6 @@
 <h2>ReadMe Submission for Orbital 2020</h2>
 </p>
 <p>
-<strong>Milestone #1</strong>
-</p>
-<p>
 <strong>Li Xupeng (A0201614X); Donavan Lim (A0206088A)</strong>
 </p>
 <p>
